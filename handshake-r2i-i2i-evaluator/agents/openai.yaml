@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake R2I/I2I Evaluator"
+  short_description: "Rate reference-to-image and image-edit tasks on six PDF-backed axes"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake TI2T Evaluator"
+  short_description: "Rate image/video-to-text response pairs against the current prompt"

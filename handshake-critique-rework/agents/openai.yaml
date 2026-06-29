@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Critique Rework"
+  short_description: "Audit and repair image-quality critiques using the official rubric"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake IG Entity Verification"
+  short_description: "Verify whether boxed entities and references are the same target"

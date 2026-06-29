@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake UD Caption Evaluator"
+  short_description: "Compare image-caption pairs for match, detail, and hallucination"

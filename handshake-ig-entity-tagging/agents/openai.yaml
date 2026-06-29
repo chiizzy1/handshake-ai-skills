@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake IG Entity Tagging"
+  short_description: "Annotate visible entities with complete labels and reference images"

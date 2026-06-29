@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Find Boundary"
+  short_description: "Evaluate bounding-box, point, and counting boundary tests"

@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.log
+.env
+local.env
+*.key
+*.pem
+*.token
+node_modules/
+__pycache__/
+backups/

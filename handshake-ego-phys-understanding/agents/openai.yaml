@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Ego Physical Understanding"
+  short_description: "Create image-dependent physical-reasoning MCQs from egocentric scenes"

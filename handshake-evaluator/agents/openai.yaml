@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Evaluator"
+  short_description: "Route Handshake tasks to the correct PDF-backed evaluator"
