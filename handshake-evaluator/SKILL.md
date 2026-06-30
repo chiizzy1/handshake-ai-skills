@@ -55,6 +55,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - Find the Boundary: use `handshake-find-boundary`.
 - IG Entity Tagging: use `handshake-ig-entity-tagging`.
 - IG Entity Verification: use `handshake-ig-entity-verification`.
+- Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage`.
 - Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator`.
 
 ## Universal Rules
