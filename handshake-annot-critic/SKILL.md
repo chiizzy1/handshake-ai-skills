@@ -63,3 +63,13 @@ Write statements, not questions. Avoid vague words like "blurry", "weird", or "l
 - **Vague descriptions:** Using "looks weird" instead of naming the defect.
 - **Marking extras:** Flagging objects that simply weren't in the prompt but are rendered correctly.
 - **Using a dot for a missing item:** Always use the prompt text drag tool for missing requested elements, never a dot on empty space.
+
+## QA Rubric (How You Are Graded)
+
+Your submission will be audited and graded on a 1–5 scale based on coverage (recall) and accuracy (precision):
+
+*   **5 — Exceptional:** Caught essentially all tells (obvious and subtle). ~9/10 marks are real and precisely on-target. No false positives on clean images.
+*   **4 — Strong:** Caught all obvious tells, but missed a few subtle ones. ~8/10 marks are genuine and on-target. Minor slips in precision.
+*   **3 — Acceptable:** Captured core defects, but has real gaps. ~7/10 marks are genuine. May have a meaningful minority of false positives or vague descriptions.
+*   **2 — Weak:** Missed many obvious tells, and/or fewer than 7/10 marks are genuine. High rate of misplaced dots or generic notes.
+*   **1 — Unacceptable:** Ignored nearly all real tells, or submitted random/padded dots on normal content. Descriptions provide no useful information.
