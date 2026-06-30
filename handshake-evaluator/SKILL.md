@@ -46,7 +46,8 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 - Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator`.
 - Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator`.
-- Image-to-Image, Reference-to-Image, Omni R2I ELO: use `handshake-r2i-i2i-evaluator`.
+- Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator`.
+- i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned`.
 - UD Caption ELO: use `handshake-ud-caption-evaluator`.
 - Annot Critic: use `handshake-annot-critic`.
 - Critique Rework: use `handshake-critique-rework`.

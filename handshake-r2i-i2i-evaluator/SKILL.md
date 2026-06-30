@@ -14,6 +14,8 @@ Use the Handshake R2I/I2I PDFs as the source of truth:
 - the Omni R2I examples PDF
 - the image evaluation foundation PDFs
 
+If the task is i2i Pixel Aligned / Project Hedgehog and asks Q1 instructions aligned, Q2 pixel aligned, or Q3 no AI slop, stop and use `handshake-i2i-pixel-aligned` instead. Pixel Aligned is a strict Yes/No task type, not a six-axis ELO comparison.
+
 Before rating a live task, read `references/rubric.md`.
 
 ## Workflow

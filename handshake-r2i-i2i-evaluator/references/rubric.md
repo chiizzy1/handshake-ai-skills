@@ -32,6 +32,13 @@ I2I:
 - Two edited versions.
 - Closely follows the Omni R2I six-axis rubric.
 
+Pixel Aligned I2I:
+
+- Original/input image.
+- Single target/edited image.
+- Q1 instructions aligned, Q2 pixel aligned, Q3 no AI slop.
+- Use `handshake-i2i-pixel-aligned` instead of this ELO rubric.
+
 Main question:
 
 - Which response made the requested change while preserving what should remain?
