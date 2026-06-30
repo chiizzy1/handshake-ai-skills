@@ -15,6 +15,8 @@ Before doing a live task, read `references/rubric.md`.
 
 Find the model's capability boundary, not easy wins. A good submission tests an image/prompt pair the model has a real chance of getting right or wrong.
 
+Images may be uploaded directly or supplied by URL. Judge only the visible image content, regardless of how the image entered the task.
+
 Treat every round as one of three outcomes:
 
 - pass / "AI wins": the model is correct as-is;
@@ -78,9 +80,12 @@ If genuinely 50/50, treat it as a fail and correct what the model should have do
 
 On a correct answer, the trace may still be edited if it cites wrong landmarks or reasoning while landing on the right output.
 
+On pass / "AI wins", answer confidence is N/A. Rate trace confidence only. On fail / "I win", rate answer confidence for the corrected answer or for the wrong-answer judgment if no canvas edit was needed.
+
 ## Hard Gates
 
 - Do not score an ambiguous prompt. Rewrite it first.
+- If the prompt asks for an absent target and the human answer would be "there is no such thing", discard or rewrite. Do not count an absent-object prompt as a model failure.
 - Discard rounds where the prompt asks for something not visible or where the trace mostly asks "what does this mean?"
 - Do not pass loose boxes. About 5 percent slack around the visible silhouette is the tolerance.
 - Do not pass a counting answer with missing or extra instances.
@@ -88,6 +93,8 @@ On a correct answer, the trace may still be edited if it cites wrong landmarks o
 - Do not use prompts about things not visible in the image.
 - Do not over-tag. Tags should describe the real failure and challenge pattern.
 - Use the magnifier for tiny objects such as icons, badges, fine print, and small targets.
+- Ignore badges, streaks, session stats, and unlock toasts when judging task quality. They are informational and should not drive prompt choice or verdicts.
+- If the platform says to watch a full video, do so only when the task actually provides video media. For ordinary Find the Boundary image tasks, inspect the provided image carefully.
 
 ## Final Checklist
 

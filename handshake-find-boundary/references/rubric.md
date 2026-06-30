@@ -30,6 +30,16 @@ The best submissions usually sit near the boundary: roughly a 50-70 percent chan
 
 Do not switch formats after seeing the answer to force a pass or fail.
 
+## Operational UI Notes
+
+- Images may be uploaded directly or supplied by URL. The source method does not change the rubric: judge only what is visible in the provided media.
+- If the platform says to watch the full video, follow that instruction only when the task actually includes video media. For standard Find the Boundary image rounds, the relevant evidence is the image.
+- Session stats, streaks, exploration depth, badge unlocks, and toast messages are informational only. Do not chase badges or let them influence whether a prompt is high-signal.
+- A useful shorter session with careful boundary examples is better than a long streak of hollow submissions.
+- On pass / `AI wins`, answer confidence is N/A; the verdict itself is the answer judgment. Rate trace confidence only.
+- On fail / `I win`, rate trace confidence and answer confidence. Answer confidence covers either the corrected canvas answer or, if no canvas edit was needed, your confidence that the model answer was wrong.
+- If the prompt asks for an object or target that is not present and the correct human response would be "there is no such thing", the prompt is malformed. Discard or rewrite it; do not score it as a model failure.
+
 ## Output Formats
 
 ### Bounding Box
@@ -88,6 +98,8 @@ Do not:
 - write ambiguous prompts where multiple objects equally satisfy the constraints;
 - use NSFW, PII, or copyrighted content;
 - probe identifiable people unless they are public figures in a clearly public context.
+
+If a target is absent, that is not a clever hard prompt. It is an invalid prompt for this task type because the model is supposed to ground visible content, not prove nonexistence.
 
 ## Ambiguous Prompts
 
@@ -251,6 +263,8 @@ Do not over-tag with overly specific labels.
 ## Confidence
 
 Use honest 1-5 confidence. After every submission, the UI may ask for trace confidence. On fail, it may also ask for answer confidence on the corrected answer.
+
+On pass / `AI wins`, answer confidence is N/A. Do not invent an answer-confidence rating for a correct locked answer.
 
 - 5: certain
 - 4: pretty sure
