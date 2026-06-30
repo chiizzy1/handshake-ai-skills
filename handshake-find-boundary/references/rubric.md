@@ -4,18 +4,31 @@ Use this reference for Find the Boundary tasks.
 
 ## Source PDF
 
-- `handshake-Find the Boundary.pdf`
+- `HANDSHAKE-AI/pdfs/handshake -- Find the Boundary.pdf`
 
 ## Task Goal
 
 You are testing an image-grounding AI model. You provide or judge a prompt about something in an image, run the model, then decide whether its answer is correct.
 
-Every submission is either:
+Every round is one of:
 
-- a break/fail: the model is wrong and you correct it;
-- a pass: the model is right.
+- a break/fail / `I win`: the model is wrong and you correct it;
+- a pass / `AI wins`: the model is right as-is;
+- a discard/rewrite: the prompt is ambiguous, ungroundable, or asks about non-visible content.
 
 The goal is not to win or lose. The goal is to find the capability boundary: where the model succeeds, fails, and what the edge looks like.
+
+The best submissions usually sit near the boundary: roughly a 50-70 percent chance that the model gets the image/prompt pair right. A 99 percent easy win is not informative, and a 1 percent impossible case is likely out-of-distribution rather than boundary-probing.
+
+## Task Workflow
+
+1. Pick an image with enough going on to probe: multiple objects, occlusion, or similar items the model must tell apart.
+2. Choose bounding box, point, or counting before running the model.
+3. Write a short, grounded prompt that an attentive human can confirm.
+4. Run the model and inspect both the output and the thinking trace against the image.
+5. Judge pass, break, or discard. If it is a break, correct the output.
+
+Do not switch formats after seeing the answer to force a pass or fail.
 
 ## Output Formats
 
@@ -49,7 +62,7 @@ Example:
 
 - `the orange fish swimming behind the rocks`
 
-Do not switch formats mid-image to game the outcome.
+Do not switch formats mid-image to game the outcome. Pick the format that matches what you actually want the model to do.
 
 ## Writing Good Prompts
 
@@ -80,12 +93,14 @@ Do not:
 
 Do not score ambiguous prompts. If the model trace is mostly trying to understand what the prompt means, the prompt is the problem.
 
-Rewrite it to a specific, falsifiable target and rerun.
+Discard or rewrite it to a specific, falsifiable target and rerun. Do not turn a broken prompt into a model failure.
 
 Example:
 
 - Bad: `How many seams does it take to make the top part?`
 - Better: `the bodice of the dress above the waist seam`
+
+The dress example in the PDF is a discard/rewrite case: the model trace spends its budget guessing whether the prompt means the top part, the seams, or zero visible seams. That is not grounding; it is prompt ambiguity.
 
 ## Pass/Fail Gate
 
@@ -100,6 +115,8 @@ Before passing a model answer, verify:
 - output format matches the task mode.
 
 If any item fails, mark fail and correct the answer.
+
+For counting mode, the model must return one point per visible matching instance plus the correct final count. Finding only the obvious instance is still a fail if other matching objects are visible.
 
 ## Hard Images
 
@@ -136,9 +153,29 @@ Examples:
 - `the cup to the left of the lamp that is closest to the window`
 - `every bottle except the green one`
 - `the third book from the right`
+- `the fifth person in the second row from the back`
 - `the matte cup, not the glossy cup`
+- `the chair that is rotated`
 - `the door that is ajar`
+- `the button that is pressed`
 - `the cable plugged into the monitor on the right`
+
+Strong prompt/image pairings from the PDF:
+
+- dense bottle shelf + `the third bottle from the left in the second row that is NOT green`
+- busy UI screenshot + `the close button on the dialog box in the background, not the modal in front`
+- flock of birds + `the bird in flight whose wings are pointed downward`
+
+## Boundary-Pair / Tweak Flow
+
+When available, use `Tweak This` to submit a deliberate variation on the same image. A useful pass/fail pair on one image is one of the most valuable submissions.
+
+Good tweak:
+
+- original: `the red mug`
+- harder variant: `the red mug to the left of the laptop`
+
+Do not force pairs just for badges. If the predicted verdict does not flip and the UI warns that the boundary did not move, submit anyway if the tweak was meaningful.
 
 ## Verdict: I Win / Model Failed
 
@@ -152,6 +189,8 @@ Pick fail when at least one of these is true:
 - Format violation: malformed JSON, wrong key, out-of-bounds coordinate, wrong number of items.
 
 Tight means within about 5 percent of the visible silhouette on each side.
+
+A box with about 15 percent padding on every side is a fail even when it encloses the right object. Tighten it instead of passing it.
 
 When fail is chosen:
 
@@ -173,7 +212,7 @@ Pick pass when:
 - no hallucinated items;
 - format is valid.
 
-You may still edit the trace if the answer is correct but the reasoning is wrong.
+You may still edit the trace if the answer is correct but the reasoning is wrong, such as citing the wrong landmarks while landing on the right object.
 
 ## When In Doubt
 
@@ -191,8 +230,11 @@ If a box is loose enough to bother you on a pass, it is probably a fail.
 - Resize a box by dragging a corner handle.
 - Delete selected items with Backspace/Delete.
 - Use repeated clicks to cycle overlapping boxes/points.
-- Use magnifier for tiny objects.
+- Use the 5x magnifier for tiny objects; it follows the cursor with a crosshair and live draft rectangle.
 - Revert only when abandoning canvas edits.
+- Undo/redo with standard Ctrl/Cmd-Z and Ctrl/Cmd-Shift-Z.
+
+For tiny targets such as favicons, single icons, small badges, and fine print, use the magnifier workflow: turn it on, hover over the target, and drag the box at 5x zoom for pixel-accurate edges.
 
 ## Tags
 
@@ -208,7 +250,7 @@ Do not over-tag with overly specific labels.
 
 ## Confidence
 
-Use honest 1-5 confidence:
+Use honest 1-5 confidence. After every submission, the UI may ask for trace confidence. On fail, it may also ask for answer confidence on the corrected answer.
 
 - 5: certain
 - 4: pretty sure
@@ -221,7 +263,7 @@ There is no penalty for low confidence when it is genuine. A confident wrong ans
 ## Common Mistakes
 
 - Passing "roughly right" loose boxes.
-- Counting by default when the mode expects a point or box.
+- Counting-by-default in counting mode or failing to scan for all instances.
 - Switching format to win.
 - Scoring vague prompts instead of rewriting.
 - Editing the answer on a pass when it should simply pass.
