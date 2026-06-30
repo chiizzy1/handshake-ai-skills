@@ -14,6 +14,7 @@ Included skills:
 - `handshake-ego-phys-understanding`
 - `handshake-find-boundary`
 - `handshake-h2h-image-evaluator`
+- `handshake-i2i-pixel-aligned`
 - `handshake-ig-entity-tagging`
 - `handshake-ig-entity-verification`
 - `handshake-r2i-i2i-evaluator`
@@ -34,6 +35,16 @@ Or run:
 ```powershell
 .\scripts\update.ps1
 ```
+
+## Read-Only Setup
+
+For friends or users who should only install and update the skills, send them:
+
+```text
+usage-instructions/USER_READ_ACCESS.md
+```
+
+They should clone this full repo, link their agent skill folders to it, and pull updates. They should not edit local skill files.
 
 ## Windows Agent Links
 
