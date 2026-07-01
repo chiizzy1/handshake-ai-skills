@@ -19,6 +19,7 @@ Included skills:
 - `handshake-ig-entity-verification`
 - `handshake-r2i-i2i-evaluator`
 - `handshake-static-webpage`
+- `handshake-t2v-evaluator`
 - `handshake-text-to-code-elo-evaluator`
 - `handshake-ti2t-evaluator`
 - `handshake-ud-caption-evaluator`

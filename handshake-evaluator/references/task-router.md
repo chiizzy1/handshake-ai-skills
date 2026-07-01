@@ -60,6 +60,35 @@ Axes:
 - Visual Quality
 - Absence of AI Artifacts
 
+### T2V / Less AI Generated Video Benchmark
+
+Inputs:
+
+- One text prompt.
+- Two generated videos, usually Response A and Response B.
+- Sometimes audio requirements.
+
+Main question:
+
+- Which video looks less AI-generated, and which artifact categories are visible in the more AI-generated video?
+
+Skill:
+
+- `handshake-t2v-evaluator`
+
+Criteria:
+
+- Prompt adherence.
+- Temporal consistency.
+- Flicker/shimmer.
+- Morphing/deformation.
+- Object persistence.
+- Physics realism.
+- Identity drift.
+- Interaction consistency.
+- Text/detail stability.
+- Audio presence and synchronization when requested.
+
 ### TI2T / Text Image To Text ELO
 
 Inputs:
