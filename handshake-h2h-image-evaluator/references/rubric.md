@@ -32,7 +32,15 @@ The main question is which image better delivers what the prompt asked for.
 1. Read the prompt first.
 2. Break it into requirements.
 3. Inspect A and B at normal size for overall impression.
-4. Zoom in on likely failure points:
+4. Identify the details a real person would notice first if they cared about the prompt. Prioritize big visible anchors before tiny defects:
+   - requested subject and setting
+   - count of people, animals, or objects
+   - obvious object placement and relationships
+   - geography, route, layout, or spatial order when requested
+   - readable required text, labels, numbers, or signs
+   - main action or interaction
+   If a response fails one of these obvious anchors, that should usually matter more than small polish differences.
+5. Zoom in on likely failure points:
    - faces
    - hands
    - feet
@@ -43,8 +51,8 @@ The main question is which image better delivers what the prompt asked for.
    - repeated patterns
    - edges of inserted or edited-looking objects
    Use the magnifier/full-resolution viewer in T2I Magnifier Pairwise tasks. Treat it as mandatory inspection support, not a fifth rating axis.
-5. Score each axis independently.
-6. Write a concise justification that cites visible evidence.
+6. Score each axis independently.
+7. Write a concise justification that cites visible evidence.
 
 ## Hard Fail Checks
 
@@ -189,6 +197,10 @@ Good for T2I Magnifier Pairwise open feedback:
 Good for close-call prompt compliance:
 
 `Response B is slightly better because the phone detail is much clearer. One person is actually raising a phone toward the sculpture behind the group, which Response A does not show as well. It is not perfect because the man does not clearly look at the guide's face, but B still handles the sculpture part better.`
+
+Good for geography or map prompts:
+
+`Response A is much better because the map actually follows the Spanish Mediterranean coast and places Barcelona, Valencia, and Malaga in the right general spots along the shoreline. The dotted route also connects them clearly. Response B has a nice parchment style, but Barcelona is pushed way inland and the coastline layout feels wrong.`
 
 Bad:
 
