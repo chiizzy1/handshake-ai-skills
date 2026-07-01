@@ -176,6 +176,7 @@ A strong justification:
 - Uses plain wording.
 - Sounds like a quick human assessment, not a formal rubric explanation.
 - Keeps the sentence flow simple: pick the winner, name the visible details it got right, then name the main thing the other response missed.
+- Avoids colon-style phrasing in prose. Use a colon only for actual lists or UI field labels. Prefer flowing sentences like `Response B is slightly better because...`
 
 Good:
 
@@ -184,6 +185,10 @@ Good:
 Good for T2I Magnifier Pairwise open feedback:
 
 `Response A is much better because it includes nearly all the requested whiteboard details, like the weekly signup chart, the red "510!!" note, the KPI sticky notes, the pie chart, the erased flowchart, the coffee stain, the marker tray, the monitor, and the plant. Response B looks cleaner, but it leaves the board too empty and misses too many prompt details.`
+
+Good for close-call prompt compliance:
+
+`Response B is slightly better because the phone detail is much clearer. One person is actually raising a phone toward the sculpture behind the group, which Response A does not show as well. It is not perfect because the man does not clearly look at the guide's face, but B still handles the sculpture part better.`
 
 Bad:
 
