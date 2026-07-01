@@ -38,16 +38,17 @@ Foundation rules transfer into image comparison tasks only when they support the
 
 ## Task Families
 
-### H2H / T2I Image Comparison
+### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
 Inputs:
 
 - One text prompt.
 - Two generated images, usually Response A and Response B.
+- Optional magnifier or full-resolution compare viewer for close inspection.
 
 Main question:
 
-- Which image better satisfies the prompt on each H2H axis?
+- Which image better satisfies the prompt on each pairwise image axis?
 
 Skill:
 

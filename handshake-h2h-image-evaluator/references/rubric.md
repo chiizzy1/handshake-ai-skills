@@ -1,6 +1,6 @@
 # Handshake H2H / T2I Image Rubric
 
-Use this reference for Handshake text-to-image and H2H image comparison tasks.
+Use this reference for Handshake text-to-image, H2H image comparison, and T2I Magnifier Pairwise tasks.
 
 ## Source PDFs
 
@@ -8,6 +8,7 @@ Primary:
 
 - `handshake-ai-Text-to-Image (T2I).pdf`
 - `handshae-ai-Image Evaluation.pdf`
+- `t2i-magnifier-pairwise/guidelines.md`
 
 Foundations:
 
@@ -22,6 +23,7 @@ The task shows:
 - Response A image.
 - Response B image.
 - Four rating axes, usually with choices: Response A, Response B, Both Good, Both Bad.
+- Sometimes a magnifier or full-resolution compare viewer for close inspection.
 
 The main question is which image better delivers what the prompt asked for.
 
@@ -40,6 +42,7 @@ The main question is which image better delivers what the prompt asked for.
    - shadows/reflections
    - repeated patterns
    - edges of inserted or edited-looking objects
+   Use the magnifier/full-resolution viewer in T2I Magnifier Pairwise tasks. Treat it as mandatory inspection support, not a fifth rating axis.
 5. Score each axis independently.
 6. Write a concise justification that cites visible evidence.
 

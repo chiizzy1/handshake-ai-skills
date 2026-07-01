@@ -1,18 +1,19 @@
 ---
 name: handshake-h2h-image-evaluator
-description: Evaluate Handshake H2H and Text-to-Image image comparison tasks. Use when Codex must compare two AI-generated images from the same text prompt across Overall Preference, Instruction Following, Visual Quality, and Absence of AI Artifacts; when task UI says H2H, T2I, text-to-image-compare, or asks which image better follows a prompt.
+description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise image comparison tasks. Use when Codex must compare two AI-generated images from the same text prompt across Overall Preference, Instruction Following, Visual Quality, and Absence of AI Artifacts; when task UI says H2H, T2I, text-to-image-compare, t2i-magnifier-pairwise, magnifier pairwise, or asks which image better follows a prompt.
 ---
 
 # Handshake H2H Image Evaluator
 
 ## Core Rule
 
-Use the H2H/T2I Handshake PDFs as the source of truth:
+Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the source of truth:
 
 - `HANDSHAKE-AI/pdfs/handshae-ai-Image Evaluation.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-Text-to-Image (T2I).pdf`
+- `HANDSHAKE-AI/pdfs/t2i-magnifier-pairwise/guidelines.md`
 
 Before rating a live task, read `references/rubric.md`.
 
@@ -21,6 +22,7 @@ Before rating a live task, read `references/rubric.md`.
 1. Read the prompt before looking at the images.
 2. List the prompt requirements: subject, count, attributes, style, lighting, composition, text, relationships, and constraints.
 3. Inspect both images closely. Zoom into faces, hands, text, edges, shadows, and small objects.
+   - For T2I Magnifier Pairwise tasks, use the magnifier/full-resolution viewer whenever available. The magnifier is not a separate rubric; it is the inspection method for finding small prompt misses, artifact tells, text errors, and quality problems.
 4. Rate each axis independently:
    - Overall Preference
    - Instruction Following
