@@ -174,14 +174,24 @@ A strong justification:
 - Cites specific visual details.
 - Compares against the other response.
 - Uses plain wording.
+- Sounds like a quick human assessment, not a formal rubric explanation.
+- Keeps the sentence flow simple: pick the winner, name the visible details it got right, then name the main thing the other response missed.
 
 Good:
 
 `Response A is better because both animals are shown mid-fall onto the cushion, and the dog and cat anatomy is cleaner. Response B loses one dog leg and the cat's face is oversized.`
 
+Good for T2I Magnifier Pairwise open feedback:
+
+`Response A is much better because it includes nearly all the requested whiteboard details, like the weekly signup chart, the red "510!!" note, the KPI sticky notes, the pie chart, the erased flowchart, the coffee stain, the marker tray, the monitor, and the plant. Response B looks cleaner, but it leaves the board too empty and misses too many prompt details.`
+
 Bad:
 
 `A looks more realistic and aesthetically pleasing overall.`
+
+Also bad:
+
+`Upon review of the prompt-alignment criteria, Response A demonstrates superior fulfillment of the requested semantic elements and contextual constraints.`
 
 ## Final Checklist
 
