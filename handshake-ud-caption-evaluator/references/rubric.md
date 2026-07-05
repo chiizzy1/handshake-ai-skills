@@ -166,21 +166,21 @@ Do not use Both Bad merely because the task is hard.
 
 ## Comment Style
 
-Keep justifications concise, grounded, and natural, like an average careful reviewer wrote them. Do not over-polish or over-explain; name the decisive visual difference and move on.
+Keep justifications concise, grounded, and natural, like an average careful reviewer wrote them. Do not over-polish or over-explain. Do not use colon characters or em dashes in the justification prose. Keep the writing simple and flowing. Name the decisive visual difference and move on.
 
-Good:
+Good
 
 `Response B is better for Image Details because it keeps the Workshop entries on the Sunday dates, while A moves one Workshop to Tuesday.`
 
-Good:
+Good
 
 `Response A is better for Caption Hallucination because B adds exact color codes and pixel-level details that cannot be verified from the image.`
 
-Good:
+Good
 
 `Response A is much better because it keeps the correct cube count and general layout of two blue cubes, two purple cubes, and one green cube, along with matching initial/final panels and their rotated versions. Response B's image adds an extra purple cube and changes the spacing and arrangement into a larger grid-like layout, so it loses on both Overall Match and Image Details.`
 
-Bad:
+Bad
 
 `B is more detailed and therefore more accurate.`
 

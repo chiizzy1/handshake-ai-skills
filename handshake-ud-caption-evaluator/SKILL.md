@@ -58,6 +58,10 @@ If a response caption, generated image, prior rating, or another agent claims a 
 
 This is a fidelity task. Polished, photorealistic, or detailed output is not automatically better. The winner is the response that more faithfully captures the original.
 
+## Justification Style
+
+Write justifications in simple, natural sentences. Avoid colon characters and em dashes in the justification prose. Do not write like an English professor. Name the main visual difference, keep it brief, and move on.
+
 ## Output Format
 
 ```markdown
