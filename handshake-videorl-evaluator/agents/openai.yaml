@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake VideoRL"
+  short_description: "Evaluate Handshake VideoRL task rows"
+  default_prompt: "Use $handshake-videorl-evaluator to judge this VideoRL task against the Handshake guidelines."

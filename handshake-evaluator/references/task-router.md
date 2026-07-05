@@ -90,6 +90,41 @@ Criteria:
 - Text/detail stability.
 - Audio presence and synchronization when requested.
 
+### VideoRL / Long Context / Cross-Modal Anchoring
+
+Inputs:
+
+- VideoRL guideline or onboarding assessment.
+- A proposed video-reasoning row, assessment question, or row audit.
+- Usually one short answer, numeric sequence, exact text, quote, or `X out of Y` count.
+
+Main question:
+
+- Is the VideoRL row valid for its queue, or what answer/correction follows from the VideoRL rubric?
+
+Skill:
+
+- `handshake-videorl-evaluator`
+
+Queues:
+
+- Audio Anchored Visual Retrieval.
+- Visual Anchored Audio Retrieval.
+- Tracked AV Counting.
+- Exact Temporal Order - Consequence.
+- Exact Temporal Order - Repeated Events.
+- Sparse Long-Video Retrieval.
+- Long Trace-Grounded Counting.
+- OCR / Frame-Following Dynamic Text.
+- Short Spatial State-Change / Physical Outcome.
+- Science & Technical Visual Reasoning.
+- Action Anticipation & Prediction.
+- Paralinguistic Understanding.
+- Audio-Visual Event Alignment.
+- Audio-Visual Sound Source Identification.
+- Temporal Order - Fine-Grained.
+- Temporal Ordering - How-To.
+
 ### TI2T / Text Image To Text ELO
 
 Inputs:

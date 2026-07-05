@@ -23,6 +23,7 @@ Included skills:
 - `handshake-text-to-code-elo-evaluator`
 - `handshake-ti2t-evaluator`
 - `handshake-ud-caption-evaluator`
+- `handshake-videorl-evaluator`
 
 ## Daily Update
 

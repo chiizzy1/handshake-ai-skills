@@ -58,6 +58,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - IG Entity Verification: use `handshake-ig-entity-verification`.
 - Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage`.
 - Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator`.
+- VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator`.
 
 ## Universal Rules
 
@@ -75,7 +76,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 When evaluating for overall preference, you MUST strictly adhere to these three hard rules:
 
 1. **Look it up if you don't know:** When a prompt involves specialized knowledge (technical, historical, scientific, cultural, anatomical alignment), check a reliable source instead of guessing. Do not make assumptions.
-2. **Watch out for the overly-AI look in the edit:** Look for unnaturally crisp edges, flat lighting, plasticky textures, or over-saturated colors in the edited area. An edit can look impressive at first glance but feel artificial on closer look — do not let that initial wow factor automatically win.
+2. **Watch out for the overly-AI look in the edit:** Look for unnaturally crisp edges, flat lighting, plasticky textures, or over-saturated colors in the edited area. An edit can look impressive at first glance but feel artificial on closer look - do not let that initial wow factor automatically win.
 3. **Watch out for text issues:** AI edits often add text where it doesn't belong or keep it sharp when it should be soft (far away, off-angle, or out of focus). Cluttered or unnaturally crisp text shouldn't win on visual impact alone.
 
 ## Final Checklist
