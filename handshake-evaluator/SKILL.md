@@ -58,6 +58,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - IG Entity Verification: use `handshake-ig-entity-verification`.
 - Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage`.
 - Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator`.
+- Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator`.
 - Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator`.
 - VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator`.
 

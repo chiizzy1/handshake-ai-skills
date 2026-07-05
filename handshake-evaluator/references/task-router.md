@@ -234,6 +234,38 @@ Special rules:
 - Use N/A on live tasks only when a dimension truly does not apply.
 - Quiz tasks may use only A is better, Tie, or B is better.
 
+### Image2Code / Image-to-Code Evaluation
+
+Inputs:
+
+- One user prompt that tells the target format.
+- One reference image, reference frame set, animation clip, or scrolling website frame set.
+- Optional image assets.
+- Two static rendered outputs, usually Output A and Output B.
+
+Main question:
+
+- Which output reproduces the reference image or reference frames more faithfully?
+
+Skill:
+
+- `handshake-image2code-evaluator`
+
+Axes:
+
+- Structure & Instruction Following.
+- Visual Quality.
+- Text & Data Accuracy.
+- Overall Preference.
+
+Special rules:
+
+- The reference image is the primary spec.
+- Apply the render gate first.
+- For animation or scrolling tasks, compare each output frame to the matching reference frame.
+- Use N/A for Text & Data Accuracy only when allowed and when the reference has no meaningful text.
+- Do not test live interactivity unless the task explicitly changes the task type.
+
 ### Critique Rework
 
 Inputs:
