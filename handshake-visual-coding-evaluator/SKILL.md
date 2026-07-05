@@ -1,0 +1,100 @@
+---
+name: handshake-visual-coding-evaluator
+description: Evaluate Handshake Visual Coding and AI Website Generation side-by-side tasks. Use when comparing two rendered websites or web apps from the same prompt across Instruction & Reference Fidelity, Visual Quality, Surface Interactivity, Workflow Correctness, and Overall Preference.
+---
+
+# Handshake Visual Coding Evaluator
+
+## Core Rule
+
+Use the Visual Coding guidelines as the source of truth:
+
+- `HANDSHAKE-AI/pdfs/visual-coding.md`
+
+Before rating a live task, read `references/rubric.md`.
+
+## Task Shape
+
+You compare two rendered websites or web apps, usually Site A and Site B, generated from the same user prompt.
+
+The task may include:
+
+- user prompt text;
+- reference images or mockups;
+- image assets, logos, photos, or product files;
+- two live rendered websites in iframes;
+- a live-task 5 point scale, or a quiz 3 option scale.
+
+## Workflow
+
+1. Read the user prompt and keep it visible.
+2. Inspect all reference images and provided assets.
+3. Open both websites side by side.
+4. Scroll both pages and compare matching sections.
+5. Interact with both sites before rating. Click buttons, nav links, tabs, dropdowns, forms, carousels, galleries, media controls, and any element that looks interactive.
+6. Test multi-step flows when the prompt implies forms, carts, wizards, navigation, submissions, or persistence.
+7. Rate each dimension independently.
+8. Write a short 2 to 3 sentence overall justification with concrete evidence.
+
+## Hard Gates
+
+- Do not rate from a screenshot or first glance when the site is interactive.
+- Do not mark N/A when an interactive element exists. Surface Interactivity applies whenever anything looks clickable or accepts input.
+- Do not default to Tie when a dimension does not apply. Use N/A on live tasks.
+- Do not use N/A on quiz tasks when the quiz only offers A is better, Tie, or B is better.
+- Do not penalize a site for not using assets when no assets were provided.
+- Do not force every provided asset into the site. Some assets may be noise.
+- Do not let visual polish hide missing required sections, wrong assets, or broken workflows.
+- If one site completely fails to load, mark it much worse on every applicable live-task dimension.
+
+## Dimensions
+
+Live tasks use these four dimensions plus Overall Preference:
+
+- Instruction & Reference Fidelity
+- Visual Quality
+- Surface Interactivity
+- Workflow Correctness
+
+Quiz tasks may collapse the scale to:
+
+- A is better
+- Tie
+- B is better
+
+Use the exact labels shown by the task UI.
+
+## Output Format
+
+```markdown
+Instruction & Reference Fidelity - [rating]
+Visual Quality - [rating]
+Surface Interactivity - [rating or N/A]
+Workflow Correctness - [rating or N/A]
+Overall Preference - [rating]
+
+Justification
+
+Response A is better because [specific reason]. Response B [specific weakness], though [brief counterpoint if useful].
+```
+
+## Comment Style
+
+Write like a normal person testing websites, not like a code reviewer. Keep it short and concrete.
+
+Good:
+
+`Response B is better because its checkout flow works from cart to confirmation, while A's Place Order button does nothing. A looks a little cleaner, but the broken checkout matters more.`
+
+Bad:
+
+`Response B demonstrates superior architectural compliance and therefore wins the evaluation.`
+
+## Final Checklist
+
+- Prompt, references, and assets were checked.
+- Both websites were opened and interacted with.
+- Render failures were handled first.
+- Each dimension was rated separately.
+- N/A was used only when allowed and truly applicable.
+- Overall justification names the main deciding dimension and concrete evidence.

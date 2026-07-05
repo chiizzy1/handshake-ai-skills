@@ -203,6 +203,37 @@ Criteria:
 - Image Hallucination
 - Caption Hallucination
 
+### Visual Coding / AI Website Generation Evaluation
+
+Inputs:
+
+- One user prompt for a website or web app.
+- Optional reference images.
+- Optional image assets such as logos or photos.
+- Two rendered websites, usually Site A and Site B, loaded side by side.
+
+Main question:
+
+- Which site better follows the prompt, references, assets, visual quality expectations, interactions, and workflows?
+
+Skill:
+
+- `handshake-visual-coding-evaluator`
+
+Axes:
+
+- Instruction & Reference Fidelity.
+- Visual Quality.
+- Surface Interactivity.
+- Workflow Correctness.
+- Overall Preference.
+
+Special rules:
+
+- Interact with both sites before rating.
+- Use N/A on live tasks only when a dimension truly does not apply.
+- Quiz tasks may use only A is better, Tie, or B is better.
+
 ### Critique Rework
 
 Inputs:
@@ -327,6 +358,6 @@ Use short, direct comments:
 
 - Good: `Response B is better because it keeps the lifted group pose and has cleaner faces and hands.`
 - Good: `A follows the color instruction, but B changes the product shape, so A is stronger on instruction following.`
-- Bad: `Upon careful analysis, the second response demonstrates a superior alignment with the multifaceted criteria.`
+- Bad: `Upon careful analysis, the second response demonstrates a superior alignment to the rubric.`
 
 Avoid filler, hedging, and professor-style wording unless the platform requires it.
