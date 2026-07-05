@@ -70,7 +70,7 @@ Avoid this style because it is too long:
 
 Write more like this:
 
-`Response A is closer because it keeps the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner, but it changes the formatting more and adds sidebar details that are not as faithful to the original.`
+`Response A is better because it is closer to the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner, but it changes the formatting more and adds sidebar details that are not as faithful to the original.`
 
 ## Output Format
 
