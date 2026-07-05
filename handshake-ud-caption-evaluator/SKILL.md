@@ -18,20 +18,37 @@ Before rating a live task, read `references/rubric.md`.
 ## Workflow
 
 1. Study the original image first.
-2. Identify the key visual facts: object count, layout, labels/text, colors, geometry, style, background, and important small details.
-3. Read Response A caption and inspect Response A image.
-4. Read Response B caption and inspect Response B image.
-5. Rate the five criteria independently:
+2. Write a compact original fact ledger before reading response captions or other agents' opinions.
+3. Identify the key visual facts: object count by type/color, layout, labels/text, colors, geometry, style, background, and important small details.
+4. Read Response A caption and inspect Response A image.
+5. Read Response B caption and inspect Response B image.
+6. Rate the five criteria independently:
    - Overall Match
    - Image Details
    - Caption Details
    - Image Hallucination
    - Caption Hallucination
-6. Do not let a good image rescue a bad caption, or a good caption rescue a bad image.
+7. Do not let a good image rescue a bad caption, or a good caption rescue a bad image.
+
+## Mandatory Original Fact Ledger
+
+Before rating, write down the original image facts from the original image only. Do this before reading or trusting response captions, prior ratings, or another agent's explanation.
+
+For diagrams and structured images, explicitly record:
+
+- main object count by type/color;
+- panel titles and layout;
+- grid/table dimensions when visible;
+- axis/label text and directions;
+- object positions and relationships;
+- whether repeated panels, such as initial/final views, are visually identical.
+
+If a response caption, generated image, prior rating, or another agent claims a fact that conflicts with this ledger, trust the original image and call out the conflict. Never adopt another agent's premise without re-checking it against the original.
 
 ## Hard Gates
 
 - Do not judge the generated images before studying the original.
+- Do not rate a structured diagram until the original object count and layout have been recorded.
 - Do not reward a caption for being long if it adds unverifiable details.
 - Do not reward a generated image for polish when it changes the original layout or content.
 - Do not merge image and caption scores. The task asks for both.

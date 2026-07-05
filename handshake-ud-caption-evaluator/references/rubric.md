@@ -42,6 +42,12 @@ Keep these judgments separate:
 
 A response can have the better image and the worse caption. Score the criterion the UI asks for, not the response as a whole.
 
+## Original Fact Ledger
+
+Before comparing responses, create a compact fact ledger from the original image only. For diagrams and structured images, recount visible objects by type/color and note the layout, panel titles, grid size, axis labels, and repeated-panel relationships before reading response claims.
+
+If a response caption or another agent claims a different object count, geometry, or layout, re-check the original and trust the original fact ledger.
+
 ## Criterion 1: Overall Match
 
 Ask which generated image better matches the original in overall composition, subject, and visual intent.
@@ -107,6 +113,8 @@ Image hallucinations include:
 
 Pick the image that stays closer to the original without fabricating.
 
+For diagrams, wrong object counts, invented extra objects, missing objects, changed arrangements, or incorrect internal grid geometry are hallucinations, not just detail misses.
+
 ## Criterion 5: Caption Hallucination
 
 Ask which caption avoids making things up or describing things not visible.
@@ -122,6 +130,8 @@ Caption hallucinations include:
 - claims about metadata or resolution not visible
 
 Specificity is not automatically accuracy. It can hide fabrication.
+
+For diagrams, a caption that states the wrong object count, adds extra colored objects, invents coordinates, or describes a layout not supported by the original is hallucinating.
 
 ## Independence Rule
 
@@ -150,6 +160,7 @@ Do not use Both Bad merely because the task is hard.
 - Choosing the prettier image instead of the faithful one.
 - Ignoring captions because the images are more visible.
 - Treating caption detail volume as caption accuracy.
+- Accepting another agent's count, coordinate map, or layout claim without re-checking the original image.
 - Missing small text, labels, dates, or diagram geometry.
 - Penalizing one response on all axes because it lost overall.
 
