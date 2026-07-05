@@ -62,16 +62,28 @@ This is a fidelity task. Polished, photorealistic, or detailed output is not aut
 
 Write justifications in simple, natural sentences. Avoid colon characters and em dashes in the justification prose. Do not write like an English professor. Name the main visual difference, keep it brief, and move on.
 
+Prefer a short two sentence explanation over a polished paragraph.
+
+Avoid this style because it is too long:
+
+`Response A is better because it keeps the page layout closer to the original. The two problems stay in the same order, the answer choices are preserved, and the text block still feels like the same cropped document page. Response B looks cleaner, but it changes the formatting more by splitting the variables into neat separate lines and adding sidebar details that do not match the original crop as well. Its caption also describes those extra sidebar details too confidently, while A stays closer to what is actually visible.`
+
+Write more like this:
+
+`Response A is closer because it keeps the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner, but it changes the formatting more and adds sidebar details that are not as faithful to the original.`
+
 ## Output Format
 
 ```markdown
-- Overall Match: Response A
-- Image Details: Response A
-- Caption Details: Response B
-- Image Hallucination: Response A
-- Caption Hallucination: Response A
+- Overall Match - Response A
+- Image Details - Response A
+- Caption Details - Response B
+- Image Hallucination - Response A
+- Caption Hallucination - Response A
 
-Justification: A's image is closer to the original layout and geometry. B's caption is more complete, but it invents some technical precision that cannot be verified.
+Justification
+
+A's image is closer to the original layout and geometry. B's caption is more complete, but it invents some technical precision that cannot be verified.
 ```
 
 ## Final Checklist
