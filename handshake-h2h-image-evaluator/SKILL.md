@@ -39,6 +39,18 @@ Before rating a live task, read `references/rubric.md`.
 - Do not treat stylization as an artifact when the prompt asks for that style.
 - Do not call an axis a tie when one image has a visible prompt, quality, or artifact advantage on that axis.
 
+## Macro Before Micro (The Reality Check)
+
+Before zooming in to grade fine details like text, dates, or textures, you must first perform a macro-level reality check on the scene's composition and physics.
+
+Do not let impressive text generation or highly detailed rendering blind you to fundamentally broken logic. Make specific, observable claims about the spatial relationships:
+
+1. **Physical Relationships:** Does the interaction between subjects make sense? (e.g., Is the mechanic actually close enough to the car to reach it? Are objects floating instead of resting on surfaces?)
+2. **Structural Logic:** Does the environment obey physics? (e.g., If a car is raised 6 feet in the air, a mechanic would stand, not lie on a creeper. Are the lift posts actually supporting the car?)
+3. **Anatomical Plausibility:** Look at the entire body before the face. Are torsos impossibly long? Do necks bend at broken angles? Are there extra or phantom limbs hidden in the background?
+
+If an image fails the Macro Reality Check (e.g., severe anatomical failure or broken spatial logic), it must be heavily penalized on the Absence of AI Artifacts axis, even if its micro-details (like text or lighting) are flawless.
+
 ## Axis Separation
 
 - Instruction Following: prompt compliance only.
@@ -82,11 +94,11 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
 
 ## Tone Rules
 
-- Do not use em dashes. Use commas, periods, or "and" instead.
-- Do not sound overly formal or polished. Write like a normal person would talk through their reasoning.
-- Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements."
-- Keep sentences short and direct. Say what you saw and why it matters.
-- It is fine to use casual connectors like "but," "so," "because," and "also."
+- **Length:** Justifications must always be 1-3 sentences total.
+- **Style:** Keep it concise, naturally flowing, and simple. Do not use overly polished English. Write like an average human being stating a reasonable conclusion.
+- **Punctuation:** Do not use em dashes. Do not use colons (`:`) unless it's for an actual list. Use commas, periods, or "and" instead.
+- **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements." It is fine to use casual connectors like "but," "so," "because," and "also."
+- **Structure:** Use punchy, single-sentence comparisons when possible (e.g., "Response A is much better because it successfully generated a massive block of text without a single error, while Response B garbled several of the words.").
 
 ## Final Checklist
 
@@ -95,4 +107,5 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
 - Counts, relationships, text, and style were checked.
 - Visual Quality and AI Artifacts were not mixed up.
 - Ties were avoided unless truly justified.
+- Macro-level spatial logic and anatomy were verified before grading fine details.
 - Final wording is specific, plain, and image-grounded.
