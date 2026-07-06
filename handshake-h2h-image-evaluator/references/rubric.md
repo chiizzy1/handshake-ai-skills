@@ -83,6 +83,12 @@ Prefer the image that:
 
 Do not choose a visually beautiful image if it misses the core request.
 
+### Preference Severity
+
+- Use "Strongly Prefer" only when the winning response actually succeeds at the core prompt requirements and the losing response clearly fails, or when the quality gap is so large that the loser is basically unusable.
+- If both responses fail a core instruction (wrong count, missing subject, broken data accuracy, wrong layout), cap the overall preference at "Slightly Prefer." The winner is just less bad, not genuinely good.
+- "Slightly Prefer" is the right call when both share the same fundamental failure but one handles the rest of the prompt better.
+
 ## Axis 2: Instruction Following
 
 Judge faithfulness to the written prompt, not beauty.

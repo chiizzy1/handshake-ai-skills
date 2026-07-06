@@ -48,6 +48,12 @@ Before rating a live task, read `references/rubric.md`.
 
 Do not double-penalize artifacts under Visual Quality unless the artifact also harms normal craft quality. Put AI tells in Absence of AI Artifacts.
 
+## Preference Severity
+
+- Use "Strongly Prefer" only when the winning response actually succeeds at the core prompt requirements and the losing response clearly fails, or when the quality gap is so large that the loser is basically unusable.
+- If both responses fail a core instruction (wrong count, missing subject, broken data accuracy, wrong layout), cap the overall preference at "Slightly Prefer." The winner is just less bad, not genuinely good.
+- "Slightly Prefer" is the right call when both share the same fundamental failure but one handles the rest of the prompt better.
+
 ## Presentation Template
 
 Always present evaluations using this three-section structure:
