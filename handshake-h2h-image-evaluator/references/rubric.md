@@ -185,6 +185,9 @@ A strong justification:
 - Sounds like a quick human assessment, not a formal rubric explanation.
 - Keeps the sentence flow simple: pick the winner, name the visible details it got right, then name the main thing the other response missed.
 - Avoids colon-style phrasing in prose. Use a colon only for actual lists or UI field labels. Prefer flowing sentences like `Response B is slightly better because...`
+- Does not use em dashes. Use commas, periods, or "and" instead.
+- Does not sound overly polished or robotic. Write like a normal person would explain their reasoning.
+- Uses casual connectors like "but," "so," "because," and "also."
 
 Good:
 

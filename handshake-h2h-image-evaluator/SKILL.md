@@ -48,20 +48,39 @@ Before rating a live task, read `references/rubric.md`.
 
 Do not double-penalize artifacts under Visual Quality unless the artifact also harms normal craft quality. Put AI tells in Absence of AI Artifacts.
 
-## Output Format
+## Presentation Template
 
-For checkbox/radio tasks, answer with the selected choices only when the user wants speed:
+Always present evaluations using this three-section structure:
 
-```markdown
-- Overall Preference: Response A
-- Instruction Following: Response B
+### Section 1: Prompt Analysis
+Break down the prompt into its core requirements. List the subject, setting, count, attributes, style, and any constraints. This goes under a `### Prompt Analysis` heading.
+
+### Section 2: Image Analysis
+Under a `### Image Analysis` heading, analyze each image separately with bold subheadings (`**Image A:**` and `**Image B:**`). For each image, cover:
+- How well it follows the prompt instructions
+- Whether the logic/rules of the depicted subject make sense
+- Any visual quality issues or AI artifacts spotted
+
+Be specific. Point to exact details, scores, text, positions, or objects you can see.
+
+### Section 3: Final Ratings and Justification
+List the ratings cleanly under a `### Final Ratings` heading:
+```
+- Instruction Following: Response A
 - Visual Quality: Response A
 - Absence of AI Artifacts: Response A
-
-Justification: Response A keeps both animals mid-fall and has cleaner anatomy. Response B loses a dog leg and the cat's face is distorted.
+- Overall Preference: Strongly Prefer A
 ```
 
-For explanation requests, add one short sentence per axis.
+Then write a `### Justification` paragraph. Keep it concise and grounded in what you actually saw.
+
+## Tone Rules
+
+- Do not use em dashes. Use commas, periods, or "and" instead.
+- Do not sound overly formal or polished. Write like a normal person would talk through their reasoning.
+- Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements."
+- Keep sentences short and direct. Say what you saw and why it matters.
+- It is fine to use casual connectors like "but," "so," "because," and "also."
 
 ## Final Checklist
 
