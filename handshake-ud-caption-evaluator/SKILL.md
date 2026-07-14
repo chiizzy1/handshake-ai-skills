@@ -74,17 +74,27 @@ Write more like this:
 
 ## Output Format
 
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
 ```markdown
-- Overall Match - Response A
-- Image Details - Response A
-- Caption Details - Response B
-- Image Hallucination - Response A
-- Caption Hallucination - Response A
+### Input Analysis
+[Explain the meaning of what the input image asks for. Establish the objective visual facts, layouts, counts, and text from the original image.]
 
-Justification
+### Response Analysis
+[Analyze Response A's image and caption, pointing out strengths and weaknesses compared to the original facts.]
+[Analyze Response B's image and caption, pointing out strengths and weaknesses compared to the original facts.]
 
-A's image is closer to the original layout and geometry. B's caption is more complete, but it invents some technical precision that cannot be verified.
+### Final Ratings
+- Overall Match: [Response A / Response B / Both Good / Both Bad]
+- Image Details: [Response A / Response B / Both Good / Both Bad]
+- Caption Details: [Response A / Response B / Both Good / Both Bad]
+- Image Hallucination: [Response A / Response B / Both Good / Both Bad]
+- Caption Hallucination: [Response A / Response B / Both Good / Both Bad]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
+
 
 ## Final Checklist
 
