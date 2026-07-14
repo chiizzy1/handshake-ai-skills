@@ -190,6 +190,25 @@ Avoid these common mistakes:
 - Do NOT grade before checking every existing marker against the image.
 - Do NOT give a high grade when obvious defects or missed instructions were ignored.
 
+## Output Format
+
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
+```markdown
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```
+
 ## Final Checklist
 
 Before submitting, confirm:

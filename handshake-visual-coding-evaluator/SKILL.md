@@ -66,16 +66,21 @@ Use the exact labels shown by the task UI.
 
 ## Output Format
 
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
 ```markdown
-Instruction & Reference Fidelity - [rating]
-Visual Quality - [rating]
-Surface Interactivity - [rating or N/A]
-Workflow Correctness - [rating or N/A]
-Overall Preference - [rating]
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
 
-Justification
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
 
-Response A is better because [specific reason]. Response B [specific weakness], though [brief counterpoint if useful].
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
 
 ## Comment Style

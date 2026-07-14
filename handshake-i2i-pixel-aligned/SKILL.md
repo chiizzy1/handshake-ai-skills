@@ -119,19 +119,22 @@ For hands and small objects:
 
 ## Output Format
 
-If the user asks for selections only, answer only the selections.
-
-If the user asks for explanations, use this format:
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-Q1: Yes/No - [brief reason if No, or brief confirmation if needed]
-Q2: Yes/No - [brief reason if No, or brief confirmation if needed]
-Q3: Yes/No - [brief reason if No, or brief confirmation if needed]
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
-
-For multiple-choice questions, mark or state the exact correct option.
-
-For free response, write in plain language. Do not sound like a rubric is being recited.
 
 ## Relationship To Other Handshake Skills
 

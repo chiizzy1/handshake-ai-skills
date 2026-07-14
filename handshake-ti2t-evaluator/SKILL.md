@@ -87,114 +87,21 @@ Use the exact labels shown in the UI. If the UI uses different dimensions, follo
 
 ## Output Format
 
-When presenting the results to the user in chat, always use this specific structure:
-
-1. **The Ratings Table**: Present the ratings in a 4-column markdown table, including a "Brief Reasoning" column for concise, dimension-specific explanations.
-2. **Open Feedback**: Output the exact heading `# Open Feedback (minimum 100 characters):` followed by the explanation. **Writing Style Rule**: Ensure that all writing is in American English, not British English. Keep the feedback extremely concise, simple, and naturally sounding, like a real human worker quickly typing out their reasoning. Do not use overly formal, robotic, or professorial language. Point out exactly what is wrong without verbosity. Never use em dashes (`—`) or other overly literary punctuation.
-
-Example:
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-### The Ratings Table
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
 
-| Dimension | Response A | Response B | Brief Reasoning |
-| :--- | :--- | :--- | :--- |
-| **Factuality** | Major Issue | No Issue | **A** hallucinated the face was obscured; **B** accurately described the visible face. |
-| **Instruction Following** | Major Issue | No Issue | **A** failed the synthesis directive; **B** flawlessly merged details. |
-| **Helpfulness** | No Issue | No Issue | **B** fully answered the prompt; **A** provided a good scene breakdown despite the factual failure. |
-| **Style and Format** | No Issue | No Issue | Both models used the requested clear formatting. |
-| **Overall Preference** | | **Strongly Prefer B** | **B** mastered a complex prompt; **A** failed basic observation. |
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
 
-# Open Feedback (minimum 100 characters):
-Response A wrongly claimed that the face is obscure in every image which is wrong because attachment 0 and attachment 3 clearly shows the face. Due to this, response A missed major prompt requirements like head shape and eye-width measurements. Response B is better because it actually followed the instruction and described the face based on what is visible from the images.
-```
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
 
-### Good vs. Bad Feedback Examples (Avoiding Contradictions)
-
-**Never contradict your own ratings.** If you mark a model as having a "Minor Issue" in Factuality because it misread a number (e.g., reading 8.05 as 6.05), you cannot say it "extracted the right numbers" in the feedback.
-
-**[BAD] - Contradicts Ratings (Blanket Praise):**
-"Response B is much better because it provides step-by-step working and gets the math right, making it an excellent study guide, while Response A provides no working and gets several math questions completely wrong by falsely claiming the correct answers are not in the options."
-*(Why it's bad: It uses a blanket phrase "gets the math right" that completely contradicts the fact that Response B was marked with a Minor Issue for getting the trivia date wrong on Q29. Never claim something is 100% correct if you logged an error for it).*
-
-**[GOOD] - Factually Accurate & Matches Ratings:**
-"Response B is much better because it provides step-by-step working and mostly gets the math right except for Q29 where it made a mistake with the date, making it an excellent study guide, while Response A provides no working and gets several math questions completely wrong by falsely claiming the correct answers are not in the options."
-*(Why it's good: It flawlessly combines the 'Winner First' structure while cleanly acknowledging the Q29 error without breaking the natural, conversational flow).*
-
-**[BAD] - Contradicts Ratings (Subtle Contradiction):**
-"Response B is much better because it correctly processes the uploaded exam paper and provides a full answer key despite making a few minor transcription typos, while Response A completely ignores the image and just repeats an old answer."
-*(Why it's bad: It claims the model "correctly processes" the paper, but then immediately admits it made "transcription typos". If it made typos, it didn't process it correctly. This creates a logical contradiction. How to catch it in the future: Always double-check if your positive praise ("correctly processes") directly conflicts with any errors you are listing in the same sentence. If there are errors, always use hedging words like "mostly".)*
-
-**[GOOD] - Factually Accurate & Hedged:**
-"Response B is much better because it mostly correctly processes the uploaded exam paper and provides a full answer key except for a few minor transcription typos, while Response A completely ignores the image and just repeats an old answer."
-*(Why it's good: It uses "mostly" and "except for" to safely praise the model while accurately acknowledging the errors, perfectly aligning with a Minor Issue rating without creating a logical contradiction).*
-
-### Good vs. Bad Feedback Examples (Natural Flow & Formatting Focus)
-
-**Write clearly, concisely, and flow naturally like a human being.** Explain *why* a difference matters to the user experience without rigidly forcing templates when they don't fit.
-
-**[BAD] - Forced/Clunky Flow:**
-"Response A just listed raw answers without the questions which is bad because it makes it hard to match the answers to the worksheet. Due to this, response A failed to be a useful study guide. Response B is better because it actually included the original questions and explained the false answers based on what is visible from the images, even though it made a few errors like adding conversational filler."
-*(Why it's bad: It rigidly forces the "due to this" and "a few errors like" templates where they aren't needed, making the sentence clunky, overly long, and unnatural).*
-
-**[GOOD] - Natural Flow & Explains the 'Why':**
-"Response A only listed the answers without the questions and this makes it harder for the user to match questions to their answers. Response B lists the questions and answers side-by-side making it easier for the user to understand at a glance without needing to go back and forth to match questions to their answers. This makes Response B more useful overall."
-*(Why it's good: It flows perfectly like a real human review, directly addresses the UX impact of "going back and forth," and perfectly justifies a win based purely on Helpfulness and Formatting).*
-
-### Good vs. Bad Feedback Examples (Conciseness & Directness)
-
-**Cut repetitive fluff.** Be extremely direct. Use simple, everyday vocabulary instead of academic/repetitive phrasing.
-
-**[BAD] - Wordy & Repetitive:**
-"Response A wrongly claimed that the angles add up to 180 degrees in question 16A which is wrong because the exterior angles of a triangle actually add up to 360 degrees. Due to this, response A failed to provide the accurate mathematical answer. Response B is better because it actually did the math correctly and gave the right answer based on what is in the image."
-*(Why it's bad: It's too long, repeats concepts ("wrongly claimed... which is wrong"), and uses unnecessarily wordy phrasing ("failed to provide the accurate mathematical answer")).*
-
-**[GOOD] - Short, Punchy, & Simple:**
-"Response A gave the wrong answer for question 16A by saying the angles add up to 180. They actually add up to 360. Response B is better because it did the math correctly and gave the right answer."
-*(Why it's good: It is incredibly concise, uses basic everyday vocabulary, eliminates all repetitive fluff, and gets straight to the point).*
-
-### Good vs. Bad Feedback Examples (Context Awareness & Ignoring Image)
-
-**Reward models that process the actual image. Penalize models that hallucinate answers based on chat history.**
-
-**[BAD] - Ignores the core failure:**
-"Response A provided a correct list of contact and non-contact forces which is helpful. Response B gave the answer key for the test. Response B is better because it provides more answers."
-*(Why it's bad: It completely misses the point that Response A ignored the image and just repeated a previous chat history answer).*
-
-**[GOOD] - Crisp, Context-Aware:**
-"Response A completely missed the point by ignoring the uploaded image and repeating a previous answer. Response B is the clear winner because it actually analyzed the exam paper and provided a full, accurate answer key."
-*(Why it's good: It calls out the exact failure (ignoring the image) and the exact success (analyzing the exam paper) in a natural, conversational tone).*
-
-### Good vs. Bad Feedback Examples (Stripping AI-Speak & Extreme Directness)
-
-**Avoid overly dramatic AI-evaluator words like "hallucinated" or "bizarre." Stick to the absolute basic facts of what happened without any extra flair or robotic emotion.**
-
-**[BAD] - Dramatic / AI-Speak:**
-"Response B is bizarre because it pretends it can actually hear the audio from the screenshot. Response A is much better because it didn't make things up and just used common sense to provide a straightforward list of the answers."
-*(Why it's bad: Words like 'bizarre', 'pretends', and 'common sense' make it sound like an AI trying too hard to mimic human emotion).*
-
-**[GOOD] - Stripped-Down & Factual:**
-"Response B falsely claims to have listened to the audio when the user only uploaded screenshots. Response A is much better because it just provides the answers and does not contain any false claims."
-*(Why it's good: It is stripped down to the absolute basics. It states the facts directly and professionally without trying to sound artificially 'chatty').*
-
-### Good vs. Bad Feedback Examples (Structural Pattern: Winner First)
-
-**Always state the WINNING response first, explaining why it won, followed by the LOSING response and why it failed. This creates a more positive, direct, and easier-to-read flow.**
-
-**[BAD] - Loser First:**
-"Response A completely ignores the prompt and does not answer the question about the baby's gender. Response B is much better because it directly addresses the question and correctly explains that the gender cannot be determined from the provided images."
-*(Why it's bad: It focuses on the failure before getting to the actual correct answer).*
-
-**[GOOD] - Winner First:**
-"Response B is much better because it directly addresses the question and correctly explains that the gender cannot be determined from the provided images, while Response A completely ignores the prompt and does not answer the question about the baby's gender."
-*(Why it's good: It immediately highlights the correct response and uses "while" to smoothly transition into the losing model's failure).*
-
-If the UI asks only for a winner:
-
-```markdown
-Response B
-
-Reason: B answers the current prompt more directly and does not invent details beyond the image.
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
 
 ## Final Checklist

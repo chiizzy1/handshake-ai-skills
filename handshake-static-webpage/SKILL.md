@@ -54,15 +54,22 @@ A worker usually must:
 
 ## Output Format
 
-For multiple-choice assessment questions, give the selected answer exactly or mark it with `[x]`.
-
-For free-response quality checks, keep the answer brief and concrete:
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-No - the description is too vague because it does not name colors, page sections, layout structure, or mood.
-```
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
 
-For writing a description, produce at least 100 words and describe the page from top to bottom.
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```
 
 ## Relationship To Other Handshake Skills
 

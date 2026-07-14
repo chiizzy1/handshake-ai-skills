@@ -96,6 +96,25 @@ On pass / "AI wins", answer confidence is N/A. Rate trace confidence only. On fa
 - Ignore badges, streaks, session stats, and unlock toasts when judging task quality. They are informational and should not drive prompt choice or verdicts.
 - If the platform says to watch a full video, do so only when the task actually provides video media. For ordinary Find the Boundary image tasks, inspect the provided image carefully.
 
+## Output Format
+
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
+```markdown
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```
+
 ## Final Checklist
 
 - Prompt is grounded and not ambiguous.

@@ -73,3 +73,24 @@ Your submission will be audited and graded on a 1–5 scale based on coverage (r
 *   **3 — Acceptable:** Captured core defects, but has real gaps. ~7/10 marks are genuine. May have a meaningful minority of false positives or vague descriptions.
 *   **2 — Weak:** Missed many obvious tells, and/or fewer than 7/10 marks are genuine. High rate of misplaced dots or generic notes.
 *   **1 — Unacceptable:** Ignored nearly all real tells, or submitted random/padded dots on normal content. Descriptions provide no useful information.
+
+
+## Output Format
+
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
+```markdown
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```
+

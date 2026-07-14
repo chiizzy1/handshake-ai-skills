@@ -100,6 +100,25 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
 - **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements." It is fine to use casual connectors like "but," "so," "because," and "also."
 - **Structure:** Use punchy, single-sentence comparisons when possible (e.g., "Response A is much better because it successfully generated a massive block of text without a single error, while Response B garbled several of the words.").
 
+## Output Format
+
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+
+```markdown
+### Input Analysis
+[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+
+### Response Analysis
+[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+
+### Final Ratings
+[List the ratings for all required criteria for the specific task.]
+
+### Justification
+[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```
+
 ## Final Checklist
 
 - Prompt requirements were listed mentally.
