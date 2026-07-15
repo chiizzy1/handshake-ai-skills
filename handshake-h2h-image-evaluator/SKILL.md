@@ -98,12 +98,21 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
 
 - **Length:** Justifications must always be 1-3 sentences total.
 - **Focus on the Big Picture:** Focus on overarching structural/physical flaws (like inconsistent physics, broken spatial logic, or impossible lighting) rather than nitpicking generic "AI textures" or plastic artifacts.
-- **Style:** Keep it concise, naturally flowing, and simple. Do not use overly polished English. Write like an average human being stating a reasonable conclusion.
+- **Style:** Keep it concise, naturally flowing, and simple. Do not use overly polished English. Write like an average human being casually explaining something to a friend.
+- **Vocabulary:** Do NOT use big academic words or long chains of adjectives (e.g., "mushy, abstract, distorted blob"). Keep the vocabulary basic and direct.
 - **Punctuation:** Do not use em dashes. Do not use colons (`:`) unless it's for an actual list. Use commas, periods, or "and" instead.
-- **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements." It is fine to use casual connectors like "but," "so," "because," and "also."
+- **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," "semantic elements," "rendering the central face," or "demonstrating a severe lack of."
 - **Examples of Good vs. Bad Tone:**
-  - *Bad (Too detailed/AI-obsessed):* "Response B is the clear winner because it maintains physically consistent weather logic. Response A hallucinates impossible horizontal rain streaks in the upper right sky and renders the hailstones as perfectly opaque white plastic balls."
+  - *Bad (Too detailed/AI-obsessed):* "Response B is the clear winner because it maintains physically consistent weather logic. Response A hallucinates impossible horizontal rain streaks..."
   - *Good (Punchy and focused):* "Response B is much better because it shows a physically consistent weather logic. Response A weather looks more like a painting."
+  - *Bad (Academic/Adjective Chains):* "Response A fails the prompt entirely by rendering the central face as a mushy, abstract, distorted blob, demonstrating a severe lack of detail and clarity."
+  - *Good (Average Human):* "Response B is much better because it actually made a realistic face that blends well with the shapes. Response A just turned the face into a blurry mess."
+  - *Bad (Robotic/Stiff):* "Response A is much better because it shows a realistic, physically accurate wall sit with normal human proportions. Response B totally failed on the body structure, generating a terrifying mess of extra hands and melted fingers."
+  - *Good (Casual/Natural):* "Response A is much better because she actually looks like a normal person doing a wall sit. Response B gave the girl a bunch of extra hands and totally messed up her arms."
+  - *Bad (Too simple, misses key visual observations):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A totally messed up the physics by copy-pasting the exact same cloud reflection onto multiple different levels of water."
+  - *Good (Descriptive but conversational):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A has clearly visible AI artifacts like perfectly even sized terraces with the exact same cloud reflections, and a filter effect that makes it look more like a painting than a real image."
+  - *Bad (Overly Analytical):* "Response A is superior due to its higher pixel density and structural clarity. Response B suffers from severe compression artifacts and loss of fine detail."
+  - *Good (User Example):* "Both responses correctly show the Venn relationship between Physics, Chemistry, and Biology and also correctly label their overlaps, but Response A is slightly better because it's much clearer and easier to read than Response B which is a little blurry."
 
 ## How to See (Comprehensive Photographic Analysis)
 
