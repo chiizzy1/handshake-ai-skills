@@ -141,6 +141,11 @@ Light is the most common source of physical inconsistency in AI-generated images
 - **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
 - **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
 
+### 4. Cross-Panel & Asset Consistency (Comics/Multi-Shot)
+When analyzing a comic page or an image with multiple views of the same subject, consistency is the highest priority. 
+- **Character Traits:** Does the character retain the exact same skin tone, hair style, and facial structure across every single panel? (e.g., A tan character suddenly having a pale white hand in one panel is a massive consistency failure).
+- **Clothing & Props:** Do the clothes, weapons, or surrounding props maintain their structural logic, colors, and textures across different shots?
+
 ## Output Format
 
 **CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
