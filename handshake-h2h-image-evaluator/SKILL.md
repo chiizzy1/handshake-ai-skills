@@ -19,160 +19,194 @@ Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the sour
 
 Before rating a live task, read `references/rubric.md`.
 
-## Workflow
+---
 
-1. Read the prompt before looking at the images.
-2. List the prompt requirements: subject, count, attributes, style, lighting, composition, text, relationships, and constraints.
-3. Inspect both images closely. Zoom into faces, hands, text, edges, shadows, and small objects.
-   - For T2I Magnifier Pairwise tasks, use the magnifier/full-resolution viewer whenever available. The magnifier is not a separate rubric; it is the inspection method for finding small prompt misses, artifact tells, text errors, and quality problems.
-4. Rate each axis independently:
-   - Overall Preference
-   - Instruction Following
-   - Visual Quality
-   - Absence of AI Artifacts
-5. Avoid ties unless both images are genuinely indistinguishable on that axis.
-6. Write a short justification with concrete visual evidence.
+## Step-by-Step Evaluation Process
 
-## Hard Gates
+Follow these steps in this exact order. Do NOT skip any step. Do NOT start writing your evaluation until you have completed Steps 1 through 6.
 
-- Do not rate from image appeal alone.
-- Do not reward an image for adding dramatic elements that the prompt did not request.
-- Do not ignore count, text, or relationship errors because the image looks realistic.
-- Do not treat stylization as an artifact when the prompt asks for that style.
-- Do not call an axis a tie when one image has a visible prompt, quality, or artifact advantage on that axis.
+### Step 1: Read the Prompt First
 
-## Macro Before Micro (The Reality Check)
+Read the full prompt before looking at either image. Write down in plain English what the prompt is asking for. Break it into pieces:
+- What is the subject?
+- How many things should there be?
+- What style is requested?
+- Is there specific text that needs to appear?
+- Are there specific colors, positions, or relationships described?
+- What is the overall mood or aesthetic?
 
-Before zooming in to grade fine details like text, dates, or textures, you must first perform a macro-level reality check on the scene's composition and physics.
+### Step 2: Look at Both Images Side by Side
 
-Do not let impressive text generation or highly detailed rendering blind you to fundamentally broken logic. Make specific, observable claims about the spatial relationships:
+Look at both images carefully. Do NOT start writing yet. Just look. Compare them visually. Ask yourself:
+- Do they look similar or very different?
+- Does anything immediately jump out as wrong in either one?
+- Which one feels more like what the prompt asked for?
 
-1. **Physical Relationships:** Does the interaction between subjects make sense? (e.g., Is the mechanic actually close enough to the car to reach it? Are objects floating instead of resting on surfaces?)
-2. **Structural Logic:** Does the environment obey physics? (e.g., If a car is raised 6 feet in the air, a mechanic would stand, not lie on a creeper. Are the lift posts actually supporting the car?)
-3. **Anatomical Plausibility:** Look at the entire body before the face. Are torsos impossibly long? Do necks bend at broken angles? Are there extra or phantom limbs hidden in the background?
+### Step 3: Check the Big Stuff First (Macro Reality Check)
 
-If an image fails the Macro Reality Check (e.g., severe anatomical failure or broken spatial logic), it must be heavily penalized on the Absence of AI Artifacts axis, even if its micro-details (like text or lighting) are flawless.
+Before zooming into small details like text or textures, check the overall scene first. Do not let impressive details distract you from fundamentally broken logic.
 
-## Axis Separation
+Ask yourself these questions about each image:
+- **Does the scene make physical sense?** Are objects floating? Are people in impossible positions? Do body parts connect properly?
+- **Are there extra or missing limbs?** Look at the entire body before the face. Check for phantom arms, extra fingers, or melted hands.
+- **Does the environment obey physics?** Do shadows fall in the right direction? Does lighting make sense?
 
-- Instruction Following: prompt compliance only.
-- Visual Quality: craft, composition, detail, color, exposure, framing, and seamlessness.
-- Absence of AI Artifacts: AI tells such as bad anatomy, waxy skin, garbled text, impossible lighting, distorted objects, and broken logic.
-- Overall Preference: holistic, based on what the user wanted. Instruction following usually matters more than small visual polish gaps.
+If an image fails this basic reality check, it must be penalized heavily, even if the small details look amazing.
 
-Do not double-penalize artifacts under Visual Quality unless the artifact also harms normal craft quality. Put AI tells in Absence of AI Artifacts.
+### Step 4: Check Consistency
+
+This matters a lot for comics, multi-panel illustrations, and any image with repeated characters or objects.
+- **Skin tone:** Does the same character keep the exact same skin color across every panel? (e.g., A tan character suddenly having a pale white hand in one panel is a massive fail.)
+- **Hair and face:** Does the character look like the same person in every panel?
+- **Clothing and props:** Do outfits and objects stay the same color and shape?
+- **Pose and expression:** In multi-panel images (like stages of grief), do the poses actually change to match the content? If a character has the exact same pose copy-pasted across every panel, that's lazy and bad.
+
+### Step 5: Check the Style
+
+Does the image match the *requested* style? This is about what the prompt asked for, NOT your personal preference.
+- If the prompt asks for "pixel art," check that it's actual pixel art (hard-edged blocks on a grid), not a smooth drawing with a mosaic filter.
+- If the prompt asks for "hand-painted," don't penalize legitimate hand-painting techniques (like 3D block lettering) just because you personally prefer flat paint.
+- If the prompt asks for "photograph," it should look like a real photo, not a digital painting.
+- If the prompt asks for "illustration," it should look illustrated, not photorealistic.
+
+**Do NOT let your personal style preferences influence the rating.** Only judge based on what the prompt actually requested.
+
+### Step 6: Rate Each Axis
+
+Now that you've looked carefully, rate each axis independently:
+- **Instruction Following:** Did the image do what the prompt asked? Count objects, check text spelling, verify relationships.
+- **Visual Quality:** How good does it look as a piece of art? Composition, color, detail, sharpness.
+- **Absence of AI Artifacts:** Are there weird AI mistakes like melted hands, garbled text, extra limbs, or broken physics?
+- **Overall Preference:** Combining everything above, which image is better?
+
+Do NOT double-penalize. If something is an AI artifact, put it under Absence of AI Artifacts, not Visual Quality (unless it also ruins the overall look).
+
+### Step 7: Write Your Evaluation
+
+Now you can write. Follow the output format below and use the tone rules below. Read the tone examples before writing anything.
+
+---
 
 ## Preference Severity
 
-- Use "Strongly Prefer" only when the winning response actually succeeds at the core prompt requirements and the losing response clearly fails, or when the quality gap is so large that the loser is basically unusable.
-- If both responses fail a core instruction (wrong count, missing subject, broken data accuracy, wrong layout), cap the overall preference at "Slightly Prefer." The winner is just less bad, not genuinely good.
-- "Slightly Prefer" is the right call when both share the same fundamental failure but one handles the rest of the prompt better.
+- **Strongly Prefer:** The winner actually succeeds at the core prompt and the loser clearly fails, OR the quality gap is so big that the loser is basically unusable.
+- **Slightly Prefer:** Both images share the same fundamental issue but one handles the rest better. Or one is just a little cleaner than the other.
+- **Tie:** Both images are genuinely equal on that axis. Avoid ties unless truly justified.
 
-## Presentation Template
+## Axis Separation
 
-Always present evaluations using this three-section structure:
+- Instruction Following = prompt compliance only.
+- Visual Quality = craft, composition, detail, color, exposure, framing, seamlessness.
+- Absence of AI Artifacts = AI tells like bad anatomy, waxy skin, garbled text, impossible lighting, distorted objects, broken logic.
+- Overall Preference = holistic, based on what the user wanted. Instruction following usually matters more than small visual polish gaps.
 
-### Section 1: Prompt Analysis
-Break down the prompt into its core requirements. List the subject, setting, count, attributes, style, and any constraints. This goes under a `### Prompt Analysis` heading.
+---
 
-### Section 2: Image Analysis
-Under a `### Image Analysis` heading, analyze each image separately with bold subheadings (`**Image A:**` and `**Image B:**`). For each image, cover:
-- How well it follows the prompt instructions
-- Whether the logic/rules of the depicted subject make sense
-- Any visual quality issues or AI artifacts spotted
+## How to See (Photographic Analysis)
 
-Be specific. Point to exact details, scores, text, positions, or objects you can see.
-
-### Section 3: Final Ratings and Justification
-List the ratings cleanly under a `### Final Ratings` heading:
-```
-- Instruction Following: Response A
-- Visual Quality: Response A
-- Absence of AI Artifacts: Response A
-- Overall Preference: Strongly Prefer A
-```
-
-Then write a `### Justification` paragraph. Keep it concise and grounded in what you actually saw.
-
-## Tone Rules
-
-- **Length:** Justifications must always be 1-3 sentences total.
-- **Focus on the Big Picture:** Focus on overarching structural/physical flaws (like inconsistent physics, broken spatial logic, or impossible lighting) rather than nitpicking generic "AI textures" or plastic artifacts.
-- **Style:** Keep it concise, naturally flowing, and simple. Do not use overly polished English. Write like an average human being casually explaining something to a friend.
-- **Vocabulary:** Do NOT use big academic words or long chains of adjectives (e.g., "mushy, abstract, distorted blob"). Keep the vocabulary basic and direct.
-- **Punctuation:** Do not use em dashes. Do not use colons (`:`) unless it's for an actual list. Use commas, periods, or "and" instead.
-- **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," "semantic elements," "rendering the central face," or "demonstrating a severe lack of."
-- **Examples of Good vs. Bad Tone:**
-  - *Bad (Too detailed/AI-obsessed):* "Response B is the clear winner because it maintains physically consistent weather logic. Response A hallucinates impossible horizontal rain streaks..."
-  - *Good (Punchy and focused):* "Response B is much better because it shows a physically consistent weather logic. Response A weather looks more like a painting."
-  - *Bad (Academic/Adjective Chains):* "Response A fails the prompt entirely by rendering the central face as a mushy, abstract, distorted blob, demonstrating a severe lack of detail and clarity."
-  - *Good (Average Human):* "Response B is much better because it actually made a realistic face that blends well with the shapes. Response A just turned the face into a blurry mess."
-  - *Bad (Robotic/Stiff):* "Response A is much better because it shows a realistic, physically accurate wall sit with normal human proportions. Response B totally failed on the body structure, generating a terrifying mess of extra hands and melted fingers."
-  - *Good (Casual/Natural):* "Response A is much better because she actually looks like a normal person doing a wall sit. Response B gave the girl a bunch of extra hands and totally messed up her arms."
-  - *Bad (Too simple, misses key visual observations):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A totally messed up the physics by copy-pasting the exact same cloud reflection onto multiple different levels of water."
-  - *Good (Descriptive but conversational):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A has clearly visible AI artifacts like perfectly even sized terraces with the exact same cloud reflections, and a filter effect that makes it look more like a painting than a real image."
-  - *Bad (Overly Analytical):* "Response A is much better because it provides a sharp, high-resolution image with crisp text. Response B has the exact same layout but is blurry, pixelated, and looks heavily compressed."
-  - *Good (User Example):* "Both responses correctly show the Venn relationship between Physics, Chemistry, and Biology and also correctly label their overlaps, but Response A is slightly better because it's much clearer and easier to read than Response B which is a little blurry."
-  - *Bad (Wordy/Over-explaining):* "Response B is much better because it provides clean, organized labels that actually point to the correct parts of the train. Response A is a confusing mess where the lines cross over each other and point to the completely wrong objects."
-  - *Good (Punchy/Direct):* "Response B is much better because its labels actually point to the correct parts of the train. Response A labels point to completely wrong objects."
-  - *Bad (Robotic/Academic Text Analysis):* "Response B is much better because it generated the complex text and table structure flawlessly. Response A failed because it has obvious AI text hallucinations, completely jumbling the KEYBOARD NAME header and messing up several letters in the table cells."
-  - *Good (Conversational Text Analysis):* "Response B is much better because it's writings are clear and easy to read and words spelled corectly. Response A has garbled spellings like in the first column header and in the sections of the the table."
-
-## How to See (Comprehensive Photographic Analysis)
-
-Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable photographic claims. Rely on the following three comprehensive pillars to evaluate visual quality and detect generation failures.
+Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable claims.
 
 ### 1. Composition & Framing
-Composition is how the elements of an image are arranged. It doesn't have to follow textbook rules perfectly, but it must look purposeful, not accidental.
-- **Subject Placement & Rule of Thirds:** Photographers use a 3x3 grid to compose images. Placing a subject on an intersection of these grid lines creates tension and directs the eye naturally. Conversely, if a subject sits dead center with large, empty negative space on both sides, the framing often reads as an accidental AI generation rather than a purposeful composition.
+- **Subject Placement & Rule of Thirds:** Placing a subject on a grid intersection creates tension and directs the eye naturally. A subject sitting dead center with empty space on both sides often reads as accidental.
 - **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
-- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus of the prompt?
-- **Negative Space:** Is the area around the subject providing intentional "breathing room," or is it unresolved and distractingly empty?
+- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus?
+- **Negative Space:** Is the area around the subject providing intentional breathing room, or is it distractingly empty?
 
 ### 2. Focus, Detail & Clarity
-Blur is NOT inherently a flaw. Shallow depth of field (a blurred background with a sharp subject) is a legitimate, highly common photographic choice used to isolate a subject.
-- **Natural Fall-off vs. AI Artifacts:** The question is whether the blur is intentional and consistent. Does the blur fall off smoothly and logically from the focal plane? In many AI-generated photos, the background is unnaturally sharp when it should be blurred, or it dissolves into soft blur in random, impossible patches with no optical logic.
-- **Sharpness:** Is the intended subject actually in focus? Check the edges and fine details (e.g., hair strands, eyelashes, text).
-- **Compression & Detail Loss:** Is fine detail (fabric weave, skin pores, grass blades) present where the image resolution should support it? Or is the image "mushy" in ways that look like a generation failure rather than an artistic choice?
+Blur is NOT inherently a flaw. Shallow depth of field is a legitimate photographic choice.
+- **Natural Fall-off vs. AI Artifacts:** Does the blur fall off smoothly and logically from the focal plane? Or does it dissolve into random, impossible patches?
+- **Sharpness:** Is the intended subject actually in focus? Check edges and fine details.
+- **Compression & Detail Loss:** Is fine detail present where it should be? Or is the image mushy in ways that look like a generation failure?
 
 ### 3. Light & Color Consistency
 Light is the most common source of physical inconsistency in AI-generated images.
-- **Light Source Direction:** Do all shadows fall consistently from one primary source? Is the light hitting faces, objects, and the background from the exact same angle? (e.g., In "Rembrandt lighting," one side of the face is lit, the other falls into shadow, and everything in the scene must be consistent with that single source).
-- **Softness vs. Harshness:** Harsh light (like direct sun) produces sharp, defined shadows. Diffused light (like overcast skies or studio softboxes) produces soft, blended shadow edges. Does the shadow quality logically match the apparent light source?
-- **Contrast Check:** Are the highlights "blown out" (pure white with zero detail) or are the shadows "crushed" (pure black, destroying visual information)?
-- **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
-- **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
+- **Light Source Direction:** Do all shadows fall consistently from one primary source?
+- **Softness vs. Harshness:** Harsh light = sharp shadows. Diffused light = soft shadows. Does the shadow quality match the apparent light source?
+- **Contrast Check:** Are highlights blown out or shadows crushed?
+- **Color Temperature:** Is the image consistently warm or cool? Mixed, clashing temperatures are a red flag.
+- **Saturation Consistency:** Is color intensity consistent across the image?
 
 ### 4. Cross-Panel & Asset Consistency (Comics/Multi-Shot)
-When analyzing a comic page or an image with multiple views of the same subject, consistency is the highest priority. 
-- **Character Traits:** Does the character retain the exact same skin tone, hair style, and facial structure across every single panel? (e.g., A tan character suddenly having a pale white hand in one panel is a massive consistency failure).
-- **Clothing & Props:** Do the clothes, weapons, or surrounding props maintain their structural logic, colors, and textures across different shots?
+When analyzing a comic page or multi-panel image, consistency is the highest priority.
+- **Character Traits:** Same skin tone, hair, and face across every panel.
+- **Clothing & Props:** Same colors, textures, and structural logic across shots.
+
+---
+
+## How to Write (Tone Rules)
+
+**This section is critical. Read these examples EVERY TIME before writing your evaluation.**
+
+### Rules
+- **Length:** Justifications must always be 1-3 sentences total.
+- **Focus:** Talk about the big, obvious differences. Don't nitpick tiny details when there's a huge structural problem.
+- **Style:** Write like an average person casually explaining something to a friend. Keep it simple and natural.
+- **Vocabulary:** Do NOT use big academic words or long chains of adjectives (e.g., "mushy, abstract, distorted blob"). Keep it basic and direct.
+- **Punctuation:** No em dashes. No colons unless it's for a list. Use commas, periods, or "and" instead.
+- **Banned Phrases:** Never use "Upon review of," "demonstrates superior," "holistic assessment," "semantic elements," "rendering the central face," "demonstrating a severe lack of," "generates a highly realistic," "fails on text generation," "AI text hallucinations," or "structural failure."
+
+### Bad vs. Good Examples (Study These)
+
+Every "Bad" example below is something that sounds robotic or over-analytical. Every "Good" example says the same thing but sounds like a normal person.
+
+- *Bad (Too detailed/AI-obsessed):* "Response B is the clear winner because it maintains physically consistent weather logic. Response A hallucinates impossible horizontal rain streaks..."
+- *Good (Punchy and focused):* "Response B is much better because it shows a physically consistent weather logic. Response A weather looks more like a painting."
+
+- *Bad (Academic/Adjective Chains):* "Response A fails the prompt entirely by rendering the central face as a mushy, abstract, distorted blob, demonstrating a severe lack of detail and clarity."
+- *Good (Average Human):* "Response B is much better because it actually made a realistic face that blends well with the shapes. Response A just turned the face into a blurry mess."
+
+- *Bad (Robotic/Stiff):* "Response A is much better because it shows a realistic, physically accurate wall sit with normal human proportions. Response B totally failed on the body structure, generating a terrifying mess of extra hands and melted fingers."
+- *Good (Casual/Natural):* "Response A is much better because she actually looks like a normal person doing a wall sit. Response B gave the girl a bunch of extra hands and totally messed up her arms."
+
+- *Bad (Too simple, misses key visual observations):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A totally messed up the physics by copy-pasting the exact same cloud reflection onto multiple different levels of water."
+- *Good (Descriptive but conversational):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A has clearly visible AI artifacts like perfectly even sized terraces with the exact same cloud reflections, and a filter effect that makes it look more like a painting than a real image."
+
+- *Bad (Overly Analytical):* "Response A is much better because it provides a sharp, high-resolution image with crisp text. Response B has the exact same layout but is blurry, pixelated, and looks heavily compressed."
+- *Good (User Example):* "Both responses correctly show the Venn relationship between Physics, Chemistry, and Biology and also correctly label their overlaps, but Response A is slightly better because it's much clearer and easier to read than Response B which is a little blurry."
+
+- *Bad (Wordy/Over-explaining):* "Response B is much better because it provides clean, organized labels that actually point to the correct parts of the train. Response A is a confusing mess where the lines cross over each other and point to the completely wrong objects."
+- *Good (Punchy/Direct):* "Response B is much better because its labels actually point to the correct parts of the train. Response A labels point to completely wrong objects."
+
+- *Bad (Robotic/Academic Text Analysis):* "Response B is much better because it generated the complex text and table structure flawlessly. Response A failed because it has obvious AI text hallucinations, completely jumbling the KEYBOARD NAME header and messing up several letters in the table cells."
+- *Good (Conversational Text Analysis):* "Response B is much better because it's writings are clear and easy to read and words spelled corectly. Response A has garbled spellings like in the first column header and in the sections of the the table."
+
+---
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Present your evaluation directly in the chat using this exact template:
 
 ```markdown
 ### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+[Explain what the prompt is asking for in plain English.]
 
 ### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+**Response A:**
+[What it got right and wrong. Be specific but conversational.]
+
+**Response B:**
+[What it got right and wrong. Be specific but conversational.]
 
 ### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+- Instruction Following: [Response A / Response B / Tie]
+- Visual Quality: [Response A / Response B / Tie]
+- Absence of AI Artifacts: [Response A / Response B / Tie]
+- Overall Preference: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B]
 
 ### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[1-3 sentences. Write like you're texting a friend. No big words. Just say what you see.]
 ```
 
-## Final Checklist
+---
 
-- Prompt requirements were listed mentally.
-- Both images were zoomed/inspected.
-- Counts, relationships, text, and style were checked.
-- Visual Quality and AI Artifacts were not mixed up.
-- Ties were avoided unless truly justified.
-- Macro-level spatial logic and anatomy were verified before grading fine details.
-- Final wording is specific, plain, and image-grounded.
+## Final Checklist (Review Before Submitting)
+
+- [ ] I read the prompt BEFORE looking at the images.
+- [ ] I looked at BOTH images carefully before writing anything.
+- [ ] I checked the big stuff first (broken bodies, missing objects, wrong count).
+- [ ] I checked consistency (skin tone, clothing, props across panels).
+- [ ] I checked if the style matches what the prompt actually requested, not my personal preference.
+- [ ] I rated each axis independently without double-penalizing.
+- [ ] I avoided ties unless both images are genuinely equal.
+- [ ] My justification is 1-3 sentences, written like a normal person talking.
+- [ ] I re-read the tone examples before writing my justification.
