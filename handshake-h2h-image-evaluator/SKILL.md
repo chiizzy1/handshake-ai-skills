@@ -115,6 +115,8 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
   - *Good (User Example):* "Both responses correctly show the Venn relationship between Physics, Chemistry, and Biology and also correctly label their overlaps, but Response A is slightly better because it's much clearer and easier to read than Response B which is a little blurry."
   - *Bad (Wordy/Over-explaining):* "Response B is much better because it provides clean, organized labels that actually point to the correct parts of the train. Response A is a confusing mess where the lines cross over each other and point to the completely wrong objects."
   - *Good (Punchy/Direct):* "Response B is much better because its labels actually point to the correct parts of the train. Response A labels point to completely wrong objects."
+  - *Bad (Robotic/Academic Text Analysis):* "Response B is much better because it generated the complex text and table structure flawlessly. Response A failed because it has obvious AI text hallucinations, completely jumbling the KEYBOARD NAME header and messing up several letters in the table cells."
+  - *Good (Conversational Text Analysis):* "Response B is much better because it's writings are clear and easy to read and words spelled corectly. Response A has garbled spellings like in the first column header and in the sections of the the table."
 
 ## How to See (Comprehensive Photographic Analysis)
 
