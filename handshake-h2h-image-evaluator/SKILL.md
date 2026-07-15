@@ -7,6 +7,8 @@ description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise i
 
 ## Core Rule
 
+**NEVER BE AGREEABLE FOR ITS OWN SAKE.** Always verify things independently. Do not rely blindly on user claims or assumptions, as the user might be wrong or missing information. If a task requires factual knowledge (like physics, anatomy, or astronomy), browse the web or use external tools to verify the ground truth before evaluating.
+
 Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the source of truth:
 
 - `HANDSHAKE-AI/pdfs/handshae-ai-Image Evaluation.pdf`
@@ -95,10 +97,38 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
 ## Tone Rules
 
 - **Length:** Justifications must always be 1-3 sentences total.
+- **Focus on the Big Picture:** Focus on overarching structural/physical flaws (like inconsistent physics, broken spatial logic, or impossible lighting) rather than nitpicking generic "AI textures" or plastic artifacts.
 - **Style:** Keep it concise, naturally flowing, and simple. Do not use overly polished English. Write like an average human being stating a reasonable conclusion.
 - **Punctuation:** Do not use em dashes. Do not use colons (`:`) unless it's for an actual list. Use commas, periods, or "and" instead.
 - **Phrasing:** Avoid phrases like "Upon review of," "demonstrates superior," "holistic assessment," or "semantic elements." It is fine to use casual connectors like "but," "so," "because," and "also."
-- **Structure:** Use punchy, single-sentence comparisons when possible (e.g., "Response A is much better because it successfully generated a massive block of text without a single error, while Response B garbled several of the words.").
+- **Examples of Good vs. Bad Tone:**
+  - *Bad (Too detailed/AI-obsessed):* "Response B is the clear winner because it maintains physically consistent weather logic. Response A hallucinates impossible horizontal rain streaks in the upper right sky and renders the hailstones as perfectly opaque white plastic balls."
+  - *Good (Punchy and focused):* "Response B is much better because it shows a physically consistent weather logic. Response A weather looks more like a painting."
+
+## How to See (Comprehensive Photographic Analysis)
+
+Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable photographic claims. Rely on the following three comprehensive pillars to evaluate visual quality and detect generation failures.
+
+### 1. Composition & Framing
+Composition is how the elements of an image are arranged. It doesn't have to follow textbook rules perfectly, but it must look purposeful, not accidental.
+- **Subject Placement & Rule of Thirds:** Photographers use a 3x3 grid to compose images. Placing a subject on an intersection of these grid lines creates tension and directs the eye naturally. Conversely, if a subject sits dead center with large, empty negative space on both sides, the framing often reads as an accidental AI generation rather than a purposeful composition.
+- **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
+- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus of the prompt?
+- **Negative Space:** Is the area around the subject providing intentional "breathing room," or is it unresolved and distractingly empty?
+
+### 2. Focus, Detail & Clarity
+Blur is NOT inherently a flaw. Shallow depth of field (a blurred background with a sharp subject) is a legitimate, highly common photographic choice used to isolate a subject.
+- **Natural Fall-off vs. AI Artifacts:** The question is whether the blur is intentional and consistent. Does the blur fall off smoothly and logically from the focal plane? In many AI-generated photos, the background is unnaturally sharp when it should be blurred, or it dissolves into soft blur in random, impossible patches with no optical logic.
+- **Sharpness:** Is the intended subject actually in focus? Check the edges and fine details (e.g., hair strands, eyelashes, text).
+- **Compression & Detail Loss:** Is fine detail (fabric weave, skin pores, grass blades) present where the image resolution should support it? Or is the image "mushy" in ways that look like a generation failure rather than an artistic choice?
+
+### 3. Light & Color Consistency
+Light is the most common source of physical inconsistency in AI-generated images.
+- **Light Source Direction:** Do all shadows fall consistently from one primary source? Is the light hitting faces, objects, and the background from the exact same angle? (e.g., In "Rembrandt lighting," one side of the face is lit, the other falls into shadow, and everything in the scene must be consistent with that single source).
+- **Softness vs. Harshness:** Harsh light (like direct sun) produces sharp, defined shadows. Diffused light (like overcast skies or studio softboxes) produces soft, blended shadow edges. Does the shadow quality logically match the apparent light source?
+- **Contrast Check:** Are the highlights "blown out" (pure white with zero detail) or are the shadows "crushed" (pure black, destroying visual information)?
+- **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
+- **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
 
 ## Output Format
 
