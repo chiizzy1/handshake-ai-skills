@@ -111,7 +111,7 @@ Then write a `### Justification` paragraph. Keep it concise and grounded in what
   - *Good (Casual/Natural):* "Response A is much better because she actually looks like a normal person doing a wall sit. Response B gave the girl a bunch of extra hands and totally messed up her arms."
   - *Bad (Too simple, misses key visual observations):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A totally messed up the physics by copy-pasting the exact same cloud reflection onto multiple different levels of water."
   - *Good (Descriptive but conversational):* "Response B is much better because it looks like a real photograph with natural water reflections. Response A has clearly visible AI artifacts like perfectly even sized terraces with the exact same cloud reflections, and a filter effect that makes it look more like a painting than a real image."
-  - *Bad (Overly Analytical):* "Response A is superior due to its higher pixel density and structural clarity. Response B suffers from severe compression artifacts and loss of fine detail."
+  - *Bad (Overly Analytical):* "Response A is much better because it provides a sharp, high-resolution image with crisp text. Response B has the exact same layout but is blurry, pixelated, and looks heavily compressed."
   - *Good (User Example):* "Both responses correctly show the Venn relationship between Physics, Chemistry, and Biology and also correctly label their overlaps, but Response A is slightly better because it's much clearer and easier to read than Response B which is a little blurry."
 
 ## How to See (Comprehensive Photographic Analysis)
