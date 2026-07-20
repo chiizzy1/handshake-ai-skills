@@ -21,7 +21,7 @@ Current source instruction:
 - Judge which candidate response is more acceptable for the prompt instructions and the displayed image or video.
 - Review the prompt and media carefully, including all images or videos shown for the current item.
 - Read both candidate responses and rate them on the configured dimensions.
-- Choose the response that handles the prompt more effectively, or use tie / I don't know when appropriate.
+- Choose the response that handles the prompt more effectively, or use `Tie` when appropriate.
 - For multi-turn prompts, treat previous turns as shared context only. Rate the candidate responses against the current/final turn, not earlier turns.
 - Prefer responses that accurately reference visible image/video details, provide clear/correct/complete information, follow the prompt and stay on topic, and avoid unnecessary verbosity, repetition, or speculation.
 
@@ -35,7 +35,7 @@ Before rating a live TI2T task, read `references/rubric.md`.
 - Do not punish a response for being concise if it fully answers the prompt.
 - Do not judge earlier conversation turns. Use them only as context for the current/final user prompt.
 - **Verification rule:** if a fact is visible in the displayed media, verify it from the media only. If the prompt depends on outside real-world facts (current prices, specifications, dates, verifiable claims), verify them with your web-search tool before rating. Do not rely on internal knowledge alone for outside facts, and do not go looking online for what the media already shows.
-- Do not force a winner when the UI allows tie / I don't know and the responses are genuinely equivalent or impossible to judge.
+- Do not force a winner when the responses are genuinely equivalent or impossible to judge; that is what `Tie` is for. Equally, do not tie-spam a close call.
 
 ## Interaction Protocol
 
@@ -63,25 +63,28 @@ END that response with **"Awaiting your command to grade."** Do not generate the
 5. Read Response A fully.
 6. Read Response B fully.
 7. Check each response against the prompt and media.
-8. Rate the configured dimensions independently.
-9. Pick the better response overall, or tie / I don't know only when justified.
-10. Give a short reason tied to the image/video and response text.
+8. Rate every dimension independently, for Response A and for Response B.
+9. Pick the overall preference from those ratings, using `Tie` only when justified.
+10. Write the Open Feedback: a short reason tied to the image/video and the response text.
 
 ## Required Rating Panel
 
-TI2T tasks usually require this fixed rating sequence:
+TI2T is an ELO comparison. The panel rates **both responses on every dimension**, then asks for one overall preference on a five-point scale.
 
-1. Overall: `Response A`, `Response B`, `Both Good`, or `Both Bad`.
-2. Factuality: `Major issue`, `Minor issue`, or `No issue`.
-3. Instruction Following: `Major issue`, `Minor issue`, or `No issue`.
-4. Helpfulness: `Major issue`, `Minor issue`, or `No issue`.
-5. Style and Format: `Major issue`, `Minor issue`, or `No issue`.
+1. Factuality: `Major Issue`, `Minor Issue`, or `No Issue` — **for Response A and again for Response B**.
+2. Instruction Following: same three levels, for A and for B.
+3. Helpfulness: same three levels, for A and for B.
+4. Style and Format: same three levels, for A and for B.
+5. Overall: `Strongly Prefer A`, `Slightly Prefer A`, `Tie`, `Slightly Prefer B`, or `Strongly Prefer B`.
+6. Open Feedback: minimum 100 characters.
 
-Choose Overall by comparing both responses. Then assign the four issue ratings using the response/output the UI is asking you to rate. If the UI does not show separate per-response issue controls, apply the issue ratings to the response you selected overall. If Overall is `Both Good` or `Both Bad`, rate the pair according to the shared quality level and explain briefly.
+Rate each response on its own merits first, then pick the overall preference from that evidence. Do not rate only the response you preferred: every dimension needs a level for both A and B.
+
+Use the exact labels shown by the task UI. If a UI variant offers different choices (for example an `I don't know` option), follow the UI.
 
 ## Dimension Meanings
 
-- Overall: which response handles the current prompt more effectively.
+- Overall: which response handles the current prompt more effectively, and by how much.
 - Factuality: whether the rated response makes correct claims about the image/video or any needed outside facts.
 - Instruction Following: whether the rated response answers the asked question, follows constraints, and stays on topic.
 - Helpfulness: whether the rated response gives enough useful information without missing key parts of the prompt.
@@ -91,13 +94,15 @@ Use the exact labels shown in the UI. If the UI uses different dimensions, follo
 
 ## Choosing the Overall Label
 
-The Overall control offers `Response A`, `Response B`, `Both Good`, and `Both Bad`. There is no strong/slight gradient — pick one of those four.
+The Overall control is a five-point preference scale, so the strength of the gap matters, not just the winner.
 
-- **Pick `Response A` or `Response B`** when one response has a fundamental defect (a Factuality issue, an Instruction Following issue, or a severe Helpfulness failure) and the other succeeds. Also pick a side when both complete the core task without visible errors but one is clearly better on polish — formatting, clearer explanation, or a more helpful tone.
-- **Pick `Both Good`** when both responses genuinely succeed and no defensible difference separates them.
-- **Pick `Both Bad`** when both responses genuinely fail.
+- **Strongly Prefer A / B** when one response has a fundamental defect (a Factuality issue, an Instruction Following failure, or a severe Helpfulness gap) and the other succeeds.
+- **Slightly Prefer A / B** when both complete the core task without visible errors but one is better on polish: formatting, a clearer explanation, or a more helpful tone.
+- **Tie** only when the responses are genuinely equivalent, the media is not readable enough to decide, or the prompt is ambiguous and both readings are reasonable.
 
-Do not use `Both Good` or `Both Bad` just because the choice is close. Use them only when both responses genuinely belong in the same bucket.
+Do not tie-spam. Picking `Tie`, or `Slightly Prefer` on every dimension, reads as low effort and lowers the quality score. Use `Tie` only when the responses are truly indistinguishable, not when the call is merely close.
+
+Keep the overall preference consistent with the per-dimension ratings you assigned: if A carries a Major Issue and B carries none, the preference should not favor A.
 
 ## How to See
 
@@ -116,17 +121,21 @@ For photographic analysis fundamentals (composition, focus, lighting), read `../
 [Analyze Response B against the prompt and media.]
 
 ### Final Ratings
-- Overall: [Response A | Response B | Both Good | Both Bad]
-- Factuality: [Major issue | Minor issue | No issue]
-- Instruction Following: [Major issue | Minor issue | No issue]
-- Helpfulness: [Major issue | Minor issue | No issue]
-- Style and Format: [Major issue | Minor issue | No issue]
 
-### Justification
-[Brief, natural-language reason tied to the media and the response text.]
+| Dimension | Response A | Response B |
+|---|---|---|
+| Factuality | No Issue | Minor Issue |
+| Instruction Following | No Issue | No Issue |
+| Helpfulness | No Issue | Major Issue |
+| Style and Format | No Issue | No Issue |
+
+**Overall: [Strongly Prefer A | Slightly Prefer A | Tie | Slightly Prefer B | Strongly Prefer B]**
+
+### Open Feedback
+[2-3 concise sentences, minimum 100 characters, naming the main difference and sounding like a person wrote it.]
 ```
 
-Use the exact labels shown by the task UI. If the UI shows different dimensions or choices, follow the UI.
+Every dimension needs a level for both responses. Use the exact labels shown by the task UI; if the UI shows different dimensions or choices, follow the UI.
 
 ## Final Checklist
 
@@ -135,7 +144,8 @@ Use the exact labels shown by the task UI. If the UI shows different dimensions 
 - Both responses read fully.
 - Visible details checked against each response.
 - Earlier turns used only as context.
-- Overall selected before assigning issue ratings.
-- Factuality, Instruction Following, Helpfulness, and Style/Format issue levels selected from the UI choices.
+- Every dimension rated for BOTH Response A and Response B.
+- Overall preference chosen on the five-point scale and consistent with those ratings.
 - Speculation, repetition, and unsupported claims checked.
-- Tie / I don't know used only when genuinely appropriate.
+- `Tie` used only when genuinely indistinguishable, not for close calls.
+- Open Feedback is 2-3 sentences and at least 100 characters.

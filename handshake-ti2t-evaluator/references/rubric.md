@@ -17,11 +17,12 @@ The task usually shows:
 - optional conversation history;
 - two candidate text responses;
 - a fixed rating panel:
-  - Overall: Response A, Response B, Both Good, Both Bad;
-  - Factuality: Major issue, Minor issue, No issue;
-  - Instruction Following: Major issue, Minor issue, No issue;
-  - Helpfulness: Major issue, Minor issue, No issue;
-  - Style and Format: Major issue, Minor issue, No issue.
+  - Factuality: Major Issue, Minor Issue, No Issue - rated for Response A and again for Response B;
+  - Instruction Following: same three levels, for A and for B;
+  - Helpfulness: same three levels, for A and for B;
+  - Style and Format: same three levels, for A and for B;
+  - Overall: Strongly Prefer A, Slightly Prefer A, Tie, Slightly Prefer B, Strongly Prefer B;
+  - Open Feedback: minimum 100 characters.
 
 Your job is to decide which response is more acceptable for the prompt instructions and displayed media.
 
@@ -59,40 +60,34 @@ When history is shown:
 5. Read Response A.
 6. Read Response B.
 7. Check each response against the media and prompt.
-8. Choose Overall first.
-9. Assign issue ratings for Factuality, Instruction Following, Helpfulness, and Style/Format.
+8. Assign issue ratings for Factuality, Instruction Following, Helpfulness, and Style/Format, separately for Response A and Response B.
+9. Choose the Overall preference from those ratings.
 
 ## Rating Panel Rules
 
 ### Overall Choices
 
-Response A:
+The Overall control is a five-point preference scale, so record the size of the gap, not just the winner.
 
-- A is clearly better for the current prompt and media.
+Strongly Prefer A / Strongly Prefer B:
 
-Response B:
+- One response has a fundamental defect (a Factuality issue, an Instruction Following failure, or a severe Helpfulness gap) and the other succeeds.
 
-- B is clearly better for the current prompt and media.
+Slightly Prefer A / Slightly Prefer B:
 
-Both Good:
+- Both complete the core task without visible errors, but one is better on polish: formatting, clearer explanation, or a more helpful tone.
 
-- Both responses are acceptable and neither is meaningfully stronger.
+Tie:
 
-Both Bad:
+- The responses are genuinely equivalent, the media is not readable enough to decide, or the prompt is ambiguous and both readings are reasonable.
 
-- Both responses fail in a meaningful way and neither is clearly more acceptable.
-
-Do not use Both Good or Both Bad just because the choice is close. Use them only when both responses genuinely belong in the same bucket.
+Do not tie-spam. Selecting Tie, or Slightly Prefer across every dimension, reads as low effort and lowers the quality score. Use Tie only when the responses are truly indistinguishable, not when the call is merely close.
 
 ### Issue Ratings
 
-If the UI gives one set of issue ratings after the Overall choice, rate the response you selected overall unless the UI clearly says otherwise.
+Rate every dimension for both responses. The panel asks for Response A and Response B separately on each of Factuality, Instruction Following, Helpfulness, and Style and Format.
 
-If Overall is Both Good, use `No issue` unless both responses share a real issue.
-
-If Overall is Both Bad, mark the issue levels that best describe the shared problem. If they fail for different reasons, mark the most important issue and mention it briefly.
-
-If the UI later shows separate issue ratings for A and B, rate each response separately.
+Keep the Overall preference consistent with those ratings: if A carries a Major Issue and B carries none, the preference should not favor A.
 
 ## Overall
 
@@ -108,12 +103,11 @@ Prefer the response that:
 
 Do not choose a response just because it is longer or sounds more confident.
 
-Tie / I don't know is appropriate only when:
+Tie is appropriate only when:
 
 - both responses are essentially equal;
 - the media is not readable enough to decide;
-- the prompt is ambiguous and both interpretations are reasonable;
-- the UI explicitly allows it.
+- the prompt is ambiguous and both interpretations are reasonable.
 
 ## Factuality
 
@@ -252,4 +246,7 @@ Bad:
 - Both responses compared against the same prompt.
 - Factuality, instruction following, helpfulness, and style kept separate.
 - Outside facts verified when necessary.
-- Tie / I don't know used only when allowed and justified.
+- Every dimension rated for both Response A and Response B.
+- Overall preference chosen on the five-point scale and consistent with those ratings.
+- Tie used only when genuinely indistinguishable, not for close calls.
+- Open Feedback is at least 100 characters.
