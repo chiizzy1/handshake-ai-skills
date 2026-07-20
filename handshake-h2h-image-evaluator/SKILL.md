@@ -7,7 +7,9 @@ description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise i
 
 ## Core Rule
 
-**NEVER BE AGREEABLE FOR ITS OWN SAKE.** Always verify things independently. Do not rely blindly on user claims or assumptions, as the user might be wrong or missing information. If a task requires factual knowledge (like physics, anatomy, or astronomy), browse the web or use external tools to verify the ground truth before evaluating.
+**NEVER BE AGREEABLE FOR ITS OWN SAKE.** Always verify things independently. Do not rely blindly on user claims or assumptions, as the user might be wrong or missing information. 
+
+**ONLINE VERIFICATION REQUIREMENT:** For any prompts containing factual data, historical events, or real-world information that can be verified online, you MUST always conduct online research and confirm the accuracy of the data presented in the images before writing your evaluation. Do not simply rate based on visual appearance if the factual details can be fact-checked. If a task requires factual knowledge (like physics, anatomy, astronomy, or historical dates), browse the web or use external tools to verify the ground truth.
 
 Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the source of truth:
 
