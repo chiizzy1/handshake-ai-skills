@@ -4,8 +4,8 @@ Use this reference for UD Caption ELO tasks.
 
 ## Source PDFs
 
-- `handshake-ai-UD Caption Elo Task example-1.pdf`
-- `handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-1.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
 - `HANDSHAKE-AI/guidelines.md` UD Caption ELO section
 
 ## Task Shape

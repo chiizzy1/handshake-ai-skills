@@ -5,11 +5,17 @@ description: Evaluate Handshake Image2Code side-by-side tasks. Use when comparin
 
 # Handshake Image2Code Evaluator
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
-Use the Image2Code guidelines as the source of truth:
+Use the Image2Code guidelines as the source of truth when they are present:
 
-- `HANDSHAKE-AI/pdfs/image2code.md`
+- `HANDSHAKE-AI/pdfs/image2code.md` (no such file was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
 
 Before rating a live task, read `references/rubric.md`.
 
@@ -75,17 +81,25 @@ Use the exact labels shown by the task UI.
 
 ```markdown
 ### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+[Establish the objective facts from the reference image or reference frames and the user prompt. This is the spec both outputs are measured against.]
 
 ### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+**Response A:**
+[What it matches and what it misses versus the reference.]
+
+**Response B:**
+[What it matches and what it misses versus the reference.]
 
 ### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+- Structure & Instruction Following: [A much better / A slightly better / Tie / B slightly better / B much better]
+- Visual Quality: [A much better / A slightly better / Tie / B slightly better / B much better]
+- Text & Data Accuracy: [A much better / A slightly better / Tie / B slightly better / B much better]
+- Overall Preference: [A much better / A slightly better / Tie / B slightly better / B much better]
+
+Use the exact labels shown by the task UI. On live tasks, N/A is available when a dimension truly does not apply. On quiz tasks the scale may collapse to A is better / Tie / B is better, and N/A is not offered.
 
 ### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[2 to 3 sentences naming concrete visual or text evidence. Write like a normal person comparing the render to the reference.]
 ```
 
 ## Comment Style

@@ -1,9 +1,15 @@
 ---
 name: handshake-ego-phys-understanding
-description: Create or evaluate Handshake Egocentric Physical Understanding tasks. Use when Codex must write image-dependent multiple-choice questions from first-person images, handle categories like Counting, Safety, Task Planning, Trajectory Reasoning, Grasp Affordance, Spatial Reasoning, State Estimation, Task Progress, or decide skip/change-category for Ego Phys tasks.
+description: Create or evaluate Handshake Egocentric Physical Understanding tasks. Use when asked to write image-dependent multiple-choice questions from first-person images, handle categories like Counting, Safety, Task Planning, Trajectory Reasoning, Grasp Affordance, Spatial Reasoning, State Estimation, Task Progress, or decide skip/change-category for Ego Phys tasks.
 ---
 
 # Handshake Ego Phys Understanding
+
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
 ## Core Rule
 
@@ -42,21 +48,26 @@ For multi-frame tasks, the question must require both images. If covering Image 
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answer in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+### Scene Read
+[Objects, object states (open/closed, on/off, in progress), the action underway, and any hazards or constraints visible in the image(s).]
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+### Decision
+[Proceed, change category (name the new category and why), or skip (name the reason).]
 
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+### Question
+[One image-dependent question that meets the assigned category standard.]
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+### Answer Choices
+A. [choice]
+B. [choice]
+C. [choice]
+D. [choice]
+
+### Correct Answer
+[Letter, plus one line naming the visible evidence that makes it unambiguous.]
 ```
 
 ## Final Checklist

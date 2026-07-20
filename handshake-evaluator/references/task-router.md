@@ -2,10 +2,12 @@
 
 Use this reference before routing a Handshake task or building new Handshake task rules.
 
+Skill paths below are relative to the skills repo root (the folder containing `handshake-evaluator/`). `HANDSHAKE-AI/...` is a sibling folder of that repo in the workspace root.
+
 ## Non-Negotiables
 
 - The relevant Handshake PDF is the single source of truth when one exists. If no PDF exists for a task type, use the visible task instruction panel as the current source of truth.
-- Do not apply TELUS rules to Handshake. TELUS is only a structural model for skills.
+- Do not apply TELUS (a separate annotation platform with its own rubrics) rules to Handshake. TELUS is only a structural model for skills.
 - Do not agree with the user when the PDF points elsewhere.
 - Do not rate from a first impression. Read the prompt, inspect the media, then apply the exact task rubric.
 - If a task type is unclear, do not guess from the file name alone. Use the UI labels, inputs, and response format.
@@ -38,6 +40,28 @@ Foundation rules transfer into image comparison tasks only when they support the
 
 ## Task Families
 
+Quick index. The detailed sections below carry the inputs, axes, and special rules for each family — read the matching one before rating.
+
+| Task cues | Skill | Path |
+|---|---|---|
+| Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `handshake-h2h-image-evaluator/SKILL.md` |
+| Prompt + two videos, "less AI-generated" | `handshake-t2v-evaluator` | `handshake-t2v-evaluator/SKILL.md` |
+| Video-reasoning row audit, queue names, `X out of Y` | `handshake-videorl-evaluator` | `handshake-videorl-evaluator/SKILL.md` |
+| Media + prompt + two text responses | `handshake-ti2t-evaluator` | `handshake-ti2t-evaluator/SKILL.md` |
+| Reference image(s) + edit prompt + two outputs | `handshake-r2i-i2i-evaluator` | `handshake-r2i-i2i-evaluator/SKILL.md` |
+| Input + single edited image, Q1/Q2/Q3 Yes/No | `handshake-i2i-pixel-aligned` | `handshake-i2i-pixel-aligned/SKILL.md` |
+| Reference image + two image/caption pairs | `handshake-ud-caption-evaluator` | `handshake-ud-caption-evaluator/SKILL.md` |
+| Two rendered websites side by side | `handshake-visual-coding-evaluator` | `handshake-visual-coding-evaluator/SKILL.md` |
+| Reference image + two static rendered outputs | `handshake-image2code-evaluator` | `handshake-image2code-evaluator/SKILL.md` |
+| Single image + dots/notes to place | `handshake-annot-critic` | `handshake-annot-critic/SKILL.md` |
+| Existing critique to grade 1-5 and rework | `handshake-critique-rework` | `handshake-critique-rework/SKILL.md` |
+| First-person frames, write a physical-reasoning MCQ | `handshake-ego-phys-understanding` | `handshake-ego-phys-understanding/SKILL.md` |
+| Grounding prompt + boxes/points/counts | `handshake-find-boundary` | `handshake-find-boundary/SKILL.md` |
+| Instagram media, annotate visible entities | `handshake-ig-entity-tagging` | `handshake-ig-entity-tagging/SKILL.md` |
+| Yellow-box target vs reference, same entity? | `handshake-ig-entity-verification` | `handshake-ig-entity-verification/SKILL.md` |
+| Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `handshake-text-to-code-elo-evaluator/SKILL.md` |
+| Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `handshake-static-webpage/SKILL.md` |
+
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
 Inputs:
@@ -52,7 +76,7 @@ Main question:
 
 Skill:
 
-- `handshake-h2h-image-evaluator`
+- `handshake-h2h-image-evaluator` (read `handshake-h2h-image-evaluator/SKILL.md`)
 
 Axes:
 
@@ -75,7 +99,7 @@ Main question:
 
 Skill:
 
-- `handshake-t2v-evaluator`
+- `handshake-t2v-evaluator` (read `handshake-t2v-evaluator/SKILL.md`)
 
 Criteria:
 
@@ -104,7 +128,7 @@ Main question:
 
 Skill:
 
-- `handshake-videorl-evaluator`
+- `handshake-videorl-evaluator` (read `handshake-videorl-evaluator/SKILL.md`)
 
 Queues:
 
@@ -140,7 +164,7 @@ Main question:
 
 Skill:
 
-- `handshake-ti2t-evaluator`
+- `handshake-ti2t-evaluator` (read `handshake-ti2t-evaluator/SKILL.md`)
 
 Common dimensions:
 
@@ -168,7 +192,7 @@ Main question:
 
 Skill:
 
-- `handshake-r2i-i2i-evaluator`
+- `handshake-r2i-i2i-evaluator` (read `handshake-r2i-i2i-evaluator/SKILL.md`)
 
 Axes:
 
@@ -193,7 +217,7 @@ Main question:
 
 Skill:
 
-- `handshake-ud-caption-evaluator`
+- `handshake-ud-caption-evaluator` (read `handshake-ud-caption-evaluator/SKILL.md`)
 
 Criteria:
 
@@ -218,7 +242,7 @@ Main question:
 
 Skill:
 
-- `handshake-visual-coding-evaluator`
+- `handshake-visual-coding-evaluator` (read `handshake-visual-coding-evaluator/SKILL.md`)
 
 Axes:
 
@@ -249,7 +273,7 @@ Main question:
 
 Skill:
 
-- `handshake-image2code-evaluator`
+- `handshake-image2code-evaluator` (read `handshake-image2code-evaluator/SKILL.md`)
 
 Axes:
 
@@ -279,7 +303,7 @@ Main question:
 
 Skill:
 
-- `handshake-critique-rework`
+- `handshake-critique-rework` (read `handshake-critique-rework/SKILL.md`)
 
 Outputs:
 
@@ -300,7 +324,7 @@ Main question:
 
 Skill:
 
-- `handshake-ego-phys-understanding`
+- `handshake-ego-phys-understanding` (read `handshake-ego-phys-understanding/SKILL.md`)
 
 Outputs:
 
@@ -322,7 +346,7 @@ Main question:
 
 Skill:
 
-- `handshake-find-boundary`
+- `handshake-find-boundary` (read `handshake-find-boundary/SKILL.md`)
 
 Outputs:
 
@@ -342,7 +366,7 @@ Main question:
 
 Skill:
 
-- `handshake-ig-entity-tagging`
+- `handshake-ig-entity-tagging` (read `handshake-ig-entity-tagging/SKILL.md`)
 
 Outputs:
 
@@ -364,7 +388,7 @@ Main question:
 
 Skill:
 
-- `handshake-ig-entity-verification`
+- `handshake-ig-entity-verification` (read `handshake-ig-entity-verification/SKILL.md`)
 
 Verdicts:
 

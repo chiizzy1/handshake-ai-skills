@@ -1,15 +1,21 @@
 ---
 name: handshake-h2h-image-evaluator
-description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise image comparison tasks. Use when Codex must compare two AI-generated images from the same text prompt across Overall Preference, Instruction Following, Visual Quality, and Absence of AI Artifacts; when task UI says H2H, T2I, text-to-image-compare, t2i-magnifier-pairwise, magnifier pairwise, or asks which image better follows a prompt.
+description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise image comparison tasks. Use when asked to compare two AI-generated images from the same text prompt across Overall Preference, Instruction Following, Visual Quality, and Absence of AI Artifacts; when task UI says H2H, T2I, text-to-image-compare, t2i-magnifier-pairwise, magnifier pairwise, or asks which image better follows a prompt.
 ---
 
 # Handshake H2H Image Evaluator
+
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
 ## Core Rule
 
 **NEVER BE AGREEABLE FOR ITS OWN SAKE.** Always verify things independently. Do not rely blindly on user claims or assumptions, as the user might be wrong or missing information. 
 
-**ONLINE VERIFICATION REQUIREMENT:** For any prompts containing factual data, historical events, or real-world information that can be verified online, you MUST always conduct online research and confirm the accuracy of the data presented in the images before writing your evaluation. Do not simply rate based on visual appearance if the factual details can be fact-checked. If a task requires factual knowledge (like physics, anatomy, astronomy, or historical dates), browse the web or use external tools to verify the ground truth.
+**ONLINE VERIFICATION REQUIREMENT:** For any prompts containing factual data, historical events, or real-world information that can be verified online, you MUST always conduct online research and confirm the accuracy of the data presented in the images before writing your evaluation. Do not simply rate based on visual appearance if the factual details can be fact-checked. If a task requires factual knowledge (like physics, anatomy, astronomy, or historical dates), use your web-search or browsing tool to verify the ground truth. If you have no such tool available, say so and rate only what you can verify from the images.
 
 Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the source of truth:
 
@@ -17,7 +23,7 @@ Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the sour
 - `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-Text-to-Image (T2I).pdf`
-- `HANDSHAKE-AI/pdfs/t2i-magnifier-pairwise/guidelines.md`
+- `HANDSHAKE-AI/guidelines.md`, section `Image Evaluation for Head-to-Head (H2H) Tasks`, which covers the T2I Magnifier Pairwise flow
 
 Before rating a live task, read `references/rubric.md`.
 
@@ -91,9 +97,11 @@ Now you can write. Follow the output format below and use the tone rules below. 
 
 ## Preference Severity
 
-- **Strongly Prefer:** The winner actually succeeds at the core prompt and the loser clearly fails, OR the quality gap is so big that the loser is basically unusable.
-- **Slightly Prefer:** Both images share the same fundamental issue but one handles the rest better. Or one is just a little cleaner than the other.
-- **Tie:** Both images are genuinely equal on that axis. Avoid ties unless truly justified.
+Each axis is picked on a 4-point scale: Response A, Response B, Both Good, Both Bad. Severity below describes how strongly to argue the win in your justification, not a separate set of buttons. Use the exact labels shown by the task UI.
+
+- **Strong win:** The winner actually succeeds at the core prompt and the loser clearly fails, OR the quality gap is so big that the loser is basically unusable.
+- **Slight win:** Both images share the same fundamental issue but one handles the rest better. Or one is just a little cleaner than the other. If both fail a core instruction, keep it a slight win. The winner is just less bad.
+- **Both Good / Both Bad:** Both images are genuinely equal on that axis. Avoid these unless truly justified.
 
 ## Axis Separation
 
@@ -108,30 +116,7 @@ Now you can write. Follow the output format below and use the tone rules below. 
 
 Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable claims.
 
-### 1. Composition & Framing
-- **Subject Placement & Rule of Thirds:** Placing a subject on a grid intersection creates tension and directs the eye naturally. A subject sitting dead center with empty space on both sides often reads as accidental.
-- **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
-- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus?
-- **Negative Space:** Is the area around the subject providing intentional breathing room, or is it distractingly empty?
-
-### 2. Focus, Detail & Clarity
-Blur is NOT inherently a flaw. Shallow depth of field is a legitimate photographic choice.
-- **Natural Fall-off vs. AI Artifacts:** Does the blur fall off smoothly and logically from the focal plane? Or does it dissolve into random, impossible patches?
-- **Sharpness:** Is the intended subject actually in focus? Check edges and fine details.
-- **Compression & Detail Loss:** Is fine detail present where it should be? Or is the image mushy in ways that look like a generation failure?
-
-### 3. Light & Color Consistency
-Light is the most common source of physical inconsistency in AI-generated images.
-- **Light Source Direction:** Do all shadows fall consistently from one primary source?
-- **Softness vs. Harshness:** Harsh light = sharp shadows. Diffused light = soft shadows. Does the shadow quality match the apparent light source?
-- **Contrast Check:** Are highlights blown out or shadows crushed?
-- **Color Temperature:** Is the image consistently warm or cool? Mixed, clashing temperatures are a red flag.
-- **Saturation Consistency:** Is color intensity consistent across the image?
-
-### 4. Cross-Panel & Asset Consistency (Comics/Multi-Shot)
-When analyzing a comic page or multi-panel image, consistency is the highest priority.
-- **Character Traits:** Same skin tone, hair, and face across every panel.
-- **Clothing & Props:** Same colors, textures, and structural logic across shots.
+For the full pillars (composition and framing, focus and clarity, light and color, cross-panel consistency), read `../shared-references/how-to-see.md`.
 
 ---
 
@@ -170,7 +155,7 @@ Every "Bad" example below is something that sounds robotic or over-analytical. E
 - *Good (Punchy/Direct):* "Response B is much better because its labels actually point to the correct parts of the train. Response A labels point to completely wrong objects."
 
 - *Bad (Robotic/Academic Text Analysis):* "Response B is much better because it generated the complex text and table structure flawlessly. Response A failed because it has obvious AI text hallucinations, completely jumbling the KEYBOARD NAME header and messing up several letters in the table cells."
-- *Good (Conversational Text Analysis):* "Response B is much better because it's writings are clear and easy to read and words spelled corectly. Response A has garbled spellings like in the first column header and in the sections of the the table."
+- *Good (Conversational Text Analysis):* "Response B is much better because its text is clear and easy to read and the words are spelled right. Response A has garbled spellings in the first column header and in some of the table cells."
 
 ---
 
@@ -190,10 +175,10 @@ Every "Bad" example below is something that sounds robotic or over-analytical. E
 [What it got right and wrong. Be specific but conversational.]
 
 ### Final Ratings
-- Instruction Following: [Response A / Response B / Tie]
-- Visual Quality: [Response A / Response B / Tie]
-- Absence of AI Artifacts: [Response A / Response B / Tie]
-- Overall Preference: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B]
+- Overall Preference: [Response A / Response B / Both Good / Both Bad]
+- Instruction Following: [Response A / Response B / Both Good / Both Bad]
+- Visual Quality: [Response A / Response B / Both Good / Both Bad]
+- Absence of AI Artifacts: [Response A / Response B / Both Good / Both Bad]
 
 ### Justification
 [1-3 sentences. Write like you're texting a friend. No big words. Just say what you see.]
@@ -209,6 +194,6 @@ Every "Bad" example below is something that sounds robotic or over-analytical. E
 - [ ] I checked consistency (skin tone, clothing, props across panels).
 - [ ] I checked if the style matches what the prompt actually requested, not my personal preference.
 - [ ] I rated each axis independently without double-penalizing.
-- [ ] I avoided ties unless both images are genuinely equal.
+- [ ] I used Both Good or Both Bad only when the axis is genuinely indistinguishable.
 - [ ] My justification is 1-3 sentences, written like a normal person talking.
 - [ ] I re-read the tone examples before writing my justification.

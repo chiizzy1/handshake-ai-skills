@@ -1,13 +1,19 @@
 ---
 name: handshake-find-boundary
-description: Handle Handshake Find the Boundary image-grounding tasks. Use when Codex must write or judge prompts for bounding box, point, or counting outputs; decide whether the model passed or failed; correct boxes, points, counts, traces, tags, or confidence; or identify hard image/prompt boundary cases.
+description: Handle Handshake Find the Boundary image-grounding tasks. Use when asked to write or judge prompts for bounding box, point, or counting outputs; decide whether the model passed or failed; correct boxes, points, counts, traces, tags, or confidence; or identify hard image/prompt boundary cases.
 ---
 
 # Handshake Find Boundary
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/handshake -- Find the Boundary.pdf` as the source of truth.
+Use `HANDSHAKE-AI/pdfs/handshake-Find the Boundary.pdf` as the source of truth.
 
 Before doing a live task, read `references/rubric.md`.
 
@@ -98,21 +104,29 @@ On pass / "AI wins", answer confidence is N/A. Rate trace confidence only. On fa
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answer in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+### Prompt Check
+[Is the prompt specific, falsifiable, and grounded in visible content? If not, discard or rewrite instead of scoring it.]
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+### Model Output Review
+[Check the model's boxes, points, or count against the image target by target. Note the thinking trace if it cites wrong landmarks.]
 
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+### Verdict
+[pass / "AI wins" | break / "I win" | discard or rewrite]
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+### Corrections
+[Corrected boxes, points, or counts. Include trace edits when the reasoning is wrong in a specific, citable way. Write "none needed" on a clean pass.]
+
+### Tags
+- Failure Type: [tag(s), or N/A on a pass]
+- Challenge Strategy: [tag(s)]
+- Image Type: [tag(s)]
+
+### Confidence
+- Trace confidence: [1-5]
+- Answer confidence: [1-5 on a break, or N/A on pass / "AI wins"]
 ```
 
 ## Final Checklist

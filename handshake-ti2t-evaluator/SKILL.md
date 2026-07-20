@@ -5,6 +5,13 @@ description: Evaluate Handshake Text Image To Text ELO (TI2T) tasks. Use when a 
 
 # Handshake TI2T Evaluator
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `../shared-references/...` is a sibling folder inside this skills repo.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
 Use the visible TI2T task instructions as the current source of truth. If a fuller TI2T PDF or guideline appears later, it outranks this skill and this skill should be updated.
@@ -27,23 +34,25 @@ Before rating a live TI2T task, read `references/rubric.md`.
 - Do not reward a response for confident wording if it invents visual facts.
 - Do not punish a response for being concise if it fully answers the prompt.
 - Do not judge earlier conversation turns. Use them only as context for the current/final user prompt.
-- Do not browse for what can be verified directly from the displayed image/video.
-- **ALWAYS browse online and fact-check!** Never rely solely on your internal knowledge, as it may be outdated or incomplete. If the task involves real-world facts, current prices, specifications, or verifiable claims outside the visible media, you MUST browse the internet to confirm the ground truth before assuming the model is correct.
+- **Verification rule:** if a fact is visible in the displayed media, verify it from the media only. If the prompt depends on outside real-world facts (current prices, specifications, dates, verifiable claims), verify them with your web-search tool before rating. Do not rely on internal knowledge alone for outside facts, and do not go looking online for what the media already shows.
 - Do not force a winner when the UI allows tie / I don't know and the responses are genuinely equivalent or impossible to judge.
 
-## Interaction Protocol (The Hard Stop)
+## Interaction Protocol
 
-When interacting with the user on TI2T tasks, you MUST follow this strict two-step protocol to ensure deep context and accurate ratings:
+Which protocol applies depends on what the user pasted.
 
-**Step 1: Understand First (The Hard Stop)**
-When the user provides a new task, your response must ONLY contain:
+**Candidate responses are present** — the task arrives with the prompt, the media, AND both candidate responses. Produce the ratings directly using the Output Format below. Do not stop and ask.
+
+**Candidate responses are NOT present** — the task arrives with the prompt and media only. Use the two-step hard stop:
+
+*Step 1: Understand First.* Your response must ONLY contain:
+
 1. **The Context**: A summary of your understanding of the prompt and the images/media.
-2. **The Breakdown**: A summary of your analysis of what the models did (e.g., identifying factual errors, formatting issues).
+2. **The Breakdown**: What you will be checking once the responses arrive.
 
-*CRITICAL*: You must END your response with **"Awaiting your command to grade."** You are explicitly forbidden from generating the Ratings Table or the Open Feedback at this stage. You must stop and wait for the user to confirm your understanding.
+END that response with **"Awaiting your command to grade."** Do not generate the Ratings Table or the Open Feedback at this stage.
 
-**Step 2: Grade It**
-Only after the user explicitly gives the go-ahead (e.g., "Grade it"), you will output the Ratings Table and the Open Feedback.
+*Step 2: Grade It.* Once the responses arrive and the user gives the go-ahead, output the Ratings Table and the Open Feedback.
 
 ## Workflow
 
@@ -80,54 +89,44 @@ Choose Overall by comparing both responses. Then assign the four issue ratings u
 
 Use the exact labels shown in the UI. If the UI uses different dimensions, follow the UI and apply the same source rule: prompt + media first.
 
-## Overall Preference Thresholds
+## Choosing the Overall Label
 
-- **Strongly Prefer**: Use when there is a fundamental defect in one response (e.g., a Factuality issue, an Instruction Following issue, or a severe Helpfulness failure) while the other response succeeds.
-- **Slightly Prefer**: Use when **both** responses successfully complete the core task without any visible errors (i.e., both rate "No Issue" across Factuality, Instruction Following, and Helpfulness). The preference is based solely on "polish"—such as better formatting, clearer explanations, or a slightly more helpful tone.
+The Overall control offers `Response A`, `Response B`, `Both Good`, and `Both Bad`. There is no strong/slight gradient — pick one of those four.
 
-## How to See (Comprehensive Photographic Analysis)
+- **Pick `Response A` or `Response B`** when one response has a fundamental defect (a Factuality issue, an Instruction Following issue, or a severe Helpfulness failure) and the other succeeds. Also pick a side when both complete the core task without visible errors but one is clearly better on polish — formatting, clearer explanation, or a more helpful tone.
+- **Pick `Both Good`** when both responses genuinely succeed and no defensible difference separates them.
+- **Pick `Both Bad`** when both responses genuinely fail.
 
-Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable photographic claims. Rely on the following three comprehensive pillars to evaluate visual quality and detect generation failures.
+Do not use `Both Good` or `Both Bad` just because the choice is close. Use them only when both responses genuinely belong in the same bucket.
 
-### 1. Composition & Framing
-Composition is how the elements of an image are arranged. It doesn't have to follow textbook rules perfectly, but it must look purposeful, not accidental.
-- **Subject Placement & Rule of Thirds:** Photographers use a 3x3 grid to compose images. Placing a subject on an intersection of these grid lines creates tension and directs the eye naturally. Conversely, if a subject sits dead center with large, empty negative space on both sides, the framing often reads as an accidental AI generation rather than a purposeful composition.
-- **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
-- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus of the prompt?
-- **Negative Space:** Is the area around the subject providing intentional "breathing room," or is it unresolved and distractingly empty?
+## How to See
 
-### 2. Focus, Detail & Clarity
-Blur is NOT inherently a flaw. Shallow depth of field (a blurred background with a sharp subject) is a legitimate, highly common photographic choice used to isolate a subject.
-- **Natural Fall-off vs. AI Artifacts:** The question is whether the blur is intentional and consistent. Does the blur fall off smoothly and logically from the focal plane? In many AI-generated photos, the background is unnaturally sharp when it should be blurred, or it dissolves into soft blur in random, impossible patches with no optical logic.
-- **Sharpness:** Is the intended subject actually in focus? Check the edges and fine details (e.g., hair strands, eyelashes, text).
-- **Compression & Detail Loss:** Is fine detail (fabric weave, skin pores, grass blades) present where the image resolution should support it? Or is the image "mushy" in ways that look like a generation failure rather than an artistic choice?
-
-### 3. Light & Color Consistency
-Light is the most common source of physical inconsistency in AI-generated images.
-- **Light Source Direction:** Do all shadows fall consistently from one primary source? Is the light hitting faces, objects, and the background from the exact same angle? (e.g., In "Rembrandt lighting," one side of the face is lit, the other falls into shadow, and everything in the scene must be consistent with that single source).
-- **Softness vs. Harshness:** Harsh light (like direct sun) produces sharp, defined shadows. Diffused light (like overcast skies or studio softboxes) produces soft, blended shadow edges. Does the shadow quality logically match the apparent light source?
-- **Contrast Check:** Are the highlights "blown out" (pure white with zero detail) or are the shadows "crushed" (pure black, destroying visual information)?
-- **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
-- **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
+For photographic analysis fundamentals (composition, focus, lighting), read `../shared-references/how-to-see.md`.
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Present your answers and ratings in clean markdown directly in the chat using the template below.
 
 ```markdown
 ### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+[The current/final prompt and the objective facts visible in the media.]
 
 ### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+[Analyze Response A against the prompt and media.]
+[Analyze Response B against the prompt and media.]
 
 ### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+- Overall: [Response A | Response B | Both Good | Both Bad]
+- Factuality: [Major issue | Minor issue | No issue]
+- Instruction Following: [Major issue | Minor issue | No issue]
+- Helpfulness: [Major issue | Minor issue | No issue]
+- Style and Format: [Major issue | Minor issue | No issue]
 
 ### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[Brief, natural-language reason tied to the media and the response text.]
 ```
+
+Use the exact labels shown by the task UI. If the UI shows different dimensions or choices, follow the UI.
 
 ## Final Checklist
 

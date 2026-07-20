@@ -5,11 +5,17 @@ description: Evaluate Handshake Text-to-Code ELO tasks. Use when comparing two r
 
 # Handshake Text-to-Code ELO Evaluator
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
-Use the Text-to-Code ELO guidelines as the source of truth:
+Use the Text-to-Code ELO guidelines as the source of truth when they are present:
 
-- `HANDSHAKE-AI/Text-to-code-elo/guidelines.md`
+- `HANDSHAKE-AI/Text-to-code-elo/guidelines.md` (no such file or folder was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
 
 Before rating a live task, read `references/rubric.md`.
 
@@ -26,7 +32,7 @@ Before rating a live task, read `references/rubric.md`.
 
 - Do not rate before interacting with both renders. Actually click things.
 - Do not let visual polish override functional breaks. A gorgeous render with a broken Submit button loses to an ugly render that works.
-- Do not default to Tie when unsure. Leave the dimension unrated, or use N/A if it truly does not apply.
+- Do not default to Tie when unsure. If the UI allows N/A or leaving a dimension unrated, use that; otherwise pick the closest honest label per the rubric.
 - Do not collapse all dimensions to Tie to match the overall verdict. Rate each dimension on its own merits.
 - Do not let the halo effect from pretty styling make you forget to check if the prompt was actually followed.
 - Do not write generic justifications. Every justification must name a specific element, value, or bug.
@@ -44,6 +50,8 @@ Every dimension uses the same 5-point scale:
 | Strongly Prefer B | B is clearly and significantly stronger |
 
 **N/A** is available when a dimension does not apply to the item (see Functionality).
+
+Some task UIs word this same 5-point scale as "A much better / A slightly better / Tie / B slightly better / B much better", which is how the rubric flashcards phrase it. The points are identical. Use the exact labels shown by the task UI.
 
 ## Three Dimensions
 
@@ -131,14 +139,22 @@ The overall verdict is not just an average. It is your judgment of which output 
 [Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
 
 ### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+**Response A:**
+[Strengths and weaknesses versus the prompt, including what happened when you interacted with the render.]
+
+**Response B:**
+[Strengths and weaknesses versus the prompt, including what happened when you interacted with the render.]
 
 ### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+- Visual Design: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B]
+- Functionality: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B / N/A]
+- Instruction Following: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B]
+- Overall Preference: [Strongly Prefer A / Slightly Prefer A / Tie / Slightly Prefer B / Strongly Prefer B]
+
+Use the exact labels shown by the task UI.
 
 ### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[2 to 3 sentences, 100+ characters. Name the dominant dimension, cite a specific element or bug, and acknowledge the losing side's strongest point when applicable.]
 ```
 
 ## Calibration Examples (Learn from Past Mistakes)

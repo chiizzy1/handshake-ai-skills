@@ -4,7 +4,7 @@ Use this reference for Text-to-Code ELO tasks (comparing two rendered code outpu
 
 ## Source
 
-- `HANDSHAKE-AI/Text-to-code-elo/guidelines.md`
+- `HANDSHAKE-AI/Text-to-code-elo/guidelines.md` (no such file or folder was present at last check; if it is still missing, this rubric is the operative source)
 
 ## Task Shape
 
@@ -27,7 +27,7 @@ Main question: Which rendered output better matches the prompt?
 
 N/A = the dimension does not apply to this item.
 
-Do NOT default to Tie when unsure. Leave the dimension unrated, or use N/A if it truly does not apply.
+Do NOT default to Tie when unsure. If the UI allows N/A or leaving a dimension unrated, use that; otherwise pick the closest honest label per this rubric.
 
 ## Dimension 1 — Visual Design
 

@@ -4,7 +4,7 @@ Use this reference for Visual Coding and AI Website Generation side-by-side task
 
 ## Source
 
-- `HANDSHAKE-AI/pdfs/visual-coding.md`
+- `HANDSHAKE-AI/pdfs/visual-coding.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
 
 ## Main Idea
 

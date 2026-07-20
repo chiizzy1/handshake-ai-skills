@@ -5,6 +5,12 @@ description: Evaluate Handshake UD Caption ELO tasks. Use when an original refer
 
 # Handshake UD Caption Evaluator
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
 Use the UD Caption ELO PDFs as the source of truth:
@@ -95,11 +101,10 @@ Write more like this:
 [Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
 
-
 ## Final Checklist
 
 - Original image was studied before responses.
 - Image and caption were judged separately.
 - Fine details and labels were checked.
 - Hallucination was checked for both image and caption.
-- Ties were avoided unless genuinely indistinguishable.
+- Both Good and Both Bad were used only when the criterion is genuinely indistinguishable.

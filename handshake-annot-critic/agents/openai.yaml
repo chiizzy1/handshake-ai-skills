@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Annot Critic"
+  short_description: "Find and annotate AI tells in a single generated image"

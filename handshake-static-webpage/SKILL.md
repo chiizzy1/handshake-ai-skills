@@ -5,11 +5,17 @@ description: Create, evaluate, and answer Handshake Web Dev Agents Static Webpag
 
 # Handshake Static Webpage
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
-Use the Static Webpage assessment instructions as the source of truth:
+Use the Static Webpage assessment instructions as the source of truth when they are present:
 
-- `HANDSHAKE-AI/assessments/Web Dev Agents — Static Webpage Assessment.md`
+- `HANDSHAKE-AI/assessments/Web Dev Agents — Static Webpage Assessment.md` (no such file or folder was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
 
 Before answering a live Static Webpage task or assessment, read `references/rubric.md`.
 
@@ -54,27 +60,35 @@ A worker usually must:
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers in a clean markdown format directly in the chat using the exact template below.
+
+This is a brief-writing and question-answering task, so the output is answers, not ratings.
 
 ```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+### Task Read
+[The assigned website category, and which submission step the task is about: description, reference images, page assets, or target resolution.]
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+### Answers
+**Q1. [restate the question or the decision being made]**
+Answer: [the exact option or value, such as Desktop, up to 5, or Page Assets]
+Why: [one or two lines naming the rule that decides it]
 
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+**Q2. [next question]**
+Answer: [...]
+Why: [...]
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[Continue for every question the assessment asks. The rubric's Assessment Answer Key Logic covers Q1 through Q8.]
+
+### Checks Applied
+[Name the rules you used, such as the 100-word minimum, the 1 to 5 reference image range, page assets versus reference images, or the layout-to-resolution mapping.]
 ```
+
+When the task asks you to draft or validate a description rather than answer questions, put the draft or the verdict under Answers and keep the same structure.
 
 ## Relationship To Other Handshake Skills
 
 - Use this skill for Static Webpage data-collection briefs and qualification questions.
-- Use `handshake-text-to-code-elo-evaluator` only when comparing rendered code outputs A and B.
+- Use `handshake-text-to-code-elo-evaluator` (read `../handshake-text-to-code-elo-evaluator/SKILL.md`) only when comparing rendered code outputs A and B.
 - Use visual design foundations only as background when describing reference images, not as an ELO scoring rubric.
 
 ## Final Checklist

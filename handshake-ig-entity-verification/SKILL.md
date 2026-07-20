@@ -1,9 +1,15 @@
 ---
 name: handshake-ig-entity-verification
-description: Evaluate Handshake IG Entity Verification tasks. Use when Codex must compare a yellow-box target entity against a reference image or green-box reference, choose definitely/likely same or different, skip, flag bad data, or write a short reason using entity-specific identifying features.
+description: Evaluate Handshake IG Entity Verification tasks. Use when asked to compare a yellow-box target entity against a reference image or green-box reference, choose definitely/likely same or different, skip, flag bad data, or write a short reason using entity-specific identifying features.
 ---
 
 # Handshake IG Entity Verification
+
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
 ## Core Rule
 
@@ -48,21 +54,20 @@ Before verifying a live item, read `references/rubric.md`.
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your verdict in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+### Entity Type And Label
+[What is being verified, read before looking at the images.]
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+### Features Compared
+[The 1-3 identifying features that matter for this entity type, and what each one shows in the yellow-box target versus the reference region.]
 
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+### Verdict
+[Definitely Same / Likely Same / Likely Different / Definitely Different / Skip / Flag as bad data]
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+### Reason
+[One short line in the rubric's Reason Style: the verdict, then the concrete features behind it. For example: `Likely same - jawline, nose shape, and lip shape align, but the target's eyes are closed and one side of the face is occluded.`]
 ```
 
 ## Final Checklist

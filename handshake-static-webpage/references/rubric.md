@@ -6,9 +6,9 @@ Use this reference for Handshake Web Dev Agents Static Webpage data-collection t
 
 Primary source:
 
-- `HANDSHAKE-AI/assessments/Web Dev Agents — Static Webpage Assessment.md`
+- `HANDSHAKE-AI/assessments/Web Dev Agents — Static Webpage Assessment.md` (no such file or folder was present at last check)
 
-This assessment is currently the most specific source of truth for this task type.
+That assessment is the most specific source of truth for this task type when it is available. If it is missing, this rubric is the operative source, and the Assessment Answer Key Logic section below carries the answers.
 
 ## Core Purpose
 

@@ -4,7 +4,7 @@ Use this reference for IG Entity Verification tasks.
 
 ## Source PDF
 
-- `handshake-IG Entity Verification.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-IG Entity Verification.pdf`
 
 ## Task Shape
 

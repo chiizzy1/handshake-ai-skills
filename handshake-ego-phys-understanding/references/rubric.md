@@ -4,7 +4,7 @@ Use this reference for Egocentric Physical Understanding tasks.
 
 ## Source PDF
 
-- `handshake-Ego Phys Understanding.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-Ego Phys Understanding.pdf`
 
 ## Task Shape
 

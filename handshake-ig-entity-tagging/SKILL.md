@@ -1,9 +1,15 @@
 ---
 name: handshake-ig-entity-tagging
-description: Perform Handshake IG Entity Tagging tasks. Use when Codex must annotate Instagram video/image content by tagging all visible entities, choosing entity labels/types, finding one reference image per annotation, or applying rules for people, clothing, products, locations, style elements, animals, visible text, and signage.
+description: Perform Handshake IG Entity Tagging tasks. Use when asked to annotate Instagram video/image content by tagging all visible entities, choosing entity labels/types, finding one reference image per annotation, or applying rules for people, clothing, products, locations, style elements, animals, visible text, and signage.
 ---
 
 # Handshake IG Entity Tagging
+
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
 ## Core Rule
 
@@ -56,21 +62,24 @@ Actions are not entities.
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your annotations in a clean markdown format directly in the chat using the exact template below.
 
 ```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+### Visible Entity Scan
+[Walk the scan order: people, clothing and shoes, accessories and bags, products and packaging, animals, places and landmarks, visible text/logos/signage, style elements.]
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
+### Annotations
+1. **Entity:** [noun at the most specific level the image supports]
+   **Type:** [person / clothing / product / location / style element / animal / text or signage]
+   **Reference image:** [what the reference shows and where it came from, e.g. official product page]
+   **Why this level:** [one line on why this is the right specificity for what is visible]
 
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
+2. **Entity:** ...
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[Aim for at least four complete annotations when enough entities are visible. One reference image per annotation.]
+
+### Skipped Or Uncertain
+[Any visible entity you could not annotate, and why. Write "none" if everything visible was tagged.]
 ```
 
 ## Final Checklist

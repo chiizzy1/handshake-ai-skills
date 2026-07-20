@@ -4,7 +4,7 @@ Use this reference for Find the Boundary tasks.
 
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/handshake -- Find the Boundary.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-Find the Boundary.pdf`
 
 ## Task Goal
 

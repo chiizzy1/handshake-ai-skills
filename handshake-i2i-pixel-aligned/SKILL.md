@@ -5,9 +5,16 @@ description: Evaluate Handshake i2i Pixel Aligned image-edit tasks. Use when a t
 
 # Handshake I2I Pixel Aligned
 
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `../shared-references/...` is a sibling folder inside this skills repo.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
+
 ## Core Rule
 
-Use `HANDSHAKE-AI/assessments/i2i Pixel Aligned assessment.md` and the I2I PDF guidance as the task source of truth.
+Use `references/rubric.md` together with `HANDSHAKE-AI/pdfs/handshake-Image-to-Image (I2I).pdf` as the task source of truth. If a Pixel Aligned assessment file is present in the workspace, it is the most specific authority; if it cannot be found, `references/rubric.md` is operative and you should say the assessment file was unavailable.
 
 Before answering a live Pixel Aligned item, read `references/rubric.md`.
 
@@ -117,53 +124,25 @@ For hands and small objects:
 - an upscale that creates odd finger counts, fused hands, or unnatural rendering is AI slop;
 - making a detail crisper does not excuse hallucinating its structure.
 
-## How to See (Comprehensive Photographic Analysis)
+## How to See
 
-Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable photographic claims. Rely on the following three comprehensive pillars to evaluate visual quality and detect generation failures.
-
-### 1. Composition & Framing
-Composition is how the elements of an image are arranged. It doesn't have to follow textbook rules perfectly, but it must look purposeful, not accidental.
-- **Subject Placement & Rule of Thirds:** Photographers use a 3x3 grid to compose images. Placing a subject on an intersection of these grid lines creates tension and directs the eye naturally. Conversely, if a subject sits dead center with large, empty negative space on both sides, the framing often reads as an accidental AI generation rather than a purposeful composition.
-- **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
-- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus of the prompt?
-- **Negative Space:** Is the area around the subject providing intentional "breathing room," or is it unresolved and distractingly empty?
-
-### 2. Focus, Detail & Clarity
-Blur is NOT inherently a flaw. Shallow depth of field (a blurred background with a sharp subject) is a legitimate, highly common photographic choice used to isolate a subject.
-- **Natural Fall-off vs. AI Artifacts:** The question is whether the blur is intentional and consistent. Does the blur fall off smoothly and logically from the focal plane? In many AI-generated photos, the background is unnaturally sharp when it should be blurred, or it dissolves into soft blur in random, impossible patches with no optical logic.
-- **Sharpness:** Is the intended subject actually in focus? Check the edges and fine details (e.g., hair strands, eyelashes, text).
-- **Compression & Detail Loss:** Is fine detail (fabric weave, skin pores, grass blades) present where the image resolution should support it? Or is the image "mushy" in ways that look like a generation failure rather than an artistic choice?
-
-### 3. Light & Color Consistency
-Light is the most common source of physical inconsistency in AI-generated images.
-- **Light Source Direction:** Do all shadows fall consistently from one primary source? Is the light hitting faces, objects, and the background from the exact same angle? (e.g., In "Rembrandt lighting," one side of the face is lit, the other falls into shadow, and everything in the scene must be consistent with that single source).
-- **Softness vs. Harshness:** Harsh light (like direct sun) produces sharp, defined shadows. Diffused light (like overcast skies or studio softboxes) produces soft, blended shadow edges. Does the shadow quality logically match the apparent light source?
-- **Contrast Check:** Are the highlights "blown out" (pure white with zero detail) or are the shadows "crushed" (pure black, destroying visual information)?
-- **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
-- **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
+For photographic analysis fundamentals (composition, focus, lighting), read `../shared-references/how-to-see.md`.
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Answer in the chat.
 
-```markdown
-### Input Analysis
-[Explain the meaning of what the input asks for. Establish the objective facts from the original prompt/image/code.]
+This task takes three Yes/No answers, not a six-axis comparison. Give each answer on one line, adding a short visible reason only where the answer is No:
 
-### Response Analysis
-[Analyze Response A, pointing out strengths and weaknesses compared to the objective facts.]
-[Analyze Response B, pointing out strengths and weaknesses compared to the objective facts.]
-
-### Final Ratings
-[List the ratings for all required criteria for the specific task.]
-
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+```text
+Q1: Yes. Q2: No - the edited image is shifted, so the unchanged parts do not line up. Q3: Yes.
 ```
+
+Keep reasons brief and concrete, and sound like a normal person rather than a rubric. When the UI asks for a multiple-choice selection, give the exact option. See Answer Style in `references/rubric.md` for more examples.
 
 ## Relationship To Other Handshake Skills
 
-- Use `handshake-r2i-i2i-evaluator` for normal A/B R2I, I2I, or Omni R2I ELO comparison tasks with preference axes.
+- Use `handshake-r2i-i2i-evaluator` (read `../handshake-r2i-i2i-evaluator/SKILL.md`) for normal A/B R2I, I2I, or Omni R2I ELO comparison tasks with preference axes.
 - Use this skill for Pixel Aligned tasks with Q1/Q2/Q3 Yes/No checks.
 - Use shared image foundations from HOW TO SEE, Image Evaluation, and Realism & Artifacts for visual inspection and AI slop detection, but keep the Pixel Aligned scoring logic from this skill.
 

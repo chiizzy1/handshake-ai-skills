@@ -4,7 +4,7 @@ Use this reference for Image2Code tasks.
 
 ## Source
 
-- `HANDSHAKE-AI/pdfs/image2code.md`
+- `HANDSHAKE-AI/pdfs/image2code.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
 
 ## Main Idea
 

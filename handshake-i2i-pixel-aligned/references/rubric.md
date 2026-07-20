@@ -6,7 +6,7 @@ Use this reference for Handshake / Project Hedgehog i2i Pixel Aligned tasks.
 
 Primary source:
 
-- `HANDSHAKE-AI/assessments/i2i Pixel Aligned assessment.md`
+- A Pixel Aligned assessment file, if one is present in the workspace. No such file exists under `HANDSHAKE-AI/` at time of writing; if you cannot find one, this rubric is operative and you should say the assessment file was unavailable.
 
 Related visual foundations:
 
@@ -16,7 +16,7 @@ Related visual foundations:
 - `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
 - `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
 
-The Pixel Aligned assessment is the most specific authority for Q1/Q2/Q3 Yes/No tasks.
+The Pixel Aligned assessment, when available, is the most specific authority for Q1/Q2/Q3 Yes/No tasks. Otherwise this rubric is.
 
 ## Core Concept
 

@@ -4,7 +4,7 @@ Use this reference for IG Entity Tagging tasks.
 
 ## Source PDF
 
-- `handshake-IG Entity Tagging Task.pdf`
+- `HANDSHAKE-AI/pdfs/handshake-IG Entity Tagging Task.pdf`
 
 ## Task Shape
 
@@ -119,7 +119,7 @@ When finding references:
 - Use familiar visual cues first.
 - Prefer official product pages or clean product images for products/clothing.
 - For locations, choose images with matching signage or architecture.
-- For animals, choose references matching the individual only when individual identity is visible; otherwise species/breed/category can be enough depending task.
+- For animals, choose references matching the individual only when individual identity is visible; otherwise a species, breed, or category reference can be enough, depending on the task.
 
 ## Common Mistakes
 

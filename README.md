@@ -17,6 +17,7 @@ Included skills:
 - `handshake-i2i-pixel-aligned`
 - `handshake-ig-entity-tagging`
 - `handshake-ig-entity-verification`
+- `handshake-image2code-evaluator`
 - `handshake-r2i-i2i-evaluator`
 - `handshake-static-webpage`
 - `handshake-t2v-evaluator`
@@ -24,6 +25,7 @@ Included skills:
 - `handshake-ti2t-evaluator`
 - `handshake-ud-caption-evaluator`
 - `handshake-videorl-evaluator`
+- `handshake-visual-coding-evaluator`
 
 ## Daily Update
 

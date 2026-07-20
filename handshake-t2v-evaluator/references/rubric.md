@@ -4,8 +4,8 @@ Use this reference for Handshake Text-to-Video, T2V Benchmark, and Less AI Gener
 
 ## Source
 
-- `HANDSHAKE-AI/T2V/instructions.md`
-- Current task UI and prompt
+- Current task UI and prompt.
+- No T2V PDF or instruction file exists under `HANDSHAKE-AI/` at time of writing. This rubric is operative; if a T2V instruction file later appears in the workspace, it outranks this file.
 
 ## Core Principle
 

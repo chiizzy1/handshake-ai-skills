@@ -1,9 +1,16 @@
 ---
 name: handshake-evaluator
-description: Router and source-of-truth controller for Handshake AI task work. Use when Codex is asked to rate, audit, create, verify, or structure Handshake tasks; when task type is unclear; when working from HANDSHAKE-AI/guidelines.md or HANDSHAKE-AI/pdfs; or when deciding which Handshake task-specific skill/rubric should apply.
+description: Router and source-of-truth controller for Handshake AI task work. Use when asked to rate, audit, create, verify, or structure Handshake tasks; when task type is unclear; when working from HANDSHAKE-AI/guidelines.md or HANDSHAKE-AI/pdfs; or when deciding which Handshake task-specific skill/rubric should apply.
 ---
 
 # Handshake Evaluator
+
+## File Locations
+
+- `references/...` paths are inside this skill's folder.
+- `../handshake-*/...` are sibling skill folders inside this skills repo.
+- `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
+- If a referenced external file cannot be found, use `references/task-router.md` in this skill folder as the operative routing reference and state that the source file was unavailable.
 
 ## Core Rule
 
@@ -16,7 +23,7 @@ Before routing or rating a live task, read `references/task-router.md`.
 ## Hard Gates
 
 - Do not rate before reading the task prompt, visible media, response text, and rating labels.
-- Do not use TELUS rules, labels, or scoring logic on Handshake tasks.
+- Do not use TELUS (a separate annotation platform with its own rubrics) rules, labels, or scoring logic on Handshake tasks.
 - Do not infer hidden intent when the UI or PDF gives the rule.
 - Do not select a tie to avoid a hard call. Use a tie only when the relevant rubric allows it and there is no meaningful visible difference.
 - Do not invent image details. If a detail cannot be seen, treat it as unknown.
@@ -44,23 +51,23 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 ## Task Type Map
 
-- Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator`.
-- Text-to-Video / T2V / Less AI Generated video artifact benchmark: use `handshake-t2v-evaluator`.
-- Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator`.
-- Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator`.
-- i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned`.
-- UD Caption ELO: use `handshake-ud-caption-evaluator`.
-- Annot Critic: use `handshake-annot-critic`.
-- Critique Rework: use `handshake-critique-rework`.
-- Ego Physical Understanding: use `handshake-ego-phys-understanding`.
-- Find the Boundary: use `handshake-find-boundary`.
-- IG Entity Tagging: use `handshake-ig-entity-tagging`.
-- IG Entity Verification: use `handshake-ig-entity-verification`.
-- Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage`.
-- Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator`.
-- Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator`.
-- Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator`.
-- VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator`.
+- Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator` (read `../handshake-ti2t-evaluator/SKILL.md`).
+- Text-to-Video / T2V / Less AI Generated video artifact benchmark: use `handshake-t2v-evaluator` (read `../handshake-t2v-evaluator/SKILL.md`).
+- Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator` (read `../handshake-h2h-image-evaluator/SKILL.md`).
+- Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator` (read `../handshake-r2i-i2i-evaluator/SKILL.md`).
+- i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned` (read `../handshake-i2i-pixel-aligned/SKILL.md`).
+- UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../handshake-ud-caption-evaluator/SKILL.md`).
+- Annot Critic: use `handshake-annot-critic` (read `../handshake-annot-critic/SKILL.md`).
+- Critique Rework: use `handshake-critique-rework` (read `../handshake-critique-rework/SKILL.md`).
+- Ego Physical Understanding: use `handshake-ego-phys-understanding` (read `../handshake-ego-phys-understanding/SKILL.md`).
+- Find the Boundary: use `handshake-find-boundary` (read `../handshake-find-boundary/SKILL.md`).
+- IG Entity Tagging: use `handshake-ig-entity-tagging` (read `../handshake-ig-entity-tagging/SKILL.md`).
+- IG Entity Verification: use `handshake-ig-entity-verification` (read `../handshake-ig-entity-verification/SKILL.md`).
+- Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage` (read `../handshake-static-webpage/SKILL.md`).
+- Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator` (read `../handshake-text-to-code-elo-evaluator/SKILL.md`).
+- Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator` (read `../handshake-image2code-evaluator/SKILL.md`).
+- Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator` (read `../handshake-visual-coding-evaluator/SKILL.md`).
+- VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator` (read `../handshake-videorl-evaluator/SKILL.md`).
 
 ## Universal Rules
 
@@ -81,34 +88,15 @@ When evaluating for overall preference, you MUST strictly adhere to these three 
 2. **Watch out for the overly-AI look in the edit:** Look for unnaturally crisp edges, flat lighting, plasticky textures, or over-saturated colors in the edited area. An edit can look impressive at first glance but feel artificial on closer look - do not let that initial wow factor automatically win.
 3. **Watch out for text issues:** AI edits often add text where it doesn't belong or keep it sharp when it should be soft (far away, off-angle, or out of focus). Cluttered or unnaturally crisp text shouldn't win on visual impact alone.
 
-## How to See (Comprehensive Photographic Analysis)
+## How to See
 
-Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable photographic claims. Rely on the following three comprehensive pillars to evaluate visual quality and detect generation failures.
-
-### 1. Composition & Framing
-Composition is how the elements of an image are arranged. It doesn't have to follow textbook rules perfectly, but it must look purposeful, not accidental.
-- **Subject Placement & Rule of Thirds:** Photographers use a 3x3 grid to compose images. Placing a subject on an intersection of these grid lines creates tension and directs the eye naturally. Conversely, if a subject sits dead center with large, empty negative space on both sides, the framing often reads as an accidental AI generation rather than a purposeful composition.
-- **Framing Scale:** Does the shot distance (wide, medium, close-up) match what the prompt asked for?
-- **Visual Hierarchy:** What draws your eye first? Does it match the intended focus of the prompt?
-- **Negative Space:** Is the area around the subject providing intentional "breathing room," or is it unresolved and distractingly empty?
-
-### 2. Focus, Detail & Clarity
-Blur is NOT inherently a flaw. Shallow depth of field (a blurred background with a sharp subject) is a legitimate, highly common photographic choice used to isolate a subject.
-- **Natural Fall-off vs. AI Artifacts:** The question is whether the blur is intentional and consistent. Does the blur fall off smoothly and logically from the focal plane? In many AI-generated photos, the background is unnaturally sharp when it should be blurred, or it dissolves into soft blur in random, impossible patches with no optical logic.
-- **Sharpness:** Is the intended subject actually in focus? Check the edges and fine details (e.g., hair strands, eyelashes, text).
-- **Compression & Detail Loss:** Is fine detail (fabric weave, skin pores, grass blades) present where the image resolution should support it? Or is the image "mushy" in ways that look like a generation failure rather than an artistic choice?
-
-### 3. Light & Color Consistency
-Light is the most common source of physical inconsistency in AI-generated images.
-- **Light Source Direction:** Do all shadows fall consistently from one primary source? Is the light hitting faces, objects, and the background from the exact same angle? (e.g., In "Rembrandt lighting," one side of the face is lit, the other falls into shadow, and everything in the scene must be consistent with that single source).
-- **Softness vs. Harshness:** Harsh light (like direct sun) produces sharp, defined shadows. Diffused light (like overcast skies or studio softboxes) produces soft, blended shadow edges. Does the shadow quality logically match the apparent light source?
-- **Contrast Check:** Are the highlights "blown out" (pure white with zero detail) or are the shadows "crushed" (pure black, destroying visual information)?
-- **Color Temperature:** Is the overall image consistently warm (golden, amber) or cool (blue, gray)? Mixed, clashing color temperatures across a single scene are a massive red flag unless the specific lighting scenario explains it.
-- **Saturation Consistency:** Is the color intensity consistent across the image, or do some regions look heavily over-processed while others fall flat?
+For photographic analysis fundamentals (composition, focus, lighting), read `../shared-references/how-to-see.md`.
 
 ## Output Format
 
-**CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answers and ratings in a clean markdown format directly in the chat using the exact template below.
+**CRITICAL RULE**: Never modify the user's task or markdown files directly. Present your answers and ratings in clean markdown directly in the chat.
+
+For pairwise A/B tasks use this shape:
 
 ```markdown
 ### Input Analysis
@@ -124,6 +112,8 @@ Light is the most common source of physical inconsistency in AI-generated images
 ### Justification
 [Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
 ```
+
+For all other task types, use the output format defined in the routed task-specific skill.
 
 ## Final Checklist
 

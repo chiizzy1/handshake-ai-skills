@@ -6,9 +6,11 @@ Use this reference for Reference-to-Image, Image-to-Image, and Omni R2I ELO task
 
 Primary:
 
+All paths are under `HANDSHAKE-AI/pdfs/`.
+
 - `Handshake-ai-Omni-R2-ELO.pdf`
 - `handshake-Image-to-Image (I2I).pdf`
-- Omni R2I examples PDF
+- `handshake-Omni R2I Elo — Examples.pdf`
 
 Foundations:
 
@@ -37,7 +39,7 @@ Pixel Aligned I2I:
 - Original/input image.
 - Single target/edited image.
 - Q1 instructions aligned, Q2 pixel aligned, Q3 no AI slop.
-- Use `handshake-i2i-pixel-aligned` instead of this ELO rubric.
+- Use `handshake-i2i-pixel-aligned` (read `../../handshake-i2i-pixel-aligned/SKILL.md`) instead of this ELO rubric.
 
 Main question:
 

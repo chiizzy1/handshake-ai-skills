@@ -4,7 +4,9 @@ Use this reference when working Critique Rework tasks. It covers the rating scal
 
 ## Source
 
-`HANDSHAKE-AI/pdfs/handshake -- Critique Rework.pdf` (Project Hedgehog — https://hedgehog-faq.learn.joinhandshake.com/critique-rework)
+`HANDSHAKE-AI/pdfs/handshake-Critique Rework.pdf` (Project Hedgehog — https://hedgehog-faq.learn.joinhandshake.com/critique-rework)
+
+If that file cannot be found, this rubric is operative on its own; say that the source PDF was unavailable.
 
 ---
 
