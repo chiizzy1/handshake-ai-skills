@@ -95,9 +95,16 @@ Now you can write. Follow the output format below and use the tone rules below. 
 
 ---
 
+## Which Panel Is On Screen
+
+Two variants of this task exist. Check the UI before rating and follow whichever it shows.
+
+- **Four-axis H2H (the usual case).** Overall Preference, Instruction Following, Visual Quality, and Absence of AI Artifacts, each on a 4-point scale: `Response A`, `Response B`, `Both Good`, `Both Bad`. This is what the rest of this skill and the output template describe.
+- **Single-axis compare.** One question, "Which response do you prefer overall?", on a five-point scale: `Strongly Prefer A`, `Slightly Prefer A`, `Tie`, `Slightly Prefer B`, `Strongly Prefer B`, followed by Open Feedback with a 100-character minimum. Judge with the same criteria, but give one preference instead of four axis picks, and use `Tie` only when the images are genuinely indistinguishable.
+
 ## Preference Severity
 
-Each axis is picked on a 4-point scale: Response A, Response B, Both Good, Both Bad. Severity below describes how strongly to argue the win in your justification, not a separate set of buttons. Use the exact labels shown by the task UI.
+On the four-axis panel each axis is picked on a 4-point scale: Response A, Response B, Both Good, Both Bad. Severity below describes how strongly to argue the win in your justification, not a separate set of buttons. Use the exact labels shown by the task UI.
 
 - **Strong win:** The winner actually succeeds at the core prompt and the loser clearly fails, OR the quality gap is so big that the loser is basically unusable.
 - **Slight win:** Both images share the same fundamental issue but one handles the rest better. Or one is just a little cleaner than the other. If both fail a core instruction, keep it a slight win. The winner is just less bad.
@@ -175,6 +182,8 @@ Every "Bad" example below is something that sounds robotic or over-analytical. E
 [What it got right and wrong. Be specific but conversational.]
 
 ### Final Ratings
+On the single-axis compare variant, replace this block with one line: **Overall: [Strongly Prefer A | Slightly Prefer A | Tie | Slightly Prefer B | Strongly Prefer B]**
+
 - Overall Preference: [Response A / Response B / Both Good / Both Bad]
 - Instruction Following: [Response A / Response B / Both Good / Both Bad]
 - Visual Quality: [Response A / Response B / Both Good / Both Bad]
