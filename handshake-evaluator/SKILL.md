@@ -68,6 +68,8 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator` (read `../handshake-image2code-evaluator/SKILL.md`).
 - Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator` (read `../handshake-visual-coding-evaluator/SKILL.md`).
 - VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator` (read `../handshake-videorl-evaluator/SKILL.md`).
+- Grounding Hard Rollout / rollout trace review with per-attempt ratings: use `handshake-grounding-hard-rollout` (read `../handshake-grounding-hard-rollout/SKILL.md`).
+- Multimodal Agent Arena / two AI-generated artifacts side by side with task-specific rubrics: use `handshake-multimodal-agent-arena` (read `../handshake-multimodal-agent-arena/SKILL.md`).
 
 ## Universal Rules
 

@@ -61,6 +61,8 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Yellow-box target vs reference, same entity? | `handshake-ig-entity-verification` | `handshake-ig-entity-verification/SKILL.md` |
 | Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `handshake-text-to-code-elo-evaluator/SKILL.md` |
 | Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `handshake-static-webpage/SKILL.md` |
+| Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `handshake-grounding-hard-rollout/SKILL.md` |
+| Two AI artifacts side by side, task-specific rubrics, Pass/Fail | `handshake-multimodal-agent-arena` | `handshake-multimodal-agent-arena/SKILL.md` |
 
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
@@ -398,6 +400,61 @@ Verdicts:
 - Definitely different
 - Skip
 - Flag as bad data
+
+### Grounding Hard Rollout
+
+Inputs:
+
+- An image.
+- A grounding prompt.
+- Model rollout with thinking, tool calls, tool outputs, and final answer.
+
+Main question:
+
+- Did the model ground the prompt correctly, and was its reasoning process sound?
+
+Skill:
+
+- `handshake-grounding-hard-rollout` (read `handshake-grounding-hard-rollout/SKILL.md`)
+
+Workflow:
+
+- Step 1: Blind answer — box targets from image and prompt alone.
+- Step 2: Compare blind boxes against dataset target.
+- Step 3: Review rollout trace, rate each attempt (Correct/Unnecessary/Incorrect), commit verdict (As-is/Refined trace/Refined answer/Refined both).
+
+Special rule:
+
+- Judge the step, not the outcome. A wrong crop is Incorrect even if the model self-corrects later.
+
+### Multimodal Agent Arena
+
+Inputs:
+
+- A task prompt with optional input materials (images, PDFs, videos, 3D files, code).
+- Two AI-generated artifacts (A and B) — can be any type (websites, games, images, data visualizations, slide decks, 3D models, code outputs, reports).
+- Task-specific rubric checklist (when present).
+
+Main question:
+
+- Which artifact better fulfills the task?
+
+Skill:
+
+- `handshake-multimodal-agent-arena` (read `handshake-multimodal-agent-arena/SKILL.md`)
+
+Criteria:
+
+- Per-rubric Pass/Fail for A and B independently (when rubrics present).
+- Overall: Response A / Response B / Tie.
+- When no rubrics: instruction following, visual quality, content completeness, usability.
+
+Special rules:
+
+- Interact with both artifacts before rating.
+- Overall selection must be coherent with rubric ratings.
+- Broken outputs get all-Fail and always lose.
+- Functionality matters more than polish.
 
 ## Unknown Or New Task Types
 

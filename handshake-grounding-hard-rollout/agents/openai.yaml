@@ -1,0 +1,3 @@
+interface:
+  display_name: "Handshake Grounding Hard Rollout"
+  short_description: "Verify model grounding attempts, review rollout traces, rate per-attempt"

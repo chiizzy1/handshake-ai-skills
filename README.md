@@ -13,11 +13,13 @@ Included skills:
 - `handshake-critique-rework`
 - `handshake-ego-phys-understanding`
 - `handshake-find-boundary`
+- `handshake-grounding-hard-rollout`
 - `handshake-h2h-image-evaluator`
 - `handshake-i2i-pixel-aligned`
 - `handshake-ig-entity-tagging`
 - `handshake-ig-entity-verification`
 - `handshake-image2code-evaluator`
+- `handshake-multimodal-agent-arena`
 - `handshake-r2i-i2i-evaluator`
 - `handshake-static-webpage`
 - `handshake-t2v-evaluator`
