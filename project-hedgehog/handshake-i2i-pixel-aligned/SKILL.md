@@ -8,7 +8,7 @@ description: Evaluate Handshake i2i Pixel Aligned image-edit tasks. Use when a t
 ## File Locations
 
 - `references/...` paths are inside this skill's folder.
-- `../shared-references/...` is a sibling folder inside this skills repo.
+- `../../shared-references/...` is a sibling folder inside this skills repo.
 - `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
 - If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
@@ -126,7 +126,7 @@ For hands and small objects:
 
 ## How to See
 
-For photographic analysis fundamentals (composition, focus, lighting), read `../shared-references/how-to-see.md`.
+For photographic analysis fundamentals (composition, focus, lighting), read `../../shared-references/how-to-see.md`.
 
 ## Output Format
 

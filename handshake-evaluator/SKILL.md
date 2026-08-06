@@ -8,7 +8,9 @@ description: Router and source-of-truth controller for Handshake AI task work. U
 ## File Locations
 
 - `references/...` paths are inside this skill's folder.
-- `../handshake-*/...` are sibling skill folders inside this skills repo.
+- `../project-hedgehog/handshake-*/...` are Project Hedgehog task skill folders.
+- `../project-lizard/lizard-*/...` are Project Lizard task skill folders.
+- `../shared-references/...` are cross-project shared references.
 - `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
 - If a referenced external file cannot be found, use `references/task-router.md` in this skill folder as the operative routing reference and state that the source file was unavailable.
 
@@ -44,32 +46,41 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 1. Read the current task text, visible images/video, prompt, response options, and rating UI labels.
 2. Identify the task type from the UI and inputs.
-3. Load the matching task-specific Handshake skill and its reference file.
-4. If the task type is not covered, use the visible task instructions and PDF if available. Do not force a near-matching skill.
-5. Apply the task-specific workflow exactly.
-6. Keep the final answer compact and natural unless the user asks for full reasoning.
+3. **Identify the project**: Determine whether the task belongs to **Project Hedgehog** or **Project Lizard** (or another project). Use the task UI labels, queue name, and visible cues. Project Hedgehog tasks involve image/video/code comparison, grounding, annotation, and entity tagging. Project Lizard tasks involve BabyVision (BV) and VQA workflows.
+4. Load the matching task-specific skill from the correct project folder and its reference file.
+5. If the task type is not covered, use the visible task instructions and PDF if available. Do not force a near-matching skill.
+6. Apply the task-specific workflow exactly.
+7. Keep the final answer compact and natural unless the user asks for full reasoning.
 
 ## Task Type Map
 
-- Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator` (read `../handshake-ti2t-evaluator/SKILL.md`).
-- Text-to-Video / T2V / Less AI Generated video artifact benchmark: use `handshake-t2v-evaluator` (read `../handshake-t2v-evaluator/SKILL.md`).
-- Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator` (read `../handshake-h2h-image-evaluator/SKILL.md`).
-- Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator` (read `../handshake-r2i-i2i-evaluator/SKILL.md`).
-- i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned` (read `../handshake-i2i-pixel-aligned/SKILL.md`).
-- UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../handshake-ud-caption-evaluator/SKILL.md`).
-- Annot Critic: use `handshake-annot-critic` (read `../handshake-annot-critic/SKILL.md`).
-- Critique Rework: use `handshake-critique-rework` (read `../handshake-critique-rework/SKILL.md`).
-- Ego Physical Understanding: use `handshake-ego-phys-understanding` (read `../handshake-ego-phys-understanding/SKILL.md`).
-- Find the Boundary: use `handshake-find-boundary` (read `../handshake-find-boundary/SKILL.md`).
-- IG Entity Tagging: use `handshake-ig-entity-tagging` (read `../handshake-ig-entity-tagging/SKILL.md`).
-- IG Entity Verification: use `handshake-ig-entity-verification` (read `../handshake-ig-entity-verification/SKILL.md`).
-- Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage` (read `../handshake-static-webpage/SKILL.md`).
-- Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator` (read `../handshake-text-to-code-elo-evaluator/SKILL.md`).
-- Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator` (read `../handshake-image2code-evaluator/SKILL.md`).
-- Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator` (read `../handshake-visual-coding-evaluator/SKILL.md`).
-- VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator` (read `../handshake-videorl-evaluator/SKILL.md`).
-- Grounding Hard Rollout / rollout trace review with per-attempt ratings: use `handshake-grounding-hard-rollout` (read `../handshake-grounding-hard-rollout/SKILL.md`).
-- Multimodal Agent Arena / two AI-generated artifacts side by side with task-specific rubrics: use `handshake-multimodal-agent-arena` (read `../handshake-multimodal-agent-arena/SKILL.md`).
+### Project Hedgehog
+
+- Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator` (read `../project-hedgehog/handshake-ti2t-evaluator/SKILL.md`).
+- Text-to-Video / T2V / Less AI Generated video artifact benchmark: use `handshake-t2v-evaluator` (read `../project-hedgehog/handshake-t2v-evaluator/SKILL.md`).
+- Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator` (read `../project-hedgehog/handshake-h2h-image-evaluator/SKILL.md`).
+- Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator` (read `../project-hedgehog/handshake-r2i-i2i-evaluator/SKILL.md`).
+- i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned` (read `../project-hedgehog/handshake-i2i-pixel-aligned/SKILL.md`).
+- UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../project-hedgehog/handshake-ud-caption-evaluator/SKILL.md`).
+- Annot Critic: use `handshake-annot-critic` (read `../project-hedgehog/handshake-annot-critic/SKILL.md`).
+- Critique Rework: use `handshake-critique-rework` (read `../project-hedgehog/handshake-critique-rework/SKILL.md`).
+- Ego Physical Understanding: use `handshake-ego-phys-understanding` (read `../project-hedgehog/handshake-ego-phys-understanding/SKILL.md`).
+- Find the Boundary: use `handshake-find-boundary` (read `../project-hedgehog/handshake-find-boundary/SKILL.md`).
+- IG Entity Tagging: use `handshake-ig-entity-tagging` (read `../project-hedgehog/handshake-ig-entity-tagging/SKILL.md`).
+- IG Entity Verification: use `handshake-ig-entity-verification` (read `../project-hedgehog/handshake-ig-entity-verification/SKILL.md`).
+- Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage` (read `../project-hedgehog/handshake-static-webpage/SKILL.md`).
+- Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator` (read `../project-hedgehog/handshake-text-to-code-elo-evaluator/SKILL.md`).
+- Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator` (read `../project-hedgehog/handshake-image2code-evaluator/SKILL.md`).
+- Visual Coding / AI Website Generation side-by-side rendered website comparison: use `handshake-visual-coding-evaluator` (read `../project-hedgehog/handshake-visual-coding-evaluator/SKILL.md`).
+- VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator` (read `../project-hedgehog/handshake-videorl-evaluator/SKILL.md`).
+- Grounding Hard Rollout / rollout trace review with per-attempt ratings: use `handshake-grounding-hard-rollout` (read `../project-hedgehog/handshake-grounding-hard-rollout/SKILL.md`).
+- Multimodal Agent Arena / two AI-generated artifacts side by side with task-specific rubrics: use `handshake-multimodal-agent-arena` (read `../project-hedgehog/handshake-multimodal-agent-arena/SKILL.md`).
+
+### Project Lizard
+
+- BabyVision (BV) tasks (image review, question writing, model response generation, evaluate & rewrite, prompt validation): use `lizard-babyvision-evaluator` (read `../project-lizard/lizard-babyvision-evaluator/SKILL.md`).
+- VQA tasks (question writing, stumping strategies, model response generation, evaluate & rewrite, prompt validation): use `lizard-vqa-evaluator` (read `../project-lizard/lizard-vqa-evaluator/SKILL.md`).
+- Reviewer / QC & Audit tasks (evaluating LLM Judge, handling skipped/unusable tasks, and verifying answers): use `lizard-reviewer-evaluator` (read `../project-lizard/lizard-reviewer-evaluator/SKILL.md`).
 
 ## Universal Rules
 

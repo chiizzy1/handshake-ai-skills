@@ -9,12 +9,28 @@ param(
     [switch]$Force
 )
 
-$skillDirs = Get-ChildItem -LiteralPath $RepoRoot -Directory |
-    Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "SKILL.md") } |
-    Sort-Object Name
+$skillDirs = @()
+# Root-level skills (e.g. handshake-evaluator)
+$skillDirs += Get-ChildItem -LiteralPath $RepoRoot -Directory |
+    Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "SKILL.md") }
+# Project-level skills (e.g. project-hedgehog/handshake-*, project-lizard/lizard-*)
+Get-ChildItem -LiteralPath $RepoRoot -Directory -Filter "project-*" | ForEach-Object {
+    $skillDirs += Get-ChildItem -LiteralPath $_.FullName -Directory |
+        Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "SKILL.md") }
+}
+$skillDirs = $skillDirs | Sort-Object Name
 
 if (!$skillDirs) {
     throw "No skill folders with SKILL.md found in $RepoRoot"
+}
+
+# Collision detection: abort if two skills resolve to the same basename.
+$nameMap = @{}
+foreach ($sd in $skillDirs) {
+    if ($nameMap.ContainsKey($sd.Name)) {
+        throw "COLLISION: skill name '$($sd.Name)' found in both:`n  $($nameMap[$sd.Name])`n  $($sd.FullName)`nFix the conflict before linking."
+    }
+    $nameMap[$sd.Name] = $sd.FullName
 }
 
 switch ($Target) {

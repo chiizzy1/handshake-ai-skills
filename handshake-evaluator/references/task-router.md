@@ -44,25 +44,25 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 
 | Task cues | Skill | Path |
 |---|---|---|
-| Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `handshake-h2h-image-evaluator/SKILL.md` |
-| Prompt + two videos, "less AI-generated" | `handshake-t2v-evaluator` | `handshake-t2v-evaluator/SKILL.md` |
-| Video-reasoning row audit, queue names, `X out of Y` | `handshake-videorl-evaluator` | `handshake-videorl-evaluator/SKILL.md` |
-| Media + prompt + two text responses | `handshake-ti2t-evaluator` | `handshake-ti2t-evaluator/SKILL.md` |
-| Reference image(s) + edit prompt + two outputs | `handshake-r2i-i2i-evaluator` | `handshake-r2i-i2i-evaluator/SKILL.md` |
-| Input + single edited image, Q1/Q2/Q3 Yes/No | `handshake-i2i-pixel-aligned` | `handshake-i2i-pixel-aligned/SKILL.md` |
-| Reference image + two image/caption pairs | `handshake-ud-caption-evaluator` | `handshake-ud-caption-evaluator/SKILL.md` |
-| Two rendered websites side by side | `handshake-visual-coding-evaluator` | `handshake-visual-coding-evaluator/SKILL.md` |
-| Reference image + two static rendered outputs | `handshake-image2code-evaluator` | `handshake-image2code-evaluator/SKILL.md` |
-| Single image + dots/notes to place | `handshake-annot-critic` | `handshake-annot-critic/SKILL.md` |
-| Existing critique to grade 1-5 and rework | `handshake-critique-rework` | `handshake-critique-rework/SKILL.md` |
-| First-person frames, write a physical-reasoning MCQ | `handshake-ego-phys-understanding` | `handshake-ego-phys-understanding/SKILL.md` |
-| Grounding prompt + boxes/points/counts | `handshake-find-boundary` | `handshake-find-boundary/SKILL.md` |
-| Instagram media, annotate visible entities | `handshake-ig-entity-tagging` | `handshake-ig-entity-tagging/SKILL.md` |
-| Yellow-box target vs reference, same entity? | `handshake-ig-entity-verification` | `handshake-ig-entity-verification/SKILL.md` |
-| Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `handshake-text-to-code-elo-evaluator/SKILL.md` |
-| Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `handshake-static-webpage/SKILL.md` |
-| Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `handshake-grounding-hard-rollout/SKILL.md` |
-| Two AI artifacts side by side, task-specific rubrics, Pass/Fail | `handshake-multimodal-agent-arena` | `handshake-multimodal-agent-arena/SKILL.md` |
+| Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `project-hedgehog/handshake-h2h-image-evaluator/SKILL.md` |
+| Prompt + two videos, "less AI-generated" | `handshake-t2v-evaluator` | `project-hedgehog/handshake-t2v-evaluator/SKILL.md` |
+| Video-reasoning row audit, queue names, `X out of Y` | `handshake-videorl-evaluator` | `project-hedgehog/handshake-videorl-evaluator/SKILL.md` |
+| Media + prompt + two text responses | `handshake-ti2t-evaluator` | `project-hedgehog/handshake-ti2t-evaluator/SKILL.md` |
+| Reference image(s) + edit prompt + two outputs | `handshake-r2i-i2i-evaluator` | `project-hedgehog/handshake-r2i-i2i-evaluator/SKILL.md` |
+| Input + single edited image, Q1/Q2/Q3 Yes/No | `handshake-i2i-pixel-aligned` | `project-hedgehog/handshake-i2i-pixel-aligned/SKILL.md` |
+| Reference image + two image/caption pairs | `handshake-ud-caption-evaluator` | `project-hedgehog/handshake-ud-caption-evaluator/SKILL.md` |
+| Two rendered websites side by side | `handshake-visual-coding-evaluator` | `project-hedgehog/handshake-visual-coding-evaluator/SKILL.md` |
+| Reference image + two static rendered outputs | `handshake-image2code-evaluator` | `project-hedgehog/handshake-image2code-evaluator/SKILL.md` |
+| Single image + dots/notes to place | `handshake-annot-critic` | `project-hedgehog/handshake-annot-critic/SKILL.md` |
+| Existing critique to grade 1-5 and rework | `handshake-critique-rework` | `project-hedgehog/handshake-critique-rework/SKILL.md` |
+| First-person frames, write a physical-reasoning MCQ | `handshake-ego-phys-understanding` | `project-hedgehog/handshake-ego-phys-understanding/SKILL.md` |
+| Grounding prompt + boxes/points/counts | `handshake-find-boundary` | `project-hedgehog/handshake-find-boundary/SKILL.md` |
+| Instagram media, annotate visible entities | `handshake-ig-entity-tagging` | `project-hedgehog/handshake-ig-entity-tagging/SKILL.md` |
+| Yellow-box target vs reference, same entity? | `handshake-ig-entity-verification` | `project-hedgehog/handshake-ig-entity-verification/SKILL.md` |
+| Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `project-hedgehog/handshake-text-to-code-elo-evaluator/SKILL.md` |
+| Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `project-hedgehog/handshake-static-webpage/SKILL.md` |
+| Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `project-hedgehog/handshake-grounding-hard-rollout/SKILL.md` |
+| Two AI artifacts side by side, task-specific rubrics, Pass/Fail | `handshake-multimodal-agent-arena` | `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md` |
 
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
@@ -78,7 +78,7 @@ Main question:
 
 Skill:
 
-- `handshake-h2h-image-evaluator` (read `handshake-h2h-image-evaluator/SKILL.md`)
+- `handshake-h2h-image-evaluator` (read `project-hedgehog/handshake-h2h-image-evaluator/SKILL.md`)
 
 Axes:
 
@@ -101,7 +101,7 @@ Main question:
 
 Skill:
 
-- `handshake-t2v-evaluator` (read `handshake-t2v-evaluator/SKILL.md`)
+- `handshake-t2v-evaluator` (read `project-hedgehog/handshake-t2v-evaluator/SKILL.md`)
 
 Criteria:
 
@@ -130,7 +130,7 @@ Main question:
 
 Skill:
 
-- `handshake-videorl-evaluator` (read `handshake-videorl-evaluator/SKILL.md`)
+- `handshake-videorl-evaluator` (read `project-hedgehog/handshake-videorl-evaluator/SKILL.md`)
 
 Queues:
 
@@ -166,7 +166,7 @@ Main question:
 
 Skill:
 
-- `handshake-ti2t-evaluator` (read `handshake-ti2t-evaluator/SKILL.md`)
+- `handshake-ti2t-evaluator` (read `project-hedgehog/handshake-ti2t-evaluator/SKILL.md`)
 
 Common dimensions:
 
@@ -194,7 +194,7 @@ Main question:
 
 Skill:
 
-- `handshake-r2i-i2i-evaluator` (read `handshake-r2i-i2i-evaluator/SKILL.md`)
+- `handshake-r2i-i2i-evaluator` (read `project-hedgehog/handshake-r2i-i2i-evaluator/SKILL.md`)
 
 Axes:
 
@@ -219,7 +219,7 @@ Main question:
 
 Skill:
 
-- `handshake-ud-caption-evaluator` (read `handshake-ud-caption-evaluator/SKILL.md`)
+- `handshake-ud-caption-evaluator` (read `project-hedgehog/handshake-ud-caption-evaluator/SKILL.md`)
 
 Criteria:
 
@@ -244,7 +244,7 @@ Main question:
 
 Skill:
 
-- `handshake-visual-coding-evaluator` (read `handshake-visual-coding-evaluator/SKILL.md`)
+- `handshake-visual-coding-evaluator` (read `project-hedgehog/handshake-visual-coding-evaluator/SKILL.md`)
 
 Axes:
 
@@ -275,7 +275,7 @@ Main question:
 
 Skill:
 
-- `handshake-image2code-evaluator` (read `handshake-image2code-evaluator/SKILL.md`)
+- `handshake-image2code-evaluator` (read `project-hedgehog/handshake-image2code-evaluator/SKILL.md`)
 
 Axes:
 
@@ -305,7 +305,7 @@ Main question:
 
 Skill:
 
-- `handshake-critique-rework` (read `handshake-critique-rework/SKILL.md`)
+- `handshake-critique-rework` (read `project-hedgehog/handshake-critique-rework/SKILL.md`)
 
 Outputs:
 
@@ -326,7 +326,7 @@ Main question:
 
 Skill:
 
-- `handshake-ego-phys-understanding` (read `handshake-ego-phys-understanding/SKILL.md`)
+- `handshake-ego-phys-understanding` (read `project-hedgehog/handshake-ego-phys-understanding/SKILL.md`)
 
 Outputs:
 
@@ -348,7 +348,7 @@ Main question:
 
 Skill:
 
-- `handshake-find-boundary` (read `handshake-find-boundary/SKILL.md`)
+- `handshake-find-boundary` (read `project-hedgehog/handshake-find-boundary/SKILL.md`)
 
 Outputs:
 
@@ -368,7 +368,7 @@ Main question:
 
 Skill:
 
-- `handshake-ig-entity-tagging` (read `handshake-ig-entity-tagging/SKILL.md`)
+- `handshake-ig-entity-tagging` (read `project-hedgehog/handshake-ig-entity-tagging/SKILL.md`)
 
 Outputs:
 
@@ -390,7 +390,7 @@ Main question:
 
 Skill:
 
-- `handshake-ig-entity-verification` (read `handshake-ig-entity-verification/SKILL.md`)
+- `handshake-ig-entity-verification` (read `project-hedgehog/handshake-ig-entity-verification/SKILL.md`)
 
 Verdicts:
 
@@ -415,7 +415,7 @@ Main question:
 
 Skill:
 
-- `handshake-grounding-hard-rollout` (read `handshake-grounding-hard-rollout/SKILL.md`)
+- `handshake-grounding-hard-rollout` (read `project-hedgehog/handshake-grounding-hard-rollout/SKILL.md`)
 
 Workflow:
 
@@ -441,7 +441,7 @@ Main question:
 
 Skill:
 
-- `handshake-multimodal-agent-arena` (read `handshake-multimodal-agent-arena/SKILL.md`)
+- `handshake-multimodal-agent-arena` (read `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md`)
 
 Criteria:
 

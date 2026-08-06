@@ -123,7 +123,7 @@ On the four-axis panel each axis is picked on a 4-point scale: Response A, Respo
 
 Good image evaluation starts with consistent observation, not personal taste. Replace vague statements like "looks good" or "feels off" with specific, observable claims.
 
-For the full pillars (composition and framing, focus and clarity, light and color, cross-panel consistency), read `../shared-references/how-to-see.md`.
+For the full pillars (composition and framing, focus and clarity, light and color, cross-panel consistency), read `../../shared-references/how-to-see.md`.
 
 ---
 

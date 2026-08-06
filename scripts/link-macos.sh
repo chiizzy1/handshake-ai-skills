@@ -50,14 +50,38 @@ case "$TARGET" in
 esac
 
 skill_dirs=()
+# Root-level skills (e.g. handshake-evaluator)
 for dir in "$REPO_ROOT"/*/; do
   [[ -f "$dir/SKILL.md" ]] && skill_dirs+=("${dir%/}")
+done
+# Project-level skills (e.g. project-hedgehog/handshake-*, project-lizard/lizard-*)
+for pdir in "$REPO_ROOT"/project-*/; do
+  [[ -d "$pdir" ]] || continue
+  for dir in "$pdir"/*/; do
+    [[ -f "$dir/SKILL.md" ]] && skill_dirs+=("${dir%/}")
+  done
 done
 
 if [[ ${#skill_dirs[@]} -eq 0 ]]; then
   echo "No skill folders with SKILL.md found in $REPO_ROOT" >&2
   exit 1
 fi
+
+# Collision detection: abort if two skills resolve to the same basename.
+_collision_list=""
+for source in "${skill_dirs[@]}"; do
+  name="$(basename "$source")"
+  _prev="$(echo "$_collision_list" | grep "^$name|" || true)"
+  if [[ -n "$_prev" ]]; then
+    echo "COLLISION: skill name '$name' found in both:" >&2
+    echo "  ${_prev#*|}" >&2
+    echo "  $source" >&2
+    echo "Fix the conflict before linking." >&2
+    exit 1
+  fi
+  _collision_list="$_collision_list
+$name|$source"
+done
 
 mkdir -p "$DEST_ROOT"
 DEST_ROOT="$(cd "$DEST_ROOT" && pwd)"
