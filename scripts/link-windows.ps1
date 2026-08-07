@@ -98,5 +98,12 @@ foreach ($skillDir in $skillDirs) {
     }
 
     New-Item -ItemType Junction -Path $dest -Target $source | Out-Null
+
+    # New-Item -ItemType Junction is a silent no-op on macOS/Linux: it returns null,
+    # raises no error, and creates nothing. Verify rather than trust the call.
+    if (!(Test-Path -LiteralPath $dest)) {
+        throw "Failed to create junction: $dest -> $source. Junctions are Windows-only; on macOS/Linux use scripts/link-macos.sh instead."
+    }
+
     Write-Host "Linked $dest -> $source"
 }
