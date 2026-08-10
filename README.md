@@ -53,7 +53,7 @@ Edit Handshake skills here, then commit and push. Do not manually edit copied sk
 Users with read access should update before Handshake task work:
 
 ```powershell
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" pull --ff-only
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" pull --ff-only
 ```
 
 Or run:

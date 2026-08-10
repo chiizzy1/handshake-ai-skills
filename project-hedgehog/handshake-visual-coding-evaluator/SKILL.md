@@ -15,7 +15,7 @@ description: Evaluate Handshake Visual Coding and AI Website Generation side-by-
 
 Use the Visual Coding guidelines as the source of truth when they are present:
 
-- `HANDSHAKE-AI/pdfs/visual-coding.md` (no such file was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
+- `HANDSHAKE-AI/project-hedgehog-pdfs/visual-coding.md` (no such file was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
 
 Before rating a live task, read `references/rubric.md`.
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Handshake Static Webpage"
   short_description: "Create and judge Static Webpage data-collection briefs"
-  default_prompt: "Use the Handshake Static Webpage skill to evaluate this webpage brief task."
+  default_prompt: "Use $handshake-static-webpage to complete this Web Dev Agents static-webpage task."

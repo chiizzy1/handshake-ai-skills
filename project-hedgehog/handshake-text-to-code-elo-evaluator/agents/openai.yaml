@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Text-to-Code ELO Evaluator"
-  short_description: "Compare two rendered code outputs on design, functionality, and instructions"
+  short_description: "Compare two rendered code outputs on three axes"
+  default_prompt: "Use $handshake-text-to-code-elo-evaluator to evaluate Handshake Text-to-Code ELO tasks."

@@ -16,10 +16,10 @@ description: Evaluate Handshake Reference-to-Image, Image-to-Image, and Omni R2I
 
 Use the Handshake R2I/I2I PDFs as the source of truth:
 
-- `HANDSHAKE-AI/pdfs/Handshake-ai-Omni-R2-ELO.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-Image-to-Image (I2I).pdf`
-- `HANDSHAKE-AI/pdfs/handshake-Omni R2I Elo — Examples.pdf`
-- the image evaluation foundation PDFs in `HANDSHAKE-AI/pdfs/`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/Handshake-ai-Omni-R2-ELO.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Image-to-Image (I2I).pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Omni R2I Elo — Examples.pdf`
+- the image evaluation foundation PDFs in `HANDSHAKE-AI/project-hedgehog-pdfs/`
 
 If the task is i2i Pixel Aligned / Project Hedgehog and asks Q1 instructions aligned, Q2 pixel aligned, or Q3 no AI slop, stop and use `handshake-i2i-pixel-aligned` (read `../handshake-i2i-pixel-aligned/SKILL.md`) instead. Pixel Aligned is a strict Yes/No task type, not a six-axis ELO comparison.
 

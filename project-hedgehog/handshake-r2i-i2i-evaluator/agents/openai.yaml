@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake R2I/I2I Evaluator"
-  short_description: "Rate reference-to-image and image-edit tasks on six PDF-backed axes"
+  short_description: "Rate reference-to-image and image-edit tasks"
+  default_prompt: "Use $handshake-r2i-i2i-evaluator to evaluate Handshake Reference-to-Image, Image-to-Image, and Omni R2I ELO tasks."

@@ -2,18 +2,32 @@
 
 Use this reference for Handshake text-to-image, H2H image comparison, and T2I Magnifier Pairwise tasks.
 
+## Contents
+
+- [Source PDFs](#source-pdfs)
+- [Task Shape](#task-shape)
+- [Review Workflow](#review-workflow)
+- [Hard Fail Checks](#hard-fail-checks)
+- [Axis 1: Overall Preference](#axis-1-overall-preference)
+- [Axis 2: Instruction Following](#axis-2-instruction-following)
+- [Axis 3: Visual Quality](#axis-3-visual-quality)
+- [Axis 4: Absence of AI Artifacts](#axis-4-absence-of-ai-artifacts)
+- [Tie Policy](#tie-policy)
+- [Justification Rules](#justification-rules)
+- [Final Checklist](#final-checklist)
+
 ## Source PDFs
 
 Primary:
 
-- `HANDSHAKE-AI/pdfs/handshake-ai-Text-to-Image (T2I).pdf`
-- `HANDSHAKE-AI/pdfs/handshae-ai-Image Evaluation.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-Text-to-Image (T2I).pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshae-ai-Image Evaluation.pdf`
 - `HANDSHAKE-AI/guidelines.md`, section `Image Evaluation for Head-to-Head (H2H) Tasks`, which covers the T2I Magnifier Pairwise flow
 
 Foundations:
 
-- `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-HOW-TO-SEE.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-Realism & Artifacts.pdf`
 
 ## Task Shape
 

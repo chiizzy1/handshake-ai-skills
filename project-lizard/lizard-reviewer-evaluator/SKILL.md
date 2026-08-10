@@ -7,6 +7,18 @@ description: Evaluate and QC Project Lizard VQA and BabyVision annotations. Use 
 
 This skill guides the quality control (QC) and auditing of Project Lizard annotations (both BabyVision and VQA). Reviewers are responsible for fixing errors, verifying answers, and evaluating LLM Judge feedback. Your edits and feedback drive quality alignment across annotators — the reviewer role is fundamentally a teaching position.
 
+## Source Hierarchy
+
+1. The matching official PDF in `HANDSHAKE-AI/project-lizard-pdfs/` — the highest authority. The Reviewer Playbook set covers `Reviewer Flow`, `BabyVision QC & Audit Checklist`, `VQA QC & Audit Checklist`, `How to Handle LLM Judge Feedback`, `Writing Strong Justifications`, `Reviewer Simulation`, and `Reviewer Announcements`.
+2. The current task UI and any visible task-specific instructions.
+3. `HANDSHAKE-AI/project-lizard-extracted/group-5-reviewer/` — a searchable extraction of the same material, and a navigation aid only. It never overrides a rendered PDF page.
+4. This skill's `references/...` files.
+5. The annotator-side skills, `../lizard-babyvision-evaluator/SKILL.md` and `../lizard-vqa-evaluator/SKILL.md`, when judging whether an annotation met its own spec.
+6. `../shared-references/...` for cross-project common errors.
+7. User memory or previous answers.
+
+State plainly when an expected official source could not be found. Do not import TELUS, Outlier, or Project Hedgehog rules into a Lizard task.
+
 ## Core Operational Mandates
 
 ### 🚨 Zero Send-back Policy

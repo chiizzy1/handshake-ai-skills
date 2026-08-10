@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake IG Entity Tagging"
-  short_description: "Annotate visible entities with complete labels and reference images"
+  short_description: "Tag visible entities with labels and references"
+  default_prompt: "Use $handshake-ig-entity-tagging to perform Handshake IG Entity Tagging tasks."

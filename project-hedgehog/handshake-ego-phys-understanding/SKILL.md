@@ -13,7 +13,7 @@ description: Create or evaluate Handshake Egocentric Physical Understanding task
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/handshake-Ego Phys Understanding.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Ego Phys Understanding.pdf` as the source of truth.
 
 Before writing or evaluating a live Ego Phys task, read `references/rubric.md`.
 

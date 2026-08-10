@@ -8,6 +8,17 @@ description: Evaluate or create Project Lizard BabyVision tasks. Use when asked 
 This skill guides the creation and validation of BabyVision (BV) tasks for Project Lizard.
 BabyVision tests whether an AI model can see and reason from visual structure, not whether it can recall facts or perform complex arithmetic. The challenge belongs in the image, not in the language — a prompt is strong when the visual reasoning is hard, not when the sentence is hard to parse.
 
+## Source Hierarchy
+
+1. The matching official PDF in `HANDSHAKE-AI/project-lizard-pdfs/` — the highest authority for BabyVision. The BV workflow runs `Project Lizard - BV 1 -- Review an Image.pdf` through `BV 5 -- Validate Your Prompt.pdf`, with a per-category `BV 2 -- Write a Question --- <category>.pdf` for each of the four categories, plus `Project Lizard - BabyVision Task Workflow.pdf`.
+2. The current task UI and any visible task-specific instructions.
+3. `HANDSHAKE-AI/project-lizard-extracted/group-2-babyvision/` — a searchable extraction of the same material, and a navigation aid only. It never overrides a rendered PDF page.
+4. This skill's `references/...` files.
+5. `../shared-references/...` for cross-project common errors.
+6. User memory or previous answers.
+
+State plainly when an expected official source could not be found. Do not import TELUS, Outlier, or Project Hedgehog rules into a Lizard task.
+
 ## Core Directives
 
 1. **Visual Primitive Only**: The challenge must come from the image, not the wording. If it needs reading dense text, arithmetic, multi-step reasoning, or outside expert/cultural knowledge, it is NOT BabyVision — it belongs in VQA.
@@ -93,11 +104,11 @@ Click "Generate Model Response" and wait (~20s). **Click only once.** Read the m
 
 ## Shared References
 Review the common-error reference files for broader rules applicable across all Project Lizard tasks:
-- `../../shared-references/common-errors/image-feasibility.md` — When to skip an image
-- `../../shared-references/common-errors/trivial-questions.md` — BV triviality criteria
-- `../../shared-references/common-errors/prompt-clarity.md` — How to avoid ambiguity (includes BV POV rules)
-- `../../shared-references/common-errors/annotation-independence.md` — Making annotations distinct
-- `../../shared-references/common-errors/answer-format-validity.md` — Format rules and MCQ formatting
-- `../../shared-references/common-errors/answer-correctness.md` — Verifying rewrite answers
-- `../../shared-references/common-errors/minimum-annotation-requirements.md` — Submission requirements
-- `../../shared-references/updated-guidelines-and-reminders.md` — Latest best practices
+- `../shared-references/common-errors/image-feasibility.md` — When to skip an image
+- `../shared-references/common-errors/trivial-questions.md` — BV triviality criteria
+- `../shared-references/common-errors/prompt-clarity.md` — How to avoid ambiguity (includes BV POV rules)
+- `../shared-references/common-errors/annotation-independence.md` — Making annotations distinct
+- `../shared-references/common-errors/answer-format-validity.md` — Format rules and MCQ formatting
+- `../shared-references/common-errors/answer-correctness.md` — Verifying rewrite answers
+- `../shared-references/common-errors/minimum-annotation-requirements.md` — Submission requirements
+- `../shared-references/updated-guidelines-and-reminders.md` — Latest best practices

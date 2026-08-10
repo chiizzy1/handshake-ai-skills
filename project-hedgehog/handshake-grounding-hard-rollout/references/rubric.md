@@ -2,9 +2,24 @@
 
 Use this reference for Grounding Hard Rollout tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Goal](#task-goal)
+- [Three-Step Workflow](#three-step-workflow)
+- [Critical Principle: Judge the Step, Not the Outcome](#critical-principle-judge-the-step-not-the-outcome)
+- [Worked Example — The Butterfly Row](#worked-example-the-butterfly-row)
+- [Confidence](#confidence)
+- [When to Skip](#when-to-skip)
+- [Knowledge Check Answers](#knowledge-check-answers)
+- [Common Mistakes](#common-mistakes)
+- [Foundational Training](#foundational-training)
+- [Comment Style Guidelines](#comment-style-guidelines)
+- [Final Checklist](#final-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/Project Hedgehog - Grounding Hard Rollout — Fellow Qualification Assessment.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/Project Hedgehog - Grounding Hard Rollout — Fellow Qualification Assessment.pdf`
 
 ## Task Goal
 

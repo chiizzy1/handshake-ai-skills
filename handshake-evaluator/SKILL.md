@@ -34,7 +34,7 @@ Before routing or rating a live task, read `references/task-router.md`.
 
 ## Source Hierarchy
 
-1. The relevant PDF in `HANDSHAKE-AI/pdfs/`, when one exists.
+1. The relevant PDF in `HANDSHAKE-AI/project-hedgehog-pdfs/`, when one exists.
 2. The task UI instructions and visible prompt/media for the current item.
 3. Task-specific Handshake skill reference files.
 4. `HANDSHAKE-AI/guidelines.md`.

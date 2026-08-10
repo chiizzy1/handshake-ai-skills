@@ -1,4 +1,4 @@
 interface:
   display_name: "Handshake T2V Evaluator"
   short_description: "Compare generated videos and identify temporal AI artifacts"
-  default_prompt: "Use the Handshake T2V Evaluator skill to grade this text-to-video artifact task."
+  default_prompt: "Use $handshake-t2v-evaluator to evaluate Handshake Text-to-Video and Less AI Generated Benchmark tasks."

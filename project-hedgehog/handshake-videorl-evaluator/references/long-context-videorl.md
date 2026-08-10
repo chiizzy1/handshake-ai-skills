@@ -2,6 +2,18 @@
 
 Use this reference for Long Context VideoRL onboarding and row review. Read the matching source file for the queue before final judgment.
 
+## Contents
+
+- [Shared Requirements](#shared-requirements)
+- [Exact Temporal Order - Consequence](#exact-temporal-order---consequence)
+- [Exact Temporal Order - Repeated Events](#exact-temporal-order---repeated-events)
+- [Sparse Long-Video Retrieval](#sparse-long-video-retrieval)
+- [Long Trace-Grounded Counting](#long-trace-grounded-counting)
+- [OCR / Frame-Following Dynamic Text](#ocr-frame-following-dynamic-text)
+- [Short Spatial State-Change](#short-spatial-state-change)
+- [Science & Technical Visual Reasoning](#science-technical-visual-reasoning)
+- [Action Anticipation & Prediction](#action-anticipation-prediction)
+
 ## Shared Requirements
 
 - The answer must be short, atomic, and objective.

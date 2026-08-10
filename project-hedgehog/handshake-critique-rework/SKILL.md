@@ -25,7 +25,7 @@ You are grading on two things at once:
 
 ## Source of Truth
 
-Use `HANDSHAKE-AI/pdfs/handshake-Critique Rework.pdf` as the canonical reference.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Critique Rework.pdf` as the canonical reference.
 
 Before working a live Critique Rework task, read `references/rubric.md` for the full rubric, all 7 worked examples with Good/Bad comparisons, quiz calibration, the marker placement table, the false-positive list, and the rework cheat sheet.
 

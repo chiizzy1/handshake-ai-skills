@@ -2,9 +2,26 @@
 
 Use this reference for Egocentric Physical Understanding tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Shape](#task-shape)
+- [Golden Rule](#golden-rule)
+- [Automatic Rewrites](#automatic-rewrites)
+- [Egocentric Perspective](#egocentric-perspective)
+- [Task Flow](#task-flow)
+- [Core Reasoning Principles](#core-reasoning-principles)
+- [Category Standards](#category-standards)
+- [Good Question Patterns](#good-question-patterns)
+- [Bad Question Patterns](#bad-question-patterns)
+- [Distractor Quality](#distractor-quality)
+- [Skip vs Change Category](#skip-vs-change-category)
+- [Scoring Standard](#scoring-standard)
+- [Pre-Submit Checklist](#pre-submit-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/handshake-Ego Phys Understanding.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Ego Phys Understanding.pdf`
 
 ## Task Shape
 

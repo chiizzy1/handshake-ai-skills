@@ -2,6 +2,24 @@
 
 Use this reference for Text-to-Code ELO tasks (comparing two rendered code outputs from the same prompt).
 
+## Contents
+
+- [Source](#source)
+- [Task Shape](#task-shape)
+- [Rating Scale](#rating-scale)
+- [Dimension 1 — Visual Design](#dimension-1-visual-design)
+- [Dimension 2 — Functionality](#dimension-2-functionality)
+- [Dimension 3 — Instruction Following](#dimension-3-instruction-following)
+- [Overall Preference](#overall-preference)
+- [Writing the Justification](#writing-the-justification)
+- [Skip vs Flag](#skip-vs-flag)
+- [Knowledge Check](#knowledge-check)
+- [Good vs Bad Examples](#good-vs-bad-examples)
+- [Boundary Case: Completeness vs Polish](#boundary-case-completeness-vs-polish)
+- [Boundary Case: Genuine Split Across Dimensions](#boundary-case-genuine-split-across-dimensions)
+- [QA Rubric](#qa-rubric)
+- [Final Checklist](#final-checklist)
+
 ## Source
 
 - `HANDSHAKE-AI/Text-to-code-elo/guidelines.md` (no such file or folder was present at last check; if it is still missing, this rubric is the operative source)

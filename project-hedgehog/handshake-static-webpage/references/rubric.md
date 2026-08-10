@@ -2,6 +2,21 @@
 
 Use this reference for Handshake Web Dev Agents Static Webpage data-collection tasks and the Static Webpage Assessment.
 
+## Contents
+
+- [Source Material](#source-material)
+- [Core Purpose](#core-purpose)
+- [Four Submission Steps](#four-submission-steps)
+- [Strong Description Requirements](#strong-description-requirements)
+- [Minimum Word Count](#minimum-word-count)
+- [Reference Images](#reference-images)
+- [Page Assets Versus Reference Images](#page-assets-versus-reference-images)
+- [Describing A Reference Layout](#describing-a-reference-layout)
+- [Target Resolution](#target-resolution)
+- [Assessment Answer Key Logic](#assessment-answer-key-logic)
+- [Common Mistakes](#common-mistakes)
+- [Final Checklist](#final-checklist)
+
 ## Source Material
 
 Primary source:

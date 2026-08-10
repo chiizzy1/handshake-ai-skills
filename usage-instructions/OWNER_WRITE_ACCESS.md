@@ -17,7 +17,7 @@ https://github.com/chiizzy1/handshake-ai-skills
 Before editing, pull the latest version:
 
 ```powershell
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" pull --ff-only
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" pull --ff-only
 ```
 
 Edit the skill files in the canonical repo folder.
@@ -25,16 +25,16 @@ Edit the skill files in the canonical repo folder.
 Check what changed:
 
 ```powershell
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" status
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" diff
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" status
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" diff
 ```
 
 Commit and push:
 
 ```powershell
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" add .
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" commit -m "Improve Handshake skill guidance"
-git -C "C:\Users\$env:USERNAME\skills-source\handshake-ai-skills" push
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" add .
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" commit -m "Improve Handshake skill guidance"
+git -C "C:\Users\$env:USERNAME\Desktop\projects\train-ai\handshake-ai-skills" push
 ```
 
 ## Agent Setup

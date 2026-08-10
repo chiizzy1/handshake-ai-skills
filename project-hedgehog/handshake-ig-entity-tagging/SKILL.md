@@ -13,7 +13,7 @@ description: Perform Handshake IG Entity Tagging tasks. Use when asked to annota
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/handshake-IG Entity Tagging Task.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-IG Entity Tagging Task.pdf` as the source of truth.
 
 Before doing a live tagging task, read `references/rubric.md`.
 

@@ -14,7 +14,7 @@ description: Evaluate Handshake Multimodal Agent Arena tasks. Use when comparing
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/Project Hedgehog - multimodal-agent-arena.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/Project Hedgehog - multimodal-agent-arena.pdf` as the source of truth.
 
 Before doing a live task, read `references/rubric.md`.
 

@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake UD Caption Evaluator"
   short_description: "Compare image-caption pairs for match, detail, and hallucination"
+  default_prompt: "Use $handshake-ud-caption-evaluator to evaluate Handshake UD Caption ELO tasks."

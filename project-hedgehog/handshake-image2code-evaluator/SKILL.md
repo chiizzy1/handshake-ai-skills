@@ -15,7 +15,7 @@ description: Evaluate Handshake Image2Code side-by-side tasks. Use when comparin
 
 Use the Image2Code guidelines as the source of truth when they are present:
 
-- `HANDSHAKE-AI/pdfs/image2code.md` (no such file was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
+- `HANDSHAKE-AI/project-hedgehog-pdfs/image2code.md` (no such file was present at last check; if it is still missing, `references/rubric.md` is the operative rubric and you should say so in your output)
 
 Before rating a live task, read `references/rubric.md`.
 

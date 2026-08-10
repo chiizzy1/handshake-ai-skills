@@ -2,6 +2,18 @@
 
 This checklist mirrors the official BabyVision audit spec. Every reviewer should be able to point to the exact item when flagging work. Use `sqs-scoring.md` when assigning SQS scores.
 
+## Contents
+
+- [1. Image](#1-image)
+- [2. Model Response](#2-model-response)
+- [3. Prompt — Scope & Clarity](#3-prompt-scope-clarity)
+- [4. Prompt — Question Design](#4-prompt-question-design)
+- [5. Answer Format](#5-answer-format)
+- [6. Answer Content](#6-answer-content)
+- [7. Task Metadata](#7-task-metadata)
+- [Minor — Pass with Note](#minor-pass-with-note)
+- [Subtle Failures to Watch Closely](#subtle-failures-to-watch-closely)
+
 ---
 
 ## 1. Image

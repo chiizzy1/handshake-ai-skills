@@ -2,6 +2,19 @@
 
 Use this reference for Handshake Text-to-Video, T2V Benchmark, and Less AI Generated Benchmark tasks.
 
+## Contents
+
+- [Source](#source)
+- [Core Principle](#core-principle)
+- [Standard Workflow](#standard-workflow)
+- [The Seven Artifact Categories](#the-seven-artifact-categories)
+- [Spatial Artifacts Still Matter](#spatial-artifacts-still-matter)
+- [Stylized Prompt Rule](#stylized-prompt-rule)
+- [Audio Review](#audio-review)
+- [Preference Strength](#preference-strength)
+- [Counting Artifact Categories](#counting-artifact-categories)
+- [Rationale Format](#rationale-format)
+
 ## Source
 
 - Current task UI and prompt.

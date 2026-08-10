@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Visual Coding Evaluator"
-  short_description: "Compare two rendered websites on fidelity, quality, interactivity, and workflows"
+  short_description: "Compare two rendered websites on four axes"
+  default_prompt: "Use $handshake-visual-coding-evaluator to evaluate Handshake Visual Coding and AI Website Generation side-by-side tasks."

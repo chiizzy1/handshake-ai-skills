@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake TI2T Evaluator"
-  short_description: "Rate image/video-to-text response pairs against the current prompt"
+  short_description: "Rate image and video to text response pairs"
+  default_prompt: "Use $handshake-ti2t-evaluator to evaluate Handshake Text Image To Text ELO (TI2T) tasks."

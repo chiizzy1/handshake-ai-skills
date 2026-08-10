@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Annot Critic"
   short_description: "Find and annotate AI tells in a single generated image"
+  default_prompt: "Use $handshake-annot-critic to evaluate and create annotations for Handshake Annot Critic tasks."

@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Multimodal Agent Arena"
-  short_description: "Compare two AI-generated artifacts side by side with task-specific rubrics"
+  short_description: "Compare two AI-generated artifacts side by side"
+  default_prompt: "Use $handshake-multimodal-agent-arena to evaluate Handshake Multimodal Agent Arena tasks."

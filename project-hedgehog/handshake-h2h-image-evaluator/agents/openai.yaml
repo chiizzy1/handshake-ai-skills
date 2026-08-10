@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake H2H Image Evaluator"
-  short_description: "Rate T2I, H2H, and Magnifier Pairwise image comparisons on the four required axes"
+  short_description: "Rate T2I and H2H image comparisons on four axes"
+  default_prompt: "Use $handshake-h2h-image-evaluator to evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise image comparison tasks."

@@ -2,10 +2,28 @@
 
 Use this reference for UD Caption ELO tasks.
 
+## Contents
+
+- [Source PDFs](#source-pdfs)
+- [Task Shape](#task-shape)
+- [Five Criteria](#five-criteria)
+- [Strict Separation](#strict-separation)
+- [Original Fact Ledger](#original-fact-ledger)
+- [Criterion 1: Overall Match](#criterion-1-overall-match)
+- [Criterion 2: Image Details](#criterion-2-image-details)
+- [Criterion 3: Caption Details](#criterion-3-caption-details)
+- [Criterion 4: Image Hallucination](#criterion-4-image-hallucination)
+- [Criterion 5: Caption Hallucination](#criterion-5-caption-hallucination)
+- [Independence Rule](#independence-rule)
+- [Both Good / Both Bad](#both-good-both-bad)
+- [Common Mistakes](#common-mistakes)
+- [Comment Style](#comment-style)
+- [Final Checklist](#final-checklist)
+
 ## Source PDFs
 
-- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-1.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-UD Caption Elo Task example-1.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
 - `HANDSHAKE-AI/guidelines.md` UD Caption ELO section
 
 ## Task Shape

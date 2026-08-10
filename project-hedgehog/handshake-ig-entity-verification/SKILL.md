@@ -13,7 +13,7 @@ description: Evaluate Handshake IG Entity Verification tasks. Use when asked to 
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/handshake-IG Entity Verification.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-IG Entity Verification.pdf` as the source of truth.
 
 Before verifying a live item, read `references/rubric.md`.
 

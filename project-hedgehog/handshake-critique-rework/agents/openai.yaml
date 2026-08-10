@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Critique Rework"
-  short_description: "Audit and repair image-quality critiques using the official rubric"
+  short_description: "Audit and repair image-quality critiques"
+  default_prompt: "Use $handshake-critique-rework to evaluate and rework Handshake Critique Rework tasks."

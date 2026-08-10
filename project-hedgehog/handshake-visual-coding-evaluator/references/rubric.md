@@ -2,9 +2,24 @@
 
 Use this reference for Visual Coding and AI Website Generation side-by-side tasks.
 
+## Contents
+
+- [Source](#source)
+- [Main Idea](#main-idea)
+- [Rating Scales](#rating-scales)
+- [Dimension 1 - Instruction & Reference Fidelity](#dimension-1---instruction-reference-fidelity)
+- [Dimension 2 - Visual Quality](#dimension-2---visual-quality)
+- [Dimension 3 - Surface Interactivity](#dimension-3---surface-interactivity)
+- [Dimension 4 - Workflow Correctness](#dimension-4---workflow-correctness)
+- [Overall Preference](#overall-preference)
+- [Render Failure Rule](#render-failure-rule)
+- [N/A Rules](#na-rules)
+- [Comment Style](#comment-style)
+- [Final Checklist](#final-checklist)
+
 ## Source
 
-- `HANDSHAKE-AI/pdfs/visual-coding.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
+- `HANDSHAKE-AI/project-hedgehog-pdfs/visual-coding.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
 
 ## Main Idea
 

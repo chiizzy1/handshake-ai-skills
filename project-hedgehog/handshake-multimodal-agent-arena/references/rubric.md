@@ -2,9 +2,26 @@
 
 Use this reference for Multimodal Agent Arena tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Goal](#task-goal)
+- [What You See in a Task](#what-you-see-in-a-task)
+- [What Are Rubrics?](#what-are-rubrics)
+- [Evaluation Workflow](#evaluation-workflow)
+- [When No Rubrics Are Present](#when-no-rubrics-are-present)
+- [Key Rules](#key-rules)
+- [Good vs Bad Examples](#good-vs-bad-examples)
+- [QA Rubric (How Submissions Are Graded)](#qa-rubric-how-submissions-are-graded)
+- [When to Skip](#when-to-skip)
+- [Core Evaluation Tips & Principles](#core-evaluation-tips-principles)
+- [Pre-Submission Checklist (5-Point Verification)](#pre-submission-checklist-5-point-verification)
+- [Common Mistakes](#common-mistakes)
+- [Final Checklist](#final-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/Project Hedgehog - multimodal-agent-arena.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/Project Hedgehog - multimodal-agent-arena.pdf`
 
 ## Task Goal
 

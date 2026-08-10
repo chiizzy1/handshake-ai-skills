@@ -2,11 +2,29 @@
 
 Use this reference for Reference-to-Image, Image-to-Image, and Omni R2I ELO tasks.
 
+## Contents
+
+- [Source PDFs](#source-pdfs)
+- [Task Shape](#task-shape)
+- [Mandatory Workflow](#mandatory-workflow)
+- [Hard Fail Checks](#hard-fail-checks)
+- [Dimension 1: Overall Preference](#dimension-1-overall-preference)
+- [Dimension 2: Instruction Following](#dimension-2-instruction-following)
+- [Dimension 3: Person ID Preservation](#dimension-3-person-id-preservation)
+- [Dimension 4: Content / Reference Preservation](#dimension-4-content-reference-preservation)
+- [Dimension 5: Visual Quality](#dimension-5-visual-quality)
+- [Dimension 6: Absence of AI Artifacts](#dimension-6-absence-of-ai-artifacts)
+- [Special Scene Types](#special-scene-types)
+- [Tie Policy](#tie-policy)
+- [Common Mistakes](#common-mistakes)
+- [Comment Style](#comment-style)
+- [Final Checklist](#final-checklist)
+
 ## Source PDFs
 
 Primary:
 
-All paths are under `HANDSHAKE-AI/pdfs/`.
+All paths are under `HANDSHAKE-AI/project-hedgehog-pdfs/`.
 
 - `Handshake-ai-Omni-R2-ELO.pdf`
 - `handshake-Image-to-Image (I2I).pdf`

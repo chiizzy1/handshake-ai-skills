@@ -19,10 +19,10 @@ description: Evaluate Handshake H2H, Text-to-Image, and T2I Magnifier Pairwise i
 
 Use the H2H/T2I Handshake PDFs and task-specific markdown guidelines as the source of truth:
 
-- `HANDSHAKE-AI/pdfs/handshae-ai-Image Evaluation.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-Text-to-Image (T2I).pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshae-ai-Image Evaluation.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-HOW-TO-SEE.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-Realism & Artifacts.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-Text-to-Image (T2I).pdf`
 - `HANDSHAKE-AI/guidelines.md`, section `Image Evaluation for Head-to-Head (H2H) Tasks`, which covers the T2I Magnifier Pairwise flow
 
 Before rating a live task, read `references/rubric.md`.

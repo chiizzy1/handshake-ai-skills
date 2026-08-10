@@ -2,9 +2,22 @@
 
 Use this reference for IG Entity Verification tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Shape](#task-shape)
+- [Minimum Workflow](#minimum-workflow)
+- [Decision Gate](#decision-gate)
+- [Verdict Scale](#verdict-scale)
+- [Identifying Features By Entity Type](#identifying-features-by-entity-type)
+- [Reason Style](#reason-style)
+- [Skip vs Flag](#skip-vs-flag)
+- [Common Mistakes](#common-mistakes)
+- [Final Checklist](#final-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/handshake-IG Entity Verification.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-IG Entity Verification.pdf`
 
 ## Task Shape
 

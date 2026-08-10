@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake IG Entity Verification"
   short_description: "Verify whether boxed entities and references are the same target"
+  default_prompt: "Use $handshake-ig-entity-verification to evaluate Handshake IG Entity Verification tasks."

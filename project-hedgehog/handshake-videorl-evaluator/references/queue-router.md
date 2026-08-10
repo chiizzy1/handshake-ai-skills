@@ -6,9 +6,9 @@ Use this file before choosing a VideoRL rubric. After routing, read the matching
 
 No VideoRL guideline or assessment files exist under `HANDSHAKE-AI/` at time of writing. **If source files are unavailable, the three reference files in this skill folder are operative:**
 
-- `references/queue-router.md` (this file) — queue identification.
-- `references/cross-modal-anchoring.md` — the cross-modal queues.
-- `references/long-context-videorl.md` — the long-context queues.
+- `queue-router.md` (this file) — queue identification.
+- `cross-modal-anchoring.md` — the cross-modal queues.
+- `long-context-videorl.md` — the long-context queues.
 
 If VideoRL guideline or assessment files are later added to the workspace, they outrank these reference files. Search the workspace by queue title rather than assuming a fixed path.
 
@@ -16,7 +16,7 @@ If VideoRL guideline or assessment files are later added to the workspace, they 
 
 ### Cross-Modal Anchoring
 
-Use `references/cross-modal-anchoring.md`. If a workspace guideline file for the queue exists, read it too.
+Use `cross-modal-anchoring.md`. If a workspace guideline file for the queue exists, read it too.
 
 - Audio Anchored Visual Retrieval: spoken phrase -> visual answer.
   - If a workspace guideline file exists, match the title "Audio Anchored Visual Retrieval".
@@ -33,7 +33,7 @@ Use `references/cross-modal-anchoring.md`. If a workspace guideline file for the
 
 ### Long Context VideoRL
 
-Use `references/long-context-videorl.md`. If a workspace guideline file for the queue exists, read it too.
+Use `long-context-videorl.md`. If a workspace guideline file for the queue exists, read it too.
 
 - Exact Temporal Order - Consequence: shuffled 6-10 events, numeric order.
   - If a workspace guideline file exists, match the section "Exact Temporal Order - Consequence (Long Video)".

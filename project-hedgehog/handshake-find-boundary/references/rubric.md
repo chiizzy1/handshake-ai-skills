@@ -2,9 +2,31 @@
 
 Use this reference for Find the Boundary tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Goal](#task-goal)
+- [Task Workflow](#task-workflow)
+- [Operational UI Notes](#operational-ui-notes)
+- [Output Formats](#output-formats)
+- [Writing Good Prompts](#writing-good-prompts)
+- [Ambiguous Prompts](#ambiguous-prompts)
+- [Pass/Fail Gate](#passfail-gate)
+- [Hard Images](#hard-images)
+- [Hard Prompt Patterns](#hard-prompt-patterns)
+- [Boundary-Pair / Tweak Flow](#boundary-pair-tweak-flow)
+- [Verdict: I Win / Model Failed](#verdict-i-win-model-failed)
+- [Verdict: AI Wins / Model Passed](#verdict-ai-wins-model-passed)
+- [When In Doubt](#when-in-doubt)
+- [Editing Canvas Rules](#editing-canvas-rules)
+- [Tags](#tags)
+- [Confidence](#confidence)
+- [Common Mistakes](#common-mistakes)
+- [Final Checklist](#final-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/handshake-Find the Boundary.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Find the Boundary.pdf`
 
 ## Task Goal
 

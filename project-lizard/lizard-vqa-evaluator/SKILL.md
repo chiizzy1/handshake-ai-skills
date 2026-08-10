@@ -8,6 +8,17 @@ description: Evaluate or create Project Lizard VQA tasks. Use when asked to writ
 This skill guides the creation and validation of Visual Question Answering (VQA) tasks for Project Lizard.
 VQA requires reading, multi-step logical reasoning, math reasoning, or chart/table understanding, making it distinct from BabyVision.
 
+## Source Hierarchy
+
+1. The matching official PDF in `HANDSHAKE-AI/project-lizard-pdfs/` — the highest authority for VQA. The workflow runs `Project Lizard - VQA 1 -- Review an Image.pdf` through `VQA 5 -- Validate Your Prompt.pdf`, plus `Project Lizard - VQA Stumping Strategies.pdf` and `Project Lizard - VQA Task Workflow.pdf`.
+2. The current task UI and any visible task-specific instructions.
+3. `HANDSHAKE-AI/project-lizard-extracted/group-3-vqa/` — a searchable extraction of the same material, and a navigation aid only. It never overrides a rendered PDF page.
+4. This skill's `references/...` files.
+5. `../shared-references/...` for cross-project common errors.
+6. User memory or previous answers.
+
+State plainly when an expected official source could not be found. Do not import TELUS, Outlier, or Project Hedgehog rules into a Lizard task.
+
 ## Core Directives
 
 1. **Complex Reasoning**: Every question must challenge the model on at least **2 skills**. If using *Enumeration*, it must use **3+ skills**.
@@ -95,11 +106,11 @@ To make questions harder, use techniques like Rank-n on limited ranges, Legend-b
 
 ## Shared References
 Review the common-error reference files for broader rules applicable across all Project Lizard tasks:
-- `../../shared-references/common-errors/image-feasibility.md` — When to skip an image
-- `../../shared-references/common-errors/trivial-questions.md` — What makes a question too easy
-- `../../shared-references/common-errors/prompt-clarity.md` — How to avoid ambiguity
-- `../../shared-references/common-errors/annotation-independence.md` — Making annotations distinct
-- `../../shared-references/common-errors/answer-format-validity.md` — Format rules and MCQ formatting
-- `../../shared-references/common-errors/answer-correctness.md` — Verifying rewrite answers
-- `../../shared-references/common-errors/minimum-annotation-requirements.md` — Submission requirements
-- `../../shared-references/updated-guidelines-and-reminders.md` — Latest best practices
+- `../shared-references/common-errors/image-feasibility.md` — When to skip an image
+- `../shared-references/common-errors/trivial-questions.md` — What makes a question too easy
+- `../shared-references/common-errors/prompt-clarity.md` — How to avoid ambiguity
+- `../shared-references/common-errors/annotation-independence.md` — Making annotations distinct
+- `../shared-references/common-errors/answer-format-validity.md` — Format rules and MCQ formatting
+- `../shared-references/common-errors/answer-correctness.md` — Verifying rewrite answers
+- `../shared-references/common-errors/minimum-annotation-requirements.md` — Submission requirements
+- `../shared-references/updated-guidelines-and-reminders.md` — Latest best practices

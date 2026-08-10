@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Ego Physical Understanding"
-  short_description: "Create image-dependent physical-reasoning MCQs from egocentric scenes"
+  short_description: "Write physical-reasoning MCQs from egocentric scenes"
+  default_prompt: "Use $handshake-ego-phys-understanding to create or evaluate Handshake Egocentric Physical Understanding tasks."

@@ -14,7 +14,7 @@ description: Evaluate Handshake i2i Pixel Aligned image-edit tasks. Use when a t
 
 ## Core Rule
 
-Use `references/rubric.md` together with `HANDSHAKE-AI/pdfs/handshake-Image-to-Image (I2I).pdf` as the task source of truth. If a Pixel Aligned assessment file is present in the workspace, it is the most specific authority; if it cannot be found, `references/rubric.md` is operative and you should say the assessment file was unavailable.
+Use `references/rubric.md` together with `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Image-to-Image (I2I).pdf` as the task source of truth. If a Pixel Aligned assessment file is present in the workspace, it is the most specific authority; if it cannot be found, `references/rubric.md` is operative and you should say the assessment file was unavailable.
 
 Before answering a live Pixel Aligned item, read `references/rubric.md`.
 

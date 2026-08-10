@@ -12,6 +12,20 @@ description: Evaluate and create annotations for Handshake Annot Critic tasks. U
 - `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
 - If a referenced external file cannot be found, use `references/rubric.md` in this skill folder as the operative rubric and state that the source file was unavailable.
 
+## Source Hierarchy
+
+No Annot Critic PDF is present under `HANDSHAKE-AI/project-hedgehog-pdfs/`. This skill is therefore **fallback-operated by design**, not by accident:
+
+1. The current task UI and any visible task-specific instructions.
+2. `references/rubric.md` in this folder — **the operative rubric**, standing in for the absent official source.
+3. `../../shared-references/how-to-see.md` for shared image-inspection technique.
+4. `HANDSHAKE-AI/guidelines.md` as a platform summary only, never as task authority.
+5. User memory or previous answers.
+
+Say plainly in your output that no official Annot Critic source was available and that the bundled rubric was used. If an official PDF later appears in `project-hedgehog-pdfs/`, it outranks everything above except the task UI.
+
+Do not import TELUS or Outlier rules into a Handshake task.
+
 ## What This Task Is
 
 In Annot Critic, you act as a sharp-eyed critic of an AI-generated image. You study the image alongside the prompt that created it and find every "tell" — small mistakes that a real photo or careful human would never make (e.g., garbled text, out-of-order clocks, 6 fingers, floating objects, missing requested items).

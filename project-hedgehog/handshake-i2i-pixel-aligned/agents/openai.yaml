@@ -1,4 +1,4 @@
 interface:
   display_name: "Handshake I2I Pixel Aligned"
   short_description: "Judge Pixel Aligned image edits with Q1/Q2/Q3 Yes/No checks"
-  default_prompt: "Evaluate this Handshake i2i Pixel Aligned task using the Q1/Q2/Q3 rubric."
+  default_prompt: "Use $handshake-i2i-pixel-aligned to evaluate Handshake i2i Pixel Aligned image-edit tasks."

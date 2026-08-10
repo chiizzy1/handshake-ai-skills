@@ -2,9 +2,26 @@
 
 Use this reference when working Critique Rework tasks. It covers the rating scale, all 7 worked Good-vs-Bad examples from the PDF, calibration quizzes, and the complete marker standard.
 
+## Contents
+
+- [Source](#source)
+- [Rating Scale (1–5)](#rating-scale-15)
+- [How to Apply the Scale](#how-to-apply-the-scale)
+- [Calibration Quiz 1](#calibration-quiz-1)
+- [Calibration Quiz 2](#calibration-quiz-2)
+- [The 7 Marker Rules — Full Worked Examples](#the-7-marker-rules-full-worked-examples)
+- [Marker Placement Standard](#marker-placement-standard)
+- [Good Notes vs. Bad Notes](#good-notes-vs-bad-notes)
+- [When to Fix vs. When to Skip Fixing](#when-to-fix-vs-when-to-skip-fixing)
+- [Skip, Flag, and Clean Images](#skip-flag-and-clean-images)
+- [False Positives — Delete These](#false-positives-delete-these)
+- [Common Mistakes](#common-mistakes)
+- [Rework Checklist (6 actions)](#rework-checklist-6-actions)
+- [Final Checklist](#final-checklist)
+
 ## Source
 
-`HANDSHAKE-AI/pdfs/handshake-Critique Rework.pdf` (Project Hedgehog — https://hedgehog-faq.learn.joinhandshake.com/critique-rework)
+`HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Critique Rework.pdf` (Project Hedgehog — https://hedgehog-faq.learn.joinhandshake.com/critique-rework)
 
 If that file cannot be found, this rubric is operative on its own; say that the source PDF was unavailable.
 

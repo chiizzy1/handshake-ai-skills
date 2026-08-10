@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Image2Code Evaluator"
   short_description: "Compare two rendered outputs against a reference image or frames"
+  default_prompt: "Use $handshake-image2code-evaluator to evaluate Handshake Image2Code side-by-side tasks."

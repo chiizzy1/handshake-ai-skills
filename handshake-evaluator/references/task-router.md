@@ -4,6 +4,15 @@ Use this reference before routing a Handshake task or building new Handshake tas
 
 Skill paths below are relative to the skills repo root (the folder containing `handshake-evaluator/`). `HANDSHAKE-AI/...` is a sibling folder of that repo in the workspace root.
 
+## Contents
+
+- [Non-Negotiables](#non-negotiables)
+- [Strict Rating Protocol](#strict-rating-protocol)
+- [Shared Handshake Image Foundations](#shared-handshake-image-foundations)
+- [Task Families](#task-families)
+- [Unknown Or New Task Types](#unknown-or-new-task-types)
+- [Comment Style](#comment-style)
+
 ## Non-Negotiables
 
 - The relevant Handshake PDF is the single source of truth when one exists. If no PDF exists for a task type, use the visible task instruction panel as the current source of truth.

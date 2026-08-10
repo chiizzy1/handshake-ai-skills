@@ -14,7 +14,7 @@ description: Evaluate Handshake Grounding Hard Rollout tasks. Use when verifying
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/Project Hedgehog - Grounding Hard Rollout — Fellow Qualification Assessment.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/Project Hedgehog - Grounding Hard Rollout — Fellow Qualification Assessment.pdf` as the source of truth.
 
 Before doing a live task, read `references/rubric.md`.
 

@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Grounding Hard Rollout"
-  short_description: "Verify model grounding attempts, review rollout traces, rate per-attempt"
+  short_description: "Verify grounding attempts and rate rollout traces"
+  default_prompt: "Use $handshake-grounding-hard-rollout to evaluate Handshake Grounding Hard Rollout tasks."

@@ -15,8 +15,8 @@ description: Evaluate Handshake UD Caption ELO tasks. Use when an original refer
 
 Use the UD Caption ELO PDFs as the source of truth:
 
-- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-1.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-UD Caption Elo Task example-1.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-UD Caption Elo Task example-intermidiate.pdf`
 - `HANDSHAKE-AI/guidelines.md` section `UD Caption Elo Task`
 
 Before rating a live task, read `references/rubric.md`.

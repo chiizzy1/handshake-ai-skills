@@ -2,6 +2,24 @@
 
 Use this reference for Text Image To Text ELO tasks.
 
+## Contents
+
+- [Current Source](#current-source)
+- [Task Shape](#task-shape)
+- [Core Standard](#core-standard)
+- [Multi-Turn Rule](#multi-turn-rule)
+- [Review Workflow](#review-workflow)
+- [Rating Panel Rules](#rating-panel-rules)
+- [Overall](#overall)
+- [Factuality](#factuality)
+- [Instruction Following](#instruction-following)
+- [Helpfulness](#helpfulness)
+- [Style And Format](#style-and-format)
+- [Image/Video Reading Rules](#imagevideo-reading-rules)
+- [Common Mistakes](#common-mistakes)
+- [Comment Style](#comment-style)
+- [Final Checklist](#final-checklist)
+
 ## Current Source
 
 The current source is the TI2T instruction panel supplied by the user. No full PDF has been provided yet.

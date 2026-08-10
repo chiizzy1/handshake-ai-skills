@@ -2,6 +2,23 @@
 
 Use this reference for Handshake / Project Hedgehog i2i Pixel Aligned tasks.
 
+## Contents
+
+- [Source Materials](#source-materials)
+- [Core Concept](#core-concept)
+- [Required Inspection Order](#required-inspection-order)
+- [Q1 - Instructions Aligned](#q1---instructions-aligned)
+- [Q2 - Pixel Aligned](#q2---pixel-aligned)
+- [Q3 - No AI Slop](#q3---no-ai-slop)
+- [Independence Rules](#independence-rules)
+- [Upscale, Restoration, Deblur, And Denoise](#upscale-restoration-deblur-and-denoise)
+- [All And Only The Instruction](#all-and-only-the-instruction)
+- [Alignment Versus Content](#alignment-versus-content)
+- [Clean Photo Versus Low Quality](#clean-photo-versus-low-quality)
+- [Common Assessment Patterns](#common-assessment-patterns)
+- [Answer Style](#answer-style)
+- [Decision Checklist](#decision-checklist)
+
 ## Source Materials
 
 Primary source:
@@ -10,11 +27,11 @@ Primary source:
 
 Related visual foundations:
 
-- `HANDSHAKE-AI/pdfs/handshake-Image-to-Image (I2I).pdf`
-- `HANDSHAKE-AI/pdfs/Handshake-ai-Omni-R2-ELO.pdf`
-- `HANDSHAKE-AI/pdfs/handshae-ai-Image Evaluation.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-HOW-TO-SEE.pdf`
-- `HANDSHAKE-AI/pdfs/handshake-ai-Realism & Artifacts.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Image-to-Image (I2I).pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/Handshake-ai-Omni-R2-ELO.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshae-ai-Image Evaluation.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-HOW-TO-SEE.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-ai-Realism & Artifacts.pdf`
 
 The Pixel Aligned assessment, when available, is the most specific authority for Q1/Q2/Q3 Yes/No tasks. Otherwise this rubric is.
 

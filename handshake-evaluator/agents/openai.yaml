@@ -1,3 +1,4 @@
 interface:
   display_name: "Handshake Evaluator"
   short_description: "Route Handshake tasks to the correct PDF-backed evaluator"
+  default_prompt: "Use $handshake-evaluator to route this Handshake task to the correct evaluator."

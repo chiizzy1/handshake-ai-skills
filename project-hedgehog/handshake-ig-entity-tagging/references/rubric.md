@@ -2,9 +2,23 @@
 
 Use this reference for IG Entity Tagging tasks.
 
+## Contents
+
+- [Source PDF](#source-pdf)
+- [Task Shape](#task-shape)
+- [Minimum Requirements](#minimum-requirements)
+- [Strict Scan Order](#strict-scan-order)
+- [Entity vs Reference](#entity-vs-reference)
+- [Good Reference Images](#good-reference-images)
+- [Specificity Standard](#specificity-standard)
+- [Annotation Examples](#annotation-examples)
+- [Search/Reference Guidance](#searchreference-guidance)
+- [Common Mistakes](#common-mistakes)
+- [Final Checklist](#final-checklist)
+
 ## Source PDF
 
-- `HANDSHAKE-AI/pdfs/handshake-IG Entity Tagging Task.pdf`
+- `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-IG Entity Tagging Task.pdf`
 
 ## Task Shape
 

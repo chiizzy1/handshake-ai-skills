@@ -14,7 +14,7 @@ description: Evaluate Handshake Text-to-Video and Less AI Generated Benchmark ta
 
 ## Core Rule
 
-There is no T2V PDF in `HANDSHAKE-AI/pdfs/`. Use the current task UI as the source of truth, with `references/rubric.md` as the operative rubric. If a T2V instruction file later appears in the workspace, it outranks this skill.
+There is no T2V PDF in `HANDSHAKE-AI/project-hedgehog-pdfs/`. Use the current task UI as the source of truth, with `references/rubric.md` as the operative rubric. If a T2V instruction file later appears in the workspace, it outranks this skill.
 
 Before grading, read `references/rubric.md`.
 

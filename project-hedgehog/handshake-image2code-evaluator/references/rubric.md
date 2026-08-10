@@ -2,9 +2,25 @@
 
 Use this reference for Image2Code tasks.
 
+## Contents
+
+- [Source](#source)
+- [Main Idea](#main-idea)
+- [Rating Scales](#rating-scales)
+- [Render Gate](#render-gate)
+- [Multi-Frame Rule](#multi-frame-rule)
+- [Dimension 1 - Structure & Instruction Following](#dimension-1---structure-instruction-following)
+- [Dimension 2 - Visual Quality](#dimension-2---visual-quality)
+- [Dimension 3 - Text & Data Accuracy](#dimension-3---text-data-accuracy)
+- [Overall Preference](#overall-preference)
+- [N/A Rules](#na-rules)
+- [Skip Or Flag](#skip-or-flag)
+- [Comment Style](#comment-style)
+- [Final Checklist](#final-checklist)
+
 ## Source
 
-- `HANDSHAKE-AI/pdfs/image2code.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
+- `HANDSHAKE-AI/project-hedgehog-pdfs/image2code.md` (no such file was present at last check; if it is still missing, this rubric is the operative source)
 
 ## Main Idea
 

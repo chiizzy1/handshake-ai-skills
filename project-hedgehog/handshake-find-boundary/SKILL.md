@@ -13,7 +13,7 @@ description: Handle Handshake Find the Boundary image-grounding tasks. Use when 
 
 ## Core Rule
 
-Use `HANDSHAKE-AI/pdfs/handshake-Find the Boundary.pdf` as the source of truth.
+Use `HANDSHAKE-AI/project-hedgehog-pdfs/handshake-Find the Boundary.pdf` as the source of truth.
 
 Before doing a live task, read `references/rubric.md`.
 
