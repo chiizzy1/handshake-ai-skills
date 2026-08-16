@@ -128,13 +128,27 @@ second.
 If a task comes back marked "Autochecker Rejected - No additional shadow task
 allowed", you fix it without claiming another shadow task.
 
-**What it does and does not do.** The Autochecker catches formatting and coverage
-mechanics — timestamps, tags, gaps, banned language. It **cannot tell whether
-what you wrote is true.** Human reviewers check for missing or incorrect content
-afterwards. Passing the Autochecker does not mean the task passes.
+**The loop:** Save in SuperAnnotate → wait (results refresh roughly every 15
+minutes) → enter the Task ID → fix every flag → check again → submit only at
+zero. Nothing reaches the checker until you hit **Save**.
+
+**What it does and does not do.** It checks structure, timestamps, marker
+spellings, speaker numbering, track placement, word counts and forbidden
+content — the full list is in `../references/autochecker-rules.md`. It **cannot
+tell whether what you wrote is true.** Human reviewers check that afterwards.
+Passing the Autochecker does not mean the task passes.
 
 Every task in `../references/common-errors.md` passed the Autochecker and then
 scored 0% on human audit.
+
+### Getting paid
+
+- **A task that does not pass the Autochecker inside the task-holding window
+  cannot be paid.** Claim a task only when you have time to finish it.
+- If you cannot finish, request removal via the form in the latest Slack
+  announcement.
+- **You may not request removal of a task you already submitted that was sent
+  back to you.** You fix it.
 
 ## Shadow Tasks
 

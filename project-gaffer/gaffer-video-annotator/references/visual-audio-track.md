@@ -15,6 +15,7 @@ Caption 2 is **every sound that is not speech**.
 - [Montages](#montages)
 - [The Model Visual Caption](#the-model-visual-caption)
 - [Caption 2 — Audio](#caption-2--audio)
+- [Marking True Silence](#marking-true-silence)
 - [Failures to Avoid](#failures-to-avoid)
 
 ## Format
@@ -141,6 +142,21 @@ caption, the caption is incomplete.
 - Animations and transitions, and what they look like
 - When each appears, changes, and disappears
 
+**Spatial information — required by the checker**
+- Where things are in the frame, and relative to each other
+- Where things appear and disappear
+- Direction of movement
+- Either viewpoint is fine: "the right side of the frame" and "her right" both work
+
+**Two things never to write**
+- **Never say someone is "speaking".** That is audio-track content. Say they are
+  moving their mouth.
+- **Never name a person, brand or race that isn't visible or audible.** Describe
+  a mark by its shape — *"a logo of an apple with a bite taken out of it"*, *"the
+  stylized peacock logo"*, *"a black checkmark logo"* — and transcribe any words
+  on it: `"VISA"`, `"CNBC"`, `"HSBC Bank"`. Race and ethnicity are never
+  mentioned at all, and the Autochecker flags them.
+
 **Numbers on screen**
 - Scores, prices, stock tickers, meter readings, clocks — copied digit for digit,
   and re-stated every time they change
@@ -187,6 +203,41 @@ matter how recognisable the face is.
 **Describe the styling too** when it is visible — colour, position, and what it
 sits on: *"in blue text over a dark border"*, *"in white text over a blue
 underline, in the center of the screen"*.
+
+**Match capitalisation exactly.** Do not turn all-caps into title case, and do
+not capitalise lowercase text. A screen reading `iRB` is written `"iRB"` — not
+`"IRB"`, not `"irb"`. `BREAKING NEWS` stays in caps. And never expand or
+normalise: `"2nd"` typed as `"Second"` is a failure.
+
+**Text inside a graphic gets the graphic described too**, briefly:
+
+> Two social media icons are shown in the middle of the page. The first is a red
+> rounded rectangle containing a white triangle that points to the right, with
+> "/projectgaffer" written below it. The second is a blue square containing a
+> white lowercase "f," with "@projectgaffer" written below it.
+
+**Fast-cycling tickers**: describe the position once, then list the sequence of
+values, rather than re-describing the layout each time.
+
+### Non-English on-screen text
+
+- **A–Z letters or numbers:** transcribe exactly as it can be typed. If it uses
+  accents or symbols SuperAnnotate cannot accept, transcribe what you can and
+  **describe the rest**. A screen reading `CAFÉ 50€` becomes: *The text reads
+  "CAFE 50," with an acute accent over the final E in "CAFE" and a euro symbol
+  after "50."*
+- **Another writing system** (Chinese, Thai, Arabic): describe it as non-English
+  writing and note where it appears. **Do not translate it and do not rewrite it
+  in English letters.** *"A line of non-English writing appears at the bottom of
+  the frame."*
+
+### Maths and formulas
+
+Equations count as on-screen text. Transcribe every readable number, letter,
+symbol, operator and mark exactly as shown. **Do not solve or interpret it.** If
+formatting such as a fraction, exponent or square root cannot be typed, describe
+it. If part is unreadable, transcribe the readable portion and say the rest is
+obscured.
 
 ## Scene Changes and Timestamps
 
@@ -260,6 +311,20 @@ the clips."*
 
 Do not drop it after the first mention, and do not re-describe it from scratch
 every time.
+
+**Never use `((persists))` in a Visual caption.** That marker is audio-only. Use
+"remains", "remains unchanged" or "reappears" instead.
+
+**Never refer back using a timestamp alone.** When a person, object, graphic or
+scene returns, identify it again briefly — enough that the reference stands on
+its own:
+
+```text
+[12.4] The woman in the black apron reappears in the kitchen.
+[28.6] The red score banner at the bottom of the frame remains unchanged.
+```
+
+Not: *"the graphic from [4.2] returns"*.
 
 ## Montages
 
@@ -407,6 +472,38 @@ Background music ((persists)), but the bells become more noticeable
 Plain continuation wording works too, and is more common in the golden examples:
 *"The upbeat bass music continues in the background."*, *"Crowd ambience
 continues."*, *"The soft instrumental music continues."*
+
+### Marking true silence
+
+Two tags, and they mean different things. Both need a window of **at least 3
+seconds** to be worth using.
+
+| Tag | Use when |
+|---|---|
+| `((No non-speech sounds present))` | The only audio in the window is speech |
+| `((No audio present))` | Dead quiet — no speech and no ambient sound at all |
+
+**Be extremely careful with these.** If any ambient noise can be heard under the
+speech, neither tag applies — and that ambience must be described. Traffic
+passing while a man talks was a real audit failure when it was left out.
+Background chatter you cannot transcribe belongs here as a *sound*: "faint
+background conversation", "crowd murmur".
+
+### Do not cut sounds off at segment edges
+
+If a sound is still going when your segment ends, extend the range or let it
+carry cleanly into the next annotation. **Reviewers check edges specifically.**
+Play back the last second of every segment.
+
+### Count what repeats
+
+Timestamp every sound, whether it happens once or throughout:
+
+```text
+At [12.4], a meow is heard.
+[12.4 - 18.0] Meowing is heard repeatedly throughout the segment.
+[20.1 - 26.3] The sound of a tennis ball hitting the ground is heard 5 times.
+```
 
 ### Keep it to what is there
 

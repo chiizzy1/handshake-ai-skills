@@ -1,6 +1,6 @@
 ---
 name: gaffer-video-annotator
-description: Write and self-audit Project Gaffer video captions for Handshake AI. Use for Video Omni Caption tasks in SuperAnnotate that need four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, and Audio — with timestamps, speaker tags, skip/flag decisions, and submit routing.
+description: Correct and self-audit Project Gaffer video captions for Handshake AI. Use for Video Omni Caption tasks in SuperAnnotate that need four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, and Audio — with timestamps, speaker tags, Autochecker rules, skip/flag decisions, and submit routing.
 ---
 
 # Gaffer Video Annotator
@@ -8,8 +8,17 @@ description: Write and self-audit Project Gaffer video captions for Handshake AI
 ## What This Task Is
 
 You watch a short video and describe it so completely that someone who never saw
-it could almost re-create it. You are not rating anything. You are writing the
-captions yourself, and a human auditor grades them afterwards.
+it could almost re-create it. You are not rating anything.
+
+**The captions arrive pre-generated.** A model has already produced a draft, and
+your job is to correct it: restore what it dropped, fix what it got wrong, cut
+what it invented, and time everything properly. The transcription in particular
+is explicitly *"a rough draft that you correct"*. Never assume a draft line is
+right because it reads fluently — the failures in
+`references/common-errors.md` mostly read fluently.
+
+Work then passes a machine Autochecker, and after that a human auditor who
+re-watches the video against every caption.
 
 Every video gets **four captions** on **two separate tracks**:
 
@@ -30,42 +39,64 @@ Every video gets **four captions** on **two separate tracks**:
   files as the operative guidance and say plainly that the source file was
   unavailable.
 
-## Core Rule
+## Core Rule — Source Hierarchy
 
-The Project Gaffer training site is the source of truth. It is extracted to:
+When two sources disagree, the higher one wins.
 
-- `HANDSHAKE-AI/project-gaffer/extracted/PROJECT_GAFFER_MASTER_DOC.md` — the
-  guides, all ten common-error audits, and all nine golden examples.
-- `HANDSHAKE-AI/project-gaffer-assessment/questions.md` — the assessment, which
-  is the rubric in question form.
-- `HANDSHAKE-AI/project-gaffer/extracted/MASTER_VIDEO_SPEECH_INSPECTION_REPORT.md`
-  — keyframes and rough Whisper transcripts for the eighteen example videos.
+1. **The Autochecker.** The project says so outright: *"If the checker and this
+   site ever disagree, trust the checker and flag it in Slack."* Its rules are in
+   `references/autochecker-rules.md`.
+2. **The live task UI** for the item in front of you.
+3. **The full annotating instructions** —
+   `HANDSHAKE-AI/project-gaffer/extracted/full_annotating_instruction/`. Six
+   pages covering the whole task and each caption. This is the written rulebook.
+4. **The assessment** — `HANDSHAKE-AI/project-gaffer-assessment/questions.md`,
+   the rubric in question form.
+5. **The golden examples and error audits** —
+   `HANDSHAKE-AI/project-gaffer/extracted/PROJECT_GAFFER_MASTER_DOC.md`. These
+   show the standard in practice, but some predate current rules. See
+   "Where the Examples Are Out of Date" in `references/golden-examples.md`.
+6. This skill, then user preference.
 
-There is no Gaffer PDF. Do not go looking for one and do not invent one. If the
-live task UI and this skill disagree, the task UI wins for that task, and you
-say so in your answer.
+There is no Gaffer PDF. Do not go looking for one and do not invent one.
 
 Do not be agreeable for its own sake. Be cooperative with the user, but be loyal
 to the Gaffer rubric.
 
 ## Hard Gates
 
-- **Do not write anything you did not see or hear.** No inference, no
-  background knowledge, no filling gaps with what "must" be there. A woman on
-  screen is "a woman", not "the network's chief anchor". An accent is "a German
-  accent", never "the speaker is German".
+Two questions decide whether a task passes audit:
+
+> **1. Is anything written that isn't real?** Inventing a word, sound or detail
+> is a hallucination — the most serious error on the project.
+> **2. Is anything real that isn't written?** Missing things is the #1 reason
+> tasks fail.
+
+- **Do not write anything you did not see or hear.** A woman on screen is "a
+  woman", not "the network's chief anchor". An accent is "a German accent", never
+  "the speaker is German". The one allowance: an assumption **corroborated across
+  tracks** is valid — "father and son" is fine when the speech supports it.
+- **Never supply a name, brand or race that isn't visible or audible.**
+  Transcribe words you can read, describe a mark by its shape — *"a logo of an
+  apple with a bite taken out of it"* — and describe people by appearance. Race
+  and ethnicity are never mentioned at all.
+- **Do not trust the pre-generated draft.** It is a starting point. Check every
+  word, sound and timestamp against the video.
 - **Do not skip a hard video.** Skipping for the wrong reason gets people
   offboarded. Read `references/skip-flag-routing.md` before any skip.
-- **Do not submit with Autochecker errors.** Submitting a task that has not
-  passed with zero errors means being unable to complete future tasks.
-- **The Autochecker cannot tell whether what you wrote is true.** It only checks
-  format and coverage. Passing it is not passing the audit.
-- **Do not leave a gap.** Every second of the video must be covered on both
-  tracks. Silence is covered by `((No speech present))`, not by nothing.
+- **Do not submit with Autochecker errors.** One flag sends the task back, and
+  submitting unchecked means being unable to complete future tasks.
+- **Passing the Autochecker is not passing the audit.** It checks structure,
+  format, track placement, word counts and forbidden content — it cannot tell
+  whether what you wrote is *true*. Every 0% audit in
+  `references/common-errors.md` passed it first.
+- **Cover both tracks end to end.** No gap over 1.0s, no overlap over 0.5s, first
+  annotation within 0.5s of 0.0 and last within 0.5s of the end.
 - **Do not describe events outside the segment's own window.** If the segment is
   `[43.0-54.6]`, nothing in it may be stamped `[55.0]`.
 - **Do not put a track's content in the other track.** A laugh is audio. A
-  stutter is speech. See the routing table in `references/visual-audio-track.md`.
+  stutter is speech. A gesture is visual. See the routing table in
+  `references/visual-audio-track.md`.
 - **Never edit the user's task files.** Task files are read-only input. Put your
   captions in the chat reply using the output format at the bottom of this file.
 
@@ -145,28 +176,48 @@ Visual+Audio segments over the same 30 seconds are `0.0-2.1`, `2.1-4.4`,
 `4.4-6.6`, `6.6-8.5`, `8.5-9.0`, `9.0-9.9`, and so on.
 
 - **Speech segments** follow who is talking. A segment is normally one utterance
-  or one continuous stretch by one speaker. Gaps where nobody talks get their own
-  segment carrying `((No speech present))`.
+  or one continuous stretch by one speaker. **Boundaries fall at natural speech
+  breaks, never mid-word** — a cut-off boundary makes the next transcriber infer
+  words. Stretches with no speech for **3 seconds or more** get their own segment
+  carrying `((No speech present))`; briefer natural pauses do not.
 - **Visual+Audio segments** follow the picture. A new shot, a new graphic, or a
-  new scene is a new segment. In fast montages one segment can hold many stamped
-  events instead.
+  new scene is a new segment — but **rapid cut sequences under 1–2 seconds per
+  cut are summarised**, and quick cuts may be grouped when they form one
+  cohesive moment, such as cutting back and forth to build tension. Longer
+  montage footage is described more comprehensively.
 
-Segments run edge to edge with no gaps and no overlaps.
+Segments follow the **natural duration of events**, never fixed intervals. At
+least 3 per track. No gap over 1.0s, no overlap over 0.5s.
 
-### 5. Write the four captions
+**Null events get captioned too.** A stretch where nothing happens is still an
+observation: *"At [1.2 - 8.7], the image remains static, with no new objects
+appearing."*
 
-Read the track reference before writing, every time:
+### 5. Correct the four captions
 
-- `references/speech-track.md` — transcription and speech characteristics,
-  with the tag rules and worked samples.
+The draft is already there. Read the track reference before editing, every time:
+
+- `references/speech-track.md` — transcription and speech characteristics, with
+  the tag table and worked samples.
 - `references/visual-audio-track.md` — visual and audio, with the detail
   checklist, the on-screen text rules, and the track routing table.
 
-### 6. Self-audit before you submit
+Spend detail where the clip's theme lives. Clothing usually needs a brief
+summary — unless the clip is about fashion, costume or cultural dress. Main and
+recurring characters matter more than background figures; establishing shots more
+than quick cutaways. Group repetitive behaviour into one moment: *"the man is
+clapping"* with one timestamp, not one per clap.
 
-Run the whole checklist in `references/self-audit.md`. It is built from the ten
-things auditors actually fail people for. Do not skip it and do not claim you
-ran it if you did not.
+### 6. Check, then self-audit
+
+Two separate passes, in this order:
+
+1. **The Autochecker** — `references/autochecker-rules.md`. Save in
+   SuperAnnotate, wait for it to update, fix every flag, repeat until zero.
+2. **The human standard** — `references/self-audit.md`, built from the ten
+   things auditors actually fail people for.
+
+Do not skip either, and do not claim you ran a check you did not.
 
 ### 7. Route the task
 
@@ -238,6 +289,7 @@ Read the one that matches what you are doing.
 
 | When | Read |
 |---|---|
+| Before submitting — the machine rules | `references/autochecker-rules.md` |
 | Before you write anything — inspecting the video | `references/video-inspection.md` |
 | Writing transcription or speech characteristics | `references/speech-track.md` |
 | Writing visual or audio | `references/visual-audio-track.md` |
@@ -302,9 +354,16 @@ Flags: [None | ...]
 - [ ] I looked at every shot frame and every possible-transition frame.
 - [ ] I listened to `audio.wav` myself rather than trusting the draft transcript.
 - [ ] Speaker numbers follow first-speaking order and never change.
-- [ ] Both tracks cover every second, with no gaps and no overlaps.
-- [ ] Every timestamp inside a caption falls inside that caption's own window.
-- [ ] Every piece of on-screen text is quoted exactly as shown, typos included.
-- [ ] Nothing is inferred. Everything written is something I saw or heard.
+- [ ] Both tracks have ≥3 annotations, cover the whole video, with no gap over
+      1.0s and no overlap over 0.5s.
+- [ ] Every timestamp inside a caption falls inside that caption's own window,
+      and uses at most two decimals.
+- [ ] Every piece of on-screen text is quoted exactly as shown — typos,
+      capitalisation and all.
+- [ ] Nothing is inferred. No name, brand or race that isn't visible or audible.
 - [ ] Non-speech sounds are in the Audio caption, not the Speech captions.
+- [ ] The word "accent" appears in the speech captions, and one of
+      camera/shot/screen/frame appears somewhere in the task.
+- [ ] Transcription captions are under 200 words; the others under 1000.
+- [ ] The Autochecker reports **zero** errors.
 - [ ] I ran the full self-audit in `references/self-audit.md`.

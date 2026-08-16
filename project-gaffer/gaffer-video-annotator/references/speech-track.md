@@ -3,12 +3,20 @@
 The Speech track holds two captions. Caption 1 is **what was said**. Caption 2 is
 **how it sounded**. Both cover the same segment window.
 
+This is the **Words track**. If a sound is discernible as words — any language,
+any producer, on-screen or off — it belongs here.
+
+**The transcription arrives pre-generated.** Treat it as a rough draft to
+correct: restore missing words, fix wrong ones, and put back what
+auto-transcription drops — false starts, fillers, stutters, self-corrections and
+verbal errors. Use standard punctuation and capitalisation.
+
 ## Contents
 
 - [Format](#format)
 - [Speaker Numbering](#speaker-numbering)
 - [Caption 1 — Transcription](#caption-1--transcription)
-- [The Three Tags](#the-three-tags)
+- [The Tags and Markers](#the-tags-and-markers)
 - [Songs and Lyrics](#songs-and-lyrics)
 - [Swearing and Slurs](#swearing-and-slurs)
 - [Caption 2 — Speech Characteristics](#caption-2--speech-characteristics)
@@ -139,20 +147,42 @@ watching.
 [23.8-27.5]: ((No speech present))
 ```
 
-## The Three Tags
+## The Tags and Markers
 
-These are the only tags for missing or unusable speech, and each means one exact
-thing. Getting them mixed up is a graded error.
+Each means one exact thing. Getting them mixed up is a graded error. The
+Autochecker policices the spelling of the `(( ))` family but **cannot tell
+whether you picked the right one** — only human audit catches that.
 
-| Tag | Means | Use when |
+| Marker | Means | Example |
 |---|---|---|
-| `((No speech present))` | Nobody is speaking | Silence, or only music and noise |
-| `((unintelligible))` | Words are spoken, you cannot make them out | Mumbling, crosstalk, drowned out |
-| `((Non-English speech))` | Words are spoken, in another language | A passage you can hear is not English |
+| `um` / `uh` / `er` | Hesitation — nasal / vowel / British. **Always these spellings** | I was uh going to say… |
+| `word-` | Word cut off mid-utterance — **hyphen, not an ellipsis** | I was going to oran- |
+| `--` | Restart or false start — **a space on both sides** | I was going to -- I stayed home. |
+| `((unintelligible))` | Words spoken, you cannot make them out — a **clarity** problem | ((unintelligible)) |
+| `((inaudible))` | Words spoken, not loud enough to hear — an **audibility** problem | ((inaudible)) |
+| `((Non-English speech))` | Words in another language — **always with a speaker tag** | [Speaker 2]: ((Non-English speech)) |
+| `((No speech present))` | Nobody is speaking, for **3 seconds or more** | ((No speech present)) |
 
-Never guess between them. `((No speech present))` on a segment where someone is
+**Common tag errors:** "ummm" instead of `um` · "uhhhh" instead of `uh` · a
+missing hyphen on a cut-off word · wrong spacing on a restart · over-tagging
+silence and breaths · guessing a word instead of using `((unintelligible))`.
+
+Three further rules the checker enforces mechanically:
+
+- Every `((` must be closed with `))`. Square brackets like `[unintelligible]`
+  fail outright.
+- The words **unintelligible, muffled and garbled may only appear inside
+  `(( ))`** — never as ordinary prose.
+- `((No speech present))` is for gaps of **3 seconds or more**. Brief natural
+  pauses are not tagged; they are just part of the speech.
+
+Never guess between tags. `((No speech present))` on a segment where someone is
 mumbling is a failure — the transcription audit flagged exactly that: *"label
-should mention speech as unintelligible, not 'no speech'"*.
+should mention speech as unintelligible, not 'no speech'"*. Tags can be used
+somewhat fluidly, and improvised parentheticals are allowed, but they must never
+introduce a hallucination.
+
+Play segment edges back to confirm no words got cut off.
 
 Tag only the part that needs it. `((unintelligible))` can sit mid-sentence:
 
@@ -168,8 +198,24 @@ model answer for a cook naming a dish is:
 [0.0 – 2.7][Speaker 1]: Brinjal and potato rasa.
 ```
 
-not `((Non-English language))`. A whole video that is mostly non-English is a
-different matter — that is a skip. See `../references/skip-flag-routing.md`.
+not `((Non-English language))`. Likewise **a foreign-sounding name is not
+non-English** — transcribe it. Never render non-English speech as garbled
+English, and never mark it as no-speech. A whole video that is mostly
+non-English is a different matter — that is a skip. See
+`../references/skip-flag-routing.md`.
+
+**Overdubbed translation gets two lines over the same window**, one per speaker:
+
+```text
+[0.0-10.0] [Speaker 1]: ((Non-English speech))
+[0.0-10.0] [Speaker 2]: Welcome to China!
+```
+
+### The 200-word cap
+
+A transcription caption may not exceed **200 words**. Long musical numbers and
+uninterrupted monologues will breach it. **Split the segment** — never trim what
+was actually said.
 
 ## Songs and Lyrics
 
@@ -216,11 +262,47 @@ Speech track, and the music still gets described on the Audio track.
 
 ## Caption 2 — Speech Characteristics
 
-This caption describes the *sound* of the speech. Cover, for each speaker in the
-window:
+This caption describes the *sound* of the speech — the delivery only. Never the
+content or topic of what was said, and nothing you know from your eyes.
+
+> ✗ "The man in red emphasizes 'run'" → ✓ "Speaker 1 emphasizes 'run'"
+
+### How much is required
+
+This is machine-checked, so it is worth knowing exactly:
+
+- **Every Speaker N tagged in Caption 1 must also appear in Caption 2** for that
+  same segment, with the same number.
+- Each caption containing speech covers **at least 2 of the 5 categories, with
+  time marks**. The guidance asks for the **three most important** — aim for
+  three.
+- **All 5 categories must appear at least once per main speaker** across the
+  whole task. A main speaker appears in **3 or more annotations**.
+- The literal word **"accent" must appear somewhere in the speech captions**.
+- Exempt from the category quota: speakers of **two words or fewer**, and
+  unintelligible-only annotations.
+
+For a very short utterance the speaker still gets mentioned, but no specific
+characteristic is required. **Do not guess one.** *"Speaker 2 is also briefly
+heard in this segment."* is a complete and correct Caption 2 entry.
+
+> **Open question, do not invent an answer.** The instruction page lists seven
+> qualities; the checker counts "5 categories" without naming them. The safest
+> reading is that tone, volume, pace, emphasis and accent are the five. Ask in
+> Slack rather than assuming.
+
+### What to describe
+
+Cover, for each speaker in the window:
 
 - **Voice and accent** — "a male voice with an American accent", "a feminine
   standard Indian English accent", "a Jamaican accent", "a New Zealand accent".
+  Give it on each speaker's **first appearance**. When you can clearly hear an
+  accent but cannot place it, write **"Speaker N has a non-American accent."**
+  Never force a call on an utterance too short to tell similar accents apart —
+  an unsupported accent is a hallucination.
+- **Speaker characteristics** — age and gender, **only when identifiable from
+  the voice alone**.
 - **Tone** — firm, playful, informative, emphatic, hesitant, acknowledging.
 - **Pace** — steady, rushed, deliberate, moderately fast, quick.
 - **Volume** — moderate, low, loud, "lower than Speaker 1".
@@ -260,9 +342,16 @@ acknowledging tone, and he interrupts 3 times in a low volume.
 ```
 
 When tone changes the meaning of what was said — sarcasm, or heavy stress on one
-word — capturing it here is **mandatory**, not optional.
+word — capturing it here is **mandatory**, not optional. *"He said he arrived
+yesterday"* is neutral; *"he **said** he arrived yesterday"* implies doubt.
 
-When nobody speaks, Caption 2 carries the tag too:
+**Accuracy beats coverage.** A wrong characteristic is a failure — calling a
+British accent American fails the annotation. And copy-pasting "calm, steady
+tone" across annotations gets flagged. If a speaker sings, describe the sung
+delivery: emotion, pitch, words drawn out for effect.
+
+When nobody speaks for 3 seconds or more and Caption 1 carries the tag, Caption 2
+carries it too — there are no delivery qualities to describe:
 
 ```text
 [49.4-54.6]: ((No speech present))

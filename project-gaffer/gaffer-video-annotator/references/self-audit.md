@@ -20,6 +20,7 @@ by hand, not something you may assume. See `../references/video-inspection.md`.
 
 ## Contents
 
+- [Pass 0 — The Machine Rules](#pass-0--the-machine-rules)
 - [Pass 1 — Coverage](#pass-1--coverage)
 - [Pass 2 — Truth](#pass-2--truth)
 - [Pass 3 — Placement](#pass-3--placement)
@@ -29,13 +30,29 @@ by hand, not something you may assume. See `../references/video-inspection.md`.
 - [Pass 7 — Format and Routing](#pass-7--format-and-routing)
 - [The Three Questions](#the-three-questions)
 
+## Pass 0 — The Machine Rules
+
+Run `../references/autochecker-rules.md` first and get to zero flags. It is
+faster than any of the passes below and it catches the mechanical failures that
+would send the task back regardless of quality. The ones people miss most:
+
+- [ ] **≥3 annotations per track.**
+- [ ] The literal word **"accent"** appears in the speech captions.
+- [ ] One of **camera / shot / screen / frame** appears somewhere in the task.
+- [ ] Transcription captions **under 200 words**, others under 1000.
+- [ ] No **race or ethnicity** mentioned anywhere.
+- [ ] No ambiguous wording — "a good volume" is a flag.
+- [ ] Timestamps use **at most two decimals**.
+
 ## Pass 1 — Coverage
 
 Is everything that happened in there?
 
-- [ ] **Speech track runs edge to edge.** Add up the segment windows. They should
-      cover 0.0 to the end of the video with no gaps and no overlaps.
-- [ ] **Visual+Audio track runs edge to edge**, separately.
+- [ ] **Speech track runs edge to edge.** First annotation within 0.5s of 0.0,
+      last within 0.5s of the end, no gap over 1.0s, no overlap over 0.5s.
+- [ ] **Visual+Audio track runs edge to edge**, separately, to the same tolerances.
+- [ ] **Null events are captioned**, not skipped — "At [1.2 - 8.7], the image
+      remains static, with no new objects appearing."
 - [ ] **Every speech segment is transcribed to its own end.** Take the longest
       segment and check the last words against the clock. A caption that reads as
       a finished paragraph can still stop 49 seconds early — that is exactly what
@@ -109,10 +126,20 @@ Is it at the right second, in the right caption?
 - [ ] Cut-off words use a **hyphen**, not an ellipsis: `we shou-`, `th- the`.
 - [ ] Nothing has been tidied — no fixed grammar, no completed sentences, no
       corrected facts. A misspoken year stays misspoken.
+- [ ] Restarts use `--` with a space on both sides.
+- [ ] Fillers are spelled `um`, `uh`, `er` — never "ummm" or "uhhhh".
 - [ ] The right tag in the right place:
-      `((No speech present))` = nobody is talking;
-      `((unintelligible))` = words spoken, cannot be made out;
+      `((No speech present))` = nobody talking for 3s or more;
+      `((unintelligible))` = words spoken, cannot be made out (clarity);
+      `((inaudible))` = words spoken, not loud enough (audibility);
       `((Non-English speech))` = words spoken, not in English.
+- [ ] "Unintelligible", "muffled" and "garbled" appear only inside `(( ))`.
+- [ ] Every Speaker N in Caption 1 also appears in Caption 2 for that segment.
+- [ ] Each speech Caption 2 covers ≥2 of the 5 categories with time marks, and
+      all 5 appear at least once per main speaker across the task.
+- [ ] Short utterances (≤2 words) name the speaker without a guessed
+      characteristic — "Speaker 2 is also briefly heard in this segment."
+- [ ] No copy-pasted characteristics across annotations.
 - [ ] Simple non-English that a lay viewer would understand is **transcribed**,
       not tagged.
 - [ ] Speech Caption 2 names, for each speaker: voice and accent, tone, pace,
@@ -138,7 +165,13 @@ Is it at the right second, in the right caption?
 - [ ] Text too small or blurred to read called out as illegible.
 - [ ] Text styling noted where visible: colour, position, what it sits on.
 - [ ] Persistent elements introduced in full once, then carried forward — "The
-      watermark is unchanged" — and never dropped.
+      watermark is unchanged" — and never dropped. No `((persists))` in a Visual
+      caption, and no referring back by timestamp alone.
+- [ ] Capitalisation matched exactly; nothing expanded ("2nd" not "Second").
+- [ ] Nobody is described as "speaking" — say they are moving their mouth.
+- [ ] No name, brand or race supplied that isn't visible or audible.
+- [ ] Spatial information present: positions, appearances, movement direction.
+- [ ] Non-English on-screen text described, never translated or transliterated.
 - [ ] Numbers copied digit for digit, and re-stated each time they change.
 - [ ] In a montage, every shot has its own stamped entry.
 - [ ] People without names are identified consistently by a stable feature —
@@ -157,6 +190,11 @@ Is it at the right second, in the right caption?
       `Background music ((persists))`, or "The upbeat bass music continues in the
       background."
 - [ ] No padding about your own listening or about what is absent.
+- [ ] No sound cut off at a segment edge — play back the last second of each.
+- [ ] Ambient sound **under** speech is described. Omitted traffic noise was a
+      real audit failure.
+- [ ] `((No non-speech sounds present))` and `((No audio present))` used only on
+      windows of 3s or more, and only when genuinely nothing else is audible.
 
 ## Pass 7 — Format and Routing
 

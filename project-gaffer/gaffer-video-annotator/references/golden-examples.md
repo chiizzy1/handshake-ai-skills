@@ -11,6 +11,7 @@ videos, keyframes and audio in
 
 ## Contents
 
+- [Where the Examples Are Out of Date](#where-the-examples-are-out-of-date)
 - [What They All Have in Common](#what-they-all-have-in-common)
 - [The Model Visual Caption](#the-model-visual-caption)
 - [Cooking Show Promo — Dense Detail on Short Shots](#cooking-show-promo--dense-detail-on-short-shots)
@@ -21,6 +22,22 @@ videos, keyframes and audio in
 - [Family Entertainment — Montage and Song](#family-entertainment--montage-and-song)
 - [Politics — One Long Speaker](#politics--one-long-speaker)
 - [Rugby — Tracking People Without Names](#rugby--tracking-people-without-names)
+
+## Where the Examples Are Out of Date
+
+These tasks were audited before the current rules were published. Copy their
+*standard*, not these three details — the written rules and the Autochecker both
+outrank them.
+
+| In the examples | Current rule |
+|---|---|
+| The family-entertainment task transcribes a 129-second song as one caption. I measured it at **210 words** | Transcription captions are capped at **200 words**. Split the segment instead |
+| The model Visual caption says *"The reporter **speaks** while maintaining direct eye contact"* | **Never write that someone is speaking** in a Visual caption. Say they are moving their mouth |
+| Several tasks tag every short silence `((No speech present))` | Only stretches of **3 seconds or more** get the tag |
+
+If you spot another conflict, the order is: Autochecker, then the task UI, then
+`full_annotating_instruction/`, then these examples. See the source hierarchy in
+`../SKILL.md`.
 
 ## What They All Have in Common
 
