@@ -604,6 +604,26 @@ Avoid:
 
 `The target fails the image alignment preservation criterion due to geometric displacement of non-targeted regions.`
 
+### The Persona
+
+Someone who flipped between the two images a few times. You start with Yes or No, then say the one thing you saw. No em dashes, no semicolons, no absolutes like "perfectly."
+
+**Banned phrases:** "alignment preservation criterion," "geometric displacement," "non-targeted regions," "demonstrates," "Upon review of," "structural integrity."
+
+### The Three Patterns
+
+**1. Edit done, but more changed with it.** Q1 can be Yes while Q2 is No. Say what moved that should not have.
+
+`Yes for the edit itself. No on alignment, because the whole frame shifted left and the window trim no longer lines up.`
+
+**2. The whole image moved or resized.** Nothing lines up, even if the edit looks fine.
+
+`No - the edited version is zoomed in slightly, so none of the unchanged parts sit where they did in the original.`
+
+**3. AI slop in the edited region.** Name the part that looks wrong.
+
+`No on Q3 - the hand holding the cup has six fingers and the edge of the sleeve smears into the background.`
+
 Use:
 
 `No - the whole target is shifted, so the parts that should stay the same do not line up.`

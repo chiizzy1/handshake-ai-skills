@@ -233,6 +233,41 @@ Also bad:
 
 `Upon review of the prompt-alignment criteria, Response A demonstrates superior fulfillment of the requested semantic elements and contextual constraints.`
 
+## The Four Patterns
+
+**The Persona: someone flipping between two pictures on a phone.** You read the prompt, looked at both, and one of them was missing something or looked wrong. The tone rules and banned phrases are in `SKILL.md` under How to Write.
+
+### 1. The Missing Element
+
+The prompt asked for something that is not in the image. That is the comment.
+
+`Response B is much better because it actually includes the lighthouse and the boat the prompt asked for. Response A only shows the empty coastline.`
+
+### 2. The Broken Body
+
+Anatomy, hands, or faces fall apart. Say what part.
+
+`Response A is better because the two dancers have normal arms and hands. Response B gives the woman a third arm coming out of her back and her face is smeared.`
+
+### 3. Prettier But Wrong
+
+The better-looking image missed the request. Give it the compliment first.
+
+`Response B is better because it puts the cat on top of the fridge like the prompt says. Response A has nicer lighting and a warmer look, but the cat is on the floor.`
+
+### 4. Justifying a Tie
+
+Ties need more evidence than picks. Name what both did.
+
+`Both images get the red barn and the storm clouds the prompt asked for, and neither one has broken anatomy. The main difference is the color grading, which is not enough to separate them.`
+
+## Common Comment Failures
+
+- Nitpicking texture when something big is missing or broken.
+- Chaining adjectives instead of naming the object.
+- Listing all four axes instead of the one that decided it.
+- Writing a tie comment shorter than a pick comment.
+
 ## Final Checklist
 
 - Prompt read before image judgment.

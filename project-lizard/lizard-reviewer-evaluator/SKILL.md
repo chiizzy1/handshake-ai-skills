@@ -99,6 +99,22 @@ Feedback:
 
 **Bad**: "unclear, fixed it"
 
+### Style
+
+**The Persona: someone writing down what they changed so a rebuttal cannot knock it over.**
+
+1. **Name the error category first**, then the specific problem, then the edit. That order survives an audit.
+2. **Quote the failing words.** "asks for both the count and the name" beats "the prompt is ambiguous."
+3. **Short sentences. Periods.** No em dashes, no semicolons.
+4. **Avoid absolutes.** Not "completely unanswerable." Use "cannot be answered from the image."
+5. **Do not pad.** If one sentence carries the category, the problem, and the fix, stop there.
+
+**Banned phrases:** "demonstrates," "exhibits," "Upon review of," "it is evident that," "suboptimal," "non-trivial," "holistic."
+
+**Good**: "Giveaways: The prompt says the odd tiger is in the bottom row, which hands over half the answer. I removed the row hint so the model has to scan the whole grid."
+
+**Bad**: "The prompt demonstrates suboptimal construction and exhibits characteristics that undermine the intended visual reasoning objective."
+
 Both describe the same edit — but only the strong version names the error mode, points to the specific failure, and ties it to the rubric.
 
 ### Un-annotatable Template

@@ -185,6 +185,26 @@ Bad:
 
 `Likely same - both are brown tabby cats.`
 
+### The Persona
+
+Someone comparing two photos and pointing at the specific thing that settles it. Start with the verdict, then name the features. One line. No em dashes, no semicolons, no absolutes like "identical."
+
+**Banned phrases:** "demonstrates," "exhibits," "morphological," "Upon review of," "high degree of correspondence," "it is evident that."
+
+### The Three Patterns
+
+**1. Same, with a caveat.** Say what matched and what limited your view.
+
+`Likely same - same logo placement and stitching on the collar, though the target is shot from further back and slightly blurred.`
+
+**2. Different, on one decisive feature.** One feature settles it. Lead with that, not a list.
+
+`Definitely different - the target has a chrome bezel and a date window at 3 o'clock, while the reference has a black bezel and no date window.`
+
+**3. Not enough to call.** Say what blocked you rather than guessing.
+
+`Not confident either way - the target's face is turned away and only the ear and hairline are visible, which is not enough to match against the reference.`
+
 ## Skip vs Flag
 
 Skip:

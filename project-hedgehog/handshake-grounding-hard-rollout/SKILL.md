@@ -123,6 +123,26 @@ When free-response rationale comments are required, write like a normal human re
 - Do not let the model's self-correction retroactively upgrade earlier wrong steps.
 - Read the full rollout trace before rating any individual attempt.
 
+### The Four Patterns
+
+Most rationales are one of these. Match the shape to the situation.
+
+**1. The Wrong Object.** The box is on something that does not match the prompt. Name both objects.
+
+`The box is on the ceramic mug, but the prompt asks for the travel tumbler on the right side of the counter.`
+
+**2. The Missed Instance.** Some instances were boxed and some were not. Say how many are missing and where.
+
+`Two of the four bottles are boxed. The two behind the blender on the left are also bottles and should have their own boxes.`
+
+**3. Right Answer, Broken Process.** The final box lands correctly after bad reasoning. Rate the step, and say so plainly.
+
+`The final box is correct, but the model cropped the wrong side of the image twice before it got there. The earlier steps should not be marked correct because of how it ended.`
+
+**4. No Matching Object.** Nothing in the image fits the prompt. Do not force a box.
+
+`There is no red umbrella anywhere in this image. The only umbrella visible is dark blue, so this should be No matching object rather than a forced box.`
+
 ## How to See
 
 For photographic analysis fundamentals (composition, focus, lighting), read `../../shared-references/how-to-see.md`.

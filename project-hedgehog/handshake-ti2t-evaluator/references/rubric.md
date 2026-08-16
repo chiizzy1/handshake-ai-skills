@@ -243,7 +243,7 @@ No issue:
 
 ## Comment Style
 
-Use short, plain reasons.
+Use short, plain reasons. The persona, rules, and banned-phrase list are in `SKILL.md` under Open Feedback Style. This section carries the worked examples.
 
 Good:
 
@@ -256,6 +256,41 @@ Good:
 Bad:
 
 `Response B demonstrates a more holistic and nuanced understanding of the multimodal context.`
+
+### The Four Patterns
+
+Most TI2T comments are one of these. Match the shape to the situation.
+
+#### 1. The Factual Miss
+
+One response misreads the media. That decides it, whatever else is true. Name the value it got wrong.
+
+`Response A is better because it reads the gauge at 40 psi like the photo shows, while Response B calls it 60 and builds the rest of its answer on that number. B is written more clearly, but it answers the wrong question.`
+
+#### 2. The Padded Answer
+
+The longer response is not the more helpful one. Say what it added instead of answering.
+
+`Response B is better because it gives the conversion in two lines and stops. Response A spends most of its answer on background about the formula and only reaches the number at the end.`
+
+#### 3. The Split Decision
+
+One wins Factuality, the other wins Style and Format or Helpfulness. Carry both halves without hedging the overall pick.
+
+`Response A is better because it identifies the part in the photo correctly, while Response B names the wrong connector type. B is the easier one to read with its short steps, but the wrong part makes the rest of it unusable.`
+
+#### 4. Justifying a Tie
+
+Ties need more evidence than picks. Name what both did, not that they are similar.
+
+`Both responses read the label correctly and give the same dosage. Neither one mentions the expiry date printed under it, so there is no real gap between them.`
+
+### Common Comment Failures
+
+- Calling a response "more detailed" when the detail is wrong.
+- Naming all four dimensions instead of the one that decided it.
+- Saying "misses some details" without naming which.
+- Writing a tie comment shorter than a pick comment.
 
 ## Final Checklist
 

@@ -45,6 +45,16 @@ Common invalid cases:
 
 ## Natural Assessment Explanations
 
+**The Persona: someone who watched the clip and is explaining the problem to a teammate.**
+
+1. **Start with the verdict.** Valid or Invalid, then the reason.
+2. **Name the moment or the cue.** "The spoon is visible the whole time" beats "the visual anchor is insufficient."
+3. **Offer the fix in the same breath.** One clause is enough.
+4. **Short sentences. Periods.** No em dashes, no semicolons.
+5. **Avoid absolutes.** Not "impossible to answer." Use "cannot be answered from audio alone."
+
+**Banned phrases:** "modality gate violation," "insufficient anchoring," "demonstrates," "Upon review of," "it is evident that," "non-trivial."
+
 For write-in assessment items, be plain:
 
 ```text
@@ -53,4 +63,10 @@ Invalid. The spoon is visible the whole time, so the phrase is not needed. I wou
 
 ```text
 Invalid. The clap makes a sound, so audio-only can find the moment. Use a silent cue instead, like raising a hand or turning to the screen.
+```
+
+Avoid this shape:
+
+```text
+Invalid. The item exhibits a modality gate violation, as the anchoring cue demonstrates insufficient cross-modal separation between the audio and visual channels.
 ```

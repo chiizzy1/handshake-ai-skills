@@ -18,6 +18,10 @@ Use this reference for UD Caption ELO tasks.
 - [Both Good / Both Bad](#both-good-both-bad)
 - [Common Mistakes](#common-mistakes)
 - [Comment Style](#comment-style)
+  - [Per-Axis Phrasing](#per-axis-phrasing)
+  - [Open Feedback Shape](#open-feedback-shape)
+  - [The Four Patterns](#the-four-patterns)
+  - [Common Comment Failures](#common-comment-failures)
 - [Final Checklist](#final-checklist)
 
 ## Source PDFs
@@ -184,9 +188,13 @@ Do not use Both Bad merely because the task is hard.
 
 ## Comment Style
 
-Keep justifications concise, grounded, and natural, like an average careful reviewer wrote them. Do not over-polish or over-explain. Do not use colon characters or em dashes in the justification prose. Keep the writing simple and flowing. Name the decisive visual difference and move on.
+Keep comments concise, grounded, and natural, like an average careful reviewer wrote them. Do not over-polish or over-explain. Do not use colon characters or em dashes in the prose. Name the decisive visual difference and move on.
 
-Prefer short explanations. Two clear sentences are usually enough.
+The style rules, persona, and banned-phrase list live in `SKILL.md` under Open Feedback Style. This section carries the worked examples.
+
+### Per-Axis Phrasing
+
+Use this shape inside the Response Analysis section, where one axis is under discussion.
 
 Good
 
@@ -196,17 +204,57 @@ Good
 
 `Response A is better for Caption Hallucination because B adds exact color codes and pixel-level details that cannot be verified from the image.`
 
-Good
-
-`Response A is better because it is closer to the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner, but it changes the formatting more and adds sidebar details that are not as faithful to the original.`
-
-Bad
-
-`Response A is better because it keeps the page layout closer to the original. The two problems stay in the same order, the answer choices are preserved, and the text block still feels like the same cropped document page. Response B looks cleaner, but it changes the formatting more by splitting the variables into neat separate lines and adding sidebar details that do not match the original crop as well. Its caption also describes those extra sidebar details too confidently, while A stays closer to what is actually visible.`
-
 Bad
 
 `B is more detailed and therefore more accurate.`
+
+### Open Feedback Shape
+
+This is the text that goes in the task's Open Feedback box. It covers the whole comparison in 2 to 3 sentences, not one axis at a time.
+
+❌ Too long, recites every axis
+
+`Response A is better because it keeps the page layout closer to the original. The two problems stay in the same order, the answer choices are preserved, and the text block still feels like the same cropped document page. Response B looks cleaner, but it changes the formatting more by splitting the variables into neat separate lines and adding sidebar details that do not match the original crop as well. Its caption also describes those extra sidebar details too confidently, while A stays closer to what is actually visible.`
+
+✅ Two sentences, one decisive difference
+
+`Response A is better because it keeps the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner but changes the formatting and adds sidebar details that are not in the original.`
+
+### The Four Patterns
+
+Almost every UD Caption comment is one of these four. Match the shape to the situation.
+
+#### 1. The Split Decision
+
+One response wins the image and the other wins the caption. The Independence Rule allows this, so the comment has to carry both halves without reading as a contradiction. Say which side won the image, then start the second sentence on the caption.
+
+`Response B is better on the image because it keeps all eleven points and the axis running to 16, while Response A stops the axis at 12 and drops two points. Response A's caption is the more accurate one though, since B's caption adds exact pixel positions and an aspect ratio that cannot be read off the original.`
+
+#### 2. The Polish Trap
+
+The prettier output is the less faithful one. Say plainly that it looks better, then say why that did not decide it. Do not pretend the cleaner image is ugly.
+
+`Response A is better because the bars stay in the same order with the same three colors as the original. Response B has a cleaner style and smoother gradients, but it merges two categories and drops the axis labels.`
+
+#### 3. Precision Masking Fabrication
+
+A long, confident caption invents specifics. Name the invented type of detail rather than calling the caption wrong in general.
+
+`Response A's caption is better because it sticks to what is visible in the diagram. Response B reads as more thorough, but it adds exact hex codes and a stated resolution that are not in the original image.`
+
+#### 4. Justifying a Tie
+
+Both Good and Both Bad need more evidence than a pick, not less. Excessive tie usage is grounds for removal, so name what both did rather than saying they are similar.
+
+`Both images miss the original layout in the same way, since each one turns the two stacked panels into a single wide panel. Neither caption mentions the panel split either, so there is no meaningful gap between them on this one.`
+
+### Common Comment Failures
+
+- Naming every axis in one sentence instead of the one that decided it.
+- Saying "more detailed" when the point is that the detail was invented.
+- Calling a response "perfect" or "flawless," which a zoomed-in reviewer can disprove.
+- Writing a tie comment shorter than a pick comment.
+- Dropping the original's own label text in favor of vague references like "the top item."
 
 ## Final Checklist
 
@@ -216,3 +264,4 @@ Bad
 - Small text/labels checked.
 - Hallucinated precision checked.
 - Final answer uses concrete evidence.
+- Open Feedback matches one of the four patterns and reads like a person wrote it.

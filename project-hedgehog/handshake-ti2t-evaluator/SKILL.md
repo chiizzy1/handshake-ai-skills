@@ -108,6 +108,26 @@ Keep the overall preference consistent with the per-dimension ratings you assign
 
 For photographic analysis fundamentals (composition, focus, lighting), read `../../shared-references/how-to-see.md`.
 
+## Open Feedback Style
+
+The field is **Open Feedback**, minimum 100 characters. Write 2 to 3 sentences.
+
+**The Persona: someone who read both answers with the image still open.**
+
+You are not grading an essay. You checked each answer against what is actually in the media and noticed where one of them went wrong.
+
+1. **Lead with the factual difference.** If one response misreads the image, that is the comment. Everything else is secondary.
+2. **Quote the detail.** Name the value, label, or object the response got wrong, not "an inaccuracy."
+3. **Length is not helpfulness.** If the longer answer padded, say it padded. Do not praise thoroughness that did not answer the question.
+4. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+5. **Use "while" instead of "whereas."**
+6. **Avoid absolutes.** Not "answers perfectly." Use "gets it right," "reads it correctly."
+7. **Neutral.** Describe the error, do not editorialize about it.
+
+**Banned phrases:** "demonstrates," "holistic," "nuanced understanding," "multimodal context," "Upon review of," "comprehensively addresses," "it is evident that," "superior."
+
+For worked examples and the four recurring comment patterns, read the Comment Style section in `references/rubric.md`.
+
 ## Output Format
 
 **CRITICAL RULE**: Never modify the user's task or markdown files directly. Present your answers and ratings in clean markdown directly in the chat using the template below.

@@ -10,6 +10,7 @@ description: Router and source-of-truth controller for Handshake AI task work. U
 - `references/...` paths are inside this skill's folder.
 - `../project-hedgehog/handshake-*/...` are Project Hedgehog task skill folders.
 - `../project-lizard/lizard-*/...` are Project Lizard task skill folders.
+- `../project-gaffer/gaffer-*/...` are Project Gaffer task skill folders.
 - `../shared-references/...` are cross-project shared references.
 - `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
 - If a referenced external file cannot be found, use `references/task-router.md` in this skill folder as the operative routing reference and state that the source file was unavailable.
@@ -35,10 +36,11 @@ Before routing or rating a live task, read `references/task-router.md`.
 ## Source Hierarchy
 
 1. The relevant PDF in `HANDSHAKE-AI/project-hedgehog-pdfs/`, when one exists.
-2. The task UI instructions and visible prompt/media for the current item.
-3. Task-specific Handshake skill reference files.
-4. `HANDSHAKE-AI/guidelines.md`.
-5. User preference or prior chat memory.
+2. `HANDSHAKE-AI/hedgehog-extracted/docs/` for task types that have no PDF. These are the extracted Handshake training pages and are the highest local authority for the IG Video Pairs family and IG Entity Tagging Videos. They are extracted training material, not an official PDF — say so when you cite them. `HANDSHAKE-AI/project-gaffer/extracted/` plays the same role for Project Gaffer, which has no PDF at all.
+3. The task UI instructions and visible prompt/media for the current item.
+4. Task-specific Handshake skill reference files.
+5. `HANDSHAKE-AI/guidelines.md`.
+6. User preference or prior chat memory.
 
 If a task depends on current real-world facts outside the image or prompt, verify with reliable sources before rating. Do not use outside research to override what the task asks you to judge visually.
 
@@ -46,7 +48,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 1. Read the current task text, visible images/video, prompt, response options, and rating UI labels.
 2. Identify the task type from the UI and inputs.
-3. **Identify the project**: Determine whether the task belongs to **Project Hedgehog** or **Project Lizard** (or another project). Use the task UI labels, queue name, and visible cues. Project Hedgehog tasks involve image/video/code comparison, grounding, annotation, and entity tagging. Project Lizard tasks involve BabyVision (BV) and VQA workflows.
+3. **Identify the project**: Determine whether the task belongs to **Project Hedgehog**, **Project Lizard**, or **Project Gaffer** (or another project). Use the task UI labels, queue name, and visible cues. Project Hedgehog tasks involve image/video/code comparison, grounding, annotation, and entity tagging. Project Lizard tasks involve BabyVision (BV) and VQA workflows. Project Gaffer tasks are video captioning production in SuperAnnotate: one video, four captions, two tracks, no rating.
 4. Load the matching task-specific skill from the correct project folder and its reference file.
 5. If the task type is not covered, use the visible task instructions and PDF if available. Do not force a near-matching skill.
 6. Apply the task-specific workflow exactly.
@@ -66,8 +68,14 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - Critique Rework: use `handshake-critique-rework` (read `../project-hedgehog/handshake-critique-rework/SKILL.md`).
 - Ego Physical Understanding: use `handshake-ego-phys-understanding` (read `../project-hedgehog/handshake-ego-phys-understanding/SKILL.md`).
 - Find the Boundary: use `handshake-find-boundary` (read `../project-hedgehog/handshake-find-boundary/SKILL.md`).
-- IG Entity Tagging: use `handshake-ig-entity-tagging` (read `../project-hedgehog/handshake-ig-entity-tagging/SKILL.md`).
-- IG Entity Verification: use `handshake-ig-entity-verification` (read `../project-hedgehog/handshake-ig-entity-verification/SKILL.md`).
+- IG Entity Tagging (creating annotations on IG media): use `handshake-ig-entity-tagging` (read `../project-hedgehog/handshake-ig-entity-tagging/SKILL.md`).
+- IG Entity Verification (one yellow-box target vs one reference, same/different verdict): use `handshake-ig-entity-verification` (read `../project-hedgehog/handshake-ig-entity-verification/SKILL.md`).
+- IG Entity Tagging Videos (QA pass on an already-tagged clip: video checks, duplicate references, per-reference identity, frame boxing): use `handshake-ig-entity-tagging-video` (read `../project-hedgehog/handshake-ig-entity-tagging-video/SKILL.md`).
+- IG Editing Convo (source two Reels that form a conversation): use `handshake-ig-editing-convo` (read `../project-hedgehog/handshake-ig-editing-convo/SKILL.md`).
+- IG Audio Recreation (source a pair where the output redoes the input's audio): use `handshake-ig-audio-recreation` (read `../project-hedgehog/handshake-ig-audio-recreation/SKILL.md`).
+- IG BTS (pair a finished clip with the making-of that exact shot): use `handshake-ig-bts` (read `../project-hedgehog/handshake-ig-bts/SKILL.md`).
+- Sync a Video Pair / IG Temporal Alignment (review a sourced pair, keep or reject, align the shared moment): use `handshake-ig-temporal-alignment` (read `../project-hedgehog/handshake-ig-temporal-alignment/SKILL.md`).
+- IG Video Temporal Alignment V2 — Review (audit another Fellow's Sync a Video Pair submission, grade 1-5): use `handshake-ig-temporal-alignment-review` (read `../project-hedgehog/handshake-ig-temporal-alignment-review/SKILL.md`).
 - Web Dev Agents / Static Webpage data collection briefs: use `handshake-static-webpage` (read `../project-hedgehog/handshake-static-webpage/SKILL.md`).
 - Text-to-Code ELO / Code Render Comparison: use `handshake-text-to-code-elo-evaluator` (read `../project-hedgehog/handshake-text-to-code-elo-evaluator/SKILL.md`).
 - Image2Code / Image-to-Code reference-image recreation comparison: use `handshake-image2code-evaluator` (read `../project-hedgehog/handshake-image2code-evaluator/SKILL.md`).
@@ -81,6 +89,12 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - BabyVision (BV) tasks (image review, question writing, model response generation, evaluate & rewrite, prompt validation): use `lizard-babyvision-evaluator` (read `../project-lizard/lizard-babyvision-evaluator/SKILL.md`).
 - VQA tasks (question writing, stumping strategies, model response generation, evaluate & rewrite, prompt validation): use `lizard-vqa-evaluator` (read `../project-lizard/lizard-vqa-evaluator/SKILL.md`).
 - Reviewer / QC & Audit tasks (evaluating LLM Judge, handling skipped/unusable tasks, and verifying answers): use `lizard-reviewer-evaluator` (read `../project-lizard/lizard-reviewer-evaluator/SKILL.md`).
+
+### Project Gaffer
+
+- Video Omni Caption / Project Gaffer (watch a video and write four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, Audio — then self-audit and route in SuperAnnotate): use `gaffer-video-annotator` (read `../project-gaffer/gaffer-video-annotator/SKILL.md`).
+
+Gaffer is production annotation, not rating. Do not apply Hedgehog or Lizard rating logic to it, and do not look for a Gaffer PDF — its source of truth is the extracted training site under `HANDSHAKE-AI/project-gaffer/extracted/`.
 
 ## Universal Rules
 
@@ -123,7 +137,7 @@ For pairwise A/B tasks use this shape:
 [List the ratings for all required criteria for the specific task.]
 
 ### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+[2 to 3 sentences naming the one difference that decided it. Follow Comment Style in `references/task-router.md`, and the routed skill's own style section when one applies.]
 ```
 
 For all other task types, use the output format defined in the routed task-specific skill.

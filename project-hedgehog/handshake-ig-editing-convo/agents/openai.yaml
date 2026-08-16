@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake IG Editing Convo"
+  short_description: "Source IG Reel pairs that form a conversation"
+  default_prompt: "Use $handshake-ig-editing-convo to source an Instagram Reel pair where the response directly replies to the input."

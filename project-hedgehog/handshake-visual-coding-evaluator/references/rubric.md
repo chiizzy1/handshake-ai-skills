@@ -179,6 +179,41 @@ Bad:
 
 `Response A is preferred due to superior semantic execution and elevated design language.`
 
+### The Four Patterns
+
+Most visual coding comments are one of these. Match the shape to the situation.
+
+#### 1. The Broken Flow
+
+One site's multi-step flow dies partway. Say where it stopped.
+
+`Response A is better because the booking flow goes from date picker to confirmation without a problem. Response B looks more polished, but it freezes after you pick a date and the Next button stops responding.`
+
+#### 2. The Missing Section
+
+The prompt asked for something that is not on the page. Name it.
+
+`Response B is better because it includes the pricing table and the FAQ the prompt asked for. Response A has a nicer hero section, but it skips pricing entirely.`
+
+#### 3. Looks Better, Does Less
+
+The prettier build is the emptier one. Give it credit, then say what it is missing.
+
+`Response A is better because the filters actually narrow the product list when you click them. Response B has cleaner cards and better spacing, but the filters are decorative and nothing changes.`
+
+#### 4. Justifying a Tie
+
+Ties need more evidence than picks. Name what both did.
+
+`Both sites build the same four sections and the nav links jump to the right anchors. Neither one makes the contact form submit, so they fail in the same place.`
+
+### Common Comment Failures
+
+- Reviewing the code instead of the page you clicked.
+- Naming every dimension instead of the one that decided it.
+- Saying "it works" without naming what you tested.
+- Writing a tie comment shorter than a pick comment.
+
 ## Final Checklist
 
 - Prompt read.

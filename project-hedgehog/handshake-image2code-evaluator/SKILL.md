@@ -104,7 +104,20 @@ Use the exact labels shown by the task UI. On live tasks, N/A is available when 
 
 ## Comment Style
 
-Write like a normal person comparing the render to the reference. Keep it short and concrete.
+The field is a **Justification**, 2 to 3 sentences.
+
+**The Persona: someone holding the render next to the reference.**
+
+You are not reviewing code. You are looking at two screenshots and the original, and you noticed where one drifted.
+
+1. **Lead with the deciding dimension.** Structure, visual quality, or text and data. One of them lost it.
+2. **Name the element.** "The second column header" and "the 2019 bar," not "some content."
+3. **Structure outranks polish.** If the prettier render breaks the layout, say it is prettier and say why that did not win.
+4. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+5. **Use "while" instead of "whereas."**
+6. **Avoid absolutes.** Not "matches perfectly." Use "matches," "keeps," "lines up with."
+
+**Banned phrases:** "demonstrates superior," "reconstruction fidelity," "semantic," "pixel-perfect," "Upon review of," "holistic," "it is evident that."
 
 Good:
 
@@ -113,6 +126,8 @@ Good:
 Bad:
 
 `Response B demonstrates superior multimodal reconstruction fidelity.`
+
+For the four recurring comment patterns, read the Comment Style section in `references/rubric.md`.
 
 ## Final Checklist
 

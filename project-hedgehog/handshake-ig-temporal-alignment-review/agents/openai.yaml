@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake IG Temporal Alignment V2 Review"
+  short_description: "Audit and grade a Sync a Video Pair submission"
+  default_prompt: "Use $handshake-ig-temporal-alignment-review to grade another Fellow's video-pair keep call and alignment."

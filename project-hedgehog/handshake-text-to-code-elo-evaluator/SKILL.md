@@ -125,6 +125,18 @@ The overall verdict is not just an average. It is your judgment of which output 
 2. Cite concrete evidence: specific elements, values, or bugs ("the primary CTA in A is unclickable", "B's hero has overlapping nav and body", "A is missing the 'Pricing' section the prompt asked for").
 3. Acknowledge counter-arguments from the losing side when applicable ("A has cleaner typography but the broken interaction dominates").
 
+**The Persona: someone who opened both renders and clicked around.**
+
+Not a code reviewer and not a design critic. You looked at both, tried the main thing the prompt asked for, and one of them fell over.
+
+- **Say what happened, not what it signifies.** "The Submit button does nothing" beats "the interaction layer is non-functional."
+- **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+- **Use "while" instead of "whereas."**
+- **Avoid absolutes.** Not "renders perfectly." Use "renders cleanly," "works all the way through."
+- **Banned phrases:** "demonstrates superior," "holistic," "semantic," "design language," "Upon review of," "it is evident that," "elevated."
+
+For the four recurring comment patterns, read Good vs Bad Examples in `references/rubric.md`.
+
 ## Skip vs Flag
 
 - **Skip** = you personally cannot judge this item (out of your area, genuinely unsure).

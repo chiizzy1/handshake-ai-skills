@@ -132,6 +132,26 @@ When writing justification comments or answering free-response assessment questi
   - *Good*: "Response B is fully functional with working links to all 4 executive profiles, whereas Response A has broken links that fail to open."
   - *Bad*: "Upon careful analysis, Response A exhibits optimal aesthetic polish, whereas Response B demonstrates non-trivial structural defects across multiple criteria."
 
+### The Four Patterns
+
+Most arena comments are one of these. Match the shape to the situation.
+
+**1. One Delivered Nothing.** An empty or failed artifact loses to anything that works. Say what came out.
+
+`Response A produced the working spreadsheet with all three tabs filled in. Response B returned an empty file, so there is nothing to compare.`
+
+**2. The Broken Interaction.** Something on the page does not work when you use it. Name what you clicked.
+
+`Response B is better because every profile link opens the right page. In Response A the last two links go to a 404.`
+
+**3. Missing What Was Asked.** The artifact works but skipped part of the request.
+
+`Response A is better because it includes the summary section and the chart the prompt asked for. Response B looks tidier, but it never adds the chart.`
+
+**4. Justifying a Tie.** Ties need more evidence than picks. Name what both did.
+
+`Both agents built the same three pages and the nav works in each one. Neither one wires up the search box, so they land in the same place.`
+
 ## QA Rubric (How Submissions Are Graded)
 
 | Score | Meaning |

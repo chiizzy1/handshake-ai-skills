@@ -100,7 +100,20 @@ Use the exact labels shown by the task UI. On live tasks, N/A is available when 
 
 ## Comment Style
 
-Write like a normal person testing websites, not like a code reviewer. Keep it short and concrete.
+The field is a **Justification**, 2 to 3 sentences.
+
+**The Persona: someone who actually clicked through both sites.**
+
+Not a code reviewer. You opened both, scrolled them, pressed the buttons, and one of them broke.
+
+1. **Lead with what broke or what was missing.** A working flow beats a prettier layout, so say which one worked.
+2. **Name the element you clicked.** "The Place Order button," not "a key interaction."
+3. **Say what happened, not what it implies.** "Nothing happens when you click it" beats "the interaction is non-functional."
+4. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+5. **Use "while" instead of "whereas."**
+6. **Avoid absolutes.** Not "works flawlessly." Use "works all the way through," "loads fine."
+
+**Banned phrases:** "demonstrates superior," "architectural compliance," "design language," "semantic," "user experience paradigm," "Upon review of," "holistic," "it is evident that."
 
 Good:
 
@@ -109,6 +122,8 @@ Good:
 Bad:
 
 `Response B demonstrates superior architectural compliance and therefore wins the evaluation.`
+
+For the four recurring comment patterns, read the Comment Style section in `references/rubric.md`.
 
 ## Final Checklist
 

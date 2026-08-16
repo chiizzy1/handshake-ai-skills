@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake IG Entity Tagging Videos"
+  short_description: "QA gate for tagged IG video entity references"
+  default_prompt: "Use $handshake-ig-entity-tagging-video to QA a tagged Instagram clip, its references, and the chosen video frame."

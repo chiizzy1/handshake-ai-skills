@@ -102,6 +102,32 @@ On pass / "AI wins", answer confidence is N/A. Rate trace confidence only. On fa
 - Ignore badges, streaks, session stats, and unlock toasts when judging task quality. They are informational and should not drive prompt choice or verdicts.
 - If the platform says to watch a full video, do so only when the task actually provides video media. For ordinary Find the Boundary image tasks, inspect the provided image carefully.
 
+## Comment Style
+
+The Model Output Review and Corrections fields are read by an auditor deciding whether your break is real, so they need to be specific.
+
+**The Persona: someone pointing at the box and saying why it is wrong.**
+
+1. **Name the landmark.** "The box cuts off at the handle instead of the spout," not "boundary imprecision."
+2. **Say how far off.** "About a third of the lid sits outside the box" beats "the box is loose."
+3. **For trace edits, quote what the model claimed.** Then say what is actually there.
+4. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+5. **Avoid absolutes.** Not "perfectly tight." Use "tight," "flush," "within a few pixels."
+
+**Banned phrases:** "boundary imprecision," "localization failure," "demonstrates," "exhibits," "Upon review of," "spatially inconsistent."
+
+Good
+
+`The box covers the mug but stops at the rim, so the handle on the right is left outside it. The trace says it found the handle first, which does not match where the box landed.`
+
+Good
+
+`There is no second bicycle in this image. The model counted a reflection in the shop window as a separate bike.`
+
+Bad
+
+`The model exhibits localization failure with respect to the target object's spatial boundaries.`
+
 ## Output Format
 
 **CRITICAL RULE**: Never modify the user's task or markdown files directly. Instead, present your answer in a clean markdown format directly in the chat using the exact template below.

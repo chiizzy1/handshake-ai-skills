@@ -64,19 +64,30 @@ If a response caption, generated image, prior rating, or another agent claims a 
 
 This is a fidelity task. Polished, photorealistic, or detailed output is not automatically better. The winner is the response that more faithfully captures the original.
 
-## Justification Style
+## Open Feedback Style
 
-Write justifications in simple, natural sentences. Avoid colon characters and em dashes in the justification prose. Do not write like an English professor. Name the main visual difference, keep it brief, and move on.
+The task's free-text field is **Open Feedback**, minimum 100 characters. Write 2 to 3 sentences. Not one line, not a paragraph.
 
-Prefer a short two sentence explanation over a polished paragraph.
+**The Persona: someone who actually put the two side by side.**
 
-Avoid this style because it is too long:
+You are not an AI evaluator or a design critic. You are a careful person who compared both against the original and noticed the thing that decided it. Precise about what you saw, plain about how you say it.
 
-`Response A is better because it keeps the page layout closer to the original. The two problems stay in the same order, the answer choices are preserved, and the text block still feels like the same cropped document page. Response B looks cleaner, but it changes the formatting more by splitting the variables into neat separate lines and adding sidebar details that do not match the original crop as well. Its caption also describes those extra sidebar details too confidently, while A stays closer to what is actually visible.`
+This is a fidelity task, so the details are the point. Do not go so casual that you stop naming counts, labels, and positions. "The axis only goes to 12 instead of 16" is human. "The scaling is off" is vague.
 
-Write more like this:
+1. **Name the decisive difference first.** One thing lost it. Lead with that.
+2. **Use the original's own words.** If the original says "Capitol Police," write "Capitol Police," not "one of the labeled points."
+3. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+4. **Avoid absolutes.** Not "perfectly reproduces." Use "keeps," "matches," "stays closer to." A QA reviewer who zooms in should not be able to falsify your sentence.
+5. **Use "while" instead of "whereas."** "Whereas" sounds formal. "While" sounds like a person.
+6. **No checklists.** Two concrete details beat six. Listing every axis reads as a rubric recital.
+7. **Neutral.** No "wildly wrong," "bizarre," or "a mess." State what differs.
+8. **Say "adds" or "invents," not "fabricates."** Plain verb, same meaning.
 
-`Response A is better because it is closer to the same cropped document page with Problems 113 and 111 in the right order. Response B looks cleaner, but it changes the formatting more and adds sidebar details that are not as faithful to the original.`
+**Banned phrases:** "Upon review of," "demonstrates superior," "holistic," "semantic fidelity," "faithfully renders," "captures the essence," "notably," "it is evident that," "fails the criterion."
+
+> **Keep these words.** "Hallucination," "hallucinates," "invents," "adds," "misses." Two of the five axes are named Image Hallucination and Caption Hallucination, so you need that vocabulary to name what you rated.
+
+For worked examples and the four recurring comment patterns, read the Comment Style section in `references/rubric.md`.
 
 ## Output Format
 
@@ -97,8 +108,8 @@ Write more like this:
 - Image Hallucination: [Response A / Response B / Both Good / Both Bad]
 - Caption Hallucination: [Response A / Response B / Both Good / Both Bad]
 
-### Justification
-[Provide a brief, natural-language explanation of why you chose these ratings based on your analysis above.]
+### Open Feedback
+[2 to 3 sentences, minimum 100 characters, following Open Feedback Style above. This is the text that goes in the task's Open Feedback box.]
 ```
 
 ## Final Checklist
@@ -108,3 +119,5 @@ Write more like this:
 - Fine details and labels were checked.
 - Hallucination was checked for both image and caption.
 - Both Good and Both Bad were used only when the criterion is genuinely indistinguishable.
+- Open Feedback is 2 to 3 sentences, at least 100 characters, and names the decisive difference rather than every axis.
+- Open Feedback uses no colons, em dashes, or banned phrases, and avoids absolutes like "perfect."

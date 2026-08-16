@@ -1,0 +1,26 @@
+# Dependencies for tools/inspect_media.py
+#
+# Nothing here is mandatory. The script degrades tier by tier and reports what is
+# missing, so a bare interpreter with opencv still gives frames, scene detection,
+# contact sheets and zooms.
+#
+#   python3 -m pip install --user -r tools/requirements.txt
+#   python3 -m playwright install chromium
+#
+# Check what is active at any time:
+#   python3 tools/inspect_media.py --check-deps
+
+# Frames, scene detection, contact sheets, zoom. The one that matters most.
+opencv-python>=4.8
+numpy>=1.24
+
+# Audio demux. Ships its own ffmpeg binary, so ffmpeg need not be on PATH.
+imageio-ffmpeg>=0.4.9
+
+# Fetching a Reel from a URL. Either one alone is usually enough; both is better.
+playwright>=1.40
+yt-dlp>=2024.1.0
+
+# Timestamped speech transcript. Pulls in torch, which is a large download.
+# Skip this line if you only need the visual pipeline.
+openai-whisper>=20231117

@@ -10,6 +10,7 @@ Skill paths below are relative to the skills repo root (the folder containing `h
 - [Strict Rating Protocol](#strict-rating-protocol)
 - [Shared Handshake Image Foundations](#shared-handshake-image-foundations)
 - [Task Families](#task-families)
+- [Project Gaffer / Video Omni Caption](#project-gaffer--video-omni-caption)
 - [Unknown Or New Task Types](#unknown-or-new-task-types)
 - [Comment Style](#comment-style)
 
@@ -68,10 +69,17 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Grounding prompt + boxes/points/counts | `handshake-find-boundary` | `project-hedgehog/handshake-find-boundary/SKILL.md` |
 | Instagram media, annotate visible entities | `handshake-ig-entity-tagging` | `project-hedgehog/handshake-ig-entity-tagging/SKILL.md` |
 | Yellow-box target vs reference, same entity? | `handshake-ig-entity-verification` | `project-hedgehog/handshake-ig-entity-verification/SKILL.md` |
+| Tagged IG clip, video checks + reference grid + frame boxing | `handshake-ig-entity-tagging-video` | `project-hedgehog/handshake-ig-entity-tagging-video/SKILL.md` |
+| Source two Reels that form a conversation | `handshake-ig-editing-convo` | `project-hedgehog/handshake-ig-editing-convo/SKILL.md` |
+| Source a pair where the output redoes the input's audio | `handshake-ig-audio-recreation` | `project-hedgehog/handshake-ig-audio-recreation/SKILL.md` |
+| Finished IG clip + making-of that exact shot | `handshake-ig-bts` | `project-hedgehog/handshake-ig-bts/SKILL.md` |
+| Sourced pair, keep/reject then drag clips into sync | `handshake-ig-temporal-alignment` | `project-hedgehog/handshake-ig-temporal-alignment/SKILL.md` |
+| Audit someone else's Sync a Video Pair submission, grade 1-5 | `handshake-ig-temporal-alignment-review` | `project-hedgehog/handshake-ig-temporal-alignment-review/SKILL.md` |
 | Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `project-hedgehog/handshake-text-to-code-elo-evaluator/SKILL.md` |
 | Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `project-hedgehog/handshake-static-webpage/SKILL.md` |
 | Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `project-hedgehog/handshake-grounding-hard-rollout/SKILL.md` |
 | Two AI artifacts side by side, task-specific rubrics, Pass/Fail | `handshake-multimodal-agent-arena` | `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md` |
+| One video, write four captions on two tracks, nothing to rate | `gaffer-video-annotator` | `project-gaffer/gaffer-video-annotator/SKILL.md` |
 
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
@@ -410,6 +418,57 @@ Verdicts:
 - Skip
 - Flag as bad data
 
+### IG Entity Tagging Videos
+
+Inputs:
+
+- An Instagram video that an earlier team already tagged.
+- Coloured tags on specific entities, each tied to a timestamp.
+- Reference media that should show the exact same entity as each tag.
+
+Main question:
+
+- Is the clip usable, does every reference identify the exact tagged entity, and where is that entity clearest in the video?
+
+Skill:
+
+- `handshake-ig-entity-tagging-video` (read `project-hedgehog/handshake-ig-entity-tagging-video/SKILL.md`)
+
+Four phases:
+
+- Phase 1 video checks: sharp and clear, real footage, no watermark. Plus the two tag-editing patterns.
+- Phase 2 quick duplicate check: drop clear duplicates and same-source references.
+- Phase 3 per-reference: type, identity, different source, isolation — in that order. Then pick and tightly box the clearest video frame.
+- Phase 4 review before submitting.
+
+Special rules:
+
+- Requires audio. An audio check gates the task.
+- A check fails only on a concrete, nameable artifact. A feeling is not evidence.
+- Same brand, same product line, same breed, and same brand text are not identity.
+- References are never scored for resolution, AI generation, or watermarks. Those apply to the video only.
+
+Disambiguation: this is the QA gate on an already-tagged clip. Use `handshake-ig-entity-tagging` when creating annotations, and `handshake-ig-entity-verification` for a single yellow-box target against one reference.
+
+### IG Video Pairs
+
+Five task types share one family. All are Instagram Reels only, vertical only, real live-action only, at least 5 seconds per clip and at most 16 seconds combined, with a 20+ word prompt. The same video twice is an automatic 1.
+
+Shared reference: `project-hedgehog/shared-references/ig-video-pairs.md`. Reviewer feedback standard: `project-hedgehog/shared-references/reviewer-feedback.md`.
+
+**Sourcing tasks** — you find both clips yourself.
+
+- **IG Editing Convo** — two Reels that form a conversation, one that "asks" and one that directly replies. Skill: `handshake-ig-editing-convo` (read `project-hedgehog/handshake-ig-editing-convo/SKILL.md`). Key rule: the connection must be unmistakable, and the input must be trimmed to the moment the response is replying to. Never crop or source the output from the input.
+- **IG Audio Recreation** — the output genuinely redoes the input's audio. Skill: `handshake-ig-audio-recreation` (read `project-hedgehog/handshake-ig-audio-recreation/SKILL.md`). Key rules: a new performance not the same recording, this song not a different one, the same segment. Play both clips — never judge the match from a description. Any third-party watermark rejects the clip.
+- **IG BTS** — a finished clip paired with the making-of that exact shot. Skill: `handshake-ig-bts` (read `project-hedgehog/handshake-ig-bts/SKILL.md`). Key rule: BTS of a different take, scene, or shoot day does not count. Generic set footage is a missing transformation, not a low score.
+
+**Review tasks** — the pair is handed to you.
+
+- **Sync a Video Pair / IG Temporal Alignment** — quality-check the pair, keep or reject, then align the shared moment. Skill: `handshake-ig-temporal-alignment` (read `project-hedgehog/handshake-ig-temporal-alignment/SKILL.md`). Four checks: Connection and Matching segment are make-or-break; Engagement and Video check shape the rating. Review before aligning. Crop watermarks before rejecting. Rated 1-5; a correct reject earns a 5.
+- **IG Video Temporal Alignment V2 — Review** — audit another Fellow's Sync a Video Pair submission. Skill: `handshake-ig-temporal-alignment-review` (read `project-hedgehog/handshake-ig-temporal-alignment-review/SKILL.md`). Graded on decision accuracy and alignment precision, same 1-5 scale. Grade before editing, fix only what is fixable, never redo from scratch.
+
+Category cue for the review tasks: reaction is *about* the original, recreation *is* the original done again, behind-the-scenes shows how it was made, audio recreation redoes the sound. Use "Other" only for a genuinely good pair fitting none of the four.
+
 ### Grounding Hard Rollout
 
 Inputs:
@@ -465,6 +524,43 @@ Special rules:
 - Broken outputs get all-Fail and always lose.
 - Functionality matters more than polish.
 
+## Project Gaffer / Video Omni Caption
+
+The one Handshake family that is **not** a rating task. Route it here as soon as the UI shows caption fields instead of rating buttons.
+
+Inputs:
+
+- One video, usually under 10 minutes, in SuperAnnotate.
+- Two annotation tracks with their own independent segment timelines.
+
+Main question:
+
+- None. Nothing is being compared or scored. The worker writes the captions, and a human auditor grades them afterwards.
+
+Skill:
+
+- `gaffer-video-annotator` (read `project-gaffer/gaffer-video-annotator/SKILL.md`)
+
+What gets written:
+
+- Speech Caption 1 — verbatim transcription with `[Speaker N]` tags and timestamps.
+- Speech Caption 2 — how the speech sounds: tone, volume, pace, accent, emphasis.
+- Visual+Audio Caption 1 — everything visible, including every cut and all on-screen text.
+- Visual+Audio Caption 2 — every non-speech sound.
+
+Task cues:
+
+- SuperAnnotate project "Video Omni Caption 2026 Phase 3 - Handshake".
+- Task tags `Mini_Annotator`, `Mini_Completed`, or `Precheck`.
+- An Autochecker panel, and Submit_to_QC / Annotator_Skip destinations.
+
+Special rules:
+
+- There is no Gaffer PDF. Source of truth is the extracted training site under `HANDSHAKE-AI/project-gaffer/extracted/`.
+- Passing the Autochecker is not passing the audit — it checks format and coverage, never truth.
+- Skips are unpaid and skipping for the wrong reason is an offboarding matter.
+- Do not import Hedgehog or Lizard rating language into a Gaffer answer.
+
 ## Unknown Or New Task Types
 
 When a Handshake task does not match any known type:
@@ -476,7 +572,19 @@ When a Handshake task does not match any known type:
 
 ## Comment Style
 
-Use short, direct comments:
+This is the baseline. Every task skill has its own Comment Style or Open Feedback Style section with a persona, a banned-phrase list tuned to that task's axis names, and worked patterns. Read the specific skill's section before writing. When they disagree, the task skill wins.
+
+**The Persona (baseline): a careful person explaining what they saw, not an evaluator filing a report.**
+
+1. **Lead with the one difference that decided it.** Not a tour of every axis.
+2. **Name the thing.** Use the object, label, or button from the task, not a category word.
+3. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
+4. **Use "while" instead of "whereas."**
+5. **Avoid absolutes.** "Perfectly" and "flawlessly" become factual errors the moment someone zooms in.
+6. **Give the loser its due.** If the losing response looks better, say so, then say why it still lost.
+7. **Ties need more evidence than picks**, not less.
+
+**Banned phrases (baseline):** "Upon review of," "demonstrates superior," "holistic," "semantic," "it is evident that," "exhibits," "the aforementioned." Individual skills add their own, and some deliberately keep words this list would otherwise ban.
 
 - Good: `Response B is better because it keeps the lifted group pose and has cleaner faces and hands.`
 - Good: `A follows the color instruction, but B changes the product shape, so A is stronger on instruction following.`

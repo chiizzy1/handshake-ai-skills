@@ -63,12 +63,15 @@ Always click the specific defect. Zoom in for precision.
 ## Writing the Note
 
 A useful note names what is wrong and which thing it is on.
-- **Good:** "Six fingers — an extra finger between the ring and pinky"
+
+- **Good:** "Six fingers, an extra one between the ring and pinky"
 - **Bad (too vague):** "Hand looks wrong"
-- **Good:** "Sign reads OPENNING instead of OPENING — double N"
+- **Good:** "Sign reads OPENNING instead of OPENING, double N"
 - **Bad:** "Weird text"
 
 Write statements, not questions. Avoid vague words like "blurry", "weird", or "looks off", as these often describe normal camera effects.
+
+Full phrasing rules, banned phrases, and more examples are in Note Style below.
 
 ## What is NOT a Tell (Do NOT Mark)
 
@@ -95,6 +98,37 @@ Your submission will be audited and graded on a 1–5 scale based on coverage (r
 *   **2 — Weak:** Missed many obvious tells, and/or fewer than 7/10 marks are genuine. High rate of misplaced dots or generic notes.
 *   **1 — Unacceptable:** Ignored nearly all real tells, or submitted random/padded dots on normal content. Descriptions provide no useful information.
 
+## Note Style
+
+The QA rubric marks you down for vague descriptions and generic notes, so how a note is phrased affects the grade directly.
+
+**The Persona: someone pointing at the screen and saying what is wrong.**
+
+1. **Name the object, then the defect.** "Left hand, the ring finger and pinky merge into one shape." Not "anatomical issue in the hand region."
+2. **State it as a fact.** No "appears to be," "seems like," or "possibly."
+3. **One defect per dot.** If a dot needs the word "and" twice, it is two dots.
+4. **Quote text you can read.** If a sign is garbled, write what it actually says.
+5. **Short. Periods.** No em dashes, no semicolons.
+6. **Neutral.** No "horrifying," "nightmare," or "creepy." Describe it.
+
+**Banned phrases:** "anatomical inconsistency," "structural defect," "exhibits," "demonstrates," "artifacting is present," "lacks coherence," "Upon review of."
+
+Good
+
+`Left hand - the ring finger and pinky merge into one shape.`
+
+`Storefront sign - the lettering reads "COFFFEE" with an extra F.`
+
+`Back left chair - the two rear legs pass through the floorboards instead of resting on them.`
+
+Bad
+
+`Hand area - anatomical inconsistency present.`
+
+`The signage exhibits typical generative text artifacting.`
+
+For Overall Feedback, the same rules apply. Name the whole-image quality plainly, like `The whole image has heavy grain that does not match the clean studio lighting.`
+
 ## How to See
 
 For photographic analysis fundamentals (composition, focus, lighting), read `../../shared-references/how-to-see.md`.
@@ -120,4 +154,3 @@ This is a single-image annotation task, not an A/B comparison. Use this shape:
 ```
 
 If the image genuinely has no tells, say so and select "Not AI-generated" instead of padding the dot list.
-

@@ -98,6 +98,34 @@ These are the standards you enforce on each mark. `references/rubric.md` has the
 - Do NOT grade before checking every existing marker against the image.
 - Do NOT give a high grade when obvious defects or missed instructions were ignored.
 
+## Note Style
+
+Every note you rewrite gets read by whoever audits this task, so phrasing carries weight. The same rules apply to your grade line and fix reason.
+
+**The Persona: someone pointing at the screen and saying what is wrong.**
+
+1. **Name the object, then the defect.** "Left hand, the ring finger and pinky merge into one shape." Not "anatomical issue in the hand region."
+2. **State it as a fact.** No "appears to be," "seems like," or "possibly."
+3. **One defect per note.** If a note needs the word "and" twice, it is two markers.
+4. **Quote text you can read.** If a sign is garbled, write what it actually says.
+5. **Short. Periods.** No em dashes, no semicolons in the note text itself.
+6. **Neutral.** Describe the defect, do not editorialize about it.
+7. **Do not polish a note that already works.** If the original reviewer's wording is specific and correct, leave it alone and say "unchanged."
+
+**Banned phrases:** "anatomical inconsistency," "structural defect," "exhibits," "demonstrates," "artifacting is present," "lacks coherence," "Upon review of."
+
+Good rewrite
+
+`Fix note - Dot 3 - "hand looks off" → "Right hand, the thumb bends backward at the base joint."`
+
+Good grade line
+
+`2 - Weak - the reviewer caught the garbled sign but missed the six fingers and the floating chair, and two dots sit on clean areas.`
+
+Bad
+
+`Fix note - Dot 3 - "hand looks off" → "The subject's manual anatomy demonstrates structural inconsistency."`
+
 ## How to See
 
 For photographic analysis fundamentals (composition, focus, lighting), read `../../shared-references/how-to-see.md`.

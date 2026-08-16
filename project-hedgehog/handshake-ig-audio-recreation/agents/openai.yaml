@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake IG Audio Recreation"
+  short_description: "Source IG pairs that genuinely redo the audio"
+  default_prompt: "Use $handshake-ig-audio-recreation to source an Instagram pair where the output re-performs the input's audio."

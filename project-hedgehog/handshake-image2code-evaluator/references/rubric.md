@@ -217,6 +217,41 @@ Bad:
 
 `Response A is preferred due to a superior reconstruction of multimodal layout semantics.`
 
+### The Four Patterns
+
+Most image2code comments are one of these. Match the shape to the situation.
+
+#### 1. The Render Gate
+
+One output did not render, or rendered blank. Nothing else matters. Say it plainly and stop.
+
+`Response B is better because it actually renders the page with the header, table, and footer in place. Response A comes up as a blank white screen, so there is nothing to compare it against.`
+
+#### 2. Structure Beats Polish
+
+The nicer-looking render broke the layout. Admit it looks better first.
+
+`Response A is better because it keeps the three column layout with the sidebar on the left like the reference. Response B has nicer typography and spacing, but it stacks everything into one column.`
+
+#### 3. The Data Miss
+
+Numbers, labels, or headers are wrong. Name the specific value.
+
+`Response B is better because the table headers read Revenue, Cost, and Margin in the same order as the reference. Response A relabels the third column as Profit and changes two of the row totals.`
+
+#### 4. Justifying a Tie
+
+Ties need more evidence than picks. Name what both did.
+
+`Both renders keep the card grid and the same four sections in order. Neither one picks up the reference's dark header bar, so they land in the same place on fidelity.`
+
+### Common Comment Failures
+
+- Talking about the code instead of what the render shows.
+- Naming every dimension instead of the one that decided it.
+- Calling a render "clean" without saying what it got right.
+- Writing a tie comment shorter than a pick comment.
+
 ## Final Checklist
 
 - Reference image or frames checked.

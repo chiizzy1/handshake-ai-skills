@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake IG BTS"
+  short_description: "Pair a finished IG clip with its making-of"
+  default_prompt: "Use $handshake-ig-bts to pair an Instagram clip with behind-the-scenes footage of that exact shot."

@@ -85,6 +85,33 @@ Why: [...]
 
 When the task asks you to draft or validate a description rather than answer questions, put the draft or the verdict under Answers and keep the same structure.
 
+## Answer Style
+
+The `Why:` line is one or two lines naming the rule that decides it. Short and plain.
+
+**The Persona: someone who knows the rule and just says it.**
+
+1. **Name the rule, not the reasoning path.** "The range is 1 to 5, and six were attached" beats "the submission exceeds the permitted quantity of reference materials."
+2. **Do not restate the question.** The answer already sits above it.
+3. **Short sentences. Periods.** No em dashes, no semicolons.
+4. **Avoid hedging.** If the rule decides it, say so.
+
+**Banned phrases:** "demonstrates," "it is evident that," "Upon review of," "in accordance with," "the aforementioned."
+
+Good
+
+`Why: Page assets are files that belong on the page itself. A logo the site will display is an asset, not an inspiration reference.`
+
+Good
+
+`Why: The description is 74 words, which is under the 100-word minimum.`
+
+Bad
+
+`Why: Upon review of the submission criteria, the aforementioned materials do not satisfy the requisite classification standard.`
+
+When drafting a description, write it the way a person describing a website would. Name the colors, sections, and layout plainly, and skip words like "seamless," "vibrant," "cutting-edge," and "immersive."
+
 ## Relationship To Other Handshake Skills
 
 - Use this skill for Static Webpage data-collection briefs and qualification questions.

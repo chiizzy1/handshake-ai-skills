@@ -218,3 +218,37 @@ Avoid:
 - overly long explanations;
 - guessing about offscreen events when visible evidence is enough.
 
+### The Four Patterns
+
+Most preference justifications are one of these. Match the shape to the situation. The persona and rules are in `SKILL.md` under Output Style.
+
+#### 1. The Physics Break
+
+One clip does something that cannot happen. That is usually the whole comment.
+
+`Response A looks less AI-generated because the ball follows a real arc off every paddle hit. In B the ball changes direction around 0:04 with nothing touching it, and the near player's arm swings after the bounce.`
+
+#### 2. Both Have Tells
+
+Neither clip holds up. Say what they share, then what tips it.
+
+`Both clips have obvious tells, since the crowd faces smear in each one. Response A is still the cleaner of the two because its subject keeps the same jacket and hair throughout, while B's hood changes shape around 0:05.`
+
+#### 3. The Audio Mismatch
+
+The visuals hold but the sound does not line up. Keep audio separate from the visual artifact count.
+
+`Response B looks less AI-generated because the motion and contacts stay consistent all the way through. Response A is close on visuals, but the impact sounds land about half a second before the paddle actually touches the ball.`
+
+#### 4. Justifying a Tie
+
+Ties need more evidence than picks. Name what both did.
+
+`Both clips hold their subject and lighting steady with no morphing or vanishing objects. Neither one gets the requested rain, so there is no real gap between them on how AI-generated they look.`
+
+### Common Comment Failures
+
+- Naming an artifact with no timestamp.
+- Using the category label in the preference justification instead of describing what you saw.
+- Listing every artifact instead of the one that decided it.
+- Calling compression blockiness an AI artifact.

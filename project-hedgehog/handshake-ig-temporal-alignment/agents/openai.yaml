@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Sync a Video Pair"
+  short_description: "Review and time-align an IG video pair"
+  default_prompt: "Use $handshake-ig-temporal-alignment to review a sourced Instagram video pair and align its shared moment."
