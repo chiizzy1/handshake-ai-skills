@@ -241,7 +241,11 @@ obscured.
 
 ## Scene Changes and Timestamps
 
-Every cut is an event and needs a timestamp. Missing a scene change is a graded
+Every cut is an event and needs a timestamp — *"[330.5] cut to wide shot of the
+whole panel…"*. Naming the cut is not enough; time it as well, because cuts
+without times get rejected. The one relaxation: **rapid sequences under 1–2
+seconds per cut are summarised** rather than listed one by one, and quick cuts
+may be grouped when they form a single cohesive moment. Missing a scene change is a graded
 failure on its own — the assessment fails an annotation purely for not
 mentioning the scene change at `[71.9]`, even though the description that
 follows it is fine.

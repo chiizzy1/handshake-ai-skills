@@ -198,7 +198,7 @@ Is it at the right second, in the right caption?
 
 ## Pass 7 — Format and Routing
 
-- [ ] Timestamps are seconds with one decimal, in square brackets.
+- [ ] Timestamps are seconds in square brackets, with at most two decimals.
 - [ ] Timestamp and speaker-tag style is consistent across the whole task.
 - [ ] Speaker tags are `[Speaker 1]`, numbered, never named.
 - [ ] The Autochecker shows **zero errors**.

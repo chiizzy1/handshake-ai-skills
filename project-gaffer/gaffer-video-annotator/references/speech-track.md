@@ -35,7 +35,8 @@ carries a speaker tag:
 
 Rules:
 
-- Timestamps use seconds with one decimal place. `[14.5-24.3]`, not `[0:14-0:24]`.
+- Timestamps are in seconds, with **one or two decimals — never more**.
+  `[14.5-24.3]` or `[14.52-24.31]`, never `[0:14-0:24]` and never `[14.523]`.
 - The window at the start of the caption is the segment's own window.
 - You may split the window into smaller stamped ranges inside the caption. Every
   one of them must sit **inside** the outer window.

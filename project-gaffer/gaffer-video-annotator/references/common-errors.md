@@ -126,7 +126,10 @@ work as English, you misheard it — go back and listen again at reduced speed.
 
 The second half of that note is its own error: a segment was tagged
 `((No speech present))` when someone was in fact speaking, just not clearly. That
-is `((unintelligible))`. The three tags are not interchangeable.
+is `((unintelligible))` — or `((inaudible))` if the problem is volume rather than
+clarity. The tags are not interchangeable, and the Autochecker will not catch a
+wrong choice. Only human audit does. The full table is in
+`../references/speech-track.md`.
 
 ## 4. OCR — On-Screen Text Typed Wrong
 
