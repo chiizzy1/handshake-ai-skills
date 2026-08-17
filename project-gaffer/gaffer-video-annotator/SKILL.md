@@ -90,8 +90,9 @@ Two questions decide whether a task passes audit:
   format, track placement, word counts and forbidden content — it cannot tell
   whether what you wrote is *true*. Every 0% audit in
   `references/common-errors.md` passed it first.
-- **Cover both tracks end to end.** No gap over 1.0s, no overlap over 0.5s, first
-  annotation within 0.5s of 0.0 and last within 0.5s of the end.
+- **Cover both tracks end to end.** Rows must touch: no gap over **0.1s**, no
+  overlap over 0.5s, first annotation within 0.1s of 0.0 and last within 0.1s of
+  the window end. **No row may span more than 40 seconds.**
 - **Do not describe events outside the segment's own window.** If the segment is
   `[43.0-54.6]`, nothing in it may be stamped `[55.0]`.
 - **Do not put a track's content in the other track.** A laugh is audio. A
@@ -187,7 +188,8 @@ Visual+Audio segments over the same 30 seconds are `0.0-2.1`, `2.1-4.4`,
   montage footage is described more comprehensively.
 
 Segments follow the **natural duration of events**, never fixed intervals. At
-least 3 per track. No gap over 1.0s, no overlap over 0.5s.
+least 3 per track, rows touching (gap ≤0.1s, overlap ≤0.5s), and **none longer
+than 40 seconds** — a long stretch gets split at a real pause, not trimmed.
 
 **Null events get captioned too.** A stretch where nothing happens is still an
 observation: *"At [1.2 - 8.7], the image remains static, with no new objects
@@ -289,6 +291,7 @@ Read the one that matches what you are doing.
 
 | When | Read |
 |---|---|
+| You want a complete task that passed | `references/worked-example.md` |
 | Before submitting — the machine rules | `references/autochecker-rules.md` |
 | Before you write anything — inspecting the video | `references/video-inspection.md` |
 | Writing transcription or speech characteristics | `references/speech-track.md` |
@@ -354,8 +357,11 @@ Flags: [None | ...]
 - [ ] I looked at every shot frame and every possible-transition frame.
 - [ ] I listened to `audio.wav` myself rather than trusting the draft transcript.
 - [ ] Speaker numbers follow first-speaking order and never change.
-- [ ] Both tracks have ≥3 annotations, cover the whole video, with no gap over
-      1.0s and no overlap over 0.5s.
+- [ ] Both tracks have ≥3 annotations, cover the window end to end, with no gap
+      over 0.1s, no overlap over 0.5s, and no row over 40s.
+- [ ] Every inline range in Caption 1 has a speaker tag or sanctioned marker.
+- [ ] Every speech Caption 2 covers ≥3 of the 5 categories with time marks.
+- [ ] Multi-event Visual and Audio captions stamp each discrete event.
 - [ ] Every timestamp inside a caption falls inside that caption's own window,
       and uses at most two decimals.
 - [ ] Every piece of on-screen text is quoted exactly as shown — typos,

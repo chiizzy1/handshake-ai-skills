@@ -16,6 +16,7 @@ full list before submitting.
 - [Timestamp Format](#timestamp-format)
 - [Marker Spellings](#marker-spellings)
 - [Speakers](#speakers)
+- [Events Need Stamps](#events-need-stamps)
 - [Detail Presence](#detail-presence)
 - [Right Content, Right Track](#right-content-right-track)
 - [The Two Keyword Traps](#the-two-keyword-traps)
@@ -32,19 +33,42 @@ full list before submitting.
 5. Repeat until the verdict is a pass with **zero** errors.
 6. Only then submit.
 
+> **Read the "Results as of" banner before you act on anything.** It shows the
+> time of the run, and edits made after it are not reflected. A flag you have
+> already fixed will keep appearing until the next refresh. Check the banner
+> timestamp against when you saved before concluding a fix did not work — that
+> mistake costs a whole cycle each time, and the holding window is finite.
+
+Editing a value in a field is not always enough — press the **Set Start Time** /
+**Set End Time** buttons, then Save. A typed value that was never committed is a
+common reason a "fixed" boundary keeps flagging.
+
 Submitting a task that has not passed with zero errors means being unable to
 complete future tasks until it is resolved.
 
 ## Structure and Coverage
 
 - **At least 3 annotations per track.** A two-annotation track fails.
-- Every annotation has a start time, an end time, and a non-blank caption.
-- Annotations are in **start-time order**.
-- **No gap longer than 1.0s. No overlap longer than 0.5s.** Small gaps are
-  tolerated; meaningful content still must not be left uncovered.
-- The **first** annotation starts within 0.5s of 0.0.
-- The **last** annotation ends within 0.5s of the video's end.
-- **Both tracks cover the whole video independently.**
+- Every annotation has a start time, an end time, and a **non-blank caption in
+  both Caption 1 and Caption 2**.
+- Annotations are in **start-time order** — no row starts earlier than the one
+  before it. Checked per track.
+- **No gap longer than 0.1s. No overlap longer than 0.5s.** Checked per track.
+  The rows should touch: 40.7 ending and 40.7 starting is ideal, 155.8 ending and
+  155.9 starting still passes. Anything wider flags.
+- The **first** annotation starts within **0.1s** of 0.0, and the **last** ends
+  within **0.1s** of the window's end. Checked per track.
+- **No row spans more than 40.0 seconds** (end − start), on either track. The fix
+  is **splitting**, not writing more — added text does not move audit outcomes on
+  long rows.
+- **Both tracks cover the window independently.** On a Mini task the window is
+  the **first 60 seconds**; the boundary row that starts before 60s counts in
+  full, and coverage past it is not graded.
+
+> **An empty row breaks three checks at once.** A row created but never filled
+> has blank captions and defaults to a start time of 0, which puts it out of
+> order too. If you see blank-caption and start-time-order flags on the same high
+> row number, you have a stray annotation — delete it.
 
 ## Timestamp Format
 
@@ -78,19 +102,80 @@ These four are spelling-checked by machine:
 - Numbering starts at **1** and has **no skips**.
 - With two or more speakers, **every** dialogue line carries
   `[SS.S-SS.S][Speaker N]:` — including `((Non-English speech))` lines.
-- Speech Caption 2 must reference the speakers that Caption 1 tags.
-- Each Speech Characteristics caption containing speech covers **at least 2 of
-  the 5 categories, with time marks.**
-  Exempt: speakers of two words or fewer, and unintelligible-only annotations.
-- **All 5 categories must appear at least once per main speaker** across the
-  task. A main speaker is one appearing in **3 or more annotations**.
 
-> **Open question — do not guess.** The instruction page lists seven qualities
-> (tone, volume, rhythm/pace, emphasis, speech patterns, accent, speaker
-> characteristics) and asks for the three most important. The checker counts
-> "5 categories" without naming them. Aim for three or more per annotation and
-> make sure tone, volume, pace, emphasis and accent all appear for each main
-> speaker — that is the safest reading. Ask in Slack rather than assuming.
+### Paragraph heads
+
+**Every paragraph of Caption 1 — every inline `[SS.S-SS.S]` range — must be
+headed** by one of:
+
+- `[Speaker N]:`
+- a collective tag: `[Both speakers]`, `[All speakers]`, `[Speakers 1 and 2]`
+- a sanctioned absence marker: `((No speech present))`, `((No speech))`,
+  `((Non-English speech))`, `((non-English))`, `((unintelligible))`,
+  `((inaudible))`
+- a nested `[range]`
+
+This holds **at every speaker count** — a solo narrator's paragraphs still need
+`[Speaker 1]:`. A bare `[40.7 - 47.9]: text` paragraph flags. Brackets are the
+format: `[Speaker 1):` and unbracketed `Speaker 1:` both flag. A single-stamp
+sub-head like `[41.0] [Speaker 4]: …` is valid.
+
+`[Crowd]` and `[Audience]` are **not** valid attribution. A group producing
+intelligible words is a speaker and gets its own `[Speaker N]`; unresolvable
+crowd noise belongs in the Audio track.
+
+### Speaker references, both directions
+
+- Every `[Speaker N]` tagged in Caption 1 must be described in Caption 2.
+- **`Speaker N` may not appear in Caption 2 unless `[Speaker N]` appears in that
+  same row's Caption 1.** This is row-level, not task-level.
+
+### Category coverage
+
+- Each Speech Characteristics caption containing speech covers **at least 3 of
+  the 5 categories, with `[SS.S]` time marks**:
+
+  **tone/emotion · volume · rhythm/pace · word emphasis · speech patterns**
+
+- **All 5 must appear at least once per main speaker** across the task. A main
+  speaker appears in **3 or more annotations**.
+- No single category is individually required.
+- Categories are counted **semantically, not grammatically** — a compound
+  descriptor credits every category it names. "loud, professional tone at a
+  steady pace" scores volume, tone and pace.
+- **Accent is not one of the five.** It is checked separately, as a literal
+  keyword — see below.
+
+Two exemptions:
+
+1. A speaker who says **two words or fewer** in the row needs no characteristics,
+   and a row whose only speech is two words or fewer is exempt entirely.
+2. `((unintelligible))` or `((inaudible))` speech needs none — what cannot be
+   heard clearly has no describable delivery.
+
+`((Non-English speech))` rows are **not** exempt. Paralinguistics are
+language-independent: tone, volume and pace are audible without comprehension.
+
+## Events Need Stamps
+
+When an Audio or Visual caption names **more than one discrete event**, each
+named event carries its own `[SS.S]` stamp.
+
+**Discrete = momentary**: a camera cut, a laugh, a knock, a burst of applause, a
+hand reaching into frame.
+
+**No stamp needed** for:
+
+- Continuous or background material — "throughout", "continues", `((persists))`,
+  "background music plays", a constant hum.
+- A caption naming only **one** event. The row's own window locates it.
+- The internal cuts of a **montage** that the caption itself declares as one unit
+  ("a montage of X, then Y, then Z") and locates with a single range. Discrete
+  events *outside* the declared montage still need stamps, and a bare chain of
+  "Cut to …" shot changes not declared as a montage is **not** exempt.
+
+This is a full error, not a minor one. A caption that describes three things and
+stamps two of them fails.
 
 ## Detail Presence
 
@@ -141,6 +226,16 @@ down. That is what `../references/self-audit.md` is for.
 
 The bar is **90% agreement between QC and Audit, measured per annotation, not
 per task.**
+
+## The Mini Task Has No Error Budget
+
+> **MINI RULE: mark EVERY violation — even ONE error makes the verdict
+> Incomplete and the task is SENT BACK. The main track's per-item threshold does
+> not apply on the mini sheet.**
+
+Some checks are **hard-limit (auto-pause)** rules: tripping one halts the task on
+its own, regardless of how clean everything else is. The gap check is one of
+them. On a Mini task, treat every flag as fatal.
 
 ## Getting Paid
 

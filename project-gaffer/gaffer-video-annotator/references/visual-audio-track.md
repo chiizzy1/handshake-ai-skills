@@ -38,6 +38,25 @@ Two ways to stamp events inside a caption, both used in pass-grade work:
 Use sub-ranges when something is on screen for a stretch, and inline stamps for
 instant events like a cut. Every stamp must sit inside the segment's own window.
 
+**If a caption names more than one discrete event, every one of them needs its
+own stamp.** A discrete event is momentary: a cut, a hand entering frame, a
+graphic appearing, a laugh, an applause burst. This is machine-checked and it is
+a full error, not a minor one.
+
+```text
+✗ ...by [56.0] the camera is focused on him. He kneels on the bedding. An adult's
+  hand reaches in from the left and touches the top of his head.
+
+✓ ...by [56.0] the camera is focused on him. He kneels on the bedding. At [58.2],
+  an adult's hand reaches in from the left and touches the top of his head.
+```
+
+Three things do **not** need a stamp: continuous or background material
+("throughout", "continues", `((persists))`, a constant hum); a caption naming
+only **one** event, which the row's own window already locates; and the internal
+cuts of a montage the caption declares as a single unit. A bare chain of "cut
+to…" shot changes is not a declared montage, and is not exempt.
+
 Remember the Visual+Audio segments are **not** the Speech segments. They break on
 picture changes, not on who is talking.
 

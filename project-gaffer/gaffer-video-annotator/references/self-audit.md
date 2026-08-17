@@ -36,20 +36,32 @@ Run `../references/autochecker-rules.md` first and get to zero flags. It is
 faster than any of the passes below and it catches the mechanical failures that
 would send the task back regardless of quality. The ones people miss most:
 
-- [ ] **≥3 annotations per track.**
+- [ ] **≥3 annotations per track**, and no stray empty row.
+- [ ] **No row spans more than 40s.** Split, don't trim.
+- [ ] Rows **touch**: no gap over **0.1s**, no overlap over 0.5s, per track.
+- [ ] First row starts within 0.1s of 0.0, last ends within 0.1s of the window
+      end — **60.0 on a Mini task**.
+- [ ] Every inline range in Caption 1 has a **head**: `[Speaker N]:` or a
+      sanctioned marker. Solo narrators included.
+- [ ] `Speaker N` in Caption 2 only where `[Speaker N]` is in that row's C1.
+- [ ] Each speech Caption 2 covers **≥3 of 5** categories with time marks.
+- [ ] Multi-event Visual and Audio captions **stamp every discrete event**.
 - [ ] The literal word **"accent"** appears in the speech captions.
 - [ ] One of **camera / shot / screen / frame** appears somewhere in the task.
 - [ ] Transcription captions **under 200 words**, others under 1000.
 - [ ] No **race or ethnicity** mentioned anywhere.
 - [ ] No ambiguous wording — "a good volume" is a flag.
-- [ ] Timestamps use **at most two decimals**.
+- [ ] Timestamps use **at most two decimals**, and each row's start/end fields
+      match its caption's first and last timestamps.
+- [ ] Before acting on a flag, check the **"Results as of"** banner — a fixed
+      error keeps showing until the next refresh.
 
 ## Pass 1 — Coverage
 
 Is everything that happened in there?
 
-- [ ] **Speech track runs edge to edge.** First annotation within 0.5s of 0.0,
-      last within 0.5s of the end, no gap over 1.0s, no overlap over 0.5s.
+- [ ] **Speech track runs edge to edge.** First annotation within 0.1s of 0.0,
+      last within 0.1s of the window end, no gap over 0.1s, no overlap over 0.5s.
 - [ ] **Visual+Audio track runs edge to edge**, separately, to the same tolerances.
 - [ ] **Null events are captioned**, not skipped — "At [1.2 - 8.7], the image
       remains static, with no new objects appearing."
@@ -135,8 +147,9 @@ Is it at the right second, in the right caption?
       `((Non-English speech))` = words spoken, not in English.
 - [ ] "Unintelligible", "muffled" and "garbled" appear only inside `(( ))`.
 - [ ] Every Speaker N in Caption 1 also appears in Caption 2 for that segment.
-- [ ] Each speech Caption 2 covers ≥2 of the 5 categories with time marks, and
-      all 5 appear at least once per main speaker across the task.
+- [ ] Each speech Caption 2 covers **≥3 of the 5** categories with time marks —
+      tone/emotion, volume, rhythm/pace, word emphasis, speech patterns — and all
+      5 appear at least once per main speaker across the task.
 - [ ] Short utterances (≤2 words) name the speaker without a guessed
       characteristic — "Speaker 2 is also briefly heard in this segment."
 - [ ] No copy-pasted characteristics across annotations.

@@ -122,6 +122,27 @@ Note what that one gets right: `shou-` with a hyphen because the word was never
 completed, the `um` kept, and the second voice given its own stamp and number
 even though it only says one word off screen.
 
+### Every paragraph needs a head
+
+Each inline `[SS.S-SS.S]` range in Caption 1 must open with `[Speaker N]:`, a
+collective tag like `[Both speakers]`, or a sanctioned marker such as
+`((No speech present))`. **This applies even when there is only one speaker in
+the whole video** — a solo narrator's paragraphs still need `[Speaker 1]:`.
+
+```text
+✓ [40.7 - 47.9] [Speaker 1]: ...and he's been taking everything like a champ.
+  [47.9 - 57.9]: ((No speech present))
+  [57.9 - 60.0] [Speaker 1]: I love you.
+
+✗ [57.9 - 60.0]: I love you.          ← bare range, no head
+✗ [57.9 - 60.0] Speaker 1: I love you. ← unbracketed
+✗ [57.9 - 60.0] [Speaker 1): I love you. ← wrong bracket
+```
+
+A row that mixes speech and silence is fine — it just needs a head on every
+paragraph. Putting the silence inside the same row, rather than splitting it out,
+also keeps the row's Caption 2 doing the category work for the whole window.
+
 ### Several turns in one window
 
 A segment often holds a back-and-forth. Stack the turns, each with its own stamp
@@ -272,25 +293,39 @@ content or topic of what was said, and nothing you know from your eyes.
 
 This is machine-checked, so it is worth knowing exactly:
 
-- **Every Speaker N tagged in Caption 1 must also appear in Caption 2** for that
-  same segment, with the same number.
-- Each caption containing speech covers **at least 2 of the 5 categories, with
-  time marks**. The guidance asks for the **three most important** — aim for
-  three.
-- **All 5 categories must appear at least once per main speaker** across the
-  whole task. A main speaker appears in **3 or more annotations**.
+Each caption containing speech covers **at least 3 of these 5 categories, with
+`[SS.S]` time marks**:
+
+| # | Category | Example |
+|---|---|---|
+| 1 | tone / emotion | "sounds tired and worried but explains things calmly" |
+| 2 | volume | "moderate volume", "her voice becomes softer" |
+| 3 | rhythm / pace | "a moderate, conversational pace" |
+| 4 | word emphasis | "At [12.6] she emphasises the words 'really sick'" |
+| 5 | speech patterns | stutters, stammers, fillers, self-corrections, with times |
+
+- **Accent is not one of the five.** It is checked separately, as a literal
+  keyword — see below.
+- **All 5 must appear at least once per main speaker** across the task. A main
+  speaker appears in **3 or more annotations**.
+- Categories count **semantically, not grammatically**: "loud, professional tone
+  at a steady pace" scores volume, tone and pace — three, not one.
+- **Every `[Speaker N]` in Caption 1 must be described in Caption 2**, and
+  **`Speaker N` may not appear in Caption 2 unless `[Speaker N]` is in that same
+  row's Caption 1.** Both directions are checked, row by row.
 - The literal word **"accent" must appear somewhere in the speech captions**.
-- Exempt from the category quota: speakers of **two words or fewer**, and
-  unintelligible-only annotations.
+
+Two exemptions: a speaker of **two words or fewer**, and
+`((unintelligible))`/`((inaudible))` speech. `((Non-English speech))` is **not**
+exempt — tone, volume and pace are audible without comprehension.
 
 For a very short utterance the speaker still gets mentioned, but no specific
 characteristic is required. **Do not guess one.** *"Speaker 2 is also briefly
 heard in this segment."* is a complete and correct Caption 2 entry.
 
-> **Open question, do not invent an answer.** The instruction page lists seven
-> qualities; the checker counts "5 categories" without naming them. The safest
-> reading is that tone, volume, pace, emphasis and accent are the five. Ask in
-> Slack rather than assuming.
+**Do not repeat yourself across rows.** A second row covering the same speaker
+should describe what changed — "her voice becomes softer and more affectionate"
+— not restate the first row's wording. Copy-pasted characteristics get flagged.
 
 ### What to describe
 
