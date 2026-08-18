@@ -78,7 +78,7 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Code render comparison from a text prompt | `handshake-text-to-code-elo-evaluator` | `project-hedgehog/handshake-text-to-code-elo-evaluator/SKILL.md` |
 | Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `project-hedgehog/handshake-static-webpage/SKILL.md` |
 | Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `project-hedgehog/handshake-grounding-hard-rollout/SKILL.md` |
-| Two AI artifacts side by side, task-specific rubrics, Pass/Fail | `handshake-multimodal-agent-arena` | `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md` |
+| Two AI artifacts in separate tabs, task-specific rubrics, Good/Bad | `handshake-multimodal-agent-arena` | `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md` |
 | One video, write four captions on two tracks, nothing to rate | `gaffer-video-annotator` | `project-gaffer/gaffer-video-annotator/SKILL.md` |
 
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
@@ -500,8 +500,8 @@ Special rule:
 Inputs:
 
 - A task prompt with optional input materials (images, PDFs, videos, 3D files, code).
-- Two AI-generated artifacts (A and B) — can be any type (websites, games, images, data visualizations, slide decks, 3D models, code outputs, reports).
-- Task-specific rubric checklist (when present).
+- Two AI-generated artifacts in separate tabs (A and B) — can be any type (websites, HTML pages, games, PDFs, reports, images, data visualizations, slide decks, 3D models, code outputs).
+- Task-specific rubric checklist (when present, sometimes editable).
 
 Main question:
 
@@ -513,15 +513,17 @@ Skill:
 
 Criteria:
 
-- Per-rubric Pass/Fail for A and B independently (when rubrics present).
-- Overall: Response A / Response B / Tie.
+- Per-rubric Good/Bad (some UIs say Pass/Fail) for A and B independently (when rubrics present).
+- Overall: Response A / Response B / Tie, with the preference strength the UI asks for.
 - When no rubrics: instruction following, visual quality, content completeness, usability.
 
 Special rules:
 
-- Interact with both artifacts before rating.
+- Open both tabs (Submit stays locked until you do) and interact with both artifacts before rating.
+- Give each output up to 30 seconds. Blank or unusable after that → Reject Sample → One or both outputs have a broken/blank interface.
+- Anything that renders gets rated, however poor. Do not reject for low quality.
+- Edit rubrics only when the task allows it and the criterion is inapplicable, unassessable, or contradicts the prompt — never to spare an output a failure.
 - Overall selection must be coherent with rubric ratings.
-- Broken outputs get all-Fail and always lose.
 - Functionality matters more than polish.
 
 ## Project Gaffer / Video Omni Caption
