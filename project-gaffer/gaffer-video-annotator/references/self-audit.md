@@ -46,6 +46,15 @@ would send the task back regardless of quality. The ones people miss most:
 - [ ] `Speaker N` in Caption 2 only where `[Speaker N]` is in that row's C1.
 - [ ] Each speech Caption 2 covers **≥3 of 5** categories with time marks.
 - [ ] Multi-event Visual and Audio captions **stamp every discrete event**.
+- [ ] **Audio captions name nothing you learned by looking or by the words.**
+      Not "the narration", "the black card", "under the speech". Music ducking is
+      written as "rising and falling in volume", cause unsaid.
+- [ ] **Every continuing sound carries an identity signal** — `((persists))`,
+      "the same X", "X continues" — and reuses the original wording. A synonym
+      reads as a new cue.
+- [ ] **Trace each cue end to end.** A sound that stops is an event and must be
+      said. Nothing may `((persist))` from silence, and nothing may "start
+      playing" over a cue that never ended.
 - [ ] The literal word **"accent"** appears in the speech captions.
 - [ ] One of **camera / shot / screen / frame** appears somewhere in the task.
 - [ ] Transcription captions **under 200 words**, others under 1000.

@@ -177,6 +177,27 @@ hand reaching into frame.
 This is a full error, not a minor one. A caption that describes three things and
 stamps two of them fails.
 
+## Continuing Cues Need An Identity Signal
+
+Once a sound is established, every later row that still carries it must **mark it
+as the same sound**. Re-describing it in fresh words reads to the checker as a
+new cue appearing from nowhere.
+
+| Row | Wrote | Verdict |
+|---|---|---|
+| n | `A deep jet engine hum and a steady hiss from the air vents come up underneath.` | fine — first mention |
+| n+1 | `A continuous, deep jet engine hum and steady ventilation airflow hiss dominate the segment.` | **flagged** — paraphrase with no identity signal |
+| n+1 | `The deep jet engine hum and the steady hiss from the air vents ((persists)) at the same level throughout.` | fine |
+
+The signal is `((persists))`, "the same X", or "X continues". Reuse the original
+wording rather than finding a synonym — a synonym is what triggers it.
+
+**The corollary matters just as much: a cue that stops is an event.** If a sound
+is playing in one row and absent from the next, say so. Letting it vanish
+silently leaves the next `((persists))` with nothing to persist from, and a
+later row that says a tune "starts playing" claims silence that was never
+established. Trace every cue end to end before submitting.
+
 ## Detail Presence
 
 - Visual and audio captions each carry **both low-level detail and high-level
@@ -187,7 +208,20 @@ stamps two of them fails.
 
 ## Right Content, Right Track
 
-- **No lyrics or speech content in Audio captions.**
+- **No lyrics or speech content in Audio captions.** This is stricter than it
+  sounds. An Audio caption may not reference **anything you could only know by
+  looking or by listening to the words** — not just quoted speech. All three of
+  these failed the checker on one task:
+
+  | Wrote | Why it failed |
+  |---|---|
+  | `dipping in volume under the narration` | "the narration" is speech-track content |
+  | `at a loud volume over the black card` | "the black card" is visual |
+  | `((persists)) under the speech` | "the speech" is speech-track content |
+
+  Describing music ducking under a speaker is the common trap — the volume
+  change is legitimately yours, but naming what it ducks under is not. Write
+  **"rising and falling in volume throughout"** and let the cause go unsaid.
 - **No visual-only information and no non-human sounds in Speech
   Characteristics.**
 - **No "Speaker N", no sounds, and no speech content in Visual captions.**

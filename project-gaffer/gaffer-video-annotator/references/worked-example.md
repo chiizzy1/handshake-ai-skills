@@ -12,6 +12,8 @@ so the graded window is the **first 60 seconds**.
 - [Speech Track](#speech-track)
 - [Visual+Audio Track](#visualaudio-track)
 - [Every Flag It Collected](#every-flag-it-collected)
+- [How It Was Produced](#how-it-was-produced)
+- [Who Has to Do What](#who-has-to-do-what)
 - [What This Teaches](#what-this-teaches)
 
 ## The Shape of the Answer
@@ -135,6 +137,53 @@ Eleven flags across four rounds, every one structural rather than content.
 Rounds 3 and 4 also each burned a cycle on a **stale result** — the gap flag kept
 appearing after it had been fixed, because the run predated the edit. Check the
 "Results as of" banner before treating a flag as real.
+
+## How It Was Produced
+
+The captions above are the output. This is the process, and it is the part worth
+repeating.
+
+**1. Establish what you are actually holding.** The file handed over was a screen
+recording of the SuperAnnotate editor, not the video. Reading it gave three
+things: the tag `Mini_Annotator` (first 60 seconds only), the task file
+`8t4TCfIFNAs.json` (that is the YouTube ID), and rows already carrying start/end
+times (the draft is pre-generated). Pulling the real video from that ID made
+everything else possible. Never caption from a recording of the player.
+
+**2. Inspect before writing.**
+
+```bash
+~/.venvs/gaffer-tools/bin/python scripts/gaffer_inspect.py 8t4TCfIFNAs \
+    --out /tmp/gaffer --whisper-model medium
+```
+
+**3. Cross-check the transcript rather than trusting it.** Whisper returned
+`[48.92 - 59.14] "I love you."` — three words over ten seconds, with
+`no_speech_prob = 0.024`, meaning it was confident speech was present. A second
+pass over different audio returned nothing there. **Two passes disagreeing is a
+stop sign, not a tiebreak.** It went to the person who could listen. The draft
+also needed `"that's why we have him uploading"` corrected to `"that's why we
+haven't been uploading"`, and `uhm` to `um`.
+
+**4. Verify every detected cut against frames.** The detector was wrong twice
+here. Its "hard cut" at 48.22 was a re-frame inside the baby scene; the real
+scene change was the *gradual* hit at 38.97. And what it reported as one shot
+from 48.22 contained a **camera pan** from the baby to an older boy across
+54.5–56.0, scoring 0.078 — under both thresholds, because both halves are white
+bedding and skin tones. No pixel detector finds that. Interval frames do.
+
+**5. Then build the rows**, contiguous and under 40s, splitting on real pauses.
+
+## Who Has to Do What
+
+- **Tooling and agent**: source identification, frames, cut verification, reading
+  on-screen text off frames, transcription correction, row arithmetic, rule
+  compliance.
+- **Person**: everything audible — accent, tone, pace, volume, the emphasis words
+  and their timestamps, the music and ambient sound, and any disputed utterance.
+
+Speech Characteristics and the Audio caption cannot be written from a transcript
+and a loudness graph. Someone has to listen.
 
 ## What This Teaches
 

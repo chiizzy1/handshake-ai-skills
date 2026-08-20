@@ -92,7 +92,8 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 ### Project Gaffer
 
-- Video Omni Caption / Project Gaffer (watch a video and write four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, Audio — then self-audit and route in SuperAnnotate): use `gaffer-video-annotator` (read `../project-gaffer/gaffer-video-annotator/SKILL.md`).
+- Video Omni Caption / Project Gaffer (correct four pre-generated captions across two tracks — Speech Transcription, Speech Characteristics, Visual, Audio — then pass the Autochecker and route in SuperAnnotate): use `gaffer-video-annotator` (read `../project-gaffer/gaffer-video-annotator/SKILL.md`).
+- Project Gaffer **reviewing** (R1 layer: fix and approve someone else's task, thumbs up and save every annotation, grade on 10 criteria, route to Hold or QC_Return): same skill, read `../project-gaffer/gaffer-video-annotator/references/reviewer-workflow.md`.
 
 Gaffer is production annotation, not rating. Do not apply Hedgehog or Lizard rating logic to it, and do not look for a Gaffer PDF — its source of truth is the extracted training site under `HANDSHAKE-AI/project-gaffer/extracted/`.
 

@@ -1,6 +1,6 @@
 ---
 name: gaffer-video-annotator
-description: Correct and self-audit Project Gaffer video captions for Handshake AI. Use for Video Omni Caption tasks in SuperAnnotate that need four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, and Audio — with timestamps, speaker tags, Autochecker rules, skip/flag decisions, and submit routing.
+description: Correct and self-audit Project Gaffer video captions for Handshake AI. Use for Video Omni Caption tasks in SuperAnnotate that need four captions across two tracks — Speech Transcription, Speech Characteristics, Visual, and Audio — with timestamps, speaker tags, Autochecker rules, skip/flag decisions, and submit routing. Also covers the R1 reviewer role — grading annotations against the 10 review criteria, thumbs-up and save, and Hold / QC_Return routing.
 ---
 
 # Gaffer Video Annotator
@@ -104,6 +104,20 @@ Two questions decide whether a task passes audit:
 ## Workflow
 
 Work in this order. Do not start writing captions until step 4.
+
+### 0. Which job is this?
+
+**Reviewing someone else's task?** You are R1, and the job is different — decide
+within 45 minutes whether to fix or send back, fix it, thumbs up and save every
+track, grade the annotator 1–5 on SQS, and route to Hold. Stop here and read
+`references/reviewer-workflow.md`.
+
+Three things there catch people out: **submitting to Hold means leaving every
+feedback field clear**, the **Verify Submission** button is not the Autochecker,
+and a task sent back returns to you with **90 minutes flat** regardless of its
+length.
+
+Everything below is the annotator path.
 
 ### 1. Identify what you are holding
 
@@ -292,6 +306,7 @@ Read the one that matches what you are doing.
 | When | Read |
 |---|---|
 | You want a complete task that passed | `references/worked-example.md` |
+| You are reviewing someone else's task (R1) | `references/reviewer-workflow.md` |
 | Before submitting — the machine rules | `references/autochecker-rules.md` |
 | Before you write anything — inspecting the video | `references/video-inspection.md` |
 | Writing transcription or speech characteristics | `references/speech-track.md` |
