@@ -237,7 +237,8 @@ def download(video_id: str, dest_dir: Path, notes: list[str],
 # ---------------------------------------------------------------- probe
 
 def probe(video: Path) -> dict:
-    info = {"duration": 0.0, "fps": 0.0, "width": 0, "height": 0, "has_audio": False}
+    info = {"duration": 0.0, "container_duration": 0.0, "fps": 0.0,
+            "width": 0, "height": 0, "has_audio": False}
     if FFPROBE:
         cp = run([FFPROBE, "-v", "error", "-print_format", "json",
                   "-show_format", "-show_streams", str(video)], timeout=120)
@@ -247,6 +248,7 @@ def probe(video: Path) -> dict:
             except json.JSONDecodeError:
                 data = {}
             info["duration"] = float(data.get("format", {}).get("duration") or 0.0)
+            info["container_duration"] = info["duration"]
             for st in data.get("streams", []):
                 if st.get("codec_type") == "video" and not info["width"]:
                     info["width"] = int(st.get("width") or 0)
@@ -275,12 +277,24 @@ def probe(video: Path) -> dict:
     except Exception:
         pass
 
-    if not info["has_audio"] and FFMPEG:
+    if FFMPEG and (not info["has_audio"] or not info["container_duration"]):
         # No output file, so ffmpeg prints the stream table and exits. Adding
         # "-f null -" here would decode the entire video just to answer "is there
         # an audio stream", which on a ten-minute clip is most of the runtime.
         cp = run([FFMPEG, "-hide_banner", "-i", str(video)], timeout=60)
-        info["has_audio"] = "Audio:" in cp.stderr
+        if not info["has_audio"]:
+            info["has_audio"] = "Audio:" in cp.stderr
+        m = re.search(r"Duration:\s*(\d+):(\d\d):(\d\d(?:\.\d+)?)", cp.stderr)
+        if m:
+            info["container_duration"] = (
+                int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+            )
+
+    # The container duration is what the task is graded against. Frame-count /
+    # fps can land a tenth of a second short, which fails the "last row ends at
+    # the video end" check, so prefer the container value whenever we have it.
+    if info["container_duration"]:
+        info["duration"] = info["container_duration"]
     return info
 
 
