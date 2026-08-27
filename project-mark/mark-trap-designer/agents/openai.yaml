@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mark Trap Designer"
+  short_description: "Design and fairness-check the trap a Project Mark task rests on"
+  default_prompt: "Use $mark-trap-designer to design the trap for this Project Mark task and run the fairness checks."
