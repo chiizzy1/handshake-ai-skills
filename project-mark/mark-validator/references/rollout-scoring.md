@@ -1,26 +1,38 @@
 # Rollout Scoring
 
-Eight responses per rollout, scored against the confirmed rubric.
+## The bar (8/27)
 
-## The bar
+**"Stump the model" is retired.**
 
-| Responses | Tier | Qualifying stump | Minimum qualifying |
-|---|---|---|---|
-| 1 to 4 | Strong model | below **50%** | **2** |
-| 5 to 8 | Weak model | below **30%** | **1** |
+- Every rollout is **twelve responses**, scored against the fixed rubric.
+- **You submit all 12.** The bottom 10 can be submitted without checking.
+- **The gate is the top 2.** The task passes only when the two highest-scoring
+  responses **average under 50%** against the rubric.
 
-Both counts must be met. Reward is reported on a 0 to 1 scale as the mean across
-runs for that model; lower reward means the task stumped it harder.
+Confirmed on Stumping essentials, which is unambiguous. The Task walkthrough's
+step 12 card says "Run 10 model responses" while also saying "submit the bottom
+ten" and "only the top two are graded" — that card is simply wrong on the count.
+Hard gate 02 and Stumping essentials both say 12.
 
-## Aim at the recommendation
+**Aim the trap at the main recommendation.** It anchors the deterministic answer,
+so a response that gets it fully correct should not fall below the pass threshold
+merely by missing minor supplementary details. Supplementary questions deepen the
+evaluation; they must never become artificial gotcha items or replace the central
+recommendation as the main difficulty target.
 
-The recommendation carries **50% on its own**. A response that gets it fully
-correct cannot fall below the strong-model threshold merely by missing minor
-supplementary details. So the recommendation is the primary stumping target, and
-supplementary asks deepen the evaluation without ever substituting for it.
+Difficulty must stay honest: it comes from data shapes — forecasting, method
+selection, a binding constraint, a decomposition, confirm-the-number, hold — never
+from surface-read rejection or flipping a wrong number.
 
-An ask that exists only to fail a model is an artificial gotcha item. Reviewers
-reject those.
+## The asks now carry the weight
+
+Under the old rubric the recommendation was 50% on its own. Under 8/27 it is
+**~30%**, and the supplementary asks are **~60%**.
+
+That inverts where difficulty has to live. Asks can no longer be minor supporting
+detail — they are the majority of the score, they must be **hard and
+discriminating**, and a wrong analytical path should get them wrong. An ask that
+is a trivial lookup is wasted weight.
 
 ## Classify before you write anything down
 

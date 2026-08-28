@@ -1,6 +1,6 @@
 ---
 name: mark-prompt-writer
-description: Write the Project Mark task prompt. Use when drafting the stakeholder message that commits an analyst to one deterministic recommendation and names two or more output deliverables across at least two format families with at least two asks each. Covers the task contract, prompt anatomy, the ask taxonomy, and the no-leak rules that keep the trap invisible.
+description: Write the Project Mark task prompt. Use when drafting the stakeholder message that commits an analyst to one deterministic recommendation and names three or more output deliverables across the two assigned format families with at least three asks each. Covers the task contract, prompt anatomy, the ask taxonomy, and the no-leak rules that keep the trap invisible.
 ---
 
 # Project Mark — Prompt Writer
@@ -17,21 +17,20 @@ It should read like a message a busy stakeholder would actually send.
 
 ## The Task Contract
 
-Every prompt carries all four:
+Every prompt carries all five:
 
 - **One deterministic recommendation.** A single committed call with one
   defensible answer.
-- **2 or more named deliverables.** Each with a filename and extension. Two is a
-  floor and the normal range is 2 to 5; the live task assigns its own minimum.
-- **Coverage across at least two families.** Variety across families, not a
-  specific extension.
-- **At least two asks per file.** A supplementary question, or a concrete
-  requirement about what that file must contain. These per-file asks *are* the
-  body of the prompt. There is no separate supplementary-questions section
-  anymore.
+- **3 or more named deliverables**, each with a filename and extension. **No upper
+  limit.**
+- **Spanning the two format families assigned to you** for that task. Two of the
+  four are assigned per task; more are allowed, those two are mandatory.
+- **At least three asks per file.** A supplementary question with a determinate
+  answer, or a concrete requirement about what that file must contain. These
+  per-file asks *are* the body of the prompt.
 - **Every numeric ask states its unit and rounding.** "In USD to the nearest
-  thousand", "percentage points to one decimal". This is an 8/18 rule, and the
-  precision is load-bearing because a grader diffs it across the whole set.
+  thousand", "percentage points to one decimal". Precision is load-bearing and a
+  grader diffs it across the whole set.
 
 | Family | Formats | What it is |
 |---|---|---|
@@ -40,7 +39,41 @@ Every prompt carries all four:
 | Text | PDF, DOCX **only** | Memos, reports, briefs |
 | Code | PY, IPYNB, SQL, R | A script or notebook that runs and prints the answer |
 
-The formats are examples, not a fixed menu. The rule is variety across families.
+The formats are examples, not a fixed menu.
+
+## Asks Carry ~60% Of The Rubric
+
+This is the single biggest change in how a prompt should be written. The
+supplementary asks are the largest scoring block, and the rubric must reach **25+
+criteria** or the task cannot advance.
+
+**Asks must be hard and discriminating, not trivial lookups. A wrong analytical
+path should get them wrong.**
+
+Five levers, straight from the handbook, for getting a prompt to 25 criteria:
+
+1. **Three different findings, not one restated.** The top reason a prompt stalls
+   near 20 is every ask re-expressing the same result — a median, a p90 and a
+   top-tier share are all one distribution finding. Turn the task on distinct
+   facts: a headline number, a driver, a threshold, a trend.
+2. **One criteria-dense visual, with its parts named.** "Include a chart" is worth
+   one point. A visual is worth six or seven when you name the chart type, each
+   series or panel, a labeled reference line with its value, an annotation on the
+   key point, an ordering, and a title that states the finding.
+3. **A second decision axis.** A recommendation resting on one number is thin.
+   Force the decision to weigh two things — effect and cost, growth and retention,
+   forecast and capacity limit. The trade-off adds the second value, its
+   comparison, and the reconciliation between them.
+4. **A breakdown with an explicit grain.** "One row per segment with these
+   measures" multiplies criteria: each measure over each grouping is its own
+   answer. Name the grain, the columns, and an ordering or total row.
+5. **A robustness or validity check.** A backtest against a naive baseline, a
+   placebo or pre-trend check, a confidence interval, a sensitivity or
+   leave-one-out result, or a cross-file reconciliation.
+
+**Underneath all five:** every criterion is a distinct, determinate answer a wrong
+analytical path would get wrong. Do not pad with rounding or units, and do not
+count one fact twice because two files display it.
 
 ## Five Non-Negotiable Rules
 
@@ -52,14 +85,16 @@ The formats are examples, not a fixed menu. The rule is variety across families.
    metric is misleading.
 4. **Fair and self-contained.** Everything derivable from the bundle, and the
    losing option refuted on the data.
-5. **2 or more deliverables across at least two families, two asks each**, every
-   file named with its extension, every numeric ask carrying its unit and rounding.
+5. **3 or more deliverables across the two assigned families, three asks each**,
+   every file named with its extension, every numeric ask carrying its unit and
+   rounding.
 
 ### What gets sent back
 
 A prompt that names the method or the trap · allows a hedged answer · requires
 outside knowledge · asks for a separate dataset or decision · requests only one
-file · keeps every file in one family · leaves a file with fewer than two asks.
+file · requests fewer than three files · misses one of the two assigned families ·
+leaves a file with fewer than three asks · fills asks with trivial lookups.
 
 ## Prompt Anatomy
 
@@ -68,8 +103,8 @@ file · keeps every file in one family · leaves a file with fewer than two asks
 | 1 | Stakeholder context | The trigger and the stakes: what happened, who disagrees, what is at risk |
 | 2 | The decision | The one call being asked for, with the objective fixed so it cannot mean three things |
 | 3 | Necessary scope or constraints | Only the constraints the stakeholder would state, such as choosing exactly one option |
-| 4 | Requested deliverables | 2 or more named files across at least two families |
-| 5 | Asks per file | Each named file states what it must answer or contain |
+| 4 | Requested deliverables | 3 or more named files across the two assigned families |
+| 5 | Asks per file | Each named file states what it must answer or contain — three or more |
 | 6 | No answer-path leakage | Silent on scope, cleaning, window, and method. The trap is never named or hinted |
 
 ## The Kinds Of Asks
@@ -130,7 +165,7 @@ examples.
 ## Leak Check
 
 Run `../tools/mark_leak_check.py` against the draft. It validates contract shape
-— two or more deliverables, at least two families, two asks each, filenames
+— three or more deliverables, the two assigned families, three asks each, filenames
 carrying extensions — and flags likely leakage: named methods, narrated traps,
 wording that points at the decisive file.
 

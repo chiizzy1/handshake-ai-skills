@@ -1,6 +1,6 @@
 ---
 name: mark-task-builder
-description: Build a Project Mark analytical task for Handshake AI. Use for authoring a task that stumps frontier models — sourcing a 10+ file input package, writing a prompt that commits one deterministic recommendation with two or more named deliverables, producing the golden deliverable set, reviewing the generated rubric, and clearing Readiness. Routes to the input, prompt, trap, golden, and validation skills. Project Mark is a production project, not a rating project.
+description: Build a Project Mark analytical task for Handshake AI. Use for authoring a task that stumps frontier models — sourcing a 10+ file input package, writing a prompt that commits one deterministic recommendation with three or more named deliverables, producing the golden deliverable set, reviewing the generated rubric, and clearing Readiness. Routes to the input, prompt, trap, golden, and validation skills. Project Mark is a production project, not a rating project.
 ---
 
 # Project Mark — Task Builder
@@ -46,8 +46,8 @@ The three that catch people out:
 | Stale | Canonical |
 |---|---|
 | 6 or more input files | **10 or more, in a single ZIP** |
-| Exactly one output file | **2 or more across at least two families** |
-| 3 to 5 standalone supplementary questions | **At least two asks per named deliverable** |
+| Exactly one output file, or 2 to 5 | **3 or more, no upper limit, across the two assigned families** |
+| 3 to 5 standalone supplementary questions, or two asks each | **At least three asks per named deliverable** |
 
 ## Hard Gates
 
@@ -79,74 +79,74 @@ Three questions decide whether a task gets approved:
 
 ## Workflow
 
-Nine steps. The conceptual relationship between prompt, inputs and golden is not
-the build order — build in this order.
+Twelve steps, three phases, four hard gates. This is the 8/27 sequence and it
+replaces the old nine-step walkthrough.
 
-### 1. Pick the domain and objective
+### Phase A — Set up the task
 
-One of six domains, one Axis 1 objective. Chosen before you write a word of the
-prompt. See `references/domains-objectives.md`.
+**1. Task type, domain, and data families.** Pick one domain. **One primary
+analytical objective and two output format families are assigned to you.** The
+rest is your call.
+*Gate: deterministic decision.*
 
-Forecasting & Predictive Modeling is an objective, not a seventh domain, and more
-of those are wanted.
+**2. Prompt and input files.** Write the ambiguous, stakeholder-style prompt and
+upload one ZIP of real, license-clean inputs.
+*Gate: 10+ files, 3+ formats, one 10,000+ row table.*
+→ `mark-input-package`, `mark-prompt-writer`, and `mark-trap-designer` first
 
-### 2. Draft the trap — before the prompt
+### Phase B — Solve and specify
 
-This is out of intuitive order and it matters. A prompt written first signposts
-the catch: it names the metric that matters, or fixes a window that quietly rules
-the trap out. Write the trap, then write the message a stakeholder would send if
-the trap were invisible to them.
+**3. Model responses.** Generate the model rollout on your prompt and inputs.
+Note this happens **before** you commit your own answer.
 
-→ **`mark-trap-designer`**
+**4. Final recommendation.** Commit the single deterministic recommendation the
+task resolves to.
 
-### 3. Assemble the input package
+**5. Supplementary answers.** Answer each per-deliverable ask. **These carry ~60%
+of the rubric**, so they must be hard and discriminating.
 
-10+ files, 4+ independently necessary, 2+ substantial, 3+ formats, one table with
-10,000+ rows, joins required, provenance recorded per file.
+**6. Critical components.** Record the load-bearing intermediates the
+recommendation rests on. Part of the ~30% recommendation block.
+→ `mark-golden-builder`
 
-→ **`mark-input-package`**
+### Phase C — Validate and deliver
 
-### 4. Write the prompt
+**7. Rubric.** Generated for you and **fixed — you do not edit it.**
+*Gate: 25+ criteria, weighted 30 / 5–10 / 60.*
 
-One deterministic recommendation, 2 or more named deliverables across at least two
-format families, at least two asks each. Every numeric ask states its unit and
-rounding.
+**8. Step-by-step solution.** Lay out the path from the inputs to the committed
+answer.
 
-→ **`mark-prompt-writer`**
+**9. Justification.** State why the answer is forced and the difficulty is
+honest-data, not a planted lie.
 
-### 5. Build the golden deliverable set
+**10. Determinism QC check.** A rollout check that the committed answers are
+uniquely forced by the shipped files.
 
-Every requested file, in the requested format, under the filename the prompt
-names. One set of numbers across all of them.
+**11. Golden solution.** Ship the finished golden version of every requested
+deliverable.
 
-→ **`mark-golden-builder`**
+**12. Final model rollouts.** Run the responses against the fixed rubric. Only the
+**top two are graded**; the rest are submitted unchecked, and the task passes when
+those two **average under 50%**. **Non-blocking** if the top two already hit the
+bar on the step 3 rollout.
+*The source disagrees with itself on the count — 10 or 12. See canonical-rules.*
+→ `mark-validator`
 
-### 6. Review the generated rubric — one pass
+### Where the trap work goes
 
-It is generated internally from your prompt contract and golden set. Fix genuine
-problems only: missing coverage, wrong weighting, contradictory criteria, a
-criterion the golden would fail. Leave phrasing alone.
+The twelve steps do not name trap design as its own step, but it still governs
+steps 1 and 2. **Design the trap before writing the prompt** — a prompt written
+first signposts the catch.
 
-→ **`mark-validator`**
+## The four hard gates
 
-### 7. Run the five validation gates
-
-Reproduce · Fork · Live trap · then the rollout and the scoring bar.
-
-→ **`mark-validator`**
-
-### 8. Run and evaluate the rollout
-
-Eight responses. At least 2 of Responses 1–4 below 50%, at least 1 of Responses
-5–8 below 30%.
-
-→ **`mark-validator`**
-
-### 9. Clear Readiness and submit
-
-51 blocking checks across 6 stages. You submit on Handshake yourself.
-
-→ **`mark-validator`**
+| # | Gate |
+|---|---|
+| 01 | Rubric reaches **25+ criteria**, weighted 30 / 5–10 / 60 |
+| 02 | **Top 2 responses average under 50%** |
+| 03 | A deterministic, fair stump on honest data |
+| 04 | **3+ deliverables with 3+ asks each**, across the two assigned families |
 
 ## What Good Looks Like
 
@@ -161,15 +161,19 @@ Eight responses. At least 2 of Responses 1–4 below 50%, at least 1 of Response
 ## Debugging
 
 When a task misbehaves, the fix is almost always in **the prompt or the input
-files, never the rubric.**
+files** — and since 8/27 you cannot edit the rubric at all, so upstream is the
+only repair available.
+
+Full guidance, the file-size and licence limits, and the rules on malformed and
+self-made files are in `references/debugging.md`.
 
 | Symptom | Where to repair |
 |---|---|
-| Models keep getting the recommendation right | The trap is not consequential, or the prompt leaks the path. Re-run Gate 3. |
-| Two experts could defensibly disagree | Determinism bug. An unpinned definition, threshold, scope, population, metric, or window. Pin it in the prompt or the files. |
-| Right answer, wrong reasons, still scored high | The rubric grades disclosure, or a criterion is too loose. One review pass fixes it. |
-| Only the strong model fails, or only the weak one | The count gate needs both. Usually the trap is too shallow or too obscure. |
-| A response beats your golden on a better-supported path | **That is a golden defect, not a response error.** Repair the golden. |
+| Models keep getting the recommendation right | **The most common failure.** Task too easy: the obvious first analysis is also correct, the decisive number sits in a summary tab, or the data is clean and pre-joined |
+| Two experts could defensibly disagree | Objective not bound to one recommendation. Re-read the prompt as an adversary optimizing a different legitimate goal |
+| Right answer, wrong reasons, still scored high | The asks are not discriminating enough. A shortcut satisfies them |
+| Top two responses clear 50% | Not hard enough. Deepen the trap or the computation |
+| A response beats your golden on a better-supported path | **That is a golden defect, not a response error.** Repair the golden |
 
 ## Output Format
 

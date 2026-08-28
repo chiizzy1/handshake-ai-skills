@@ -6,7 +6,7 @@ description: Build the Project Mark golden deliverable set. Use when producing t
 # Project Mark — Golden Builder
 
 The golden deliverables are the last step of the build. The prompt commits the
-analyst to one recommendation and names two or more output files with their asks; the
+analyst to one recommendation and names three or more output files with their asks; the
 input files carry the evidence; the golden set is the finished work a fully
 correct analyst would hand back.
 

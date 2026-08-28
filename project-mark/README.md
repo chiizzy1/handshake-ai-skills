@@ -49,46 +49,40 @@ Without one it reports the file as **unread** rather than silently skipping it.
 
 ## Known gaps in the source material
 
-The local handbook capture at `HANDSHAKE-AI/Project-Mark/` is a set of
-folded-state DOM snapshots, so anything behind an expander was never captured.
-
 | Missing | Extent |
 |---|---|
-| Trap bodies, family catalog | 83 entries, 34 named, **0 bodies** |
-| Trap bodies, objective catalog | 104 entries, 33 named, **0 bodies** |
-| Readiness checks | 45 of 51 (stages 2–6) |
-| Example prompts | 94 of 96 |
-| FAQ answers | 14 of 16 |
-| `/trap-design/fundamentals`, `/invalid-stumps` | Not captured at all |
+| **Numbered stumping strategies** | The FAQ's debugging fixes cite "Stumping 2–3", "Stumping 5, 10", "Stumping 6, 8, 9". We have the references, not the numbered list |
+| **Fundamentals page** | Every trap's "Targets" field points at numbered model failure behaviours there — same problem, different list |
+| Gate 4's predictive/statistical lens | A specialised sub-panel, collapsed in every capture |
+| Trap bodies, objective catalog | 104 entries, 33 titles — but it slices the same material as the complete family catalog |
+| Five-condition eligibility check | Behind "I already have source data"; only matters if you skip the starter kit |
 
-**Fully captured:** all 25 worked examples with their prompts, step-by-step
-solutions, justifications and rubrics; the input bar; the prompt contract; the
-golden rules; the five gates; rubric weights; the scoring bar; the reviewer flow;
-the 14 recipes.
+Both missing lists are **numbered cross-references** — other pages cite them by
+number, so recovering either one unlocks several pointers at once.
 
-The skills say so where it matters. When a trap is named but not described, say
-that rather than reconstructing a body from its title.
+**Recovered:** all 83 family traps with full bodies · the six invalid-stump
+patterns · 41 of 51 Readiness checks · all five validation gates · the layering
+model and composition rules · the rollout diagnosis playbook · the complete rubric
+spec · the full FAQ including size and licence limits · 60 example prompts · the
+12-step walkthrough.
 
-To fill the gaps, capture the pages with every expander open and append to
-`shared-references/trap-catalog.md` and `mark-validator/references/readiness.md`.
-Both use a stable schema, so new entries are appends.
+The skills say so where it matters. When something is named but not described, say
+that rather than reconstructing it.
 
 ## Sources newer than the handbook capture
 
-Two surfaces post-date the local capture and win over it:
+The spec changed twice in nine days. **8/27 is current and superseded 8/18
+wholesale.** Most handbook pages still carry pre-8/18 numbers.
 
-- **The 8/18 spec card**, reachable from the assessment and at
-  `/818-updates`. Confirms 10+ files in a **single ZIP**, **two or more**
-  deliverables with no stated ceiling, 2+ families, 2+ asks each with **unit and
-  rounding** on every numeric ask, and that **only the main recommendation must
-  stump**.
-- **The live project page.** Confirms **$800/task**, and describes the work as
-  sourcing "real **occupational** materials" for tasks that force models to draw
-  on "**occupation-specific tools and instructions**" — a framing the handbook's
-  six analytical domains do not use. Watch the first live task to see which
-  framing governs.
+| Source | What it fixes |
+|---|---|
+| **8/27 update** — `8-27-updates.md` | 3+ deliverables (no ceiling) · two **assigned** format families · 3+ asks per file · rubric **generated and uneditable**, 25+ criteria, weighted 30/5–10/60 · **top-two-of-12 average under 50%** replaces stumping |
+| **Task walkthrough** — `task-walkthrough.md` | The real authoring sequence: 12 steps, 3 phases, 4 hard gates |
+| **Example prompts** — `example-prompts.md` | 60 prompts in the current format, 10 per objective |
+| **Live project page** | $800/task. Describes the work as sourcing "real **occupational** materials" for tasks forcing models onto "occupation-specific tools and instructions" — a framing the six analytical domains do not use |
 
-Both are folded into `shared-references/canonical-rules.md`.
+All folded into `shared-references/canonical-rules.md`, which carries a
+stale-numbers table naming every page still carrying a wrong figure.
 
 ## Naming Convention
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Lint a Project Mark prompt for contract shape and answer-path leakage.
 
-Validates the four contract rules (2-5 deliverables, 2+ format families, 2+ asks
+Validates the 8/27 contract rules (3+ deliverables, 2+ format families, 3+ asks
 per file, filenames carry extensions) and flags wording that may walk the model
 toward the answer.
 
@@ -110,29 +110,33 @@ def main():
     print("| Deliverable | Family | Asks | |")
     print("|---|---|---|---|")
     for name, meta in files.items():
-        ok = "OK" if meta["asks"] >= 2 else "TOO FEW"
+        ok = "OK" if meta["asks"] >= 3 else "TOO FEW"
         print(f"| {name} | {family(meta['ext'])} | {meta['asks']} | {ok} |")
 
     n = len(files)
     problems = []
     notes = []
-    if n < 2:
-        problems.append(f"{n} deliverable(s) — the contract floor is 2")
-    elif n > 5:
-        notes.append(
-            f"{n} deliverables — above the usual 2 to 5 range. Not a failure: "
-            "every source that names 5 also says more is fine. Confirm against the "
-            "minimum the live task assigns."
-        )
+    if n < 3:
+        problems.append(f"{n} deliverable(s) — the 8/27 floor is 3, with no upper limit")
     if len(families) < 2:
         problems.append(
             f"{len(families)} format family ({', '.join(sorted(families)) or 'none'}) — needs at least 2"
         )
-    thin = [f for f, m in files.items() if m["asks"] < 2]
+    else:
+        notes.append(
+            f"families present: {', '.join(sorted(families))}. This script cannot know "
+            "which two were ASSIGNED to your task — check them yourself."
+        )
+    thin = [f for f, m in files.items() if m["asks"] < 3]
     if thin:
-        problems.append(f"fewer than 2 asks: {', '.join(thin)}")
+        problems.append(f"fewer than 3 asks: {', '.join(thin)}")
+    total_asks = sum(m["asks"] for m in files.values())
+    notes.append(
+        f"{total_asks} asks across {n} deliverable(s). The rubric must reach 25+ "
+        "criteria; thin or repetitive asks are the usual reason it stalls near 20."
+    )
 
-    print(f"\nDeliverables: {n} (floor is 2)")
+    print(f"\nDeliverables: {n} (floor is 3, no upper limit)")
     print(f"Families: {', '.join(sorted(families)) or 'none'} — {len(families)} distinct (need 2+)")
 
     print("\n## Leak flags\n")

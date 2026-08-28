@@ -60,20 +60,16 @@ The score a model run earns, 0 to 1, for how well its response matches the
 solution. Reported as the mean across runs for that model. **Lower reward means
 the task stumped the model harder.**
 
-## Strong model
+## Strong model / weak model
 
-The more capable model in the rollout, Responses 1 to 4. At least 2 must land on a
-meaningfully different answer than your solution, scoring below 50%.
+Pre-8/27 terms. The old rollout split 8 responses into strong-model (1–4) and
+weak-model (5–8) tiers with separate thresholds.
 
-The strong-model gate is the primary bar your task has to clear.
+**8/27 retired the split.** Only the **top two** responses are graded now; the
+rest are submitted unchecked, and the task passes when those two **average under
+50%**. There is no tier distinction and no per-tier threshold.
 
-## Weak model
-
-The less capable model, Responses 5 to 8. At least 1 must land differently,
-scoring below 30%.
-
-**Why it matters:** it confirms the difficulty is real and not a single-model
-quirk.
+The terms still appear on stale handbook pages. Read them as historical.
 
 ## Role, in a recipe
 

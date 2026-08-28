@@ -128,15 +128,33 @@ Confirm all five before going looking for a trap.
 | E | Documents and formats | The decisive fact is present, just not where a skim will find it | 12 |
 | F | Definitions and framing | The metric named in the prompt is not the metric the decision needs | 6 |
 
-Named traps, the parallel objective-indexed catalog, and the 14 worked recipes
-are in `../shared-references/trap-catalog.md`.
+**All 83 family traps are captured in full** in
+`../shared-references/trap-catalog.md` — each with its failure mode ("why models
+miss it"), a realistic example, its in-corpus antidote, its cross-family pairings,
+and the model failure behaviours it targets. 14 are flagged **Proven in
+production**.
 
-**That file is a partial capture.** 34 of 83 family traps and 33 of 104 objective
-traps are named, and **none** carries its failure mode, example, or antidote. When
-a trap is named but not described, say so — do not reconstruct a body from a
-title. The 14 worked recipes and the 25 examples under
-`HANDSHAKE-AI/Project-Mark/examples/` carry real traps end to end and are the
-reliable substitute.
+The parallel objective-indexed catalog (104 entries at `/trap-examples`) is still
+titles-only, but it slices the same material, so the family catalog is normally
+enough.
+
+## The Four Fit Checks
+
+Every trap carries these on the platform, and a trap is **unavailable for a recipe
+until all four are confirmed**:
+
+1. **Changes or invalidates a material conclusion**
+2. **Correcting evidence exists inside the workspace**
+3. **Bait is a plausible expert mistake**
+4. **Qualified analysts should converge after finding the antidote**
+
+The handbook's own caveat, worth repeating to the user: *"Nothing here checks your
+work, and confirming all four does not guarantee the trap is valid."*
+
+If a condition cannot be met, check `references/invalid-stumps.md` before
+revising — the shape may be one that gets rejected in review. **Run that audit
+right after your first model rollout: a task that stumps models for the wrong
+reason looks identical to a good one on the scoreboard.**
 
 ## Composition
 
@@ -148,7 +166,9 @@ Every layer must materially change the answer on its own. A layer that only adds
 reading time is decoration, and it makes the task longer without making it
 harder.
 
-The 14 worked recipes in the shared trap catalog are the pattern library. Take
+**The layering model, composition rules and rollout tuning are in
+`references/composition.md`** — including which layer drives which calibration
+target. The 14 worked recipes in the shared trap catalog are the pattern library. Take
 one and build it out rather than starting from a blank page. Every pattern is
 domain-transferable: the same shape works in an operational, economic, policy, or
 demographic workspace once the subject matter is swapped.

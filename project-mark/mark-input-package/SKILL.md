@@ -38,6 +38,9 @@ reviewer checks first.
 | Distinct formats | 3 or more |
 | Largest table | 10,000+ rows, so eyeballing fails |
 | Joins | The recommendation requires joining at least two tables |
+| Total size | **under 50 MB** across all files |
+| Any single file | **under 10 MB** |
+| Packaging | **a single ZIP** |
 
 Distractor files are allowed and encouraged. **They never count toward the four
 independently necessary files.**

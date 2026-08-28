@@ -27,15 +27,14 @@ kit's `data_dictionary.json`.
 Necessity comes from the remove-one-file test, not from the script. Anything not
 recorded is reported as unrecorded rather than guessed.
 
-## Choosing sources by licence
+## Acceptable licences
 
-Prefer, in order:
+The FAQ names them explicitly: **public domain, CC0, CC-BY, CC-BY-SA** — provide
+attribution where the licence requires it.
 
-1. **Public domain** — most national statistical output, most government
-   determinations.
-2. **Open licences with attribution** — CC-BY, OGL, and equivalents. Record the
-   attribution string alongside the file.
-3. **Explicit permissive terms** on a research or corporate dataset.
+**Check the licence on each individual dataset, not just the platform.** Most
+platforms host datasets under mixed licences. If there is an open copyright or
+licensing question, ask a Team Lead before using the data.
 
 Avoid: anything with no stated licence, anything marked non-redistributable,
 anything behind terms that forbid derivative works, and anything scraped from a
