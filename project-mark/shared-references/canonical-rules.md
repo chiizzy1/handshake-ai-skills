@@ -7,7 +7,10 @@ file decides, and says why.
 
 When two sources disagree, the higher one wins.
 
-1. **The live Handshake platform** for the task in front of you.
+1. **The task UI and Handshake staff in Slack.** The UI states the operative rule
+   for the task in front of you, and staff answers there are more current than the
+   handbook. Example: the UI says "No stumping bar" on the final 10 rollouts and
+   staff confirmed it, which the handbook does not say anywhere.
 2. **The 8/27 update** (`/827-updates`) and the **Task walkthrough**. These are the
    current spec and they superseded 8/18 wholesale.
 3. **Readiness** and the **Reviewer reference**, for anything 8/27 does not touch.
@@ -66,6 +69,14 @@ Clear all four and the task is ready to submit.
 | Total size | Under **50 MB** across all files | Yes |
 | Single file size | Under **10 MB** | Yes |
 | Licences | Public domain, **CC0, CC-BY, CC-BY-SA**. Check each dataset, not just the platform | Yes |
+
+**The onboarding docs are stricter than the handbook** on two rows: at least
+**half** the files weight-bearing (5+ of 10, versus 4+), and **at least 5 different
+file formats** (versus 3+). Build to the stricter number.
+
+**Starter kits are seeds, not inputs.** Onboarding: "Please do not use these
+starter kits as the only files in your inputs." Expect to add files, change
+formats, and derive from the real data.
 | Independently necessary | 4 or more — remove any one and the answer is unreachable | Yes |
 | Substantial files | 2 or more — long, dense, real work to read | Yes |
 | Distinct formats | 3 or more | Yes |
@@ -77,9 +88,24 @@ Clear all four and the task is ready to submit.
 Distractor files are allowed and encouraged. They never count toward the four
 independently necessary files.
 
-AI may locate data and write transformation scripts. AI may never create the
-empirical source evidence. Scenario documents you write yourself are allowed, and
-must carry explicit provenance saying what they are and how they were produced.
+**Synthetic data is allowed.** The FAQ is explicit: yes, you can use it, provided
+values look as if they came from a real dataset — whole numbers and repeated
+values kept to a minimum, and a normal distribution or a defensible derivation of
+it (bimodal, heavy-tail, light-tail).
+
+Read together with the handbook's "no fabricated source data", the operative test
+is **indistinguishability, not provenance**:
+
+| | Allowed |
+|---|---|
+| Synthetic data derived from real data, still presenting real-world data | **Yes** |
+| A few self-built supporting files mirroring real dataset structure | **Yes, last resort** |
+| AI writing the transformation and messiness scripts | **Yes** |
+| Fabricating the empirical evidence the decision rests on | **No** |
+| Anything a domain expert could spot as synthetic at a glance | **No — rejected** |
+
+Scenario documents you write yourself are allowed and must carry explicit
+provenance saying what they are and how they were produced.
 
 ## Prompt contract
 
@@ -96,6 +122,9 @@ must carry explicit provenance saying what they are and how they were produced.
 The four families: **Data** (CSV, TSV, JSON, XLSX, Parquet) · **Visual** (PPTX,
 PNG, SVG, HTML, JPG) · **Text** (PDF, DOCX) · **Code** (PY, IPYNB, SQL, R). The
 formats are examples; two of the four are assigned per task.
+
+> **Never request a Markdown (MD) file as a deliverable.** Stated explicitly in
+> the FAQ.
 
 An ask stays valid only while it lives in the same data universe as the
 recommendation. An ask that pulls in a separate dataset or a separate decision is
@@ -202,27 +231,72 @@ because two files display it.**
 
 ## The pass bar
 
-**"Stump the model" is retired.**
+**"Stump the model" is retired as a phrase, but the operational reality is
+narrower than the handbook implies.**
 
-- Every rollout is **twelve responses**, scored against the fixed rubric.
-- **You submit all 12.** The bottom 10 can be submitted without checking.
-- **The gate is the top 2.** The task passes only when the two highest-scoring
-  responses **average under 50%** against the rubric.
+### How the 12 responses actually split
 
-Confirmed on Stumping essentials, which is unambiguous. The Task walkthrough's
-step 12 card says "Run 10 model responses" while also saying "submit the bottom
-ten" and "only the top two are graded" — that card is simply wrong on the count.
-Hard gate 02 and Stumping essentials both say 12.
+| Stage | Responses | Gate |
+|---|---|---|
+| **Step 3 — stump check** | **2** initial responses | **This is the gate.** These are the two that must average under 50% |
+| **Step 12 — final rollouts** | **10** more | **No stumping bar.** They must simply not crash |
+
+The task UI says it outright: *"You can submit after the models finish running. No
+stumping bar."*
+
+Confirmed by Handshake staff in Slack:
+
+> **Vincent (Handshake AI):** "don't worry about the last 10 rollouts, no stump
+> requirement there for now. as long as they don't crash"
+
+> **James Cl. (Specialist):** "The model runs in the final 10 rollouts should
+> mirror what has been seen in the earlier models. If you were able to get rubric
+> scores to be less than 50% from the models at the start of the task, you should
+> see models continue to not provide your golden solution at the bottom."
+
+This resolves every apparent contradiction. "Twelve responses", "the top 2 are the
+gate", "submit the bottom 10 unchecked", and step 12 being "non-blocking" are all
+describing the same thing: **2 graded + 10 ungraded = 12.**
+
+**Practical consequence:** you find out whether the task works at **step 3**, long
+before the golden and deliverables are finished. If the two initial responses do
+not come in under 50%, strengthen the task then — not after building everything.
+
+> Vincent's "for now" is doing work. This is an operational relaxation, not a
+> published rule. Re-check in Slack before relying on it for a task you have
+> already built.
+
+### What counts as stumped
+
+A response counts as meaningfully stumped if it **gives the wrong recommendation**
+*or* reaches the correct decision **through materially incorrect analysis**. Read
+the actual recommendations, not the formatting.
 
 **Aim the trap at the main recommendation.** It anchors the deterministic answer,
-so a response that gets it fully correct should not fall below the pass threshold
-merely by missing minor supplementary details. Supplementary questions deepen the
-evaluation; they must never become artificial gotcha items or replace the central
-recommendation as the main difficulty target.
+so a response that gets it fully correct should not fall below the threshold merely
+by missing minor supplementary details.
 
-Difficulty must stay honest: it comes from data shapes — forecasting, method
-selection, a binding constraint, a decomposition, confirm-the-number, hold — never
-from surface-read rejection or flipping a wrong number.
+### If the model is not stumped — open the environment view
+
+The hidden **environment** view contains the model's full reasoning artifacts.
+Check `analysis_report.md` and `analysis.py` from each model. **These show the path
+the model took to reach its answer** — use them to identify weak spots in its
+approach and design a better trap.
+
+That is the single most direct debugging tool on the project, and it is not
+mentioned anywhere in the handbook.
+
+### Never counts as a qualifying failure
+
+formatting-only failures · alternative wording · an invalid or underspecified
+prompt · a broken or unsupported golden · a missing file · a grader or packaging
+failure · a failure caused only by an arbitrary rubric interpretation
+
+**The consequence of the reweighting:** the recommendation and its critical
+components carry ~30% of the rubric and the supplementary questions ~60%, so **a
+response cannot stay above 50% on the recommendation alone**. The supplementary
+asks have to be hard and discriminating, or the top two will clear the bar too
+easily.
 
 ## Four fairness criteria
 

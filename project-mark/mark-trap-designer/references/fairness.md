@@ -77,6 +77,56 @@ creates search burden — all count **against** fairness, not for difficulty.
 | Whether experts would agree on the fix | Every competent analyst converges on the same corrected answer | Equally reasonable experts could defensibly disagree |
 | What ships in the prompt | Evidence that makes the correct path findable | A hint, or narration, of what the trap is |
 
+## Know your enemy — the twelve model failure behaviours
+
+**These behaviours are reliable and reproducible. Design against them rather than
+against intelligence.**
+
+> **A good task requires the model to do at least three of these correctly, and
+> each non-default behaviour roughly halves the pass rate.**
+
+That is the most useful quantitative rule on the project: three non-default
+behaviours ≈ one eighth the pass rate. It is why layering works and why a single
+trap gets caught about half the time.
+
+**The wrong path has to be plausible, never careless.** The behaviours in prose:
+
+- the familiar metric instead of the appropriate one
+- an aggregate trusted without checking the population beneath it
+- a default join
+- a skipped QC rule
+- correlation read as causation
+- an unsuitable validation strategy
+- an authoritative-looking summary that conflicts with the underlying records
+
+> **The numbered list of twelve no longer exists.** The Fundamentals page was
+> merged into Stumping essentials in the 8/27 restructure —
+> `/trap-design/fundamentals` now redirects there — and the list was condensed to
+> the prose above. The `Targets 02 … 08 …` fields on every trap, and the FAQ's
+> "Stumping 2–3 / 5, 10 / 6, 8, 9" references, are orphaned pointers to content
+> that was compressed away.
+>
+> **Do not invent the numbers.** If a user asks what "Targets 04" means, say the
+> numbering was retired and give the prose behaviour instead.
+
+### When relevant: forecasting and predictive modeling
+
+Predictive work follows the same four fairness rules. **The trap is a
+methodological choice, never the mere requirement to fit a sophisticated model:**
+
+- target leakage discoverable from timestamps
+- a split that ignores time
+- the wrong forecast horizon
+- an evaluation metric that flatters the losing model
+- a structural break inside the training window
+- subgroup performance hidden by a headline score
+- poor calibration
+- a correct prediction translated into the wrong decision
+
+**Leakage and validation-scheme errors are graded as analytical failures, not
+style notes** (C13, B17). A reported metric the run never produced is a
+reconciliation failure (E12).
+
 ## Measuring difficulty
 
 Wall-clock solve time is **not** evidence.

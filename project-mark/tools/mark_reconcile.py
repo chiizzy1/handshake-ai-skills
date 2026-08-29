@@ -79,10 +79,20 @@ def read_xlsx(path):
         raise RuntimeError(f"xlsx unreadable: {exc}")
 
 
+def _quiet_pdfminer():
+    """pdfminer logs font and colour-space complaints that are not our problem."""
+    import logging
+
+    for name in ("pdfminer", "pdfminer.pdfinterp", "pdfminer.pdffont",
+                 "pdfminer.pdfpage", "pdfminer.converter", "pdfminer.cmapdb"):
+        logging.getLogger(name).setLevel(logging.ERROR)
+
+
 def read_pdf(path):
     try:
         import pdfplumber
 
+        _quiet_pdfminer()
         with pdfplumber.open(path) as pdf:
             return "\n".join(p.extract_text() or "" for p in pdf.pages)
     except ImportError:

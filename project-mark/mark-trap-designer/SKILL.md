@@ -156,6 +156,31 @@ revising — the shape may be one that gets rejected in review. **Run that audit
 right after your first model rollout: a task that stumps models for the wrong
 reason looks identical to a good one on the scoreboard.**
 
+## The Analytical Pipeline
+
+Beyond the 83-trap catalog there is a second, deeper model of trap design in the
+FAQ — organised by **where in the analytical pipeline** the trap sits:
+
+```
+Data → Measurement → Model → Inference → Causality → Prediction → Decision
+```
+
+**Do not design the trap as "find the statistical mistake." Have the model
+determine whether each analytical step actually supports the next one.** The data
+may be accurately measured, the model may fit, the prediction may be calibrated —
+and the groups may still not be comparable, or the decision not actionable.
+
+The full taxonomy — 11 trap domains with the question each asks, the causal ladder
+from association to action, and seven groups of predictive and forecasting traps —
+is in `references/analytical-taxonomy.md`.
+
+The standard it sets, and the best single statement of the bar anywhere:
+
+> A strong stump should leave the model with **a tempting, internally plausible
+> path toward an incorrect answer**, while providing **enough information for a
+> careful analyst to identify the hidden assumptions, alternative explanations,
+> and limits of the evidence.**
+
 ## Composition
 
 **Single traps get caught by strong models about half the time.** Layer a gate, a

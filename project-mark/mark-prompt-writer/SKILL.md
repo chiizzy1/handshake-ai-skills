@@ -41,6 +41,12 @@ Every prompt carries all five:
 
 The formats are examples, not a fixed menu.
 
+> **Never request a Markdown (MD) file as a deliverable.**
+
+A working bank of supplementary-question shapes, by what each one does, is in
+`references/supplementary-questions.md`. They are shapes to build from, not lines
+to copy.
+
 ## Asks Carry ~60% Of The Rubric
 
 This is the single biggest change in how a prompt should be written. The

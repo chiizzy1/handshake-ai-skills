@@ -51,14 +51,14 @@ Without one it reports the file as **unread** rather than silently skipping it.
 
 | Missing | Extent |
 |---|---|
-| **Numbered stumping strategies** | The FAQ's debugging fixes cite "Stumping 2–3", "Stumping 5, 10", "Stumping 6, 8, 9". We have the references, not the numbered list |
-| **Fundamentals page** | Every trap's "Targets" field points at numbered model failure behaviours there — same problem, different list |
-| Gate 4's predictive/statistical lens | A specialised sub-panel, collapsed in every capture |
 | Trap bodies, objective catalog | 104 entries, 33 titles — but it slices the same material as the complete family catalog |
 | Five-condition eligibility check | Behind "I already have source data"; only matters if you skip the starter kit |
 
-Both missing lists are **numbered cross-references** — other pages cite them by
-number, so recovering either one unlocks several pointers at once.
+**Retired, not missing:** the Fundamentals page was merged into Stumping
+essentials on 8/27 and its numbered twelve model failure behaviours were condensed
+to prose. The `Targets 02 … 08 …` fields on every trap and the FAQ's "Stumping
+2–3" references are orphaned pointers. The prose behaviours and the design rule
+are captured; the numbering is gone from the site.
 
 **Recovered:** all 83 family traps with full bodies · the six invalid-stump
 patterns · 41 of 51 Readiness checks · all five validation gates · the layering

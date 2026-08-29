@@ -48,6 +48,18 @@ Reasoning sits with the answer it supports, not in a separate essay.
 
 ## Critical Components
 
+> **At least four. Generally no more than ten.** More does not mean stronger, and
+> **if one component negates another you have called critical, the task works
+> against itself.**
+
+The recommendation statement itself is **plain, concise, a single unambiguous
+decision, and must not include any rationales or justifications** — those live in
+the critical components, the step-by-step, and the deliverables.
+
+Full guidance on all three rubric-feeding sections is in
+`references/critical-components.md`.
+
+
 The discrete load-bearing findings the solution rests on. The accepted examples
 carry them as their own `## Critical components` section, and the rubric is
 generated against them, so a vague one produces a criterion that grades

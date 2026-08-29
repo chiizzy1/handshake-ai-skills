@@ -45,6 +45,35 @@ reviewer checks first.
 Distractor files are allowed and encouraged. **They never count toward the four
 independently necessary files.**
 
+### The onboarding docs set a stricter bar
+
+The onboarding material asks for more than the handbook does. Where they differ,
+**build to the stricter number** — it costs little and clears both.
+
+| | Handbook | Onboarding docs |
+|---|---|---|
+| Files | 10+ | 10+ |
+| Load-bearing | 4+ independently necessary | **at least half weight-bearing** (so 5+ of 10) |
+| Formats | 3+ distinct | **at least 5 different** |
+| Substantial | 2+ | **at least two long documents or large tables** |
+
+Onboarding also states the realistic-messiness list explicitly: duplicated or
+missing values, inconsistent identifiers, null values, blank spaces, various styles
+of information.
+
+> **More files do not automatically make the task harder, but there needs to be
+> value in having each critical file — even when the file is acting as a
+> distractor.**
+
+### Starter kits are seeds, not inputs
+
+> "These contain files that should act as **seeds** for your dataset. To make a
+> complete input folder from these starter kits, you will need to add additional
+> files, manipulate the format that the data is in, and/or generate a synthetic
+> dataset from the real-world data that still presents real-world data to be used
+> in the analysis. **Please do not use these starter kits as the only files in your
+> inputs.**"
+
 ## Messiness That Earns Its Place
 
 Realistic fragmentation the analyst has to work through — never random dirt, and
@@ -59,6 +88,9 @@ it never changes the correct answer once resolved.
 What does **not** count as messiness: illegally formatted files, invalid
 encodings, broken XML. Difficulty is spent on reasoning, not on parsing. Every
 file must load with standard tooling in one or two obvious attempts.
+
+Techniques for making real data realistically messy, the synthetic-data policy,
+and BigQuery sourcing are in `references/making-data-messy.md`.
 
 ## Workflow
 

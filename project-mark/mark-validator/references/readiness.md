@@ -59,6 +59,10 @@ three plus the evidence note.
 
 ## Trap design → fix in *Fundamentals*
 
+> The Readiness page routes these 14 to "Fundamentals", a page that was merged
+> into **Stumping essentials** in the 8/27 restructure. Work them against
+> `../../mark-trap-designer/references/fairness.md` and `invalid-stumps.md`.
+
 21. The trap targets a **named, reproducible model failure**.
 22. The **expected trapped conclusion** is documented.
 23. The **corrected conclusion** is documented.
