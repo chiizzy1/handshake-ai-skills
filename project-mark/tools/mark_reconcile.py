@@ -108,8 +108,14 @@ def read_pdf(path):
 
 
 def read_csv(path):
+    """Join cells with newlines, never commas.
+
+    Joining with commas lets the number scanner run across a field boundary and
+    fuse two cells: ",1,0.8912," reads as "10.8912" once thousands separators are
+    stripped. That produced phantom near-misses on every CSV deliverable.
+    """
     with open(path, newline="", encoding="utf-8", errors="replace") as fh:
-        return "\n".join(",".join(r) for r in csv.reader(fh))
+        return "\n".join("\n".join(r) for r in csv.reader(fh))
 
 
 def read_plain(path):
