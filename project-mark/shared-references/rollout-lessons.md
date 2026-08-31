@@ -51,6 +51,32 @@ spec itself changed twice in nine days. Any future agent must search and fetch
 before claiming or downloading — and if it lacks web tools, ask the user to
 fetch or screenshot rather than proceeding from recall.
 
+### 2026-08-31 · platform mechanics, second round (post-skip screenshots)
+
+- **Task cards show their objective BEFORE claiming.** The available-tasks list
+  tags each card (Experiment & Causal, Forecasting, ETL, …). You pick the card
+  you want — the objective is chosen, not gambled. Format families are still
+  revealed inside the task after claiming.
+- A skipped task returns to the pool as Unclaimed. Confirmed by seeing our own
+  former task ID back on the list.
+- The "five-condition eligibility check" was a handbook-page widget only; the
+  platform has no own-data gate. Sourcing is unrestricted by the flow.
+- Kits are beginner scaffolding. Own sourcing is the default and the project
+  description says so ("Fellows will source real occupational materials").
+- Task limit for new fellows: 0/1 accepted tasks visible on the list header.
+
+### 2026-08-31 · Upworthy Research Archive, live verification
+
+- Licence **CC-BY 4.0** (attribution: Cornell). Data at osf.io/jd64p.
+- **Exploratory file is open**: 22,666 packages / 4,873 tests. The
+  **confirmatory file requires peer-reviewed analysis plans — do not use.**
+  Web-scraped supplementary data needs consultation — avoid.
+- **Documented randomization problems affect 22% of tests run 2013-06-25 to
+  2014-01-10** — an in-archive validity window. Prime trap machinery: the valid
+  population is defined by the archive's own documentation.
+- Aggregate arm-level data (impressions, clicks) — supports SRM checks; no
+  individual-level records.
+
 ### Platform mechanics confirmed on the way
 
 - The stump check is **2 responses at step 3** — you learn whether the task
