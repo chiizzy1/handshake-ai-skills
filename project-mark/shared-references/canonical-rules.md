@@ -272,6 +272,10 @@ A response counts as meaningfully stumped if it **gives the wrong recommendation
 *or* reaches the correct decision **through materially incorrect analysis**. Read
 the actual recommendations, not the formatting.
 
+**Field-verified gate arithmetic:** the recommendation cluster is ~30–37 points,
+so both step-3 responses must get the main recommendation wrong; supplementary
+scatter peaks around 18 points (see `rollout-lessons.md`).
+
 **Aim the trap at the main recommendation.** It anchors the deterministic answer,
 so a response that gets it fully correct should not fall below the threshold merely
 by missing minor supplementary details.

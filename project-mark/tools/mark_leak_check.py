@@ -66,28 +66,43 @@ def family(ext):
     return "Other"
 
 
+NUMBERED = re.compile(r"^\d+[.)]\s+")
+DASHED = re.compile(r"^[-*+]\s+")
+
+
 def parse_deliverables(text):
-    """Map each named file to the count of bullet asks that follow it."""
-    lines = text.splitlines()
+    """Map each named file to the count of asks hanging off it.
+
+    The platform mandates a numbered list of deliverables, each with sub-bullets
+    of asks. So:
+      - a NUMBERED line naming a file starts a deliverable
+      - an unbulleted line naming a file also starts one (prose style)
+      - a DASHED bullet is an ask for the current deliverable
+      - a numbered line naming no file is treated as an ask
+
+    Counting numbered deliverable lines as asks collapses every file into one,
+    which is what an earlier version did.
+    """
     files = OrderedDict()
     current = None
-    for line in lines:
+    for line in text.splitlines():
         stripped = line.strip()
-        bullet = bool(re.match(r"^([-*+]|\d+[.)])\s+", stripped))
+        if not stripped:
+            continue
+        numbered = bool(NUMBERED.match(stripped))
+        dashed = bool(DASHED.match(stripped))
         found = FILENAME.findall(line)
 
-        if found and not bullet:
+        if found and (numbered or not dashed):
             current = found[0][0].strip()
             files.setdefault(current, {"ext": found[0][1].lower(), "asks": 0})
             continue
-        if found and bullet and current is None:
+        if found and dashed and current is None:
             current = found[0][0].strip()
             files.setdefault(current, {"ext": found[0][1].lower(), "asks": 0})
             continue
-        if bullet and current:
+        if (dashed or numbered) and current:
             files[current]["asks"] += 1
-        elif not stripped:
-            continue
     return files
 
 

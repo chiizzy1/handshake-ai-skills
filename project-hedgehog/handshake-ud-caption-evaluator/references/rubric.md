@@ -188,7 +188,7 @@ Do not use Both Bad merely because the task is hard.
 
 ## Comment Style
 
-Keep comments concise, grounded, and natural, like an average careful reviewer wrote them. Do not over-polish or over-explain. Do not use colon characters or em dashes in the prose. Name the decisive visual difference and move on.
+Keep comments concise, grounded, and natural, like an average person comparing the images side by side. Do not over-polish or over-explain. Use everyday words, short sentences, and no colons or em dashes in the prose. Name the main visible difference and move on.
 
 The style rules, persona, and banned-phrase list live in `SKILL.md` under Open Feedback Style. This section carries the worked examples.
 
@@ -212,6 +212,12 @@ Bad
 
 This is the text that goes in the task's Open Feedback box. It covers the whole comparison in 2 to 3 sentences, not one axis at a time.
 
+Use this shape by default:
+
+`Response A is better because it keeps [the main image details], while Response B has [the main visible problem]. Caption A also better describes [the main caption detail], while Caption B [adds, misses, or gets something wrong].`
+
+This is a natural starting shape, not a reason to force awkward wording. Keep the object names, labels, and numbers from the original.
+
 ❌ Too long, recites every axis
 
 `Response A is better because it keeps the page layout closer to the original. The two problems stay in the same order, the answer choices are preserved, and the text block still feels like the same cropped document page. Response B looks cleaner, but it changes the formatting more by splitting the variables into neat separate lines and adding sidebar details that do not match the original crop as well. Its caption also describes those extra sidebar details too confidently, while A stays closer to what is actually visible.`
@@ -228,7 +234,7 @@ Almost every UD Caption comment is one of these four. Match the shape to the sit
 
 One response wins the image and the other wins the caption. The Independence Rule allows this, so the comment has to carry both halves without reading as a contradiction. Say which side won the image, then start the second sentence on the caption.
 
-`Response B is better on the image because it keeps all eleven points and the axis running to 16, while Response A stops the axis at 12 and drops two points. Response A's caption is the more accurate one though, since B's caption adds exact pixel positions and an aspect ratio that cannot be read off the original.`
+`Response B is better because it keeps all eleven points and the axis running to 16, while Response A stops the axis at 12 and drops two points. Caption A is better because Caption B adds exact pixel positions and an aspect ratio that cannot be seen in the original.`
 
 #### 2. The Polish Trap
 
@@ -240,7 +246,7 @@ The prettier output is the less faithful one. Say plainly that it looks better, 
 
 A long, confident caption invents specifics. Name the invented type of detail rather than calling the caption wrong in general.
 
-`Response A's caption is better because it sticks to what is visible in the diagram. Response B reads as more thorough, but it adds exact hex codes and a stated resolution that are not in the original image.`
+`Caption A is better because it sticks to what can be seen in the diagram, while Caption B adds exact color codes and a resolution that are not shown in the original.`
 
 #### 4. Justifying a Tie
 
@@ -252,6 +258,8 @@ Both Good and Both Bad need more evidence than a pick, not less. Excessive tie u
 
 - Naming every axis in one sentence instead of the one that decided it.
 - Saying "more detailed" when the point is that the detail was invented.
+- Using report-like words such as "fidelity," "spatial relationships," "visual hierarchy," or "unverifiable" when plain words would be clearer.
+- Writing "Response A better preserves the reference composition" instead of saying what A actually keeps in place.
 - Calling a response "perfect" or "flawless," which a zoomed-in reviewer can disprove.
 - Writing a tie comment shorter than a pick comment.
 - Dropping the original's own label text in favor of vague references like "the top item."

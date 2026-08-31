@@ -14,6 +14,13 @@ There are no separate Justification or Assumptions fields to fill in, and no
 five-field form. **Everything a grader needs lives inside the deliverables
 themselves.**
 
+## Submission Packaging
+
+The platform's golden field takes **one ZIP containing only the deliverable
+files** — the same count and filenames the prompt requests. Not the input
+package, not working scripts, not these notes. Uploading inputs there is a
+common enough mistake that staff broadcast a correction about it.
+
 ## Hard Gates
 
 - **Types, filenames, and count match the prompt exactly.** If the prompt asks for

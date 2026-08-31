@@ -76,6 +76,13 @@ Three questions decide whether a task gets approved:
   so plainly. The tools in `../tools/` exist so the checks are real.
 - **File count is not difficulty.** A decorative file counts against fairness, not
   for it.
+- **The dataset sets the difficulty ceiling.** If the correct solution requires
+  nothing beyond careful reading and careful coding, current models solve it —
+  verified across three live stump checks (`../shared-references/rollout-lessons.md`).
+  Pick data with statistical machinery, or do not claim it.
+- **The trap must flip the main recommendation.** The recommendation cluster is
+  ~30–37 rubric points, so both top responses must get it wrong for the top-two
+  average to fall under 50%. Supplementary-only difficulty cannot pass the gate.
 
 ## Workflow
 
@@ -84,10 +91,13 @@ replaces the old nine-step walkthrough.
 
 ### Phase A — Set up the task
 
-**1. Task type, domain, and data families.** Pick one domain. **One primary
-analytical objective and two output format families are assigned to you.** The
-rest is your call.
+**1. Task type, domain, and data families.** **Claim the task slot BEFORE
+designing anything or claiming a data kit.** One primary analytical objective and
+two output format families are assigned per task, and unclaiming/re-claiming
+re-rolls them. Read the assignment, then pick the domain and the data.
 *Gate: deterministic decision.*
+→ `references/data-selection.md` — the ceiling test and screening checklist. The
+dataset decides the difficulty ceiling; a pre-computed index cannot stump.
 
 **2. Prompt and input files.** Write the ambiguous, stakeholder-style prompt and
 upload one ZIP of real, license-clean inputs.

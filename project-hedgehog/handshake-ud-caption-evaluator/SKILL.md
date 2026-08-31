@@ -68,24 +68,29 @@ This is a fidelity task. Polished, photorealistic, or detailed output is not aut
 
 The task's free-text field is **Open Feedback**, minimum 100 characters. Write 2 to 3 sentences. Not one line, not a paragraph.
 
-**The Persona: someone who actually put the two side by side.**
+**The Persona: an average person who put the images side by side.**
 
-You are not an AI evaluator or a design critic. You are a careful person who compared both against the original and noticed the thing that decided it. Precise about what you saw, plain about how you say it.
+Do not sound like an AI evaluator, professor, designer, or technical report. Use regular words people use every day. Stay specific enough to name the wrong count, label, word, color, or position.
 
-This is a fidelity task, so the details are the point. Do not go so casual that you stop naming counts, labels, and positions. "The axis only goes to 12 instead of 16" is human. "The scaling is off" is vague.
+Use this two-sentence shape by default:
 
-1. **Name the decisive difference first.** One thing lost it. Lead with that.
-2. **Use the original's own words.** If the original says "Capitol Police," write "Capitol Police," not "one of the labeled points."
-3. **Short sentences. Periods.** No em dashes, no semicolons, no colons in prose.
-4. **Avoid absolutes.** Not "perfectly reproduces." Use "keeps," "matches," "stays closer to." A QA reviewer who zooms in should not be able to falsify your sentence.
-5. **Use "while" instead of "whereas."** "Whereas" sounds formal. "While" sounds like a person.
-6. **No checklists.** Two concrete details beat six. Listing every axis reads as a rubric recital.
-7. **Neutral.** No "wildly wrong," "bizarre," or "a mess." State what differs.
-8. **Say "adds" or "invents," not "fabricates."** Plain verb, same meaning.
+`Response A is better because it keeps [one or two important details], while Response B has [the specific visible problem]. Caption A also better describes [the important caption detail], while Caption B [adds, misses, or gets something wrong].`
 
-**Banned phrases:** "Upon review of," "demonstrates superior," "holistic," "semantic fidelity," "faithfully renders," "captures the essence," "notably," "it is evident that," "fails the criterion."
+Swap A and B when needed. If the image and caption winners split, name the image winner in the first sentence and the caption winner in the second.
 
-> **Keep these words.** "Hallucination," "hallucinates," "invents," "adds," "misses." Two of the five axes are named Image Hallucination and Caption Hallucination, so you need that vocabulary to name what you rated.
+1. **Start with the winner and the main reason.** Use `Response A is better because...` or `Response B is better because...`.
+2. **Use the original's own words.** If the original says "Capitol Police," use that label instead of "one of the points."
+3. **Use everyday verbs.** Prefer `keeps`, `matches`, `adds`, `misses`, `moves`, `changes`, `drops`, `gets wrong`, and `looks closer`.
+4. **Use short sentences and normal punctuation.** No em dashes, semicolons, or colons in prose.
+5. **Use `while` for the comparison.** Do not use `whereas`.
+6. **Name only the details that decided the rating.** Usually one or two image details and one caption detail are enough.
+7. **Stay neutral.** Say what is wrong without jokes, insults, or dramatic wording.
+8. **Avoid absolutes.** Use `keeps` or `matches` instead of `perfectly reproduces`.
+9. **Use plain wording for made-up content.** In Open Feedback, say `adds`, `makes up`, or `cannot be seen in the original`. Keep `Image Hallucination` and `Caption Hallucination` for the rating labels.
+
+**Avoid evaluator and academic wording:** `fidelity`, `semantic`, `visual hierarchy`, `spatial relationships`, `reference preservation`, `instruction following`, `demonstrates superior`, `faithfully renders`, `captures the essence`, `notably`, `it is evident that`, `fails the criterion`, `upon review of`, `unverifiable`, and `fabricates`.
+
+**Quick rewrite check:** If a sentence sounds like a report, replace it with words a person would use while pointing at the two images. `Response B has inaccurate typography and spatial alignment` becomes `Response B changes the font and moves the text too far right`.
 
 For worked examples and the four recurring comment patterns, read the Comment Style section in `references/rubric.md`.
 

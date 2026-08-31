@@ -156,6 +156,24 @@ revising — the shape may be one that gets rejected in review. **Run that audit
 right after your first model rollout: a task that stumps models for the wrong
 reason looks identical to a good one on the scoreboard.**
 
+## Verified: What Current Models Solve By Default
+
+Live stump-check evidence (three designs, both responses 82%; full notes in
+`../shared-references/rollout-lessons.md`). **Do not build a trap whose only
+demand is one of these** — they are default behaviours now, not stumps:
+
+sentinel/missing-data handling · join, key and grain hygiene · leading-zero
+identifiers · unit multipliers · cross-universe re-ranking · careful
+rule-document reading with section citations · denominator selection from
+documentation formulas · refusing bait files a rule marks informational ·
+clean-directory reproduction · unprompted robustness checks.
+
+What the accepted examples' stumps actually exploit: **silent statistical
+validity** — a registered estimator ignored for the tempting pooled comparison,
+leakage, invalid validation schemes, mishandled cohorts. Aim there, and design
+the trap to **flip the main recommendation**, because the gate arithmetic makes
+supplementary-only difficulty insufficient.
+
 ## The Analytical Pipeline
 
 Beyond the 83-trap catalog there is a second, deeper model of trap design in the

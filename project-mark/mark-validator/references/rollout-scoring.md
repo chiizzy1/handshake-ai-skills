@@ -24,6 +24,16 @@ Difficulty must stay honest: it comes from data shapes — forecasting, method
 selection, a binding constraint, a decomposition, confirm-the-number, hold — never
 from surface-read rejection or flipping a wrong number.
 
+## Gate arithmetic — the main recommendation is the whole game
+
+Field-verified: the recommendation cluster (award + scores + margin) carries
+~30–37 of 100 points. A response that solves only the core sits near 50%
+already, so **the top-two average falls under 50% only when both top responses
+get the main recommendation wrong**. In a live check where both models solved
+the core, they scored 82% each while dropping every structure/tolerance point
+available. Iterate on the trap that flips the answer; supplementary difficulty
+is scatter. See `../../shared-references/rollout-lessons.md`.
+
 ## The asks now carry the weight
 
 Under the old rubric the recommendation was 50% on its own. Under 8/27 it is
