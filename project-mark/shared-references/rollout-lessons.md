@@ -51,7 +51,14 @@ careful coding, the dataset cannot stump, and no prompt engineering fixes it.
 - The generated rubric centred every range on our golden figures — the
   pipeline's numbers were independently validated even as the stump failed.
 - The task timer has a pause button. Pause it while deciding.
-- Skipping is cheap and routine; staff confirm iteration is expected.
+- Skipping a TASK is free — staff-confirmed, no penalty. But the STARTER KIT
+  claim is one per fellow, ever: skipping does not recycle it. The two claims
+  are different things. After the kit is spent, input data comes from your own
+  sourcing (public data, BigQuery, derived-from-real synthetic), which is
+  unlimited and explicitly endorsed.
+- Kits are "just a starting point" (staff): tweak, extend, make as messy as
+  needed. Nothing requires the task to be built AROUND the kit — it can serve
+  as context/distractor files beside self-sourced data that carries the trap.
 - **Two ZIPs, two different fields** (staff broadcast, 2026-08-31): the prompt
   step takes the INPUT package; the golden step takes the 3–5 DELIVERABLE files
   as one ZIP — the same files, names and count the prompt requests, with every

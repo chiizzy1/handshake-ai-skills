@@ -42,6 +42,18 @@ Statistical machinery the tempting standard method mishandles:
 | Train/holdout or prediction context | Validation-scheme and leakage traps |
 | Cohorts that mature at different rates | Maturity mismatch, denominator drift |
 
+## Vetted sources, by trap machinery
+
+Researched 2026-08-31. Verify the licence page directly before downloading.
+
+| Source | Machinery | Licence | Fit |
+|---|---|---|---|
+| **Upworthy Research Archive** (osf.io/jd64p) | 32,487 real headline A/B tests, 150,817 arms, 538M assignments; registered exploratory/confirmatory/holdout split | **CC-BY 4.0** — on the acceptable list | Experiment & Causal (near-perfect); also Descriptive, Anomaly, Root-cause. Traps: B1 sample-ratio mismatch, B2, B4 novelty, B7, CTR denominators, ignoring the registered split |
+| **ACS PUMS** (census.gov microdata FTP) | Person/household microdata with **80 replicate weights**; successive-differences variance | Public domain | Descriptive & Distribution. Unweighted means are wrong by construction |
+| **NHANES** (CDC) | Survey microdata, BRR weights, documented oversampling of subgroups | Public domain | Descriptive, Anomaly. Naive means are biased in a documented direction |
+| **ALFRED** (alfred.stlouisfed.org) | Every FRED series with real-time vintages (realtime_start/end) | Attribution terms — check | Forecasting, Economics. Leakage: an "as-of" decision must use the vintage available then |
+| ~~THE-RCT (ICPSR 37932)~~ | Higher-ed RCT microdata | **RESTRICTED — unusable** | Reminder: check restriction status on every research archive |
+
 ## Red flags — walk away
 
 - **Pre-computed composite indices or scores** (SVI-like). The analysis is
