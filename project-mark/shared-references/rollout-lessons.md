@@ -42,6 +42,15 @@ leakage, invalid designs, mishandled cohorts. That machinery must exist in the
 data. If the correct solution requires nothing beyond careful reading and
 careful coding, the dataset cannot stump, and no prompt engineering fixes it.
 
+### Why sourcing must use the live web
+
+Verified failures of memory-based sourcing during this project: guessed CDC
+documentation URLs 404'd (live page had a different path); THE-RCT dataset seems
+usable from memory but is restricted-access on its live ICPSR page; the task
+spec itself changed twice in nine days. Any future agent must search and fetch
+before claiming or downloading — and if it lacks web tools, ask the user to
+fetch or screenshot rather than proceeding from recall.
+
 ### Platform mechanics confirmed on the way
 
 - The stump check is **2 responses at step 3** — you learn whether the task

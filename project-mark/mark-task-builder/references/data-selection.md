@@ -42,9 +42,39 @@ Statistical machinery the tempting standard method mishandles:
 | Train/holdout or prediction context | Validation-scheme and leakage traps |
 | Cohorts that mature at different rates | Maturity mismatch, denominator drift |
 
+## Verify live — never from memory
+
+**Search the real web before claiming or downloading anything. Training
+knowledge is stale by construction here**, and this project has proven it
+repeatedly:
+
+- The task spec changed twice in nine days (8/18 → 8/27). Anything remembered
+  about rules or bars may already be wrong.
+- Licence and restriction status are live facts. THE-RCT looks usable from
+  memory; the actual ICPSR page says restricted access.
+- URLs rot. Guessed CDC documentation paths returned 404s; the working link was
+  only findable from the live page.
+- Datasets gain vintages, revisions and new terms after any training cutoff.
+
+The protocol, before any dataset is committed to:
+
+1. **Web-search for current candidates** matching the assigned objective and the
+   trap machinery needed — do not shortlist purely from memory or from the table
+   below.
+2. **Fetch the licence page itself** and read the actual terms. A licence
+   remembered or asserted by a search snippet is not verified.
+3. **Fetch or download the actual data URL** and confirm it resolves and matches
+   the description (rows, fields, vintages).
+4. **Record what was verified and when** in the provenance sidecar at download
+   time, not retroactively.
+
+If the session has no web tools, say so plainly and ask the user to fetch or
+screenshot the pages — that pattern recovered this project's entire handbook.
+
 ## Vetted sources, by trap machinery
 
-Researched 2026-08-31. Verify the licence page directly before downloading.
+Researched 2026-08-31 — a snapshot, not a substitute for the protocol above.
+Re-verify each row live before use; licences and availability change.
 
 | Source | Machinery | Licence | Fit |
 |---|---|---|---|

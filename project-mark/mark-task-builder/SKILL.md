@@ -76,6 +76,10 @@ Three questions decide whether a task gets approved:
   so plainly. The tools in `../tools/` exist so the checks are real.
 - **File count is not difficulty.** A decorative file counts against fairness, not
   for it.
+- **Verify sourcing facts on the live web, never from memory.** Specs, licences,
+  restriction status and URLs all changed under this project mid-flight. Search,
+  fetch the licence page, confirm the download URL — or say you cannot and ask
+  the user to. `references/data-selection.md` has the protocol.
 - **The dataset sets the difficulty ceiling.** If the correct solution requires
   nothing beyond careful reading and careful coding, current models solve it —
   verified across three live stump checks (`../shared-references/rollout-lessons.md`).

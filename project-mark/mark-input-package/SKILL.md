@@ -105,6 +105,12 @@ and downloading happens in the external Stash registry.
 statistical releases, regulator filings, published board papers, open data
 portals, published methodology notes.
 
+**Source live, not from memory.** Web-search for candidates, fetch the actual
+licence page, and confirm the download URL resolves before committing to a
+dataset. Remembered licences and guessed URLs have both failed on this project.
+The verification protocol is in
+`../mark-task-builder/references/data-selection.md`.
+
 #### What a starter kit actually gives you
 
 | | |
