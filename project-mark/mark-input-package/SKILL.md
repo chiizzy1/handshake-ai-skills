@@ -24,6 +24,18 @@ answer without guessing?**
 - **File count is not difficulty.** Do not add decorative files. Irrelevant files,
   duplicated information, arbitrary noise, and volume that only creates search
   burden all count *against* fairness.
+- **But meeting the 10-file minimum with clean flat files is not the standard
+  either.** The accepted example that passed shipped **28 files across 6 formats
+  including sqlite, gzipped JSONL, a log and a calendar**, with the decisive fact
+  registered in a database table. Two of our tasks shipped ~10 pristine
+  CSV/PDF files and both were solved. See `references/corpus-construction.md`.
+- **Inject mess — this is mandatory, not optional.** The FAQ licenses duplicates,
+  nulls, reformatted dates, encoding issues, typos and distractor columns, and
+  staff confirm kits should be made "as messy as you need to". Neither of our
+  first two tasks injected any. The constraint: mess creates **work**, never a
+  different conclusion.
+- **Discoverable is not obvious.** The antidote must be in the corpus; it must
+  not be one of four documents with a self-announcing filename.
 
 ## The Bar
 
@@ -88,6 +100,10 @@ it never changes the correct answer once resolved.
 What does **not** count as messiness: illegally formatted files, invalid
 encodings, broken XML. Difficulty is spent on reasoning, not on parsing. Every
 file must load with standard tooling in one or two obvious attempts.
+
+**Read `references/corpus-construction.md` before assembling anything** — the
+complexity standard, the discoverable-vs-obvious principle, legitimate format
+hostility, and the line between complexity and padding.
 
 Techniques for making real data realistically messy, the synthetic-data policy,
 and BigQuery sourcing are in `references/making-data-messy.md`.

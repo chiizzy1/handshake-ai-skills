@@ -56,6 +56,15 @@ the Gate-2 estimator sweep now, not after the build. **Identify candidates by
 exact IDs, never by date-plus-size heuristics** — a same-day lookalike test
 once nearly poisoned a whole golden.
 
+## 5b · Build the corpus to the passing standard
+
+Before authoring anything, read
+`../../mark-input-package/references/corpus-construction.md`. Distribute the
+evidence across files and formats, inject mess deliberately (mandatory), bury
+the arbiter where it requires seeking rather than reading, and give the governed
+rule multiple conditions. Ten clean CSVs clears the bar on paper and has lost
+twice.
+
 ## 6 · Author the scenario documents
 
 Every number transcribed from the real data, scenario footers on, provenance

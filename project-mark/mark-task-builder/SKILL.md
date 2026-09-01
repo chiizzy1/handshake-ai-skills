@@ -84,6 +84,11 @@ Three questions decide whether a task gets approved:
   nothing beyond careful reading and careful coding, current models solve it —
   verified across three live stump checks (`../shared-references/rollout-lessons.md`).
   Pick data with statistical machinery, or do not claim it.
+- **Build a thicket, not a gotcha.** The accepted example's answer took eight
+  interlocking steps across 28 files in 6 formats. Both of our three-step tasks
+  on clean corpora were solved. Governed rules should carry several conditions
+  each requiring correct computation, and the corpus should distribute the
+  evidence. See `../mark-input-package/references/corpus-construction.md`.
 - **The trap must flip the main recommendation.** The recommendation cluster is
   ~30–37 rubric points, so both top responses must get it wrong for the top-two
   average to fall under 50%. Supplementary-only difficulty cannot pass the gate.

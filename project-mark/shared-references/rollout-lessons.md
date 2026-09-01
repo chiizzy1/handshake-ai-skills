@@ -19,6 +19,16 @@ main recommendation**. Traps beaten so far: sentinel handling, cross-universe
 re-ranking, label bait, cross-experiment comparison bait, documented-validity
 exclusion.
 
+**The corpus finding (2026-09-01).** Comparing our packages against the accepted
+example exposed a difference we had never examined: example 01 shipped **28
+files across csv/gz/ics/log/sqlite/xlsx**, with the decisive rule registered in
+a sqlite table and data-quality metadata shipped as evidence. Ours were ~10
+pristine files, no compression, no database, **no injected mess whatsoever**,
+with the antidote sitting in one of four PDFs. We met the minimum and called it
+done. Encoded in `../mark-input-package/references/corpus-construction.md`:
+inject mess (mandatory), format hostility is legitimate, discoverable ≠ obvious,
+and build multi-step governed rules rather than a single clever trap.
+
 **Operating conclusion, sharpened:** against Opus 5 + GPT-5.6, any trap whose
 correct handling amounts to *reading the shipped corpus and applying what it
 says* will fail — they read everything, every time. The remaining candidate
