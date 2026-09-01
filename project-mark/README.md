@@ -42,6 +42,7 @@ Run from this folder. Python 3.9+, no required dependencies.
 | `tools/mark_manifest.py <package>` | Takes a directory **or a .zip**. SHA-256, byte size, format family and row count per file, plus the Readiness stage 1 counters. `--init-roles FILE` writes a fill-in-the-blanks template. **Gate 1 requires this manifest.** |
 | `tools/mark_leak_check.py <prompt.md>` | Validates contract shape and flags answer-path leakage |
 | `tools/mark_reconcile.py <golden_dir>` | Diffs numbers across the golden set. The most common defect on the project |
+| `tools/mark_fetch.py URL --out F --licence L --role R` | Downloads a source with SHA-256 and provenance recorded at fetch time; on failure or an HTML bot-block it prints the hand-to-user fallback |
 
 `mark_reconcile.py` reads DOCX, XLSX, CSV, JSON and source files with no
 dependencies. PDF needs `pdfplumber` or `pypdf` — see `tools/requirements.txt`.

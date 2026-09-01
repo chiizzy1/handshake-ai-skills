@@ -68,17 +68,25 @@ The protocol, before any dataset is committed to:
 4. **Record what was verified and when** in the provenance sidecar at download
    time, not retroactively.
 
-If the session has no web tools, say so plainly and ask the user to fetch or
-screenshot the pages — that pattern recovered this project's entire handbook.
+**The human-fetch fallback.** When a promising source is unreachable — bot
+protection, JavaScript-rendered pages, logins, no web tools in the session —
+never abandon it and never substitute from memory. Hand the user the exact URL
+and precisely what to save (print-to-PDF for pages, Save As for files,
+screenshots for app screens). The user has standing instructions to fetch on
+request; this pattern recovered the project handbook and the decisive CDC
+documentation.
 
 ## Vetted sources, by trap machinery
 
 Researched 2026-08-31 — a snapshot, not a substitute for the protocol above.
 Re-verify each row live before use; licences and availability change.
+**Append every source you newly vet** — verified licence, machinery, fit — so
+the map grows the way rollout-lessons does. Upworthy row updated 2026-09-01
+after live verification and use in task 02.
 
 | Source | Machinery | Licence | Fit |
 |---|---|---|---|
-| **Upworthy Research Archive** (osf.io/jd64p) | 32,487 real headline A/B tests, 150,817 arms, 538M assignments; registered exploratory/confirmatory/holdout split | **CC-BY 4.0** — on the acceptable list | Experiment & Causal (near-perfect); also Descriptive, Anomaly, Root-cause. Traps: B1 sample-ratio mismatch, B2, B4 novelty, B7, CTR denominators, ignoring the registered split |
+| **Upworthy Research Archive** (osf.io/jd64p) | **USED, task 02.** Exploratory file open (22,666 arms / 4,873 tests); confirmatory needs approved plans — do not use. Documented not-fully-randomized period 2013-06-25..2014-01-10 (21.5% of tests; 69.9% fail allocation-balance vs 0.5% outside); real winner/significance label columns | **CC-BY 4.0**, verified live 2026-08-31 | Experiment & Causal (proven build); Descriptive, Anomaly, Root-cause. API: api.osf.io/v2/nodes/jd64p/files/osfstorage/ |
 | **ACS PUMS** (census.gov microdata FTP) | Person/household microdata with **80 replicate weights**; successive-differences variance | Public domain | Descriptive & Distribution. Unweighted means are wrong by construction |
 | **NHANES** (CDC) | Survey microdata, BRR weights, documented oversampling of subgroups | Public domain | Descriptive, Anomaly. Naive means are biased in a documented direction |
 | **ALFRED** (alfred.stlouisfed.org) | Every FRED series with real-time vintages (realtime_start/end) | Attribution terms — check | Forecasting, Economics. Leakage: an "as-of" decision must use the vintage available then |

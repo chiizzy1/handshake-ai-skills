@@ -100,6 +100,9 @@ designing anything or claiming a data kit.** One primary analytical objective an
 two output format families are assigned per task, and unclaiming/re-claiming
 re-rolls them. Read the assignment, then pick the domain and the data.
 *Gate: deterministic decision.*
+→ **`references/new-task-runbook.md` — the end-to-end sequence for a new task**,
+with the mandatory research pass (model-failure literature + candidate data)
+and the human-fetch fallback for blocked sources.
 → `references/data-selection.md` — the ceiling test and screening checklist. The
 dataset decides the difficulty ceiling; a pre-computed index cannot stump.
 
