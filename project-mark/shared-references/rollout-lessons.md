@@ -51,6 +51,25 @@ spec itself changed twice in nine days. Any future agent must search and fetch
 before claiming or downloading — and if it lacks web tools, ask the user to
 fetch or screenshot rather than proceeding from recall.
 
+### 2026-09-01 · external research corroboration (CausalPitfalls, arXiv 2505.13770)
+
+A published benchmark of LLM statistical-pitfall failures confirms the design
+direction empirically:
+
+- **Hint gradient:** top models fall from ~60% accuracy with explicit guidance to
+  ~18% with minimal guidance. Task rules that enumerate the correct checks ARE
+  the hint — pin the decision metric only; let validity live in shipped
+  documentation and in Gate-2 convergence, never in instructions.
+- **Branding bias:** identical data yields opposite conclusions under
+  semantically suggestive labels. Shipped label columns (winner/significance)
+  are a measured weakness — use real ones as bait, never authored ones.
+- Models are STRONG at recognising randomized designs — so a design that looks
+  randomized but silently is not subverts a strength. Weakest areas: external
+  validity (4–28%) and mediation; strongest: recognising RCT vs observational.
+- Real data exposes deeper reasoning gaps than synthetic; code assistance does
+  not rescue judgment failures (correctly computed statistics on invalid
+  designs mislead more convincingly).
+
 ### 2026-08-31 · platform mechanics, second round (post-skip screenshots)
 
 - **Task cards show their objective BEFORE claiming.** The available-tasks list
