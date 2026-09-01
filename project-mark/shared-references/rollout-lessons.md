@@ -156,3 +156,56 @@ direction empirically:
   step takes the INPUT package; the golden step takes the 3–5 DELIVERABLE files
   as one ZIP — the same files, names and count the prompt requests, with every
   ask answered inside them. Input files do NOT go in the golden field.
+
+---
+
+## 2026-09-01 — task 02 v2 build: two defects the gates caught
+
+Both were found by tooling, not by review. Both would have shipped.
+
+### The manifest was blind to the formats we now recommend
+
+`mark_manifest.py` could count rows in `.csv`, `.xlsx` and `.json` only. A
+corpus built to the format-hostility standard — gzipped JSONL, SQLite — read as
+family `Other` with no row count, and the tool reported the largest table as the
+28-row distractor CSV. It said the corpus failed the 10,000-row bar while the
+real answer was 14,336.
+
+Fixed: the tool now resolves the extension *under* any compression suffix, walks
+`.gz`/`.bz2`/`.xz` transparently, counts `.jsonl`/`.ndjson` lines and the largest
+table in a SQLite database, and classifies all of them as Data.
+
+**The lesson is about tool drift.** We changed what the skills tell authors to
+build without changing the tool that checks it. When a reference starts
+recommending a new format, check that every tool in `tools/` understands it —
+a validator that silently can't see a file is worse than no validator, because
+its PASS is trusted.
+
+### Injected mess produced a genuine ambiguity
+
+Mixed date formats put `09/02/2014` in the shortlist memo. Day-first reads 9
+February; month-first reads 2 September. The s4.2 gate turned on which fielding
+period a date fell in, so a day-first reader could reach a different nominee
+with sound reasoning. The memo also mixed conventions between rows.
+
+Fixed by construction, not correction: the generator now emits month-first dates
+only where the day exceeds 12, and the build sweeps all 20,853 distinct date
+strings asserting zero ambiguity. Before the fix the shipped corpus happened to
+be fair — no nominee's date was ambiguous — purely by chance in the random draw.
+
+**The lesson: fairness by luck is not fairness.** Verify the property holds by
+construction, then assert it, because the next reseed will not be as lucky. Full
+guidance in `mark-input-package/references/corpus-construction.md`, section
+"Mess must never make a value unknowable".
+
+### Also corrected: a remove-one-file check that was not checking
+
+The Gate 3 harness tested *how many* release files were present rather than
+which ones carried nominee records, and reported 8 of 14 necessary. Re-running
+the actual solver against each reduced corpus gave 5 of 12 — two release files
+carry no nominee at all. Both numbers clear the bar of 4, so nothing shipped
+wrong, but the check was reporting a property it never measured.
+
+**A gate that cannot fail is not a gate.** Where a check can call the real
+solver, it should, rather than approximating the solver's requirements with a
+file-presence heuristic.

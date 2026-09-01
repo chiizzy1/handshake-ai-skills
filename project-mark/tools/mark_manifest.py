@@ -17,18 +17,24 @@ Usage:
 import argparse
 import csv
 import hashlib
+import bz2
+import gzip
 import io
 import json
+import lzma
 import os
 import shutil
+import sqlite3
 import sys
 import tempfile
 import zipfile
 
-DATA = {".csv", ".tsv", ".json", ".xlsx", ".xls", ".parquet"}
+DATA = {".csv", ".tsv", ".json", ".jsonl", ".ndjson", ".xlsx", ".xls", ".parquet",
+        ".sqlite", ".sqlite3", ".db"}
 VISUAL = {".pptx", ".png", ".svg", ".html", ".htm", ".jpg", ".jpeg", ".gif"}
 TEXT = {".pdf", ".docx", ".doc", ".txt", ".md", ".rtf"}
 CODE = {".py", ".ipynb", ".sql", ".r"}
+COMPRESSED = {".gz", ".bz2", ".xz"}
 
 MIN_FILES = 10
 MIN_NECESSARY = 4
@@ -38,8 +44,22 @@ MIN_BIG_TABLE_ROWS = 10_000
 SUBSTANTIAL_BYTES = 100 * 1024
 
 
+def inner_ext(name):
+    """Extension a file carries under any compression suffix.
+
+    A gzipped table is still a table; ``package_records_2014.jsonl.gz`` counts
+    as Data with countable rows, not as an unclassified blob.
+    """
+    stem, ext = os.path.splitext(name)
+    if ext.lower() in COMPRESSED:
+        ext = os.path.splitext(stem)[1]
+    return ext.lower()
+
+
 def family(ext):
     ext = ext.lower()
+    if ext in COMPRESSED:
+        return "Data"
     if ext in DATA:
         return "Data"
     if ext in VISUAL:
@@ -61,23 +81,61 @@ def sha256_and_size(path):
     return h.hexdigest(), size
 
 
+def _opener(path):
+    """Text-mode opener that transparently handles a compression suffix."""
+    ext = os.path.splitext(path)[1].lower()
+    if ext == ".gz":
+        return lambda: gzip.open(path, "rt", encoding="utf-8", errors="replace")
+    if ext == ".bz2":
+        return lambda: bz2.open(path, "rt", encoding="utf-8", errors="replace")
+    if ext == ".xz":
+        return lambda: lzma.open(path, "rt", encoding="utf-8", errors="replace")
+    return lambda: open(path, newline="", encoding="utf-8", errors="replace")
+
+
 def count_rows(path, ext):
-    """Row count for tabular files. None when not applicable or unreadable."""
+    """Row count for tabular files. None when not applicable or unreadable.
+
+    ``ext`` is the extension under any compression suffix, so a gzipped CSV or
+    JSONL is counted the same as a plain one.
+    """
     ext = ext.lower()
+    compressed = os.path.splitext(path)[1].lower() in COMPRESSED
     try:
         if ext in (".csv", ".tsv"):
             delim = "\t" if ext == ".tsv" else ","
-            with open(path, newline="", encoding="utf-8", errors="replace") as fh:
+            with _opener(path)() as fh:
                 return max(sum(1 for _ in csv.reader(fh, delimiter=delim)) - 1, 0)
+        if ext in (".jsonl", ".ndjson"):
+            with _opener(path)() as fh:
+                return sum(1 for line in fh if line.strip())
         if ext == ".xlsx":
-            return _xlsx_rows(path)
+            return None if compressed else _xlsx_rows(path)
+        if ext in (".sqlite", ".sqlite3", ".db"):
+            return None if compressed else _sqlite_rows(path)
         if ext == ".json":
-            with open(path, encoding="utf-8", errors="replace") as fh:
+            with _opener(path)() as fh:
                 data = json.load(fh)
             return len(data) if isinstance(data, list) else None
     except Exception:
         return None
     return None
+
+
+def _sqlite_rows(path):
+    """Row count of the largest table in a SQLite database."""
+    con = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
+    try:
+        names = [r[0] for r in con.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' "
+            "AND name NOT LIKE 'sqlite_%'")]
+        best = 0
+        for n in names:
+            best = max(best, con.execute(
+                f'SELECT COUNT(*) FROM "{n}"').fetchone()[0])
+        return best if names else None
+    finally:
+        con.close()
 
 
 def _xlsx_rows(path):
@@ -116,15 +174,16 @@ def build(package_dir, roles):
             full = os.path.join(dirpath, fn)
             rel = os.path.relpath(full, package_dir)
             ext = os.path.splitext(fn)[1]
+            under = inner_ext(fn)
             digest, size = sha256_and_size(full)
             meta = roles.get(rel) or roles.get(fn) or {}
             rows.append(
                 {
                     "file": rel,
                     "format": ext.lstrip(".").lower() or "none",
-                    "family": family(ext),
+                    "family": family(under) if under else family(ext),
                     "bytes": size,
-                    "rows": count_rows(full, ext),
+                    "rows": count_rows(full, under),
                     "sha256": digest,
                     "role": meta.get("role"),
                     "necessary": meta.get("necessary"),

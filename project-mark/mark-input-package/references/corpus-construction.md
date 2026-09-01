@@ -69,6 +69,38 @@ Apply several, not one:
 conclusion. Every defensible cleaning path must converge on the same answer.
 Mess that changes the answer is a determinism bug (Gate 2), not difficulty.
 
+### Mess must never make a value unknowable
+
+An injected inconsistency is fair when a careful reader can recover the true
+value, and unfair when two competent readers recover two different values. The
+distinction is easy to lose in date formatting, which is where we lost it.
+
+Task 02 v2 rendered dates in three formats. `09/02/2014` parses to 9 February
+under day-first and 2 September under month-first — two real dates, no way to
+choose. Worse, the shortlist memo used day-first in one row and month-first in
+another. Because the s4.2 gate turned on which fielding period a date fell in, a
+day-first reader could land in a different period and select a different nominee
+with entirely sound reasoning.
+
+The fix was a construction rule, not a spot correction: **emit month-first dates
+only where the day exceeds 12**, so no rendered date parses to two real dates.
+Then sweep every distinct value and assert zero ambiguity — the guarantee has to
+hold by construction, because a reseed will otherwise reintroduce it. The
+generator had produced a fair corpus by luck; luck is not a property you can
+ship.
+
+The same test applies to any injected inconsistency:
+
+- **Ambiguous units** — `1.5` meaning thousands in one row and units in another
+- **Ambiguous decimal separators** — `1.234` as European thousands or a fraction
+- **Truncated identifiers** that collide once shortened
+- **Encoding mangling applied to the join key** rather than to display text
+  (mangle headlines, never IDs)
+
+Write the sweep as an assertion in the build, not a one-time check. Ask of every
+injected value: *can a careful reader recover the original with certainty?* If
+not, it is not mess — it is a coin flip you have hidden in the data.
+
 ## Format hostility is legitimate
 
 Real analysts receive gzipped exports, sqlite extracts, log files, calendar
@@ -80,6 +112,14 @@ with multiple sheets
 Constraint from the fairness rules: **no parsing puzzles.** Every file must open
 with standard tooling in one or two obvious attempts. Compressed JSONL is fine;
 a corrupted archive requiring bespoke reverse-engineering is not.
+
+**Run the manifest after every repartition, and read the row count.** The
+10,000-row requirement is measured per file, not across the corpus. Splitting
+22,666 records into five half-year files caps the largest at 9,278 and fails the
+bar; splitting the same records by year puts 14,336 in one file and passes.
+Format hostility and the row-count bar pull against each other — the finer the
+partition, the more searching a model must do, and the closer the largest file
+creeps to the floor. Check the number rather than assuming the total carries it.
 
 ## The line between complexity and padding
 
