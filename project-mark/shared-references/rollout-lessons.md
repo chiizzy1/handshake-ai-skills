@@ -1,5 +1,34 @@
 # Rollout Lessons — empirical field notes
 
+## 2026-09-01 · task-02 · THE GRADED MODELS ARE OPUS 5 AND GPT-5.6
+
+Confirmed from opencode.json in the returned workspaces: Response 1 = Anthropic
+claude-opus-5, Response 2 = OpenAI gpt-5.6-sol. Both run as agents with code
+execution, package installation, MCP file access, and clean-directory
+self-checks.
+
+**Design 3 result (Upworthy validity trap): both models found the documented
+not-fully-randomized window, cited the exact dates and rule section, excluded
+the 209%-lift bait with correct causal reasoning, and matched the golden on
+every figure** (CI convention aside: they used the log-ratio interval, we used
+delta — both defensible). The bait that significance testing endorses at
+z = 10.2 did not survive their document reading.
+
+Running total: 3 tasks, 5 designs, 6 graded responses, **zero misses on the
+main recommendation**. Traps beaten so far: sentinel handling, cross-universe
+re-ranking, label bait, cross-experiment comparison bait, documented-validity
+exclusion.
+
+**Operating conclusion, sharpened:** against Opus 5 + GPT-5.6, any trap whose
+correct handling amounts to *reading the shipped corpus and applying what it
+says* will fail — they read everything, every time. The remaining candidate
+space is example-01-class construction: multi-stage governed estimators where
+the correct method must be BUILT from structure, and the adequate-looking
+shortcut survives full document reading. Unverified whether even that beats
+these models — the accepted examples predate them. Before burning another
+build: ask in Slack whether ANY task has passed the stump check since the
+graded models were upgraded, and what shapes landed.
+
 Verified findings from real stump checks. Read this BEFORE picking a dataset or
 designing a trap. Dated entries; newest first. Append after every rollout,
 pass or fail — this file is the memory that transfers between sessions.
