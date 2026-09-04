@@ -1,6 +1,6 @@
 ---
 name: mark-validator
-description: Validate and submit a Project Mark task. Use for the five validation gates (reproduce, fork, live trap, neutralize-one-trap, remove-one-file), the generated 25+ criteria rubric and its 30/5-10/60 weights, the 12-response rollout and the top-two-average-under-50% pass bar, classifying rollout divergence, and clearing Readiness before submitting on Handshake.
+description: Validate and submit a Project Mark task. Use for the five validation gates (reproduce, fork, live trap, neutralize-one-trap, remove-one-file), the generated 25+ criteria rubric and its 30/5-10/60 weights, the 12-response rollout and the top-two-average-under-70% pass bar, classifying rollout divergence, and clearing Readiness before submitting on Handshake.
 ---
 
 # Project Mark — Validator
@@ -224,7 +224,7 @@ narrower than the handbook implies.**
 
 | Stage | Responses | Gate |
 |---|---|---|
-| **Step 3 — stump check** | **2** initial responses | **This is the gate.** These are the two that must average under 50% |
+| **Step 3 — stump check** | **2** initial responses | **This is the gate.** These are the two that must average under **70%** (9/01). **Reset the task first** — populated later fields leak the golden and rubric into the models' context |
 | **Step 12 — final rollouts** | **10** more | **No stumping bar.** They must simply not crash |
 
 The task UI says it outright: *"You can submit after the models finish running. No
@@ -246,7 +246,7 @@ describing the same thing: **2 graded + 10 ungraded = 12.**
 
 **Practical consequence:** you find out whether the task works at **step 3**, long
 before the golden and deliverables are finished. If the two initial responses do
-not come in under 50%, strengthen the task then — not after building everything.
+not come in under 70%, strengthen the task then — not after building everything.
 
 > Vincent's "for now" is doing work. This is an operational relaxation, not a
 > published rule. Re-check in Slack before relying on it for a task you have
@@ -294,7 +294,7 @@ back, and it is the most actionable material on the project.
 **Heuristic targets, not tests.** They tell you which gate to strengthen when a
 rollout comes back off-target.
 
-| | Weak model under 30% | Strong model under 50% |
+| | Weak model under 30% | Strong model under 70% |
 |---|---|---|
 | **Fails at** | Breadth of file coverage, long-file reading, any join beyond one key, row-count anomalies, multi-step arithmetic, resisting the bait | Silent statistical traps, chronology and supersession reasoning, identifying the valid population, overturning the stakeholder's frame, combining several correct sub-analyses into a counterintuitive conclusion |
 | **Lever** | Layer 1 gate plus the bait file | **Layers 2 and 3, drawn from different families** |
@@ -433,7 +433,8 @@ and unlimited.
 ## Rollout
 | Response | Score | Rank | Divergence class |
 |---|---|---|---|
-Top two: <score> and <score> — average <n>% (must be under 50%) — ✓/✗
+Top two: <score> and <score> — average <n>% (must be under 70%) — ✓/✗
+Task reset before the check (later fields empty): yes/no
 Bottom 10 submitted unchecked.
 
 ## Readiness

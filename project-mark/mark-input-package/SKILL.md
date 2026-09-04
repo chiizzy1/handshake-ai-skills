@@ -101,6 +101,11 @@ What does **not** count as messiness: illegally formatted files, invalid
 encodings, broken XML. Difficulty is spent on reasoning, not on parsing. Every
 file must load with standard tooling in one or two obvious attempts.
 
+**Read `references/business-realism.md` before authoring any document.** Since
+9/01, input files and golden deliverables that read as LLM output are a
+rejection criterion, not something staff quietly fix. Run
+`tools/mark_realism_check.py` over the package, then read each authored file.
+
 **Read `references/corpus-construction.md` before assembling anything** — the
 complexity standard, the discoverable-vs-obvious principle, legitimate format
 hostility, and the line between complexity and padding.

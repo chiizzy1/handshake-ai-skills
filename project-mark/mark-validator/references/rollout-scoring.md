@@ -7,7 +7,10 @@
 - Every rollout is **twelve responses**, scored against the fixed rubric.
 - **You submit all 12.** The bottom 10 can be submitted without checking.
 - **The gate is the top 2.** The task passes only when the two highest-scoring
-  responses **average under 50%** against the rubric.
+  responses **average under 70%** against the rubric (9/01; was 50%).
+- **Reset the task before running the check.** Known platform bug: populated
+  text fields after the model checks leak the golden documents and rubric into
+  the models' context, and the scores become meaningless.
 
 Confirmed on Stumping essentials, which is unambiguous. The Task walkthrough's
 step 12 card says "Run 10 model responses" while also saying "submit the bottom
@@ -27,12 +30,26 @@ from surface-read rejection or flipping a wrong number.
 ## Gate arithmetic — the main recommendation is the whole game
 
 Field-verified: the recommendation cluster (award + scores + margin) carries
-~30–37 of 100 points. A response that solves only the core sits near 50%
-already, so **the top-two average falls under 50% only when both top responses
-get the main recommendation wrong**. In a live check where both models solved
-the core, they scored 82% each while dropping every structure/tolerance point
-available. Iterate on the trap that flips the answer; supplementary difficulty
-is scatter. See `../../shared-references/rollout-lessons.md`.
+~30–37 of 100 points.
+
+**Solving the core still fails the 70% bar — but only just.** In a live check
+where both models solved the core, they scored **82%** each while dropping every
+structure and tolerance point available. So the recommendation must still flip:
+82% clears 70% comfortably.
+
+**Missing the core now lands right on the line.** A response that loses the whole
+recommendation cluster but nails everything else scores **63–70%**. Under the old
+50% bar that was still a fail; under 70% it is a coin flip. The margin has to
+come from somewhere else.
+
+It comes from propagation. Design the wrong path so it poisons the deliverables:
+if selecting the wrong candidate makes the scorecard, the chart and the summary
+all wrong, the response loses supplementary points too and lands well clear of
+the line. A trap that flips only the headline answer while leaving every
+supporting figure computable is the shape that scrapes 69% and loses on regrade.
+
+Iterate on the trap that flips the answer, then check what it costs the asks.
+See `../../shared-references/rollout-lessons.md`.
 
 ## The asks now carry the weight
 

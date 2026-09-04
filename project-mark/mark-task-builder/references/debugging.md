@@ -49,12 +49,14 @@ gives it a passing score.
 
 ## The top responses still score too high
 
-Your best-scoring responses land above 50%, so the task does not pass.
+Your best-scoring responses land above 70%, so the task does not pass.
 
 **The bar:** 12 model responses. The bottom 10 can be submitted without checking;
-the task passes only when the **top 2 average under 50%** against the rubric.
+the task passes only when the **top 2 average under 70%** against the rubric.
+First check you reset the task before the rollout — populated later fields leak
+the golden and rubric into the models' context and inflate the scores.
 
-- **If the top two clear 50%:** the task isn't hard enough. Deepen the trap or the
+- **If the top two clear 70%:** the task isn't hard enough. Deepen the trap or the
   computation until the strongest responses miss.
 - **If a top response scores high on verbosity and partial credit:** confirm the
   rubric isn't awarding points for surface features the answer shouldn't earn.

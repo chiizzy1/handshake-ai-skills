@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Ads Visual Appeal"
+  short_description: "Compare two ad images on visual appeal and pick the more striking picture"
+  default_prompt: "Use $handshake-ads-visual-appeal to compare two ad images on visual appeal."

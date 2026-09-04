@@ -77,7 +77,7 @@ wholesale.** Most handbook pages still carry pre-8/18 numbers.
 
 | Source | What it fixes |
 |---|---|
-| **8/27 update** — `8-27-updates.md` | 3+ deliverables (no ceiling) · two **assigned** format families · 3+ asks per file · rubric **generated and uneditable**, 25+ criteria, weighted 30/5–10/60 · **top-two-of-12 average under 50%** replaces stumping |
+| **8/27 update** — `8-27-updates.md` | 3+ deliverables (no ceiling) · two **assigned** format families · 3+ asks per file · rubric **generated and uneditable**, 25+ criteria, weighted 30/5–10/60 · **top-two-of-12 average under 50%** replaces stumping *(bar raised to 70% on 9/01)* |
 | **Task walkthrough** — `task-walkthrough.md` | The real authoring sequence: 12 steps, 3 phases, 4 hard gates |
 | **Example prompts** — `example-prompts.md` | 60 prompts in the current format, 10 per objective |
 | **Live project page** | $800/task. Describes the work as sourcing "real **occupational** materials" for tasks forcing models onto "occupation-specific tools and instructions" — a framing the six analytical domains do not use |

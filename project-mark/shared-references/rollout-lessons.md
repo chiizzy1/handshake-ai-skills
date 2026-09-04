@@ -72,6 +72,11 @@ lands under 50% **only if both top responses get the main recommendation
 wrong**. A trap that does not flip the main answer cannot pass the gate, no
 matter how much supplementary difficulty it adds.
 
+*(Written against the 50% bar. Under the 70% bar the conclusion holds — the
+observed "solved the core" score was 82% — but losing the recommendation alone
+now lands at 63–70%, on the line. See the 9/01 entry and
+`../mark-validator/references/rollout-scoring.md`.)*
+
 **2. The difficulty ceiling is set by the dataset, not the trap.** A finished
 composite index (SVI-style: scores already computed) offers only *execution*
 difficulty — reading and arithmetic — and current models execute perfectly.
@@ -209,3 +214,89 @@ wrong, but the check was reporting a property it never measured.
 **A gate that cannot fail is not a gate.** Where a check can call the real
 solver, it should, rather than approximating the solver's requirements with a
 file-presence heuristic.
+
+---
+
+## 2026-09-01 — the 9/01 rule change, and a regression it exposed
+
+### The bar moved to 70%
+
+Responses 1 and 2 must now average below **70%**, not 50%, on all in-progress
+and new tasks. Tasks that failed the 50% bar are being re-evaluated and paid
+retroactively if they clear 70%.
+
+**What this means for our record.** Task 01 scored 82%/82% — still a fail. Task
+02 v1's scores need re-reading against 70% before assuming it failed; if it
+landed between 50% and 70% it may already be a pass under the re-evaluation, and
+rebuilding it would be wasted work. Check the review sheet before rebuilding
+anything.
+
+Staff were explicit that scraping under the line is not the goal: the in-task
+grader is imperfect and the official regrade decides. Treat 70% as the rejection
+line and 50% as the target.
+
+### The trade: craft is now a rejection criterion
+
+The rate stayed at $800, so everything staff had been lenient on is now
+enforced. The one that changes our practice most:
+
+> Your golden deliverable and input files MUST not look LLM-generated and look
+> business-realistic. We have been fixing these for you (to be nice), but we
+> will be rejecting these from now on.
+
+Also now enforced: bespoke prompt/inputs/methodology/traps per task (**immediate
+offboard** for templated tasks, not a rejection), substantive supplementary asks,
+and one of the six task types rather than a surface stump. See
+`../mark-input-package/references/business-realism.md`.
+
+### Platform bug: the models can read your answer key
+
+Reported by a fellow in Slack, unfixed:
+
+> If the text fields after the model checks are filled, the two models will use
+> information from the future text fields, like the rubric, to solve the prompt.
+
+**Reset the task before every stump check**, and again after any change to the
+prompt or ZIP. A rollout run with those fields populated is not evidence of
+anything — the models had the golden documents in context. Any score obtained
+that way should be discarded rather than interpreted.
+
+This is worth checking against our own history before concluding our tasks were
+too easy.
+
+### The regression the realism audit uncovered
+
+Auditing task 02 v2 for LLM tells turned up something worse than a tell.
+
+The shortlist memo had reverted to figures I had already corrected in an earlier
+session: an N-5 experiment ID (`533daec8ee9efe6d2d000027`) **that does not exist
+anywhere in the corpus**, an N-5 CTR of 4.81% against the archive's 2.63%, and
+an N-1 significance of 89.9 against the archive's 100.
+
+The cause: the document builder lived in `/tmp`. Re-running it this session to
+fix an unrelated date problem regenerated the memo from stale hand-typed
+constants, silently undoing the corrections. The date fix was verified — dates
+only — so the check passed while the IDs rotted underneath it.
+
+Two of these are not cosmetic. A nominee ID absent from the corpus leaves the
+scale trap with no subject, and a significance value that disagrees with the
+archive is a planted falsehood, which the honest-data doctrine forbids outright.
+
+**Three rules came out of it, all now in the runbook:**
+
+1. **Generate every factual field from the data.** The memo is now built by a
+   script that reads the corpus; only the editors' loose estimates are authored,
+   because those are bait and are meant to be imprecise rather than wrong. This
+   makes the whole class of defect impossible rather than detectable.
+2. **Keep build and verify scripts with the task.** `/tmp` is cleared between
+   sessions. A vanished builder cannot be corrected; a surviving stale one
+   silently undoes verified work.
+3. **Add a gate for every defect you find.** `verify_task.py` now runs six gates
+   including two born from real defects: every authored figure reconciles against
+   the source data, and no injected value parses two ways. Both would have caught
+   this in seconds.
+
+**The general lesson:** verifying the thing you just changed is not verifying the
+artefact. The date check passed on a file whose experiment IDs were wrong,
+because it only looked at dates. Gates should assert the properties the task
+depends on, not the property you were last thinking about.

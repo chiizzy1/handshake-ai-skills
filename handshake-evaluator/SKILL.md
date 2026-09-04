@@ -63,6 +63,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - Text-to-Image / H2H image comparison: use `handshake-h2h-image-evaluator` (read `../project-hedgehog/handshake-h2h-image-evaluator/SKILL.md`).
 - Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator` (read `../project-hedgehog/handshake-r2i-i2i-evaluator/SKILL.md`).
 - i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned` (read `../project-hedgehog/handshake-i2i-pixel-aligned/SKILL.md`).
+- Ads Creative visual appeal / Compare Two Ad Images (two finished ad images, one five-button appeal call, ignore overlaid text): use `handshake-ads-visual-appeal` (read `../project-hedgehog/handshake-ads-visual-appeal/SKILL.md`).
 - UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../project-hedgehog/handshake-ud-caption-evaluator/SKILL.md`).
 - Annot Critic: use `handshake-annot-critic` (read `../project-hedgehog/handshake-annot-critic/SKILL.md`).
 - Critique Rework: use `handshake-critique-rework` (read `../project-hedgehog/handshake-critique-rework/SKILL.md`).

@@ -9,6 +9,7 @@ handshake-ai-skills/
 ├── handshake-evaluator/          ← Platform-level router (routes to correct project)
 ├── shared-references/            ← Cross-project shared material
 ├── project-hedgehog/             ← Project Hedgehog task skills (handshake-* prefix)
+│   ├── handshake-ads-visual-appeal/
 │   ├── handshake-annot-critic/
 │   ├── handshake-critique-rework/
 │   ├── handshake-ego-phys-understanding/

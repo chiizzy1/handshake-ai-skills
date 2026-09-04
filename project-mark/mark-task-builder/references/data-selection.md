@@ -103,7 +103,7 @@ after live verification and use in task 02.
 ## Gate arithmetic — why the main recommendation is everything
 
 The recommendation cluster carries ~30–37 rubric points; the pass bar is the
-top-two response average under 50%. Both top responses must therefore get the
+top-two response average under 70%. Both top responses must therefore get the
 **main recommendation wrong**. Supplementary difficulty produces ~18 points of
 implementation scatter at best. Design the trap to flip the main answer, or
 pick different data.

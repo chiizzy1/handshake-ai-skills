@@ -22,11 +22,11 @@ calibration targets rather than one.
 | Type | Exploration trap | Reasoning trap | Synthesis trap |
 | Targets | **Weak models** | **Strong models** | **Write-up quality** |
 | What it does | Punishes shallow reading: partial duplicates, internal accounts, unit mix, join fan-out | The statistical or causal trap that **reverses the headline recommendation**. The heart of the task | A second independent source that confirms the flipped answer when reconciled, but is itself guarded by a footnote, a stale column, or a definition |
-| Drives | **The weak model under 30%** | **The strong model under 50%** | — |
+| Drives | **The weak model under 30%** | **The strong model under 70%** | — |
 | Example traps | D3 Partial duplicates · D4 Internal and test accounts · D1 Join fan-out · D10 Unit mismatch across files | A1 Simpson's paradox and mix shift · B1 Sample ratio mismatch · C6 Cohort maturity mismatch · C7 Refund and chargeback lag | E1 Footnote overrides the table · D7 Stale derived column · F2 Derivable churn or activation window |
 
 **Layer 2 is the one that matters most.** It is what drives the strong model under
-50%, and the strong model is the gate.
+70%, and the strong model is the gate.
 
 ## Separating trap and antidote
 

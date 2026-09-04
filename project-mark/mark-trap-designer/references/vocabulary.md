@@ -67,7 +67,7 @@ weak-model (5–8) tiers with separate thresholds.
 
 **8/27 retired the split.** Only the **top two** responses are graded now; the
 rest are submitted unchecked, and the task passes when those two **average under
-50%**. There is no tier distinction and no per-tier threshold.
+70%** (9/01; was 50%). There is no tier distinction and no per-tier threshold.
 
 The terms still appear on stale handbook pages. Read them as historical.
 

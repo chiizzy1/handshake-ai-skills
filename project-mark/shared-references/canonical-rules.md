@@ -11,11 +11,79 @@ When two sources disagree, the higher one wins.
    for the task in front of you, and staff answers there are more current than the
    handbook. Example: the UI says "No stumping bar" on the final 10 rollouts and
    staff confirmed it, which the handbook does not say anywhere.
-2. **The 8/27 update** (`/827-updates`) and the **Task walkthrough**. These are the
-   current spec and they superseded 8/18 wholesale.
-3. **Readiness** and the **Reviewer reference**, for anything 8/27 does not touch.
-4. The individual handbook pages.
-5. This skill, then user preference.
+2. **The 9/01 Slack announcement from Vincent (Handshake AI).** Moves the stump
+   bar to 70% and hardens the acceptance criteria. Supersedes 8/27 on every point
+   it touches — see "What 9/01 changed" below.
+3. **The 8/27 update** (`/827-updates`) and the **Task walkthrough**. Current spec
+   for everything 9/01 does not touch; superseded 8/18 wholesale.
+4. **Readiness** and the **Reviewer reference**, for anything above does not touch.
+5. The individual handbook pages.
+6. This skill, then user preference.
+
+## What 9/01 changed — read this first
+
+Announced in Slack by Vincent (Handshake AI), 2026-09-01. It cuts both ways: the
+difficulty bar got much easier, and everything else got much stricter.
+
+### The bar moved from 50% to 70%
+
+**A task passes when the rubric reward across Responses 1 and 2 averages below
+70%.** This applies to all in-progress and new tasks, not just new ones.
+
+Three things follow:
+
+- **Tasks that failed the 50% bar are being re-evaluated.** Anything that failed
+  50% but clears 70%, and meets the other requirements, is retroactively approved
+  and paid. You will see it through the normal review sheet. Do not rebuild a task
+  that scored between 50% and 70% — it may already be a pass.
+- **Aim far below 70%, not just under it.** Staff were explicit: "strive to get it
+  as far below 70% as possible and be honest with yourself on how hard you are
+  stumping the model." The in-task grader is imperfect and the task is regraded
+  officially after submission, so a score that scrapes 69% is a coin flip on
+  regrade. Treat 70% as the rejection line and 50% as the target.
+- **Near-100% reward is read as low effort**, and counts against you.
+
+### The rate did not move, so everything else got stricter
+
+$800 per approved task stands. Staff named the trade explicitly: because the
+difficulty bar was loosened, the parts they had been lenient on are now
+rejection criteria.
+
+| Requirement | What it means |
+|---|---|
+| **Files must not look LLM-generated** | Golden deliverables *and* input files must read as business-realistic documents. Staff were fixing these by hand "to be nice" and will now reject instead. This is the single biggest change to how we build. |
+| **Deterministic, with a correct solution** | Main recommendation *and* supplementary questions must have one right answer, and the stump must be analytical or methodological |
+| **One of the 6 task types, not a surface stump** | A task that fails the model on parsing, obscurity, or trivia does not qualify |
+| **Supplementary asks must be substantive** | Relevant to the prompt's context, challenging, non-trivial, and business-realistic — not padding to reach the ask count |
+| **Bespoke per task — no duplicates or templates** | Prompt, input files, solution methodology and traps must all be original per task. Reusing a scaffold is an **immediate offboard**, not a rejection |
+| **Stricter offboarding** | Explicitly stated as the consequence for not following the above |
+
+### The rule that changes our practice most
+
+**"Your golden deliverable and input files MUST not look LLM-generated and look
+business-realistic."**
+
+Every input file we author — memos, standards, reports, logs — is a place this can
+fail. See `mark-input-package/references/business-realism.md` for the tells to
+avoid and the audit to run before shipping.
+
+### Known platform bug — reset before every rollout
+
+Reported by a fellow in Slack and not yet fixed:
+
+> If the text fields after the model checks are filled, the two models will use
+> information from the future text fields, like the rubric, to solve the prompt.
+
+**The models can read your golden documents and rubric out of the later form
+fields.** If those fields are populated when you run the stump check, the models
+are answering with the answer key in context, and the scores are meaningless —
+they will look far too high, and the task will appear not to stump when it may
+well do.
+
+**The rule: reset the task before every stump check**, and re-run the check any
+time you change the prompt or the ZIP while keeping your solution structure. Any
+rollout score obtained with those fields populated should be discarded, not
+interpreted.
 
 ## What 8/27 changed
 
@@ -29,7 +97,7 @@ written against 8/18 is now stale, and that includes most of the handbook.
 | Asks per file | 2 or more | **3 or more** |
 | Rubric | Generated, you review once | **Generated, you do NOT edit it.** Must reach **25+ criteria** or the task cannot advance |
 | Rubric weights | Rec 50 / supporting 50 / file compliance 2–5pp | **~30% recommendation + critical components** (split across 3+ criteria, none over 20%) · **5–10% instruction-following** · **~60% supplementary questions and asks** |
-| The bar | Stump: 2 of R1–4 under 50%, 1 of R5–8 under 30% | **"Stump the model" is retired.** Only the **top two** responses are graded; the rest are submitted unchecked, and the task passes when those two **average under 50%**. Response count disputed in-source — see below |
+| The bar | Stump: 2 of R1–4 under 50%, 1 of R5–8 under 30% | **"Stump the model" is retired.** Only the **top two** responses are graded; the rest are submitted unchecked, and the task passes when those two **average under 50%**. *Superseded 9/01: the bar is now 70%.* Response count disputed in-source — see below |
 | Workflow | 9 steps | **12 steps, 3 phases, 4 hard gates** |
 
 Unchanged by 8/27: the input package bar, the six domains, the six objectives,
@@ -46,7 +114,7 @@ Every one of these is wrong on a page that is still live.
 | Asks per file | "3 to 5 standalone supplementary questions" — Overview, Rubric review; "at least two asks" — 8/18 | **3 or more per named file** |
 | Rubric | "you complete one review pass" — Rubric review | **You do not edit it at all** |
 | Rubric weights | "recommendation exactly 50%" — Rubric review | **~30 / 5–10 / ~60** |
-| Scoring | "at least 2 of R1–4 below 50% and 1 of R5–8 below 30%" — Validate, Program details, Reviewer reference | **Top two average under 50%** |
+| Scoring | "at least 2 of R1–4 below 50% and 1 of R5–8 below 30%" — Validate, Program details, Reviewer reference; **"under 50%" everywhere else** — superseded 9/01 | **Top two average under 70%.** Target well below it |
 | Domain count | "seven in-scope domains" — Program details | **Six** |
 | Pay | "$750 first, $600 after" — pre-8/18 assessment | **$800 flat** |
 
@@ -57,7 +125,7 @@ Clear all four and the task is ready to submit.
 | # | Gate |
 |---|---|
 | 01 | **Rubric reaches 25+ criteria**, weighted 30 / 5–10 / 60. The task cannot advance below 25 |
-| 02 | **Top 2 model responses average under 50%.** Run 12, submit the bottom 10 unchecked |
+| 02 | **Top 2 model responses average under 70%** (9/01; was 50%). Run 12, submit the bottom 10 unchecked. **Reset the task before running the check** — see the platform bug above |
 | 03 | **A deterministic, fair stump.** Models fail for analytical and methodological reasons on honest data, never a planted defect, and ten experts working the files land on the same recommendation |
 | 04 | **3+ deliverables with 3+ asks each**, across the two assigned format families |
 
@@ -238,7 +306,7 @@ narrower than the handbook implies.**
 
 | Stage | Responses | Gate |
 |---|---|---|
-| **Step 3 — stump check** | **2** initial responses | **This is the gate.** These are the two that must average under 50% |
+| **Step 3 — stump check** | **2** initial responses | **This is the gate.** These are the two that must average under **70%** (9/01). Reset the task first, or the models read your golden docs out of the later form fields |
 | **Step 12 — final rollouts** | **10** more | **No stumping bar.** They must simply not crash |
 
 The task UI says it outright: *"You can submit after the models finish running. No
@@ -260,7 +328,7 @@ describing the same thing: **2 graded + 10 ungraded = 12.**
 
 **Practical consequence:** you find out whether the task works at **step 3**, long
 before the golden and deliverables are finished. If the two initial responses do
-not come in under 50%, strengthen the task then — not after building everything.
+not come in under 70%, strengthen the task then — not after building everything.
 
 > Vincent's "for now" is doing work. This is an operational relaxation, not a
 > published rule. Re-check in Slack before relying on it for a task you have
@@ -298,7 +366,7 @@ failure · a failure caused only by an arbitrary rubric interpretation
 
 **The consequence of the reweighting:** the recommendation and its critical
 components carry ~30% of the rubric and the supplementary questions ~60%, so **a
-response cannot stay above 50% on the recommendation alone**. The supplementary
+response cannot stay above 70% on the recommendation alone**. The supplementary
 asks have to be hard and discriminating, or the top two will clear the bar too
 easily.
 

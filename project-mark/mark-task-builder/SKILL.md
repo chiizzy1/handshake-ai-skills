@@ -91,7 +91,7 @@ Three questions decide whether a task gets approved:
   evidence. See `../mark-input-package/references/corpus-construction.md`.
 - **The trap must flip the main recommendation.** The recommendation cluster is
   ~30–37 rubric points, so both top responses must get it wrong for the top-two
-  average to fall under 50%. Supplementary-only difficulty cannot pass the gate.
+  average to fall under 70%. Supplementary-only difficulty cannot pass the gate.
 
 ## Workflow
 
@@ -150,7 +150,7 @@ deliverable.
 
 **12. Final model rollouts.** Run the responses against the fixed rubric. Only the
 **top two are graded**; the rest are submitted unchecked, and the task passes when
-those two **average under 50%**. **Non-blocking** if the top two already hit the
+those two **average under 70%**. **Non-blocking** if the top two already hit the
 bar on the step 3 rollout.
 *The source disagrees with itself on the count — 10 or 12. See canonical-rules.*
 → `mark-validator`
@@ -166,7 +166,7 @@ first signposts the catch.
 | # | Gate |
 |---|---|
 | 01 | Rubric reaches **25+ criteria**, weighted 30 / 5–10 / 60 |
-| 02 | **Top 2 responses average under 50%** |
+| 02 | **Top 2 responses average under 70%** (9/01; was 50%) |
 | 03 | A deterministic, fair stump on honest data |
 | 04 | **3+ deliverables with 3+ asks each**, across the two assigned families |
 
@@ -194,7 +194,7 @@ self-made files are in `references/debugging.md`.
 | Models keep getting the recommendation right | **The most common failure.** Task too easy: the obvious first analysis is also correct, the decisive number sits in a summary tab, or the data is clean and pre-joined |
 | Two experts could defensibly disagree | Objective not bound to one recommendation. Re-read the prompt as an adversary optimizing a different legitimate goal |
 | Right answer, wrong reasons, still scored high | The asks are not discriminating enough. A shortcut satisfies them |
-| Top two responses clear 50% | Not hard enough. Deepen the trap or the computation |
+| Top two responses clear 70% | Not hard enough. Deepen the trap or the computation |
 | A response beats your golden on a better-supported path | **That is a golden defect, not a response error.** Repair the golden |
 
 ## Output Format

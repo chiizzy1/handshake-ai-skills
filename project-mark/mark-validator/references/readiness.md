@@ -47,7 +47,7 @@ three plus the evidence note.
 
 ## Rubric and rollout → fix in *Writing the prompt*
 
-15. Recorded rollout clears the scoring gate: across **12 model responses, the top 2 average below 50%** against the rubric.
+15. Recorded rollout clears the scoring gate: across **12 model responses, the top 2 average below 70%** against the rubric (9/01; was 50%). Reset the task before the check — populated later fields leak the golden into the models' context.
 16. The generated rubric is **fixed with 25 or more criteria**, and the fellow does not edit it.
 17. Rubric weighting holds: the recommendation and its critical components take about **30% across three or more criteria**, supplementary questions take about **60%**, instruction-following takes **5 to 10%**, **no single criterion exceeds 20%**, and all criteria total **100%**.
 

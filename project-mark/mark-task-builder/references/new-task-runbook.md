@@ -72,6 +72,22 @@ recorded as authored. The rule document pins the **metric only** — the hint
 gradient (60%→18%) means every validity check named in a rule is a check the
 models will simply execute.
 
+**Generate every factual field from the data, never by hand.** Write one build
+script that reads the corpus and emits the memo, the standard and the reports
+with the figures pulled live. Hand-typed IDs, CTRs and dates drift the moment
+anything upstream changes, and the drift is silent. Task 02 shipped a memo whose
+N-5 experiment ID did not exist in its own corpus, because a stale copy of the
+builder was re-run to fix something unrelated.
+
+**Since 9/01 these files must not read as LLM output.** Document control blocks,
+real author names in the file metadata, uneven section lengths, a footer, some
+dead weight. Run `tools/mark_realism_check.py` and then read them. Full guidance
+in `../../mark-input-package/references/business-realism.md`.
+
+**Keep the build and verify scripts with the task, not in `/tmp`.** `/tmp` is
+cleared between sessions. A builder that vanishes cannot be corrected, and a
+stale one that survives will silently undo verified work.
+
 ## 7 · Prompt, golden, gates
 
 Prompt in business voice; lint with `mark_leak_check.py`; grep for leak
@@ -80,7 +96,25 @@ Golden scripts compute everything from the archive — nothing hard-coded.
 Then: manifest with roles, freeze the ZIP, Gate 1 clean-directory rerun,
 Gate 3 remove-one-file with stated reasons, reconcile the deliverables.
 
+Write the gates as one script that runs them all and prints PASS/FAIL per gate.
+Add a gate for every defect you find during the build — a reconciliation gate
+that checks each authored figure against the source data, and an ambiguity gate
+that asserts no injected value parses two ways, both came out of real defects
+and both now catch them automatically.
+
 ## 8 · The stump check is the experiment
+
+**Reset the task before you run it.** Known platform bug, reported in Slack and
+unfixed: if the text fields *after* the model checks are populated, the two
+models read them — including your golden documents and the rubric — and answer
+with the answer key in context. Scores taken that way are meaningless and will
+look far too high. Reset before the first check, and again after any change to
+the prompt or the ZIP.
+
+**The bar is 70%** since 9/01, not 50%: Responses 1 and 2 must average below it.
+Aim well under — the in-task grader is imperfect and the official regrade is
+what counts, so a task scraping 69% is a coin flip. Anything near 100% is read
+as low effort.
 
 Run step 3 on the platform and read both responses as data. Append the
 outcome to `rollout-lessons.md` — pass or fail — and append any newly vetted
