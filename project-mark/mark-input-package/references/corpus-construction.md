@@ -97,6 +97,26 @@ The same test applies to any injected inconsistency:
 - **Encoding mangling applied to the join key** rather than to display text
   (mangle headlines, never IDs)
 
+### Generate corruption from its rule, never store it as literals
+
+A hardcoded mojibake table cost a byte-exact rebuild. The rendering of `”`
+is `â€` followed by an unprintable `0x9D`, which is invisible when the table is
+read, copied or reviewed — so a reconstruction silently drops it and 8 records
+in 22,666 come out different.
+
+Derive it instead:
+
+```python
+def _mojibake(ch):            # UTF-8 bytes read as cp1252
+    return ch.encode("utf-8").decode("cp1252")
+
+MANGLE = {c: _mojibake(c) for c in "’—“”"}
+```
+
+The same holds for any injected corruption: express it as the transformation
+that produces it in the real world, not as a table of its output. Literals of
+unprintable bytes do not survive a round trip through a person or a diff.
+
 Write the sweep as an assertion in the build, not a one-time check. Ask of every
 injected value: *can a careful reader recover the original with certainty?* If
 not, it is not mess — it is a coin flip you have hidden in the data.
