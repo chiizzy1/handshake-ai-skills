@@ -39,6 +39,8 @@ Tell them apart by the interaction under the rating:
 | Two boxes, "What specific evidence did you notice in Response A / B?", "One box required, 50+ characters total" | T2I Image Comparison 2, Dual boxes | `handshake-t2i-dual-boxes` |
 | One box plus a "Check my justification" button | T2I Image Comparison 3, Live feedback | this skill |
 
+| A record button, a 45-second timer, and a transcript to confirm | T2I Voice input and translation | `handshake-t2i-muse-dictation` |
+
 If the UI shows two evidence boxes, you are in the wrong skill.
 
 ## Task Shape

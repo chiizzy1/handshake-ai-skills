@@ -23,6 +23,30 @@ requirements are in [operative rules](canonical-rules.md).
 The agreed workflow is source inspection, independent analytical prototypes,
 reasonable-alternative checks and fresh blind screens before full packaging.
 
+## September 7 follow-up: authentic complexity still needs an observed failure
+
+The CHECC causal comparison remains on hold: both public data versions lack
+the referenced code, and the final population/assignment rules were not
+retrieved. The 2020 working paper's different findings are not a final-rule
+substitute. An original descriptive records-recovery task avoids that unresolved
+causal question by declaring its own roster and operational assumptions.
+
+That internal prototype uses 13,608 real school records, repeated assignments,
+six-year event bounds, incomplete follow-up, complementary district requests
+and two capacity constraints. An independent implementation verified all
+146,291 feasible portfolio rankings. Greedy gain-per-field makes a material
+allocation error, but two fresh tool-using contexts nevertheless found the
+exact reference choice and correct supporting core analysis. They also
+recognized that the closest alternative ties substantively and loses only
+on the prescribed numeric-code tie-break.
+
+Do not confuse those constructed shortcut losses with observed model failures,
+or introduce last-decimal/tie-break grading to make this concept look hard.
+These are local fresh-context screens of the inherited session model, not
+official tests of two different platform models. Artifact audit and complete
+evidence are tracked in workspace
+`HANDSHAKE-AI/MARK-TASKS/recovery-prototype-v1/README.md`.
+
 ---
 
 # Rollout Lessons — empirical field notes

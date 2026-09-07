@@ -26,6 +26,7 @@ handshake-ai-skills/
 │   ├── handshake-static-webpage/
 │   ├── handshake-t2i-dual-boxes/
 │   ├── handshake-t2i-live-feedback/
+│   ├── handshake-t2i-muse-dictation/
 │   ├── handshake-t2v-evaluator/
 │   ├── handshake-text-to-code-elo-evaluator/
 │   ├── handshake-ti2t-evaluator/

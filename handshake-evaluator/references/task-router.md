@@ -64,6 +64,7 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Seed + direction + brief + two finished ads, campaign readiness | `handshake-ads-overall-suitability` | `project-hedgehog/handshake-ads-overall-suitability/SKILL.md` |
 | Prompt + two images, one preference + two evidence boxes (Dual boxes) | `handshake-t2i-dual-boxes` | `project-hedgehog/handshake-t2i-dual-boxes/SKILL.md` |
 | Prompt + two images, one preference + one comment box with a justification checker (Live feedback) | `handshake-t2i-live-feedback` | `project-hedgehog/handshake-t2i-live-feedback/SKILL.md` |
+| Prompt + two images, one preference + a dictated explanation to transcribe and confirm (Voice input and translation) | `handshake-t2i-muse-dictation` | `project-hedgehog/handshake-t2i-muse-dictation/SKILL.md` |
 | Prompt + two videos, "less AI-generated" | `handshake-t2v-evaluator` | `project-hedgehog/handshake-t2v-evaluator/SKILL.md` |
 | Video-reasoning row audit, queue names, `X out of Y` | `handshake-videorl-evaluator` | `project-hedgehog/handshake-videorl-evaluator/SKILL.md` |
 | Media + prompt + two text responses | `handshake-ti2t-evaluator` | `project-hedgehog/handshake-ti2t-evaluator/SKILL.md` |

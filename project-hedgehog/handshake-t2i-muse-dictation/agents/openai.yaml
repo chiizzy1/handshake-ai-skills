@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake T2I Muse Dictation"
+  short_description: "Compare two T2I responses, dictate the evidence, and correct the transcript before submitting"
+  default_prompt: "Use $handshake-t2i-muse-dictation to compare Response A and Response B and draft the spoken evidence."

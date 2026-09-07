@@ -39,6 +39,8 @@ family: identical rating scale, evidence tests, skip rules, and boundary cases.
 | Two boxes, "What specific evidence did you notice in Response A / B?", "One box required, 50+ characters total" | T2I Image Comparison 2, Dual boxes | this skill |
 | One box plus a "Check my justification" button | T2I Image Comparison 3, Live feedback | `handshake-t2i-live-feedback` |
 
+| A record button, a 45-second timer, and a transcript to confirm | T2I Voice input and translation | `handshake-t2i-muse-dictation` |
+
 If the UI shows one evidence box with a checker button, you are in the wrong skill.
 
 ## Task Shape

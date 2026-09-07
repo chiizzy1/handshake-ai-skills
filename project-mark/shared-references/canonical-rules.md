@@ -9,12 +9,18 @@ acceptance requirements, use the current task UI and the most recent applicable
 staff update, then the handbook. Local strategies are recommendations, not
 platform rules.
 
-The newest supplied source is Vincent's Slack announcement in the user's
+The governing supplied source is Vincent's Slack announcement in the user's
 screenshot, reviewed 2026-09-07. It explicitly distinguishes tasks started before
 September 5 from new tasks. The message's full-update and examples links were
 not available in the screenshot; do not claim those pages were inspected.
 The source summary is in
 `HANDSHAKE-AI/Project-Mark/9-05-updates.md` in the workspace.
+
+The user explicitly confirmed that Vincent is the project lead and instructed
+us to follow his announcement over James's subsequently supplied reminder.
+Do not reintroduce that reminder's conflicting restriction on LLM-assisted
+goldens or treat it as an unresolved approval dependency. Vincent permits LLM
+assistance with iteration and editing; empirical evidence remains traceable.
 
 | Requirement | New tasks under the September 5 update | Tasks started before September 5 |
 |---|---|---|

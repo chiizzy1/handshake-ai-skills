@@ -49,8 +49,8 @@ restriction. Another independently licensed source may be preferable.
 
 | Source | Verified at discovery | Work still needed |
 |---|---|---|
-| [Detecting Drivers of Behavior at an Early Age](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L28TD1) | Downloaded CC0 v2: eight empirical tables; school panel 13,608 rows; repeated assignments and unequal follow-up; all nine original checksums match | Resolve absent replication code and final cohort rules; test an original decision. Descriptive differences are not causal validation |
-| [Tanzania cash transfers and trust](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNIXA4) | CC0/public metadata; README accessible; household and village tables over three waves | Check actual observation counts and analytical differences; only two substantive tables may limit package suitability |
+| [Detecting Drivers of Behavior at an Early Age](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L28TD1) | Downloaded CC0 v2: eight empirical tables; school panel 13,608 rows; repeated assignments and unequal follow-up; all nine original checksums match | Causal comparison remains on hold after final-documentation search. Separately authored records-recovery prototype: two fresh contexts solved its core correctly; do not promote on shortcut evidence |
+| [Tanzania cash transfers and trust](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNIXA4) | Downloaded CC0 originals and verified all ten checksums; household table 5,374 rows and village table 240; seven replication scripts; attrition totals reproduced | Below inherited 10,000-row floor as standalone; retain as methodological reserve without padding |
 | [BEA GDP/GDI archives](https://www.bea.gov/data/gdp/gross-domestic-product) | Downloaded workbook, 1,054 vintages; [public-domain policy](https://www.bea.gov/index.php/help/faq/145). First three-method rolling forecast test retained the same winner under hindsight in all three windows | Retire that simple concept; broader historical reconstruction remains unverified and the workbook alone is below 10,000 rows |
 | [ACS PUMS](https://www.census.gov/programs-surveys/acs/microdata.html) | Public microdata and detailed design documentation, including 80 replicate weights | Inspect the actual release; weighting alone is not a demonstrated model weakness |
 
@@ -61,7 +61,11 @@ an unconstrained “best forecast” is not a deterministic golden.
 
 Detailed local results and scripts are in workspace
 `HANDSHAKE-AI/MARK-TASKS/source-screening-2026-09-07/SCREENING.md`.
-No blind screen or official rollout was run for these candidates.
+The original causal and BEA concepts have no official rollout. The separately
+authored records-recovery prototype in
+`HANDSHAKE-AI/MARK-TASKS/recovery-prototype-v1/` has two independent core solves.
+Those runs used fresh contexts of the inherited session model, not the two
+distinct official platform models.
 
 **Excluded as a default source:** [FRED/ALFRED terms](https://fred.stlouisfed.org/legal/)
 prohibit AI development/training without prior written consent, including for
