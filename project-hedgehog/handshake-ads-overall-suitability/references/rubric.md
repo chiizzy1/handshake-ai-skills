@@ -388,6 +388,15 @@ characters**: it teaches specificity, not submission length. Every full exemplar
 If you are short of 100, you have written about one response only. **Add the other side, never more
 adjectives.** A padded 100 characters fails review exactly as a vague one does.
 
+### Do not narrate the process
+
+The scan is how you decide. It is not what you write. "Text does not decide this pair", "after the
+dealbreaker scan", "on the grounding check" all describe your procedure, and they read as an audit
+report rather than a person looking at two pictures.
+
+When both sides are equal on text, say it in passing and move on: *"Both use the same text off the
+seed, so the look is what separates them."* Then name what actually differs.
+
 ### Say the trace, not the label
 
 The exemplars never write "invented specific", "dealbreaker", "campaign-ready", or "polish edge". They
@@ -437,7 +446,8 @@ background. A really was sharper at full zoom. Each lost to something never chec
 20. **Penalizing a response for not rendering the brief's headline.** Nothing requires the brief's copy to appear.
 21. **Reading a layout as decoration.** Where the marks point is part of the ad. A collapsed comparison layout can turn a warning mark on the advertised product.
 22. **Padding to reach 100 characters.** Adjectives instead of the second half of the comparison.
-23. **Writing in rubric labels.** "An invented specific, therefore not campaign-ready" instead of quoting the line and saying where you looked for it.
+23. **Narrating the scan.** "Text does not decide this pair" describes what you checked. Say what you saw.
+24. **Writing in rubric labels.** "An invented specific, therefore not campaign-ready" instead of quoting the line and saying where you looked for it.
 24. **Naming only the loser's failure.** When both sides carry problems, name both lines. A note that mentions only B's invented price hides that you also saw A's filler.
 
 ## Checklist

@@ -278,6 +278,8 @@ For a tie, the same shape inverted: what both do well, then what you looked for 
 - **Semicolons are fine here.** The house style across these skills bans them, but this task's own exemplars use them ("...and render cleanly; nothing separates them"). The task guideline outranks the baseline. A period does the same work if you prefer one.
 - **Use "while" instead of "whereas"** when contrasting. The exemplars lean on "while" heavily.
 - **Say the trace, not the label.** Write "appears in neither the seed nor the brief", not "is an invented specific". "Dealbreaker", "campaign-ready", "grounded", "polish edge" are your thinking words. The exemplars never use them.
+- **Do not narrate your process.** "Text does not decide this pair", "after running the scan", "on the grounding check" describe what you did, not what you saw. If both sides are equal on text, say so in passing and move to what actually differs.
+- **Write it as you would say it to someone next to you**, looking at the two images. Plain words for plain things: the title, the grey boxes, the discount line, the props round the edge.
 - **Avoid absolutes.** "Perfect typography" becomes wrong the moment someone zooms in.
 - **No AI power words.** Delve, meticulous, seamlessly, striking visual narrative.
 - **Banned phrases:** "Upon review of," "demonstrates superior," "holistic," "it is evident that," "exhibits," "the aforementioned."
@@ -300,7 +302,7 @@ Response A adds a 40% off badge that appears on neither the seed nor the brief, 
 ```
 
 ```markdown
-Both are clean and grounded, but Response B's headline aligns to the product and leaves the bottle unobstructed, while Response A's caption sits across the label.
+Both keep to the brief's copy, so it comes down to the layout. Response B's headline lines up with the product and leaves the bottle clear, while Response A's caption sits right across the label.
 ```
 
 ```markdown
@@ -308,7 +310,7 @@ Neither could ship. Response A garbles the headline into two overlapping lines a
 ```
 
 ```markdown
-Both use only the brief's copy and both are cleanly lit, with no difference in typography or composition that would decide it.
+Both use only the brief's copy, both are lit the same way, and the type is clean on each. Nothing in either one stands out as better.
 ```
 
 Every one of those clears 100 characters on content alone, between 126 and 169.
@@ -323,6 +325,8 @@ Every one of those clears 100 characters on content alone, between 126 and 169.
 - *Bad (no location):* "A's text is wrong." Say which text and where it came from.
 - *Bad (rubric voice):* "Response A contains an invented specific and is therefore not campaign-ready." Say what the line actually says and where you looked for it.
 - *Bad (padded to length):* "Response B is the stronger, more polished, more professional and more suitable choice for this campaign overall." Long, and names nothing.
+- *Bad (process narration):* "All the copy on both responses traces to the seed, so text does not decide this pair, and the call rests on execution." Says what you checked, not what you saw. Try "Both use the same text off the seed, so the look is what separates them."
+- *Bad (stiff register):* "Response A demonstrates a clear focal hierarchy with a coherent perimeter arrangement." Try "Response A keeps everything in one centred block ringed by first aid and desk props.
 
 ## Output Format
 
