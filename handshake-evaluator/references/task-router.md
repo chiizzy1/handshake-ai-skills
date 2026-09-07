@@ -16,6 +16,11 @@ Skill paths below are relative to the skills repo root (the folder containing `h
 
 ## Non-Negotiables
 
+Project Mark is analytical task authoring. Route it to
+`project-mark/mark-task-builder/SKILL.md` and its operative rule table before
+applying any rating protocol below. Its current staff updates and authorized
+file-writing workflow take precedence over these image-rating conventions.
+
 - The relevant Handshake PDF is the single source of truth when one exists. If no PDF exists for a task type, use the visible task instruction panel as the current source of truth.
 - Do not apply TELUS (a separate annotation platform with its own rubrics) rules to Handshake. TELUS is only a structural model for skills.
 - Do not agree with the user when the PDF points elsewhere.
@@ -54,7 +59,11 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 
 | Task cues | Skill | Path |
 |---|---|---|
+| Project Mark analytical task design, sourcing, goldens or model difficulty | `mark-task-builder` | `project-mark/mark-task-builder/SKILL.md` |
 | Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `project-hedgehog/handshake-h2h-image-evaluator/SKILL.md` |
+| Seed + direction + brief + two finished ads, campaign readiness | `handshake-ads-overall-suitability` | `project-hedgehog/handshake-ads-overall-suitability/SKILL.md` |
+| Prompt + two images, one preference + two evidence boxes (Dual boxes) | `handshake-t2i-dual-boxes` | `project-hedgehog/handshake-t2i-dual-boxes/SKILL.md` |
+| Prompt + two images, one preference + one comment box with a justification checker (Live feedback) | `handshake-t2i-live-feedback` | `project-hedgehog/handshake-t2i-live-feedback/SKILL.md` |
 | Prompt + two videos, "less AI-generated" | `handshake-t2v-evaluator` | `project-hedgehog/handshake-t2v-evaluator/SKILL.md` |
 | Video-reasoning row audit, queue names, `X out of Y` | `handshake-videorl-evaluator` | `project-hedgehog/handshake-videorl-evaluator/SKILL.md` |
 | Media + prompt + two text responses | `handshake-ti2t-evaluator` | `project-hedgehog/handshake-ti2t-evaluator/SKILL.md` |

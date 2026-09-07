@@ -1,3 +1,8 @@
+> Historical reference: examples and earlier handbook wording below must be
+> read under [the operative rules](../../shared-references/canonical-rules.md).
+> New tasks use the September 5 specification. Old quotas, model-failure rates,
+> compulsory noise/burial, and platform mechanics below are not current directives.
+
 # Traceability
 
 Every claim and every number in every file must trace back to a shipped input

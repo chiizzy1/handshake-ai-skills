@@ -1,3 +1,8 @@
+> Historical reference: examples and earlier handbook wording below must be
+> read under [the operative rules](../../shared-references/canonical-rules.md).
+> New tasks use the September 5 specification. Old quotas, model-failure rates,
+> compulsory noise/burial, and platform mechanics below are not current directives.
+
 # Quality Checks, Review, and Payment
 
 From the FAQ. **The in-task Quality Check is a platform feature the handbook never

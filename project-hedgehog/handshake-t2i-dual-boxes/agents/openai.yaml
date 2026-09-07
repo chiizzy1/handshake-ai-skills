@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake T2I Dual Boxes"
+  short_description: "Compare two T2I responses against the prompt and write the required Dual boxes evidence"
+  default_prompt: "Use $handshake-t2i-dual-boxes to compare Response A and Response B and write the evidence boxes."

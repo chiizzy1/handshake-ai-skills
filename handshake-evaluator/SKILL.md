@@ -17,6 +17,13 @@ description: Router and source-of-truth controller for Handshake AI task work. U
 
 ## Core Rule
 
+For **Project Mark**, route directly to
+`../project-mark/mark-task-builder/SKILL.md` and its operative rule table.
+Mark is analytical task authoring; the image-rating rules and output-only
+convention below do not apply. Use the latest applicable task UI/staff update,
+including the user-supplied September 5 announcement. Perform local file edits
+when the user authorizes them.
+
 Use the Handshake PDF for the specific task type as the highest authority. Use `HANDSHAKE-AI/guidelines.md` as a broad working summary only. If the user, this skill, an old answer, or general instinct conflicts with the PDF, follow the PDF.
 
 Do not be agreeable for its own sake. Be cooperative with the user, but be loyal to the Handshake rubric.
@@ -56,6 +63,14 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 ## Task Type Map
 
+### Project Mark
+
+- Analytical task design, data sourcing, prompts, golden deliverables and
+  difficulty testing: use `mark-task-builder`
+  (`../project-mark/mark-task-builder/SKILL.md`). It routes to the five
+  specialized Mark skills. Read
+  `HANDSHAKE-AI/Project-Mark/guidelines.md` for the maintained working guidance.
+
 ### Project Hedgehog
 
 - Text Image To Text ELO / TI2T: use `handshake-ti2t-evaluator` (read `../project-hedgehog/handshake-ti2t-evaluator/SKILL.md`).
@@ -64,6 +79,9 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - Image-to-Image, Reference-to-Image, Omni R2I ELO with A/B preference axes: use `handshake-r2i-i2i-evaluator` (read `../project-hedgehog/handshake-r2i-i2i-evaluator/SKILL.md`).
 - i2i Pixel Aligned / Project Hedgehog Q1-Q2-Q3 Yes/No edit checks: use `handshake-i2i-pixel-aligned` (read `../project-hedgehog/handshake-i2i-pixel-aligned/SKILL.md`).
 - Ads Creative visual appeal / Compare Two Ad Images (two finished ad images, one five-button appeal call, ignore overlaid text): use `handshake-ads-visual-appeal` (read `../project-hedgehog/handshake-ads-visual-appeal/SKILL.md`).
+- Ads Creative overall suitability / Compare Two Ad Images Overall Suitability (seed + creative direction + ad brief + two finished ads, Strongly/Slightly/Tie, judge the whole ad including overlaid text and where it came from): use `handshake-ads-overall-suitability` (read `../project-hedgehog/handshake-ads-overall-suitability/SKILL.md`).
+- T2I Image Comparison with Dual boxes (prompt + Response A/B images, Strongly/Slightly/Tie preference, two evidence boxes, one box required at 50+ characters): use `handshake-t2i-dual-boxes` (read `../project-hedgehog/handshake-t2i-dual-boxes/SKILL.md`).
+- T2I Image Comparison with Live feedback (same preference row, but one required comment box of 50+ characters plus a Check my justification button): use `handshake-t2i-live-feedback` (read `../project-hedgehog/handshake-t2i-live-feedback/SKILL.md`).
 - UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../project-hedgehog/handshake-ud-caption-evaluator/SKILL.md`).
 - Annot Critic: use `handshake-annot-critic` (read `../project-hedgehog/handshake-annot-critic/SKILL.md`).
 - Critique Rework: use `handshake-critique-rework` (read `../project-hedgehog/handshake-critique-rework/SKILL.md`).

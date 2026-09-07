@@ -27,6 +27,22 @@ This question measures one thing only: **pull**. How strongly does each picture 
 
 This is not the six-axis R2I/I2I ELO task and not Pixel Aligned. There is no prompt to check, no reference image, and no instruction following. Do not import axes the UI does not show.
 
+## Sibling Task, Opposite Scope
+
+This is the **Q4** question in the Ads Creative I2I set. Its sibling `handshake-ads-overall-suitability`
+(`project-hedgehog/handshake-ads-overall-suitability/SKILL.md`) is the **Q0** question, and the two have
+**opposite scope rules**.
+
+| | Q4 Visual Appeal (this skill) | Q0 Overall Suitability |
+|---|---|---|
+| Question | Which picture is more striking to look at? | More suitable as a high-end campaign ad? |
+| Overlaid text | Explicitly out of scope | In scope, and usually decisive |
+| References shown | None | Seed image, creative direction, ad brief |
+| Buttons | Clearly/slightly more appealing, Similarly good/bad | Strongly/Slightly Prefer A, Tie, Slightly/Strongly Prefer B |
+
+If the UI shows a seed image and an ad brief, and the buttons say "Strongly Prefer", you are in the
+wrong skill.
+
 ## Task Shape
 
 - Two finished ad images side by side, **Output A** and **Output B**. Either one can be clicked to magnify.

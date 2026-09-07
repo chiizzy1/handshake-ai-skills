@@ -1,260 +1,66 @@
 ---
 name: mark-trap-designer
-description: Design the trap that makes a Project Mark task hard. Use when choosing or layering the analytical traps a task is built on — the six trap families, the four fairness criteria, the honest-data doctrine that replaced planted defects, recipe composition across families, and the fit checks that prove a trap is discoverable, consequential, deterministic and fair.
+description: Design and empirically screen fair Project Mark analytical challenges by comparing defensible analyses with plausible shortcuts, testing consequential differences and deterministic decisions.
 ---
 
-# Project Mark — Trap Designer
+# Project Mark — Analytical Challenge Design
 
-**Design the trap first, before the prompt.** A prompt written first signposts
-the catch. Write the trap, then write the message a stakeholder would send if the
-trap were invisible to them.
+A valid failure is a substantive mistake supported by observable results:
+incorrect population, unsupported causal inference, invalid validation,
+miscomputed constraint or another material analytical error. Read
+[operative rules](../shared-references/canonical-rules.md) for the applicable
+task specification.
 
-Stumping means a strong model gets a genuine analytical or methodological
-question wrong while a careful analyst gets it right using only what was shipped.
-**A different final sentence is not a stump.** The failure has to trace to a real
-mistake: the wrong denominator, an invalid join, a mishandled cohort, an
-unjustified causal claim, an invalid validation scheme.
+## Establish the mechanism from actual data
 
-## Hard Gate — Honest Data
+Record the business decision, evidence, defensible analysis, plausible shortcut,
+and the material conclusion each produces. A shortcut must be something an
+analyst could plausibly do; a contrived planted falsehood is not a useful test.
 
-The "flip the wrong number" trap is **retired**. A task built on a planted defect
-gets returned.
+Compose requirements only when their results interact in the same decision.
+Examples include repeated assignment plus follow-up selection, cohort timing
+plus target-population weighting, or vintage availability plus model validation
+and operational loss. None is a guaranteed weakness of current models.
 
-The shape to avoid: a number is stated or clearly implied to be true, turns out
-to be false once you dig deep enough, and catching that lie is the whole
-challenge. That is not realistic, and once a model expects "something here is
-secretly wrong", you have stopped testing analysis and started testing plant
-detection.
+Keep definitions, decision cutoffs and binding constraints discoverable and
+complete. Withholding necessary scope creates ambiguity, not analytical depth.
+Do not narrate the correct solution merely to satisfy a checklist.
 
-Two rules keep it honest:
+## Fairness checks
 
-- **Do not stake the whole task on a hidden defect.** A messy or misleading
-  detail is fine as texture, but the task has to stay hard *after* the model
-  notices it. If spotting the trick is the whole game, the task fails.
-- **Let the numbers be right.** Make the challenge a tempting adjustment that
-  would wrongly talk the model out of a correct figure, or move it off the numbers
-  entirely — into forecasting, method selection, a binding constraint, or a
-  decomposition — all on data that is not lying.
+- Every necessary empirical fact and decision rule is in the shipped evidence.
+- Empirical values remain honest; authored scenario rules are identified.
+- Ordinary tooling can load the files.
+- Competent analysts can reproduce the answer without designer knowledge.
+- Reasonable alternative conventions either preserve the decision or are
+  explicitly resolved by the problem's legitimate requirements.
+- Each analytical complication affects a material requested result.
 
-| Shape | Retired (planted defect) | Valid (honest data) |
-|---|---|---|
-| Mixed or hidden subgroups | The extra "sessions" are secretly background wakes; strip them and the lead reverses | The lead is real and correctly reported. The trap is a tempting adjustment that would wrongly flip it |
-| Conceptual or definition swap | The stated metric is a mislabel you have to catch | Both metrics are measured correctly. The work is choosing the one the problem structure requires |
-| Coverage gap | Half the period is hidden in a third extract; find it and the answer flips | Every extract is present. The top-ranked option breaks a capacity limit, so the answer is the next option that fits |
-| Mislabeled or miscategorized | Two brokers stamp "launch" at different moments; realign and the leader changes | Label semantics are documented and consistent, just spread across feeds. The work is conforming them to one definition |
-| Clock or timing artifact | Timestamps are secretly UTC, not the documented local zone | Timestamps are correct and consistent. A known schedule change makes the next period genuinely differ |
-| Wrong denominator | Zones vary hugely in size, so the rate secretly uses the wrong denominator | The rate and denominator are both correct. A real capacity or clawback limit caps which option is feasible |
+Allocation imbalance alone does not prove randomization failed unless the
+assignment design and expected allocation support that inference. A different
+valid CI convention is not a model error. Missing outcomes cannot be invented
+to force causal identification.
 
-## Four Fairness Criteria
+## Test before committing
 
-Always in force. Every trap answers to all four.
+Compute the correct and shortcut paths and test reasonable alternatives before
+polishing the package. Run blind solvers in clean contexts without the golden,
+rubric or prior design discussion. Record actual analytical outcomes and errors.
 
-| Criterion | Meaning |
-|---|---|
-| **In-corpus antidote** | Every deception has a correcting fact inside the files. Supersession is reconstructible from dates and documents. |
-| **Deterministic outcome** | Ten competent analysts reach the same recommendation. All defensible cleanings converge. |
-| **No parsing puzzles** | Every file loads with standard tooling in one or two obvious attempts. Difficulty is spent on reasoning, not input and output. |
-| **No fabricated source data** | No LLM-generated files, no augmentation, no model-written memos. A self-written memo is a scenario document, not source data, and is recorded as such. |
+A diagnostic version with well-organized evidence can reveal whether difficulty
+comes only from finding a paragraph or processing files. Do not automatically
+respond to a clean solve by hiding evidence or injecting corruption. Two clean
+blind solves are a useful local reason to abandon or materially redesign a
+concept, not a Handshake gate.
 
-### Discoverable
+Neither two wrong winners nor a fixed number of trap layers is required by
+the score threshold. Materially incorrect supporting analysis can matter even
+when the final choice happens to be right. Grade valid alternatives fairly.
 
-The model must be able to find, inside the prompt, files, and standard domain
-knowledge, everything it needs to reject the wrong path. A fair trap may ship
-evidence that encourages the wrong reading — the material that overturns it must
-be present.
+[Composition](references/composition.md) provides a small practical checklist.
+The [catalog](../shared-references/trap-catalog.md) and remaining historical
+references are idea sources; their legacy rates, templates and task quotas
+are not current requirements.
 
-**Not discoverable:** a required rule or definition is absent · a necessary file
-was never shipped · the analyst has to guess an unstated threshold · the deciding
-fact lives outside the provided materials.
-
-The strongest traps live **between** files: reconciling a summary against raw
-records, joining at the wrong grain, a definition buried in supporting
-documentation, one file that silently supersedes another.
-
-### Consequential
-
-Catching the trap has to matter. If the recommendation, an interpretation, or a
-decisive intermediate result would be identical whether or not the model corrects
-course, the trap is decorative.
-
-### Deterministic
-
-If the final answer changes depending on a reasonable but unpinned choice of
-metric, scope, population, threshold, time window, or definition, the task is
-underspecified — not hard.
-
-### Fair
-
-Semantic ambiguity, missing information, and arbitrary gotchas are disqualifying
-even when they make a task hard. The prompt and supporting documents must never
-narrate the trap: never say which file is misleading, which metric is wrong,
-which join to avoid, or which conclusion is expected.
-
-**No complexity for its own sake.** A task is not harder because it has more
-files, rows, or formats. Irrelevant files, duplicated information, arbitrary
-noise, and volume that only creates search burden all count against fairness.
-
-## Valid Failure Versus Invalid Difficulty
-
-| Topic | Valid | Invalid |
-|---|---|---|
-| Source of the failure | A genuine analytical mistake: wrong cohort, invalid method, missed reconciliation | An undefined term, unstated threshold, or missing fact |
-| What correcting it looks like | Recovering evidence already in the workspace and revising the recommendation | Guessing at a definition nobody pinned down |
-| Whether experts agree on the fix | Every competent analyst converges on the same corrected answer | Equally reasonable experts could defensibly disagree |
-| What ships in the prompt | Evidence that makes the correct path findable | A hint, or narration, of what the trap is |
-
-If two strong analysts could reasonably choose different definitions, thresholds,
-scopes, metrics, populations, or time windows, and nothing resolves the choice,
-that is an **underspecified task**, not a stump.
-
-## Preflight
-
-Confirm all five before going looking for a trap.
-
-- [ ] The failure is a genuine analytical or methodological mistake, not a different final sentence
-- [ ] No reasonable expert could defensibly choose a different definition, threshold, or scope and still be right
-- [ ] The evidence that corrects the wrong path is present in the workspace, not narrated in the prompt
-- [ ] A careful analyst using the materials correctly always lands on the same recommendation
-- [ ] Catching the trap changes the recommendation or a decisive intermediate result, not just wording
-
-## The Six Families
-
-| Family | Name | The shape | Entries |
-|---|---|---|---|
-| A | Aggregation and statistics | The number is computed correctly and still means the wrong thing | 17 |
-| B | Experiment and causality | The comparison looks clean but the design underneath it is broken | 17 |
-| C | Time and comparability | Two periods placed side by side that were never comparable | 13 |
-| D | Plumbing and joins | The data loads fine and the grain, keys, or units are lying | 18 |
-| E | Documents and formats | The decisive fact is present, just not where a skim will find it | 12 |
-| F | Definitions and framing | The metric named in the prompt is not the metric the decision needs | 6 |
-
-**All 83 family traps are captured in full** in
-`../shared-references/trap-catalog.md` — each with its failure mode ("why models
-miss it"), a realistic example, its in-corpus antidote, its cross-family pairings,
-and the model failure behaviours it targets. 14 are flagged **Proven in
-production**.
-
-The parallel objective-indexed catalog (104 entries at `/trap-examples`) is still
-titles-only, but it slices the same material, so the family catalog is normally
-enough.
-
-## The Four Fit Checks
-
-Every trap carries these on the platform, and a trap is **unavailable for a recipe
-until all four are confirmed**:
-
-1. **Changes or invalidates a material conclusion**
-2. **Correcting evidence exists inside the workspace**
-3. **Bait is a plausible expert mistake**
-4. **Qualified analysts should converge after finding the antidote**
-
-The handbook's own caveat, worth repeating to the user: *"Nothing here checks your
-work, and confirming all four does not guarantee the trap is valid."*
-
-If a condition cannot be met, check `references/invalid-stumps.md` before
-revising — the shape may be one that gets rejected in review. **Run that audit
-right after your first model rollout: a task that stumps models for the wrong
-reason looks identical to a good one on the scoreboard.**
-
-## Verified: What Current Models Solve By Default
-
-Live stump-check evidence (three designs, both responses 82%; full notes in
-`../shared-references/rollout-lessons.md`). **Do not build a trap whose only
-demand is one of these** — they are default behaviours now, not stumps:
-
-sentinel/missing-data handling · join, key and grain hygiene · leading-zero
-identifiers · unit multipliers · cross-universe re-ranking · careful
-rule-document reading with section citations · denominator selection from
-documentation formulas · refusing bait files a rule marks informational ·
-clean-directory reproduction · unprompted robustness checks.
-
-What the accepted examples' stumps actually exploit: **silent statistical
-validity** — a registered estimator ignored for the tempting pooled comparison,
-leakage, invalid validation schemes, mishandled cohorts. Aim there, and design
-the trap to **flip the main recommendation**, because the gate arithmetic makes
-supplementary-only difficulty insufficient.
-
-## The Analytical Pipeline
-
-Beyond the 83-trap catalog there is a second, deeper model of trap design in the
-FAQ — organised by **where in the analytical pipeline** the trap sits:
-
-```
-Data → Measurement → Model → Inference → Causality → Prediction → Decision
-```
-
-**Do not design the trap as "find the statistical mistake." Have the model
-determine whether each analytical step actually supports the next one.** The data
-may be accurately measured, the model may fit, the prediction may be calibrated —
-and the groups may still not be comparable, or the decision not actionable.
-
-The full taxonomy — 11 trap domains with the question each asks, the causal ladder
-from association to action, and seven groups of predictive and forecasting traps —
-is in `references/analytical-taxonomy.md`.
-
-The standard it sets, and the best single statement of the bar anywhere:
-
-> A strong stump should leave the model with **a tempting, internally plausible
-> path toward an incorrect answer**, while providing **enough information for a
-> careful analyst to identify the hidden assumptions, alternative explanations,
-> and limits of the evidence.**
-
-## Composition
-
-**Single traps get caught by strong models about half the time.** Layer a gate, a
-flip, and a confirmation from **different families**, then check that all three
-push toward the same wrong answer, so a partial analysis plausibly lands there.
-
-Every layer must materially change the answer on its own. A layer that only adds
-reading time is decoration, and it makes the task longer without making it
-harder.
-
-**The layering model, composition rules and rollout tuning are in
-`references/composition.md`** — including which layer drives which calibration
-target. The 14 worked recipes in the shared trap catalog are the pattern library. Take
-one and build it out rather than starting from a blank page. Every pattern is
-domain-transferable: the same shape works in an operational, economic, policy, or
-demographic workspace once the subject matter is swapped.
-
-## Fit Check Per Trap
-
-For each trap in the recipe, state all five before committing:
-
-| Field | What to write |
-|---|---|
-| Role | Gate, flip, or confirmation |
-| Bait | The clean, polished file that supports the wrong answer. Genuinely stale, wrongly scoped, or computed on the wrong basis, and named to sound authoritative |
-| Antidote | The row, footnote, changelog line, or raw export that shows why the bait is wrong. Reachable, but not readable in the same glance as the bait |
-| Arbiter | The file that settles the conflict — data dictionary, pipeline changelog, the memo saying which definition took effect when |
-| Decision impact | What the recommendation loses when this is missed: the decision itself, its scope, its justification, or its robustness |
-
-Why a strong analyst would plausibly take the bait — state it. If you cannot,
-the trap is not tempting and the models will not fall for it.
-
-## Output Format
-
-```
-## Trap design
-
-Objective: <Axis 1 objective>
-Recipe: <n> layers across <n> families
-
-### Layer 1 — <family/ID if known> <title>
-Role: gate / flip / confirmation
-Bait: <file> — <why it is genuinely misleading, not planted false>
-Antidote: <file, location> — <the correcting fact>
-Arbiter: <file>
-Decision impact: <what the recommendation loses if missed>
-Why a strong analyst takes the bait: <...>
-
-### Layer 2 ...
-
-## Fairness check
-In-corpus antidote ✓/✗   Deterministic ✓/✗   No parsing puzzles ✓/✗
-No fabricated source data ✓/✗
-Discoverable ✓/✗   Consequential ✓/✗   Fair ✓/✗
-
-## Honest-data check
-Is the whole task staked on a hidden defect? yes/no
-Does the task stay hard after the model notices the messy detail? yes/no
-```
+Report demonstrated numerical differences, robustness limits and screen status.
+Distinguish hypothesized weaknesses from measured failures.

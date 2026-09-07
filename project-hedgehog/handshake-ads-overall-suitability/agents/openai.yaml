@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Ads Overall Suitability"
+  short_description: "Compare two finished ads on campaign readiness, tracing every claim to the seed or brief"
+  default_prompt: "Use $handshake-ads-overall-suitability to compare two ad images on overall suitability."

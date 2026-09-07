@@ -1,3 +1,7 @@
+> Historical idea catalog. Apply [operative rules](canonical-rules.md) first.
+> Named mechanisms and accepted examples do not establish current model failure
+> rates, mandatory layering, or current task-format requirements.
+
 # Trap Catalog
 
 ## Coverage

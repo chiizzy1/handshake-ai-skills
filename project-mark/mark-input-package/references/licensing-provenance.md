@@ -1,89 +1,37 @@
-# Licensing And Provenance
+# Licensing and provenance
 
-Three fields per file, no exceptions: **source URL · pull date · licence**.
+Verify the actual dataset/version and source-service terms before acquisition
+for a training package. Publicly downloadable does not mean redistributable.
+Read the [operative rules](../../shared-references/canonical-rules.md) for the
+inherited accepted license classes and current-source precedence.
 
-Blocking at Readiness stage 1 and checked at Review 1.
+For each file record URL, publisher, dataset/version, retrieval timestamp,
+license text or URL, relevant terms, byte size and SHA-256. For a transformation
+also record upstream hashes, script and parameters. Keep original raw files.
 
-## The record
+Check restrictions on redistribution, commercial use, AI/model training and
+derived data, as well as attribution and file-level exceptions. A repository's
+general policy does not replace a file's terms. Code, paper and data can carry
+different licenses.
 
-| File | Format | Analytical role | Rows | Source URL | Pull date | Licence | Attribution | Necessary? |
-|---|---|---|---|---|---|---|---|---|
+Do not treat a free account, credentialed access, or research-only permission as
+permission to ship data into Mark. If a field needed for the analysis is
+restricted, choose a supported question or another suitable source; do not
+invent the field.
 
-`../../tools/mark_manifest.py --roles roles.json` merges this record with
-SHA-256 hashes and byte sizes, and reports the counters against the bar. The
-sidecar is a JSON map from filename to
-`{"role":…, "necessary":true, "source":…, "pulled":…, "licence":…}`.
+## Specific September 7 findings
 
-Generate it rather than hand-writing it:
+- Harvard Dataverse L28TD1 and JNIXA4 metadata identify CC0 and public files.
+  Preserve exact version metadata when downloading; this is not a complete
+  analytical suitability check.
+- [BEA reuse policy](https://www.bea.gov/index.php/help/faq/145) states its site
+  information is public domain unless otherwise stated. Inspect exceptions.
+- [FRED/ALFRED service terms](https://fred.stlouisfed.org/legal/) prohibit
+  AI development/training without consent. Do not treat “Public Domain” labels
+  on hosted series as overriding service prohibitions.
+- Philadelphia Fed RTDSM permission for commercial training-package
+  redistribution remains unresolved; do not infer public domain from its name.
 
-```
-python3 ../../tools/mark_manifest.py <package> --init-roles roles.json
-```
-
-That emits every filename with blank fields to fill in. If you claimed a starter
-kit, most of `source`, `pulled` and `licence` can be copied straight out of the
-kit's `data_dictionary.json`.
-
-Necessity comes from the remove-one-file test, not from the script. Anything not
-recorded is reported as unrecorded rather than guessed.
-
-## Acceptable licences
-
-The FAQ names them explicitly: **public domain, CC0, CC-BY, CC-BY-SA** — provide
-attribution where the licence requires it.
-
-**Check the licence on each individual dataset, not just the platform.** Most
-platforms host datasets under mixed licences. If there is an open copyright or
-licensing question, ask a Team Lead before using the data.
-
-Avoid: anything with no stated licence, anything marked non-redistributable,
-anything behind terms that forbid derivative works, and anything scraped from a
-source whose terms prohibit it.
-
-If you cannot find the licence, you do not have one.
-
-## Derived and scenario files
-
-Both are allowed. Both must say what they are.
-
-**Derived file** — produced by transforming a real source. Record the source it
-derives from, the transformation applied, and the script that produced it. AI may
-write that transformation script.
-
-**Scenario document** — written by you to supply context a real workspace would
-have. Record that it is a scenario document, who it is written as, and what it is
-based on. It is **not source data** and never counts as empirical evidence.
-
-The rule that binds both: *AI may be used to locate data or to write
-transformation scripts, but it may never create the empirical source evidence
-itself.*
-
-## Provenance note format
-
-Ship one per package, alongside the manifest:
-
-```
-<filename>
-  Source:      <URL>
-  Publisher:   <organisation>
-  Pulled:      <YYYY-MM-DD>
-  Licence:     <name, and URL to the terms>
-  Attribution: <required string, if any>
-  Type:        source | derived | scenario
-  Derived from / based on: <files, and the transformation applied>
-  Role:        <what analytical work this file does>
-```
-
-For a scenario document, `Type: scenario` and the `based on` line are the two that
-matter. Their absence is what makes a self-written memo a fabrication rather than
-a documented artifact.
-
-## Size and format constraints
-
-- ZIP files are usable for the package.
-- Illegally formatted files — bad XML, invalid encodings, invalid JSON — are
-  **not** within scope of "messy". Every file must load with standard tooling in
-  one or two obvious attempts. Difficulty is spent on reasoning, not parsing.
-- A chart may be a distractor even when the same data is supplied numerically.
-  The numbers arbitrate; the chart is where a skim stops.
-- File upload order does not matter.
+Authored scenario documents and golden files may use LLM assistance with review.
+Their provenance must describe their actual origin. Never fabricate empirical
+evidence or impersonate a real issuer to make a document look authentic.

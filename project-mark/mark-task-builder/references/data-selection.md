@@ -1,109 +1,79 @@
-# Picking a Task and a Dataset
+# Data selection and source screening
 
-The dataset decides the difficulty ceiling before any trap is designed. This is
-the most consequential choice in the whole build, and the field evidence in
-`../../shared-references/rollout-lessons.md` is its justification.
+Use the current [operative rules](../../shared-references/canonical-rules.md).
+For an existing task read its objective before committing a build. For exploratory
+research, compare sources without claiming a slot or assuming assigned formats.
 
-## Order of operations — hard rule
+## Selection criteria
 
-1. **Claim the task slot first.** The platform assigns the analytical objective
-   and the two required format families per task. Unclaiming and re-claiming
-   re-rolls them.
-2. **Read the assignment**, then choose data that fits the objective AND can
-   host a main-recommendation stump.
-3. Design the trap. Then build.
+Inspect the actual empirical files, not just a landing-page description:
 
-Designing before claiming means fitting a finished task to a random assignment.
-It failed once already; do not repeat it.
+1. Observation units and linked keys: assignment, measurements, outcomes,
+   dates, geography or operational records.
+2. Analytical design: sampling, allocation, repeated participation, exposure,
+   release timing, follow-up selection and missingness where relevant.
+3. Completeness: all fields needed to identify the requested result are public.
+   A withheld key or unavailable historical input is a limitation, not a trap.
+4. Decision relevance: the data supports a coherent objective with plausible
+   alternatives and a determinate outcome.
+5. Rights and access: exact dataset license and service terms allow the
+   proposed redistribution and AI/training use; check per-file exceptions.
+6. Practical fit: genuine row counts, file sizes, usable formats, dependencies,
+   necessary documentation and a workable subset preserving design structure.
 
-## The ceiling test — apply before claiming any kit
+A connected data collection can support deeper work than a finished index, but
+neither microdata nor many tables establishes difficulty. Compute a defensible
+analysis and plausible shortcuts, then test fresh solvers.
 
-Ask one question of the candidate dataset:
+## Source research protocol
 
-> **What does the correct solution require beyond careful reading and careful
-> coding?**
+Search current primary publishers, repository catalogs and study documentation.
+Use a repository API to inspect versions, licenses, public/restricted flags,
+file names, sizes and download links. Verify actual responses and downloaded
+content, not just HTTP success. Record metadata and hashes at retrieval time.
 
-If the answer is "nothing", the dataset cannot stump, whatever the trap.
-Current frontier models (verified in live stump checks) correctly perform, by
-default: missing-data sentinels, join/key/grain hygiene, leading-zero
-identifiers, unit multipliers, cross-universe re-ranking, rule-document
-compliance with section citations, denominator selection from documentation,
-clean-directory reproduction, and unprompted robustness checks.
+Read the study's current README and final design documentation. Published
+replication code is useful for independently checking the data and methods;
+a new task should require an original analysis, not repeat a printed answer.
 
-## What CAN carry a stump
+Preserve raw files and licensed documentation. Derived subsets have explicit
+scripts and provenance; don't duplicate records or arbitrarily split a table
+to meet package quotas. Do not synthesize omitted assignment or outcome data.
 
-Statistical machinery the tempting standard method mishandles:
+If access is blocked, distinguish technical inability, login requirements and
+a license restriction. Request exact missing material only if necessary to
+continue a promising authorized task; do not claim verification or bypass a
+restriction. Another independently licensed source may be preferable.
 
-| Data property | Trap it enables |
-|---|---|
-| Experiment / rollout data with a registered design | The registered estimator vs the tempting pooled comparison (the accepted-example pattern) |
-| Survey microdata with weights and margins of error | Design-based inference; unweighted means that look adequate |
-| Time series with revisions or vintages | Leakage, wrong-vintage evidence, supersession by date |
-| Train/holdout or prediction context | Validation-scheme and leakage traps |
-| Cohorts that mature at different rates | Maturity mismatch, denominator drift |
+## September 7, 2026 shortlist — prospects, not proven stumps
 
-## Verify live — never from memory
+| Source | Verified at discovery | Work still needed |
+|---|---|---|
+| [Detecting Drivers of Behavior at an Early Age](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L28TD1) | Downloaded CC0 v2: eight empirical tables; school panel 13,608 rows; repeated assignments and unequal follow-up; all nine original checksums match | Resolve absent replication code and final cohort rules; test an original decision. Descriptive differences are not causal validation |
+| [Tanzania cash transfers and trust](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNIXA4) | CC0/public metadata; README accessible; household and village tables over three waves | Check actual observation counts and analytical differences; only two substantive tables may limit package suitability |
+| [BEA GDP/GDI archives](https://www.bea.gov/data/gdp/gross-domestic-product) | Downloaded workbook, 1,054 vintages; [public-domain policy](https://www.bea.gov/index.php/help/faq/145). First three-method rolling forecast test retained the same winner under hindsight in all three windows | Retire that simple concept; broader historical reconstruction remains unverified and the workbook alone is below 10,000 rows |
+| [ACS PUMS](https://www.census.gov/programs-surveys/acs/microdata.html) | Public microdata and detailed design documentation, including 80 replicate weights | Inspect the actual release; weighting alone is not a demonstrated model weakness |
 
-**Search the real web before claiming or downloading anything. Training
-knowledge is stale by construction here**, and this project has proven it
-repeatedly:
+[BEA revision methodology](https://apps.bea.gov/scb/issues/2024/08-august/0824-revisions-to-gdp-gdi.htm)
+describes different GDP/GDI release timing and revisions. A forecast design must
+fix historical decision dates, target maturity, candidate methods and loss;
+an unconstrained “best forecast” is not a deterministic golden.
 
-- The task spec changed twice in nine days (8/18 → 8/27). Anything remembered
-  about rules or bars may already be wrong.
-- Licence and restriction status are live facts. THE-RCT looks usable from
-  memory; the actual ICPSR page says restricted access.
-- URLs rot. Guessed CDC documentation paths returned 404s; the working link was
-  only findable from the live page.
-- Datasets gain vintages, revisions and new terms after any training cutoff.
+Detailed local results and scripts are in workspace
+`HANDSHAKE-AI/MARK-TASKS/source-screening-2026-09-07/SCREENING.md`.
+No blind screen or official rollout was run for these candidates.
 
-The protocol, before any dataset is committed to:
+**Excluded as a default source:** [FRED/ALFRED terms](https://fred.stlouisfed.org/legal/)
+prohibit AI development/training without prior written consent, including for
+service content otherwise tagged public domain. A direct originating publisher
+must be checked independently. Philadelphia Fed RTDSM reuse for this purpose
+was not verified. Restricted THE-RCT, confirmatory Upworthy data and credentialed
+clinical databases are not presumed redistributable because a catalog is public.
 
-1. **Web-search for current candidates** matching the assigned objective and the
-   trap machinery needed — do not shortlist purely from memory or from the table
-   below.
-2. **Fetch the licence page itself** and read the actual terms. A licence
-   remembered or asserted by a search snippet is not verified.
-3. **Fetch or download the actual data URL** and confirm it resolves and matches
-   the description (rows, fields, vintages).
-4. **Record what was verified and when** in the provenance sidecar at download
-   time, not retroactively.
+## Research is hypothesis generation
 
-**The human-fetch fallback.** When a promising source is unreachable — bot
-protection, JavaScript-rendered pages, logins, no web tools in the session —
-never abandon it and never substitute from memory. Hand the user the exact URL
-and precisely what to save (print-to-PDF for pages, Save As for files,
-screenshots for app screens). The user has standing instructions to fetch on
-request; this pattern recovered the project handbook and the decisive CDC
-documentation.
-
-## Vetted sources, by trap machinery
-
-Researched 2026-08-31 — a snapshot, not a substitute for the protocol above.
-Re-verify each row live before use; licences and availability change.
-**Append every source you newly vet** — verified licence, machinery, fit — so
-the map grows the way rollout-lessons does. Upworthy row updated 2026-09-01
-after live verification and use in task 02.
-
-| Source | Machinery | Licence | Fit |
-|---|---|---|---|
-| **Upworthy Research Archive** (osf.io/jd64p) | **USED, task 02.** Exploratory file open (22,666 arms / 4,873 tests); confirmatory needs approved plans — do not use. Documented not-fully-randomized period 2013-06-25..2014-01-10 (21.5% of tests; 69.9% fail allocation-balance vs 0.5% outside); real winner/significance label columns | **CC-BY 4.0**, verified live 2026-08-31 | Experiment & Causal (proven build); Descriptive, Anomaly, Root-cause. API: api.osf.io/v2/nodes/jd64p/files/osfstorage/ |
-| **ACS PUMS** (census.gov microdata FTP) | Person/household microdata with **80 replicate weights**; successive-differences variance | Public domain | Descriptive & Distribution. Unweighted means are wrong by construction |
-| **NHANES** (CDC) | Survey microdata, BRR weights, documented oversampling of subgroups | Public domain | Descriptive, Anomaly. Naive means are biased in a documented direction |
-| **ALFRED** (alfred.stlouisfed.org) | Every FRED series with real-time vintages (realtime_start/end) | Attribution terms — check | Forecasting, Economics. Leakage: an "as-of" decision must use the vintage available then |
-| ~~THE-RCT (ICPSR 37932)~~ | Higher-ed RCT microdata | **RESTRICTED — unusable** | Reminder: check restriction status on every research archive |
-
-## Red flags — walk away
-
-- **Pre-computed composite indices or scores** (SVI-like). The analysis is
-  already done; only arithmetic remains.
-- Single vintage, no time dimension, no uncertainty measures, no design
-  metadata — nowhere for statistical judgment to live.
-- A decision reachable by one groupby.
-
-## Gate arithmetic — why the main recommendation is everything
-
-The recommendation cluster carries ~30–37 rubric points; the pass bar is the
-top-two response average under 70%. Both top responses must therefore get the
-**main recommendation wrong**. Supplementary difficulty produces ~18 points of
-implementation scatter at best. Design the trap to flip the main answer, or
-pick different data.
+The older CausalPitfalls results used older models and a 1,000-token response
+limit ([paper setup](https://arxiv.org/html/2505.13770v3#A6)).
+Do not transfer published failure percentages to current tool-using agents.
+Record the models, tools, protocol, date and actual observed error for our own
+screens. Failed prior tasks establish limits of those designs, not whole domains.

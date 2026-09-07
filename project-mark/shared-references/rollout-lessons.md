@@ -1,3 +1,30 @@
+# Current interpretation — 2026-09-07
+
+The dated notes below preserve historical observations and hypotheses. Current
+requirements are in [operative rules](canonical-rules.md).
+
+- Task 01: evaluation screenshot verifies 82%/82% on rev2 with the core decision
+  correct; saved workspace ZIPs are rev1. Do not mix their rubric evidence.
+- Task 02: saved ZIPs verify v1 was solved; the user now reports both tasks failed.
+  The saved artifacts do not document a later v2 rollout.
+- v2 mostly adds documented eligibility filters and file handling. Its partial
+  path table contains two distinct wrong winners, not three.
+- Mandatory injected corruption, format hostility and hiding an arbiter were
+  speculative strategy, not demonstrated requirements or causes of success.
+- These failures do not prove that careful reading/joins can never be difficult
+  or that both models must select a wrong winner to score below 70%.
+- Defensible log-ratio and delta confidence intervals should not be treated as
+  analytical errors merely for disagreeing.
+- CausalPitfalls used older models and tight response limits; its failure rates
+  do not predict our current agents.
+- A reported platform context leak is historical, not a verified current bug.
+  Keep answer keys separate; do not automatically reset live tasks.
+
+The agreed workflow is source inspection, independent analytical prototypes,
+reasonable-alternative checks and fresh blind screens before full packaging.
+
+---
+
 # Rollout Lessons — empirical field notes
 
 ## 2026-09-01 · task-02 · THE GRADED MODELS ARE OPUS 5 AND GPT-5.6

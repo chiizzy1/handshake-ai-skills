@@ -1,120 +1,41 @@
-# Rollout Scoring
+# Rollout scoring and evidence
 
-## The bar (8/27)
+The September 5 announcement requires the initial **Responses 1 and 2 at the
+top of the task to average strictly below 70%**. It does not mean selecting the
+two highest scores from later runs. Use current UI instructions for later
+rollout counts and submission. See [operative rules](../../shared-references/canonical-rules.md).
 
-**"Stump the model" is retired.**
+The threshold is a gate, not proof that a task is fair. Classify actual failures:
 
-- Every rollout is **twelve responses**, scored against the fixed rubric.
-- **You submit all 12.** The bottom 10 can be submitted without checking.
-- **The gate is the top 2.** The task passes only when the two highest-scoring
-  responses **average under 70%** against the rubric (9/01; was 50%).
-- **Reset the task before running the check.** Known platform bug: populated
-  text fields after the model checks leak the golden documents and rubric into
-  the models' context, and the scores become meaningless.
-
-Confirmed on Stumping essentials, which is unambiguous. The Task walkthrough's
-step 12 card says "Run 10 model responses" while also saying "submit the bottom
-ten" and "only the top two are graded" — that card is simply wrong on the count.
-Hard gate 02 and Stumping essentials both say 12.
-
-**Aim the trap at the main recommendation.** It anchors the deterministic answer,
-so a response that gets it fully correct should not fall below the pass threshold
-merely by missing minor supplementary details. Supplementary questions deepen the
-evaluation; they must never become artificial gotcha items or replace the central
-recommendation as the main difficulty target.
-
-Difficulty must stay honest: it comes from data shapes — forecasting, method
-selection, a binding constraint, a decomposition, confirm-the-number, hold — never
-from surface-read rejection or flipping a wrong number.
-
-## Gate arithmetic — the main recommendation is the whole game
-
-Field-verified: the recommendation cluster (award + scores + margin) carries
-~30–37 of 100 points.
-
-**Solving the core still fails the 70% bar — but only just.** In a live check
-where both models solved the core, they scored **82%** each while dropping every
-structure and tolerance point available. So the recommendation must still flip:
-82% clears 70% comfortably.
-
-**Missing the core now lands right on the line.** A response that loses the whole
-recommendation cluster but nails everything else scores **63–70%**. Under the old
-50% bar that was still a fail; under 70% it is a coin flip. The margin has to
-come from somewhere else.
-
-It comes from propagation. Design the wrong path so it poisons the deliverables:
-if selecting the wrong candidate makes the scorecard, the chart and the summary
-all wrong, the response loses supplementary points too and lands well clear of
-the line. A trap that flips only the headline answer while leaving every
-supporting figure computable is the shape that scrapes 69% and loses on regrade.
-
-Iterate on the trap that flips the answer, then check what it costs the asks.
-See `../../shared-references/rollout-lessons.md`.
-
-## The asks now carry the weight
-
-Under the old rubric the recommendation was 50% on its own. Under 8/27 it is
-**~30%**, and the supplementary asks are **~60%**.
-
-That inverts where difficulty has to live. Asks can no longer be minor supporting
-detail — they are the majority of the score, they must be **hard and
-discriminating**, and a wrong analytical path should get them wrong. An ask that
-is a trivial lookup is wasted weight.
-
-## Classify before you write anything down
-
-| Classification | Meaning | Counts? |
-|---|---|---|
-| **Valid analytical stump** | Misses decisive evidence, uses a provably wrong method, mishandles data, stops at a misleading artifact, or applies invalid cleaning / filtering / QC / statistical logic | **Yes** |
-| **Semantic fork** | Analyzes correctly but resolves an unpinned objective or convention differently | No — a determinism defect in your task |
-| **Golden wrong** | Follows a reproducible path better supported by the files than your golden | No — repair the golden |
-
-The third one is the one people resist. The handbook is explicit: if a model
-response follows a reproducible path better supported by the shipped files than
-the golden, that is a **golden-solution defect**, not a response error. Repair the
-task at the source.
-
-## Never counts as a qualifying failure
-
-- formatting-only failures
-- alternative wording
-- an invalid or underspecified prompt
-- a broken or unsupported golden
-- a missing file
-- a grader or packaging failure
-- a failure caused only by an arbitrary rubric interpretation
-
-Judge the rollout as a whole. Strong-model responses should be making real
-analytical errors, not stylistic ones.
-
-## When the rollout disappoints
-
-The fix is almost always in the **prompt or the input files, not the rubric.**
-
-| Symptom | Likely cause | Repair |
-|---|---|---|
-| Models keep getting the recommendation right | The trap is not consequential, or the prompt leaks the path | Re-run Gate 3. Check the prompt for named methods, fixed windows, narrated suspicion |
-| Two experts could defensibly disagree | An unpinned definition, threshold, scope, population, metric, or window | Pin it in the prompt or ship the file that arbitrates it |
-| Right answer, wrong reasons, still scored high | The rubric grades disclosure, or a criterion is too loose | One review pass. Grade the result, never the narration |
-| Only the strong model fails | The trap is too shallow — the weak model never got far enough to fall in | Add a layer the weak model also reaches |
-| Only the weak model fails | The trap is too obvious to a capable reader | Move the antidote further from the bait, or layer a second family |
-
-## Too easy even when correct
-
-A task gets rejected for being too easy, even when deterministic and correctly
-solved, when:
-
-- the prompt explains the methodology
-- a document states the planted trap outright
-- the decisive rule is a lookup
-- the complexity never changes the answer
-
-## Reviewer verdicts
-
-| Verdict | Meaning |
+| Outcome | Interpretation |
 |---|---|
-| `prelim_verdict` | First-pass review found the task deterministic, correctly solved, hard enough, and not a duplicate. Provisional — still needs final review before payment |
-| `final_verdict` | Comprehensive review confirms difficulty and non-duplication. **98% of tasks passing prelim also pass final** |
-| Approved and Paid | Appears in the Payments dashboard. Base pay first |
+| Material analytical or methodological error | Candidate valid failure; identify its empirical consequence |
+| Different defensible estimator, CI, units or wording | Accept where supported; do not turn conventions into a stump |
+| Missing definition or two legitimate decisions | Task ambiguity; repair the contract or evidence |
+| Better-supported result than the golden | Golden defect; repair it |
+| Formatting, loading or packaging failure only | Does not establish analytical difficulty |
 
-Every submission is reviewed within 24 hours.
+A wrong main recommendation is not mathematically necessary for a score below
+70%; materially wrong supporting analysis can matter. Evaluate the actual
+rubric and avoid unsupported claims that a fixed number of points must be lost.
+
+## Preserve matched evidence
+
+Store task/version, prompt, source ZIP hash, golden, rubric, model/harness,
+tool access and response outputs together. Do not score responses from another
+version against the current rubric. Distinguish official scores from inferred
+scores and local blind screens.
+
+Keep the answer key out of the solver context. A September 1 report described
+later form fields leaking solution material; its current status is unverified.
+Do not automatically reset or delete a task to address an assumed bug.
+
+## Iterate on demonstrated errors
+
+If blind solvers repeatedly solve the analysis correctly, materially redesign
+or retire the concept before polishing. Hiding evidence is not a proven fix.
+If a low score comes from an unfair requirement, repair the requirement even
+when doing so makes the task easier.
+
+Do not significantly edit the rubric. Prefer upstream correction of the prompt
+or golden for genuine defects and follow the current UI process.

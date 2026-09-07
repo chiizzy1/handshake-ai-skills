@@ -1,273 +1,71 @@
 ---
 name: mark-input-package
-description: Assemble and verify the Project Mark input file package. Use when sourcing real, license-clean data files for a Project Mark task — hitting 10+ files, 4+ independently necessary, 2+ substantial, 3+ formats, a 10,000+ row table, recoverable joins, and per-file provenance. Covers sourcing routes, starter kits, the remove-one-file test, and the manifest.
+description: Source and inspect Project Mark empirical input packages, including actual tables, joins, documentation, access rights, provenance, analytical suitability and submission packaging.
 ---
 
 # Project Mark — Input Package
 
-The file package the model receives: the datasets, documents, and reports a real
-analyst in your domain could plausibly have been handed.
-
-The test that governs everything here: **could a skilled analyst recover the
-answer without guessing?**
-
-## Hard Gates
-
-- **No LLM-generated PDF, DOCX, or PPTX.** They are spotted in seconds. This
-  rejects the task outright.
-- **AI may locate data and write transformation scripts. AI may never create the
-  empirical source evidence.** Blocking rule.
-- **Scenario documents carry explicit provenance** stating what they are and how
-  they were produced. You may write one yourself; it is a scenario document, not
-  source data, and it is recorded as such. Blocking rule.
-- **Every file records source URL, pull date, and licence.**
-- **File count is not difficulty.** Do not add decorative files. Irrelevant files,
-  duplicated information, arbitrary noise, and volume that only creates search
-  burden all count *against* fairness.
-- **But meeting the 10-file minimum with clean flat files is not the standard
-  either.** The accepted example that passed shipped **28 files across 6 formats
-  including sqlite, gzipped JSONL, a log and a calendar**, with the decisive fact
-  registered in a database table. Two of our tasks shipped ~10 pristine
-  CSV/PDF files and both were solved. See `references/corpus-construction.md`.
-- **Inject mess — this is mandatory, not optional.** The FAQ licenses duplicates,
-  nulls, reformatted dates, encoding issues, typos and distractor columns, and
-  staff confirm kits should be made "as messy as you need to". Neither of our
-  first two tasks injected any. The constraint: mess creates **work**, never a
-  different conclusion.
-- **Discoverable is not obvious.** The antidote must be in the corpus; it must
-  not be one of four documents with a self-announcing filename.
-
-## The Bar
-
-Every line is blocking. Numbers come from Readiness stage 1, which is what a
-reviewer checks first.
-
-| Requirement | Bar |
-|---|---|
-| Total files | 10 or more |
-| Independently necessary | 4 or more — remove any one and the answer is unreachable |
-| Substantial rather than token | 2 or more — long, dense, real work to read and reconcile |
-| Distinct formats | 3 or more |
-| Largest table | 10,000+ rows, so eyeballing fails |
-| Joins | The recommendation requires joining at least two tables |
-| Total size | **under 50 MB** across all files |
-| Any single file | **under 10 MB** |
-| Packaging | **a single ZIP** |
-
-Distractor files are allowed and encouraged. **They never count toward the four
-independently necessary files.**
-
-### The onboarding docs set a stricter bar
-
-The onboarding material asks for more than the handbook does. Where they differ,
-**build to the stricter number** — it costs little and clears both.
-
-| | Handbook | Onboarding docs |
-|---|---|---|
-| Files | 10+ | 10+ |
-| Load-bearing | 4+ independently necessary | **at least half weight-bearing** (so 5+ of 10) |
-| Formats | 3+ distinct | **at least 5 different** |
-| Substantial | 2+ | **at least two long documents or large tables** |
-
-Onboarding also states the realistic-messiness list explicitly: duplicated or
-missing values, inconsistent identifiers, null values, blank spaces, various styles
-of information.
-
-> **More files do not automatically make the task harder, but there needs to be
-> value in having each critical file — even when the file is acting as a
-> distractor.**
-
-### Starter kits are seeds, not inputs
-
-> "These contain files that should act as **seeds** for your dataset. To make a
-> complete input folder from these starter kits, you will need to add additional
-> files, manipulate the format that the data is in, and/or generate a synthetic
-> dataset from the real-world data that still presents real-world data to be used
-> in the analysis. **Please do not use these starter kits as the only files in your
-> inputs.**"
-
-## Messiness That Earns Its Place
-
-Realistic fragmentation the analyst has to work through — never random dirt, and
-it never changes the correct answer once resolved.
-
-- Signal is fragmented across files, so the model has to piece it together.
-- Timestamps are inconsistent and must be reconciled.
-- Data is scattered enough that the model has to seek around the environment.
-- Template files or historical reports sit in the package as reference material
-  to discover and use.
-
-What does **not** count as messiness: illegally formatted files, invalid
-encodings, broken XML. Difficulty is spent on reasoning, not on parsing. Every
-file must load with standard tooling in one or two obvious attempts.
-
-**Read `references/business-realism.md` before authoring any document.** Since
-9/01, input files and golden deliverables that read as LLM output are a
-rejection criterion, not something staff quietly fix. Run
-`tools/mark_realism_check.py` over the package, then read each authored file.
-
-**Read `references/corpus-construction.md` before assembling anything** — the
-complexity standard, the discoverable-vs-obvious principle, legitimate format
-hostility, and the line between complexity and padding.
-
-Techniques for making real data realistically messy, the synthetic-data policy,
-and BigQuery sourcing are in `references/making-data-messy.md`.
-
-## Workflow
-
-### 1. Choose a data route
-
-**Starter kit** — authentic, license-clear source material with provenance
-already documented. It is a foundation, not a finished submission. You still own
-the file count, the complexity, the mess, and the deterministic answer. Claiming
-and downloading happens in the external Stash registry.
-
-**Your own sourcing** — real documents pulled from the wild. Government
-statistical releases, regulator filings, published board papers, open data
-portals, published methodology notes.
-
-**Source live, not from memory.** Web-search for candidates, fetch the actual
-licence page, and confirm the download URL resolves before committing to a
-dataset. Remembered licences and guessed URLs have both failed on this project.
-The verification protocol is in
-`../mark-task-builder/references/data-selection.md`.
-
-#### What a starter kit actually gives you
-
-| | |
-|---|---|
-| Contents | **6 to 8 raw files** — several CSVs, an `overview.xlsx`, and a `data_dictionary.json` |
-| The dictionary | Records source URL, licence, snapshot date, and every transform applied. **Use it as your provenance note** — it covers the blocking Readiness rows |
-| What is missing | Nothing is cleaned, joined, or reconciled. No task exists. You choose the decision, design the trap, write the prompt |
-
-**A kit does not clear the bar on its own.** 6 to 8 files against a 10+ bar means
-planning on **3 to 5 added files** from the start. Check the largest table
-immediately — if nothing carries 10,000+ rows, sourcing one is your first job.
-
-> ⚠️ The Starter data kits page says twice that "six or more input files is the
-> bar." **That is pre-8/18 and wrong.** The bar is 10+ in a single ZIP. Building
-> to six gets the task returned.
-
-#### The claim rules
-
-- **One active claim at a time.** A second request while the first is open is refused.
-- **An open claim means a submitted task is expected from you.**
-- **Claiming is final.** The package leaves the pool until inventory cycles, and
-  cannot be swapped.
-
-Preview before claiming. Look for a decision a real domain owner would own, a
-table big enough to clear 10,000 rows, and enough structure that two tables must
-be joined. Claiming is done on the Stash, an external registry
-(`unlock-the-stash.lovable.app`) that browses and claims only — you submit the
-finished task on Handshake.
-
-The alternative path, "I already have source data", is gated behind a
-five-condition eligibility check that was not captured locally. Read it on the
-platform before spending your single claim.
-
-### 2. Record every file
-
-One row per counted file, before you decide anything about sufficiency.
-
-| File | Format | Analytical role | Rows | Source URL | Pull date | Licence | Necessary? |
-|---|---|---|---|---|---|---|---|
-
-`../tools/mark_manifest.py` generates this, plus SHA-256 and byte size per file,
-and reports the counters against the bar above. It takes a directory or the .zip
-you will ship. Gate 1 of validation requires that manifest, so produce it here
-rather than later.
-
-Start by generating the template, so you are filling blanks rather than writing
-JSON from scratch:
-
-```
-python3 ../tools/mark_manifest.py <package> --init-roles roles.json   # once
-python3 ../tools/mark_manifest.py <package> --roles roles.json        # every time after
-```
-
-Leave `necessary` as `null` until the remove-one-file test has actually run. The
-script reports unrecorded files rather than guessing, and that is the honest
-state until you have tested it.
-
-### 3. Resolve missing evidence
-
-Ask once: **does the current package support the answer?**
-
-If yes — stop. Do not add decorative files.
-
-If no — identify exactly what is missing (a definition, a piece of evidence, a
-piece of context), find one authoritative source that supplies it, add only that
-file. Common gaps worth filling: definitions · historical context · methodology ·
-policy constraints · targets · predictors · revisions · crosswalks.
-
-### 4. Run the remove-one-file test
-
-Delete each counted input in turn and re-solve. Record, per file, whether the
-correct answer becomes **unreachable**, **changes**, or **survives untouched**.
-
-A counted file that survives removal is not load bearing. Give it a real
-dependency or drop it from the necessary count. Ask the same question of noise:
-does this file, format, or extra source actually sit on the analytical path?
-
-You need 4 or more that come back "unreachable".
-
-### 5. Confirm the package
-
-Seven checks. All seven, or the package is not ready.
-
-- [ ] **Necessary files** — ten or more counted, four or more independently necessary
-- [ ] **Recoverable joins** — files connect through keys or references an analyst can recover
-- [ ] **Sufficient signal** — the data supports the analysis the prompt actually requests
-- [ ] **Definitions and governing rules supplied inside the package**, not assumed
-- [ ] **Reproducibility** — every figure in the golden comes back out of the shipped workspace
-- [ ] **No padding** — no decorative or deletable file is counted
-- [ ] **No fabricated or corrupted complexity** — complications are authentic, nothing machine-generated, padded, or broken on purpose
-
-## Licensing And Provenance
-
-Every file needs three things recorded: **source URL**, **pull date**, **licence**.
-
-Prefer sources that are unambiguously redistributable: public-domain government
-releases, open data portals with an explicit licence, permissively licensed
-published datasets. Where a licence requires attribution, record the attribution
-string with the file.
-
-A file you cannot document is a file you cannot ship.
-
-## Notes On Formats
-
-Aim across at least three. Substantial files should not all be the same type.
-
-| Family | Formats | Good for |
-|---|---|---|
-| Data | CSV, TSV, JSON, XLSX, Parquet | The large table, the raw records, the crosswalk |
-| Text | PDF, DOCX | Methodology notes, board papers, policy documents, the definitions that arbitrate |
-| Visual | PPTX, PNG, SVG, HTML, JPG | Summary decks that carry the bait, charts with the detail in the annotation |
-| Code | PY, IPYNB, SQL, R | Pipeline scripts, historical analysis to discover and reuse |
-
-A chart can be a distractor when the same data is also supplied numerically — the
-numbers are the arbiter, and the chart is where a skim stops.
-
-## Output Format
-
-```
-## Input package
-<n> files · <n> independently necessary · <n> substantial · <n> formats
-Largest table: <file>, <n> rows
-Joins required: <table> ↔ <table> on <key>
-
-| File | Format | Role | Rows | Source | Pulled | Licence | Necessary? |
-
-## Remove-one-file test
-| File | Removing it | Verdict |
-|---|---|---|
-| ... | answer unreachable / answer changes / survives | necessary / distractor |
-
-## Bar check
-10+ files: <n> ✓/✗   4+ necessary: <n> ✓/✗   2+ substantial: <n> ✓/✗
-3+ formats: <n> ✓/✗   10,000+ row table: <n> ✓/✗   joins: ✓/✗
-Provenance complete: <n> of <n> files
-```
-
-Report the real counts. If the remove-one-file test was not actually run, say
-"not run" rather than guessing which files are necessary.
+Find the evidence a competent analyst would need for the actual decision.
+Read [operative rules](../shared-references/canonical-rules.md) for current and
+inherited requirements. File counts and formats are compliance checks, not
+evidence that a task is difficult.
+
+## Screen before assembling
+
+Inspect the actual source files and documentation before selecting the topic:
+
+- What is one observation? Which keys link assignment, measurements and outcomes?
+- Which variables, dates, sampling details or constraints determine the answer?
+- Are those fields public, or withheld/restricted in the downloadable version?
+- Does the evidence support the requested causal claim, forecast or comparison?
+- Can competing defensible methods produce incompatible answers?
+- Are the source license and service terms compatible with distribution and
+  use for this training project?
+
+Use [data selection](../mark-task-builder/references/data-selection.md) for the
+current source shortlist and
+[licensing and provenance](references/licensing-provenance.md) before fetching.
+
+Look for naturally connected evidence, such as multiple waves with assignment
+records and documented follow-up, or release histories that reconstruct
+decision-time information. Verify the proposed analytical difference from data.
+An elaborate schema or unfamiliar dataset is only a prospect until tested.
+
+## Preserve evidence
+
+Keep downloaded raw files unchanged with URL, publisher, retrieval date,
+dataset version, license/terms evidence, byte size and SHA-256. Record every
+derived subset or transformation with its script, upstream hashes and rationale.
+Represent scenario documents as authored; never fabricate empirical records or
+misrepresent document origin.
+
+Retain authentic missingness and structure. Artificial corruption, arbitrary
+format conversion and hiding a rule are not requirements. Do not duplicate
+records to satisfy a row-count rule. Any subset must preserve needed comparison
+groups, time coverage and design structure.
+
+## Establish necessity
+
+For each proposed input, name the result that depends on it. Run reduced-input
+analyses where practical and distinguish:
+
+- result becomes unreachable because essential evidence is absent;
+- result changes because a partial analysis incorrectly proceeds;
+- result survives because the file is corroborating or unnecessary.
+
+Do not infer analytical necessity from a parser rejecting a missing filename.
+Do not count redundant formats of the same data as independent evidence.
+An internal prototype is not the shipping ZIP and need not meet the input floor.
+
+## Package and verify
+
+Once the concept survives early analytical and blind screening, build the
+complete package to the applicable input requirements. Verify joins, row counts,
+file sizes, formats, provenance and substantive file roles with
+`../tools/mark_manifest.py` plus human review. Its default counters are inherited
+checks; it does not establish platform approval or analytical difficulty.
+
+Read [corpus construction](references/corpus-construction.md) when selecting the
+shipped files and [business realism](references/business-realism.md) when
+authoring scenario materials. Report counts and gates actually verified, and
+which source/access questions remain open.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake T2I Live Feedback"
+  short_description: "Compare two T2I responses against the prompt and write the required Live feedback comment"
+  default_prompt: "Use $handshake-t2i-live-feedback to compare Response A and Response B and write the evidence comment."

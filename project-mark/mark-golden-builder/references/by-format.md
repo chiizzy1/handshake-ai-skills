@@ -1,3 +1,8 @@
+> Historical reference: examples and earlier handbook wording below must be
+> read under [the operative rules](../../shared-references/canonical-rules.md).
+> New tasks use the September 5 specification. Old quotas, model-failure rates,
+> compulsory noise/burial, and platform mechanics below are not current directives.
+
 # Golden Structure By Output Type
 
 The prompt names the files. This is what each family has to look like once
