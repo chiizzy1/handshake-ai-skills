@@ -26,7 +26,8 @@ sources and [the runbook](references/new-task-runbook.md) for the practical
 sequence. Research may suggest failure mechanisms; only matched current
 rollouts demonstrate them.
 
-The tasks 01 and 02 records show those specific designs were solved. They do
+The evaluated versions of tasks 01 and 02 were solved. Task 02 v2 was never
+evaluated, as the user confirmed; task 02 is now abandoned. These records do
 not prove that a domain, file format, or reasoning family can never work.
 Read the current interpretation at the top of
 [rollout lessons](../shared-references/rollout-lessons.md); older entries are

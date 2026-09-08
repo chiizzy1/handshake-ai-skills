@@ -5,8 +5,9 @@ requirements are in [operative rules](canonical-rules.md).
 
 - Task 01: evaluation screenshot verifies 82%/82% on rev2 with the core decision
   correct; saved workspace ZIPs are rev1. Do not mix their rubric evidence.
-- Task 02: saved ZIPs verify v1 was solved; the user now reports both tasks failed.
-  The saved artifacts do not document a later v2 rollout.
+- Task 02: saved ZIPs verify v1 was solved. The user explicitly confirmed that
+  v2 was never evaluated, and subsequently abandoned task 02. Preserve its
+  historical artifacts; do not describe v2 as a failed rollout.
 - v2 mostly adds documented eligibility filters and file handling. Its partial
   path table contains two distinct wrong winners, not three.
 - Mandatory injected corruption, format hostility and hiding an arbiter were
@@ -22,6 +23,12 @@ requirements are in [operative rules](canonical-rules.md).
 
 The agreed workflow is source inspection, independent analytical prototypes,
 reasonable-alternative checks and fresh blind screens before full packaging.
+
+The September 7 records-recovery prototype subsequently produced two correct
+fresh-context analyses and completed workbooks. Its core comparisons were
+reconciled and the concept was retired after the local screen. No official
+platform score was generated. The active next-step plan is
+`HANDSHAKE-AI/Project-Mark/NEW-TASK-PLAN.md` in the workspace.
 
 ## September 7 follow-up: authentic complexity still needs an observed failure
 
@@ -295,25 +302,27 @@ enforced. The one that changes our practice most:
 > business-realistic. We have been fixing these for you (to be nice), but we
 > will be rejecting these from now on.
 
+Current interpretation: this is a professional-quality requirement, not a ban
+on LLM assistance. Vincent's September 5 update explicitly permits assistance
+with iteration and editing. Inventing author metadata or business history to
+imitate authenticity is not an acceptable response to this requirement.
+
 Also now enforced: bespoke prompt/inputs/methodology/traps per task (**immediate
 offboard** for templated tasks, not a rejection), substantive supplementary asks,
 and one of the six task types rather than a surface stump. See
 `../mark-input-package/references/business-realism.md`.
 
-### Platform bug: the models can read your answer key
+### Historical report of answer-key exposure
 
-Reported by a fellow in Slack, unfixed:
+Reported by a fellow in Slack on September 1; current status is unverified:
 
 > If the text fields after the model checks are filled, the two models will use
 > information from the future text fields, like the rubric, to solve the prompt.
 
-**Reset the task before every stump check**, and again after any change to the
-prompt or ZIP. A rollout run with those fields populated is not evidence of
-anything — the models had the golden documents in context. Any score obtained
-that way should be discarded rather than interpreted.
-
-This is worth checking against our own history before concluding our tasks were
-too easy.
+The earlier blanket reset-and-discard advice is retired. Keep answer keys out
+of solver context and follow the current platform workflow. Do not automatically
+reset live tasks or discard historical scores on the strength of this report.
+Investigate specific evidence of leakage and record what was actually exposed.
 
 ### The regression the realism audit uncovered
 

@@ -26,14 +26,16 @@ input requirements are in the operative table.
 
 ## Tools and references
 
-- `tools/mark_manifest.py`: inventory, hashes, size and row counts; inherited
-  input checks, not platform approval.
+- `tools/mark_manifest.py`: inventory, hashes, actual ZIP/file sizes and supported
+  row counts. Substantial content and unsupported counts remain unmeasured;
+  inherited counters do not establish platform approval.
 - `tools/mark_leak_check.py prompt.md --spec current`: advisory current prompt
   check; use `--spec legacy` for older 8/27 contracts.
 - `tools/mark_fetch.py`: download with provenance after rights verification.
 - `tools/mark_reconcile.py`: numerical comparison aid; review false matches.
-- `tools/mark_realism_check.py`: presentation review aid; never fabricate
-  authorship or provenance to satisfy it.
+- `tools/mark_realism_check.py`: advisory presentation checks, with optional
+  `--strict`. Missing dependencies/files are inspection errors. It does not
+  detect AI authorship; truthful or blank metadata and simple layouts are valid.
 
 [Data selection](mark-task-builder/references/data-selection.md) and
 [runbook](mark-task-builder/references/new-task-runbook.md) describe the current

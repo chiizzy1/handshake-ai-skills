@@ -83,6 +83,7 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - T2I Image Comparison with Dual boxes (prompt + Response A/B images, Strongly/Slightly/Tie preference, two evidence boxes, one box required at 50+ characters): use `handshake-t2i-dual-boxes` (read `../project-hedgehog/handshake-t2i-dual-boxes/SKILL.md`).
 - T2I Image Comparison with Live feedback (same preference row, but one required comment box of 50+ characters plus a Check my justification button): use `handshake-t2i-live-feedback` (read `../project-hedgehog/handshake-t2i-live-feedback/SKILL.md`).
 - T2I Image Comparison with Voice input and translation / Muse dictation (same preference row, but the explanation is dictated, transcribed and translated, then corrected before submitting; no character minimum): use `handshake-t2i-muse-dictation` (read `../project-hedgehog/handshake-t2i-muse-dictation/SKILL.md`).
+- T2I Image Comparison with Point + write (same preference row, but the explanation is attached to markers clicked onto the evidence, 50+ characters total across markers; Skip if the marker control is unavailable): use `handshake-t2i-point-write` (read `../project-hedgehog/handshake-t2i-point-write/SKILL.md`).
 - UD Caption ELO: use `handshake-ud-caption-evaluator` (read `../project-hedgehog/handshake-ud-caption-evaluator/SKILL.md`).
 - Annot Critic: use `handshake-annot-critic` (read `../project-hedgehog/handshake-annot-critic/SKILL.md`).
 - Critique Rework: use `handshake-critique-rework` (read `../project-hedgehog/handshake-critique-rework/SKILL.md`).

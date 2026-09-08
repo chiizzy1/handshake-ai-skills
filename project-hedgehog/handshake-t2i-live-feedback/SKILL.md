@@ -40,6 +40,7 @@ Tell them apart by the interaction under the rating:
 | One box plus a "Check my justification" button | T2I Image Comparison 3, Live feedback | this skill |
 
 | A record button, a 45-second timer, and a transcript to confirm | T2I Voice input and translation | `handshake-t2i-muse-dictation` |
+| Clickable markers placed on the evidence | T2I Point + write | `handshake-t2i-point-write` |
 
 If the UI shows two evidence boxes, you are in the wrong skill.
 

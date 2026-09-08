@@ -5,12 +5,12 @@
 
 # Worked Prompts
 
-## The 60-prompt library — read this first
+## Historical 60-prompt library
 
 `HANDSHAKE-AI/Project-Mark/example-prompts.md` holds **60 example prompts in the
-current 8/27 format**, ten per objective across all six, each labelled with its
-domain. That is the best source for prompt shape, and it supersedes everything
-below.
+older 8/27 format**, ten per objective across all six, each labelled with its
+domain. Use these for domain ideas; they do not override the current September 5
+contract of 1–3 deliverables and no per-file ask quota.
 
 | Objective | Prompts |
 |---|---|
@@ -21,14 +21,13 @@ below.
 | Forecasting & Predictive Modeling | 10 |
 | Data Extraction & Conformation (ETL) | 10 |
 
-Find the closest match to your objective and domain and adapt it. Every one is a
-stakeholder context, one committed recommendation, then 3+ named deliverables with
-3+ asks each.
+Write a fresh natural stakeholder request. Do not copy the library's former
+three-deliverable, three-ask structure into a new task.
 
 > ⚠️ The examples below, and the 25 accepted tasks under
 > `HANDSHAKE-AI/Project-Mark/examples/`, predate 8/27. Their *reasoning* and trap
-> design still hold. Their **deliverable and ask counts do not** — most ship 2 to 3
-> deliverables with 2 asks each, where the floor is now 3 and 3.
+> design are historical examples, not demonstrated failures by current models.
+> Their deliverable and ask counts do not establish current requirements.
 
 
 Drawn from the 25 accepted examples in

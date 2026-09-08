@@ -8,9 +8,10 @@ to be reconstructed later.
     mark_fetch.py URL --out FILE --licence "CC-BY 4.0" --role "what it is" \
                   [--roles roles.json] [--timeout 120]
 
-If the fetch fails or returns HTML where a data file was expected, it says so
-and prints the hand-to-user fallback: give the user the URL and exactly what to
-save. Never substitute from memory.
+If a fetch fails or returns HTML instead of data, inspect the actual error,
+check the official download route and retry ordinary technical failures. Follow
+environment escalation rules for sandbox failures. Request a manual transfer
+only when access genuinely requires the user. Never substitute from memory.
 """
 import argparse
 import datetime
@@ -42,17 +43,19 @@ def main():
             ctype = resp.headers.get("Content-Type", "")
     except Exception as exc:
         print(f"FETCH FAILED: {exc}\n")
-        print("Fallback — ask the user to fetch it manually:")
+        print("Inspect the error and official download route; retry transient failures.")
+        print("For sandbox/network restrictions, follow the environment's escalation procedure.")
+        print("Ask for a manual transfer only if access requires the user's credentials or action.")
         print(f"  URL: {a.url}")
         print(f"  Save as: {os.path.basename(a.out)}")
-        print("  (print-to-PDF for pages, Save As for files, screenshot for app screens)")
         sys.exit(1)
 
     ext = os.path.splitext(a.out)[1].lower()
     if "text/html" in ctype and ext not in (".html", ".htm"):
         print(f"WARNING: server returned HTML ({len(data):,} bytes) but the target is "
               f"'{ext}'. This is usually a redirect or bot-block page, not the file.")
-        print("Do NOT record this as the source file. Fallback — ask the user to fetch:")
+        print("Do not record this as the source file. Inspect the response and official download route.")
+        print("A manual transfer is a last resort when access requires the user's action.")
         print(f"  URL: {a.url}\n  Save as: {os.path.basename(a.out)}")
         sys.exit(1)
 

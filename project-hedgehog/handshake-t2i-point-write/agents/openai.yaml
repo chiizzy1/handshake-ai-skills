@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake T2I Point + Write"
+  short_description: "Compare two T2I responses and mark the evidence with an explanation per marker"
+  default_prompt: "Use $handshake-t2i-point-write to compare Response A and Response B and place the evidence markers."

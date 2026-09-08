@@ -38,7 +38,7 @@ skill is about.
 
 ## Sibling Tasks
 
-Third variant of the same family. Identical rating scale, evidence tests, skip rules, and boundary
+Third of four variants in the same family. Identical rating scale, evidence tests, skip rules, and boundary
 cases. Only the interaction differs.
 
 | Interaction cue | Task | Skill |
@@ -46,6 +46,7 @@ cases. Only the interaction differs.
 | Two evidence boxes, "50+ characters total across A and B" | Dual boxes | `handshake-t2i-dual-boxes` |
 | One box plus a "Check my justification" button | Live feedback | `handshake-t2i-live-feedback` |
 | A record button, a 45-second timer, a transcript to confirm | Voice input and translation | this skill |
+| Clickable markers placed on the evidence | Point + write | `handshake-t2i-point-write` |
 
 **Character floors differ across the three.** Dual boxes wants 50 total, live feedback wants 50 minimum,
 and **this one has no minimum at all**: "there is no minimum character target beyond providing the

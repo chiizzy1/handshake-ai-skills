@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Manifest an input package and check it against the Project Mark bar.
+"""Manifest an input package and report partial inherited Project Mark counters.
 
-Gate 1 requires a manifest listing every file with its SHA-256 hash, byte size,
-and role. This produces that, and reports the Readiness stage 1 counters at the
-same time.
+This records hashes, sizes, declared roles and supported row counts. It cannot
+certify substantial content, analytical necessity, valid reuse or platform
+approval. Current task UI requirements take precedence over inherited counters.
 
 Roles and necessity cannot be inferred from a file, so they come from an optional
 sidecar (--roles roles.json) mapping filename to
@@ -28,8 +28,9 @@ import sqlite3
 import sys
 import tempfile
 import zipfile
+import xml.etree.ElementTree as ET
 
-DATA = {".csv", ".tsv", ".json", ".jsonl", ".ndjson", ".xlsx", ".xls", ".parquet",
+DATA = {".csv", ".tsv", ".tab", ".dta", ".json", ".jsonl", ".ndjson", ".xlsx", ".xls", ".parquet",
         ".sqlite", ".sqlite3", ".db"}
 VISUAL = {".pptx", ".png", ".svg", ".html", ".htm", ".jpg", ".jpeg", ".gif"}
 TEXT = {".pdf", ".docx", ".doc", ".txt", ".md", ".rtf"}
@@ -42,6 +43,18 @@ MIN_SUBSTANTIAL = 2
 MIN_FORMATS = 3
 MIN_BIG_TABLE_ROWS = 10_000
 SUBSTANTIAL_BYTES = 100 * 1024
+MAX_FILE_BYTES = 10_000_000
+MAX_ZIP_BYTES = 50_000_000
+REPORT_NOTES = [
+    "Partial inherited counters only; this is not platform approval.",
+    "Substantial content and analytical necessity require review; 100 KiB is only a local size proxy.",
+    "Row counts are candidates for review, not certified observations; CSV/TSV/TAB and XLSX assume one header row.",
+    "XLSX counts nonempty rows rather than worksheet extent; notes and separate tables still need review.",
+    "Unsupported or unreadable table formats, including DTA, have unmeasured row counts.",
+    "Byte checks conservatively interpret MB as 1,000,000 bytes; limits are strict.",
+    "A directory does not establish the final ZIP size. Supply the actual shipping ZIP to measure it.",
+    "Joins, substantive file roles, reuse rights and any stricter current UI/onboarding rules are not certified here.",
+]
 
 
 def inner_ext(name):
@@ -102,10 +115,11 @@ def count_rows(path, ext):
     ext = ext.lower()
     compressed = os.path.splitext(path)[1].lower() in COMPRESSED
     try:
-        if ext in (".csv", ".tsv"):
-            delim = "\t" if ext == ".tsv" else ","
+        if ext in (".csv", ".tsv", ".tab"):
+            delim = "," if ext == ".csv" else "\t"
             with _opener(path)() as fh:
-                return max(sum(1 for _ in csv.reader(fh, delimiter=delim)) - 1, 0)
+                return max(sum(1 for row in csv.reader(fh, delimiter=delim)
+                               if any(value.strip() for value in row)) - 1, 0)
         if ext in (".jsonl", ".ndjson"):
             with _opener(path)() as fh:
                 return sum(1 for line in fh if line.strip())
@@ -139,29 +153,55 @@ def _sqlite_rows(path):
 
 
 def _xlsx_rows(path):
-    """Largest sheet row count, read straight from the zip. No dependencies.
+    """Largest nonempty sheet row count, less one assumed header row.
 
-    Prefers each sheet's declared dimension; falls back to counting <row> tags.
+    A far-away styled cell changes a sheet's extent without adding observations.
+    Inspect actual cell content instead. This still cannot identify notes or
+    multiple tables within a sheet and does not evaluate formulas.
     """
     try:
-        import re
-
         best = 0
         with zipfile.ZipFile(path) as zf:
-            sheets = [n for n in zf.namelist() if n.startswith("xl/worksheets/sheet")]
+            shared_strings = []
+            if "xl/sharedStrings.xml" in zf.namelist():
+                with zf.open("xl/sharedStrings.xml") as fh:
+                    for _, elem in ET.iterparse(fh, events=("end",)):
+                        if elem.tag.rsplit("}", 1)[-1] == "si":
+                            shared_strings.append(any(
+                                (node.text or "").strip() for node in elem.iter()
+                                if node.tag.rsplit("}", 1)[-1] == "t"))
+                            elem.clear()
+            sheets = [n for n in zf.namelist()
+                      if n.startswith("xl/worksheets/sheet") and n.endswith(".xml")]
             for name in sheets:
+                nonempty = 0
                 with zf.open(name) as fh:
-                    head = fh.read(2048).decode("utf-8", errors="replace")
-                    m = re.search(r'<dimension ref="[A-Z]+\d+:[A-Z]+(\d+)"', head)
-                    if m:
-                        best = max(best, int(m.group(1)) - 1)
-                        continue
-                    fh.seek(0)
-                    body = fh.read().decode("utf-8", errors="replace")
-                    best = max(best, body.count("<row ") - 1)
+                    for _, elem in ET.iterparse(fh, events=("end",)):
+                        if elem.tag.rsplit("}", 1)[-1] == "row":
+                            if any(_xlsx_cell_has_content(cell, shared_strings)
+                                   for cell in elem
+                                   if cell.tag.rsplit("}", 1)[-1] == "c"):
+                                nonempty += 1
+                            elem.clear()
+                best = max(best, nonempty - 1)
         return max(best, 0)
     except Exception:
         return None
+
+
+def _xlsx_cell_has_content(cell, shared_strings):
+    for node in cell.iter():
+        tag = node.tag.rsplit("}", 1)[-1]
+        content = (node.text or "").strip()
+        if tag == "v" and content:
+            if cell.get("t") == "s":
+                if shared_strings[int(content)]:
+                    return True
+            else:
+                return True
+        if tag in ("t", "f") and content:
+            return True
+    return False
 
 
 def build(package_dir, roles):
@@ -195,10 +235,9 @@ def build(package_dir, roles):
     return rows
 
 
-def check(rows):
+def check(rows, zip_bytes=None):
     formats = {r["format"] for r in rows}
     necessary = [r for r in rows if r["necessary"] is True]
-    substantial = [r for r in rows if r["bytes"] >= SUBSTANTIAL_BYTES]
     row_counts = [r["rows"] for r in rows if r["rows"] is not None]
     biggest = max(row_counts) if row_counts else 0
     documented = [
@@ -209,16 +248,16 @@ def check(rows):
     return [
         ("10+ files", len(rows), MIN_FILES, len(rows) >= MIN_FILES),
         (
-            "4+ independently necessary",
+            "4+ declared independently necessary (review required)",
             len(necessary),
             MIN_NECESSARY,
             len(necessary) >= MIN_NECESSARY,
         ),
         (
-            f"2+ substantial (>={SUBSTANTIAL_BYTES // 1024}KB)",
-            len(substantial),
+            "2+ substantial files (content review)",
+            None,
             MIN_SUBSTANTIAL,
-            len(substantial) >= MIN_SUBSTANTIAL,
+            None,
         ),
         ("3+ distinct formats", len(formats), MIN_FORMATS, len(formats) >= MIN_FORMATS),
         (
@@ -233,6 +272,18 @@ def check(rows):
             len(rows),
             len(documented) == len(rows),
         ),
+        (
+            "Each file strictly under 10 MB (largest bytes)",
+            max((r["bytes"] for r in rows), default=0),
+            f"< {MAX_FILE_BYTES}",
+            all(r["bytes"] < MAX_FILE_BYTES for r in rows),
+        ),
+        (
+            "Shipping ZIP strictly under 50 MB (bytes)",
+            zip_bytes,
+            f"< {MAX_ZIP_BYTES}",
+            None if zip_bytes is None else zip_bytes < MAX_ZIP_BYTES,
+        ),
     ], unrecorded
 
 
@@ -240,6 +291,9 @@ def render(rows, checks, unrecorded):
     out = io.StringIO()
     w = out.write
     w("# Input package manifest\n\n")
+    for note in REPORT_NOTES:
+        w(f"- {note}\n")
+    w("\n")
     w("| File | Format | Family | Bytes | Rows | Role | Necessary | Source | Pulled | Licence | SHA-256 |\n")
     w("|---|---|---|---|---|---|---|---|---|---|---|\n")
     for r in rows:
@@ -251,9 +305,14 @@ def render(rows, checks, unrecorded):
             f"{r['sha256'][:16]}… |\n"
         )
 
-    w("\n## Bar check\n\n| Requirement | Actual | Needed | |\n|---|---|---|---|\n")
+    w("\n## Partial inherited checks\n\n| Counter | Actual | Reference | Status |\n|---|---|---|---|\n")
     for name, actual, needed, ok in checks:
-        w(f"| {name} | {actual} | {needed} | {'PASS' if ok else 'FAIL'} |\n")
+        status = "NOT MEASURED" if ok is None else ("PASS" if ok else "FAIL")
+        w(f"| {name} | {actual if actual is not None else '—'} | {needed} | {status} |\n")
+
+    proxy_count = sum(r["bytes"] >= SUBSTANTIAL_BYTES for r in rows)
+    w(f"\nLocal size proxy: {proxy_count} files are at least 100 KiB. "
+      "This does not establish that two files are substantial.\n")
 
     families = sorted({r["family"] for r in rows})
     w(f"\nFamilies present: {', '.join(families)}\n")
@@ -267,8 +326,10 @@ def render(rows, checks, unrecorded):
         for r in unrecorded:
             w(f"- {r['file']}\n")
 
-    failed = [c for c in checks if not c[3]]
-    w(f"\n**{len(failed)} of {len(checks)} requirements failing.**\n")
+    failed = [c for c in checks if c[3] is False]
+    unmeasured = [c for c in checks if c[3] is None]
+    w(f"\n**{len(failed)} measured checks failing; {len(unmeasured)} checks not measured.** "
+      "Passing measured counters is not platform approval.\n")
     return out.getvalue()
 
 
@@ -348,13 +409,23 @@ def main():
 
 def run(rows, args):
 
-    checks, unrecorded = check(rows)
+    zip_bytes = (os.path.getsize(args.package)
+                 if os.path.isfile(args.package) and zipfile.is_zipfile(args.package)
+                 else None)
+    checks, unrecorded = check(rows, zip_bytes=zip_bytes)
     text = (
         json.dumps(
             {
                 "files": rows,
+                "scope": "partial inherited counters; not platform approval",
+                "notes": REPORT_NOTES,
+                "heuristics": {
+                    "files_at_least_100_kib": sum(r["bytes"] >= SUBSTANTIAL_BYTES for r in rows),
+                    "substantial_content_verified": False,
+                },
                 "checks": [
-                    {"requirement": n, "actual": a, "needed": d, "pass": ok}
+                    {"requirement": n, "actual": a, "needed": d, "pass": ok,
+                     "status": "not measured" if ok is None else ("pass" if ok else "fail")}
                     for n, a, d, ok in checks
                 ],
             },
@@ -371,7 +442,9 @@ def run(rows, args):
     else:
         print(text)
 
-    sys.exit(0 if all(c[3] for c in checks) else 1)
+    # Preserve success/failure CLI behavior for measured counters. Unmeasured
+    # checks remain explicit in the report and cannot establish acceptance.
+    sys.exit(0 if all(c[3] is not False for c in checks) else 1)
 
 
 if __name__ == "__main__":
