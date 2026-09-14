@@ -30,6 +30,14 @@ reconciled and the concept was retired after the local screen. No official
 platform score was generated. The active next-step plan is
 `HANDSHAKE-AI/Project-Mark/NEW-TASK-PLAN.md` in the workspace.
 
+The September 11 EIA storage-fleet screen also produced two correct fresh
+analyses: both matched all six fleet optima, charging minima, 3,640 eligible
+hours, 273 episodes and the F4 decision. Usage-limit interruptions in earlier
+attempts were execution failures, not analytical stumps. The independently
+verified optimization and real source complexity did not make this particular
+finite-fleet, perfect-information LP difficult for the tested model contexts.
+The prototype was retired; no platform percentage score was inferred.
+
 ## September 7 follow-up: authentic complexity still needs an observed failure
 
 The CHECC causal comparison remains on hold: both public data versions lack
