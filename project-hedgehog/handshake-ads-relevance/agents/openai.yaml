@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Ads Relevance"
+  short_description: "Decide whether a generated ad still sells what the original sold, and check every failure reason that applies"
+  default_prompt: "Use $handshake-ads-relevance to judge whether the generated ad is still relevant."

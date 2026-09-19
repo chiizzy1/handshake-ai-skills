@@ -52,6 +52,10 @@ photograph whose overlay carries a spelling error, and the correct answers are o
 overlay is out of scope and you judge the picture behind it. **Here a text defect can decide the item on
 its own.** If you have been working Q4, this is where the habit will bite.
 
+**Third sibling.** The same Ads Creative outputs are also judged on **relevance**
+(`handshake-ads-relevance`): one original ad against one generated ad, Pass or Fail, with failure reasons.
+There, rendering defects are out of scope but any change to the product's body is a Fail.
+
 ## What "High-End" Means
 
 **High-end refers to the ad's execution, not the product's price.** A $2 sponge can have an ad that

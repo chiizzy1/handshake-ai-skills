@@ -43,6 +43,10 @@ This is the **Q4** question in the Ads Creative I2I set. Its sibling `handshake-
 If the UI shows a seed image and an ad brief, and the buttons say "Strongly Prefer", you are in the
 wrong skill.
 
+**Third sibling.** The same Ads Creative outputs are also judged on **relevance**
+(`handshake-ads-relevance`): one original ad against one generated ad, Pass or Fail, with failure reasons.
+There, rendering defects are out of scope but any change to the product's body is a Fail.
+
 ## Task Shape
 
 - Two finished ad images side by side, **Output A** and **Output B**. Either one can be clicked to magnify.

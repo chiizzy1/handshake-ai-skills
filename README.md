@@ -10,6 +10,7 @@ handshake-ai-skills/
 ├── shared-references/            ← Cross-project shared material
 ├── project-hedgehog/             ← Project Hedgehog task skills (handshake-* prefix)
 │   ├── handshake-ads-overall-suitability/
+│   ├── handshake-ads-relevance/
 │   ├── handshake-ads-visual-appeal/
 │   ├── handshake-annot-critic/
 │   ├── handshake-critique-rework/
