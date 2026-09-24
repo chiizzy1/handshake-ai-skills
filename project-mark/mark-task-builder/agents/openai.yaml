@@ -1,4 +1,0 @@
-interface:
-  display_name: "Mark Task Builder"
-  short_description: "Build a Project Mark analytical task end to end"
-  default_prompt: "Use $mark-task-builder to build a Project Mark task, starting from the domain and objective."

@@ -54,7 +54,7 @@ skill_dirs=()
 for dir in "$REPO_ROOT"/*/; do
   [[ -f "$dir/SKILL.md" ]] && skill_dirs+=("${dir%/}")
 done
-# Project-level skills (e.g. project-hedgehog/handshake-*, project-lizard/lizard-*)
+# Project-level skills (e.g. project-hedgehog/handshake-*)
 for pdir in "$REPO_ROOT"/project-*/; do
   [[ -d "$pdir" ]] || continue
   for dir in "$pdir"/*/; do

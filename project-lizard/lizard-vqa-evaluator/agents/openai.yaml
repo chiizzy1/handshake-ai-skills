@@ -1,4 +1,0 @@
-interface:
-  display_name: "Lizard VQA Evaluator"
-  short_description: "Write and validate data-dense VQA reasoning tasks"
-  default_prompt: "Use $lizard-vqa-evaluator to evaluate or create Project Lizard VQA tasks."

@@ -9,20 +9,11 @@ description: Router and source-of-truth controller for Handshake AI task work. U
 
 - `references/...` paths are inside this skill's folder.
 - `../project-hedgehog/handshake-*/...` are Project Hedgehog task skill folders.
-- `../project-lizard/lizard-*/...` are Project Lizard task skill folders.
-- `../project-gaffer/gaffer-*/...` are Project Gaffer task skill folders.
 - `../shared-references/...` are cross-project shared references.
 - `HANDSHAKE-AI/...` is a sibling folder of this skills repo in the workspace root (e.g. `<workspace>/train-ai/HANDSHAKE-AI/`).
 - If a referenced external file cannot be found, use `references/task-router.md` in this skill folder as the operative routing reference and state that the source file was unavailable.
 
 ## Core Rule
-
-For **Project Mark**, route directly to
-`../project-mark/mark-task-builder/SKILL.md` and its operative rule table.
-Mark is analytical task authoring; the image-rating rules and output-only
-convention below do not apply. Use the latest applicable task UI/staff update,
-including the user-supplied September 5 announcement. Perform local file edits
-when the user authorizes them.
 
 Use the Handshake PDF for the specific task type as the highest authority. Use `HANDSHAKE-AI/guidelines.md` as a broad working summary only. If the user, this skill, an old answer, or general instinct conflicts with the PDF, follow the PDF.
 
@@ -43,7 +34,7 @@ Before routing or rating a live task, read `references/task-router.md`.
 ## Source Hierarchy
 
 1. The relevant PDF in `HANDSHAKE-AI/project-hedgehog-pdfs/`, when one exists.
-2. `HANDSHAKE-AI/hedgehog-extracted/docs/` for task types that have no PDF. These are the extracted Handshake training pages and are the highest local authority for the IG Video Pairs family and IG Entity Tagging Videos. They are extracted training material, not an official PDF — say so when you cite them. `HANDSHAKE-AI/project-gaffer/extracted/` plays the same role for Project Gaffer, which has no PDF at all.
+2. `HANDSHAKE-AI/hedgehog-extracted/docs/` for task types that have no PDF. These are the extracted Handshake training pages and are the highest local authority for the IG Video Pairs family and IG Entity Tagging Videos. They are extracted training material, not an official PDF — say so when you cite them.
 3. The task UI instructions and visible prompt/media for the current item.
 4. Task-specific Handshake skill reference files.
 5. `HANDSHAKE-AI/guidelines.md`.
@@ -55,21 +46,13 @@ If a task depends on current real-world facts outside the image or prompt, verif
 
 1. Read the current task text, visible images/video, prompt, response options, and rating UI labels.
 2. Identify the task type from the UI and inputs.
-3. **Identify the project**: Determine whether the task belongs to **Project Hedgehog**, **Project Lizard**, or **Project Gaffer** (or another project). Use the task UI labels, queue name, and visible cues. Project Hedgehog tasks involve image/video/code comparison, grounding, annotation, and entity tagging. Project Lizard tasks involve BabyVision (BV) and VQA workflows. Project Gaffer tasks are video captioning production in SuperAnnotate: one video, four captions, two tracks, no rating.
+3. **Identify the project**: Determine whether the task belongs to **Project Hedgehog** (or another project). Use the task UI labels, queue name, and visible cues. Project Hedgehog tasks involve image/video/code comparison, grounding, annotation, and entity tagging.
 4. Load the matching task-specific skill from the correct project folder and its reference file.
 5. If the task type is not covered, use the visible task instructions and PDF if available. Do not force a near-matching skill.
 6. Apply the task-specific workflow exactly.
 7. Keep the final answer compact and natural unless the user asks for full reasoning.
 
 ## Task Type Map
-
-### Project Mark
-
-- Analytical task design, data sourcing, prompts, golden deliverables and
-  difficulty testing: use `mark-task-builder`
-  (`../project-mark/mark-task-builder/SKILL.md`). It routes to the five
-  specialized Mark skills. Read
-  `HANDSHAKE-AI/Project-Mark/guidelines.md` for the maintained working guidance.
 
 ### Project Hedgehog
 
@@ -105,19 +88,6 @@ If a task depends on current real-world facts outside the image or prompt, verif
 - VideoRL / Long Context VideoRL / Cross-Modal Anchoring: use `handshake-videorl-evaluator` (read `../project-hedgehog/handshake-videorl-evaluator/SKILL.md`).
 - Grounding Hard Rollout / rollout trace review with per-attempt ratings: use `handshake-grounding-hard-rollout` (read `../project-hedgehog/handshake-grounding-hard-rollout/SKILL.md`).
 - Multimodal Agent Arena / two AI-generated artifacts side by side with task-specific rubrics: use `handshake-multimodal-agent-arena` (read `../project-hedgehog/handshake-multimodal-agent-arena/SKILL.md`).
-
-### Project Lizard
-
-- BabyVision (BV) tasks (image review, question writing, model response generation, evaluate & rewrite, prompt validation): use `lizard-babyvision-evaluator` (read `../project-lizard/lizard-babyvision-evaluator/SKILL.md`).
-- VQA tasks (question writing, stumping strategies, model response generation, evaluate & rewrite, prompt validation): use `lizard-vqa-evaluator` (read `../project-lizard/lizard-vqa-evaluator/SKILL.md`).
-- Reviewer / QC & Audit tasks (evaluating LLM Judge, handling skipped/unusable tasks, and verifying answers): use `lizard-reviewer-evaluator` (read `../project-lizard/lizard-reviewer-evaluator/SKILL.md`).
-
-### Project Gaffer
-
-- Video Omni Caption / Project Gaffer (correct four pre-generated captions across two tracks — Speech Transcription, Speech Characteristics, Visual, Audio — then pass the Autochecker and route in SuperAnnotate): use `gaffer-video-annotator` (read `../project-gaffer/gaffer-video-annotator/SKILL.md`).
-- Project Gaffer **reviewing** (R1 layer: fix and approve someone else's task, thumbs up and save every annotation, grade on 10 criteria, route to Hold or QC_Return): same skill, read `../project-gaffer/gaffer-video-annotator/references/reviewer-workflow.md`.
-
-Gaffer is production annotation, not rating. Do not apply Hedgehog or Lizard rating logic to it, and do not look for a Gaffer PDF — its source of truth is the extracted training site under `HANDSHAKE-AI/project-gaffer/extracted/`.
 
 ## Universal Rules
 

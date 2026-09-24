@@ -1,9 +1,0 @@
-# Optional. Every tool runs on a bare Python 3.9+ install without these.
-#
-# mark_reconcile.py reads DOCX, XLSX, CSV, JSON and source files with no
-# dependencies at all. PDF is the only format that needs one — install either.
-# Without one, a PDF deliverable is reported as unread rather than skipped, so
-# its numbers are visibly absent from the diff instead of silently missing.
-
-pdfplumber>=0.10.0
-# pypdf>=4.0.0   # lighter alternative; pdfplumber is preferred for table text

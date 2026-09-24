@@ -1,4 +1,0 @@
-interface:
-  display_name: "Mark Prompt Writer"
-  short_description: "Write the Project Mark task prompt and check its contract"
-  default_prompt: "Use $mark-prompt-writer to write the prompt for this Project Mark task and check it against the contract."

@@ -10,16 +10,10 @@ Skill paths below are relative to the skills repo root (the folder containing `h
 - [Strict Rating Protocol](#strict-rating-protocol)
 - [Shared Handshake Image Foundations](#shared-handshake-image-foundations)
 - [Task Families](#task-families)
-- [Project Gaffer / Video Omni Caption](#project-gaffer--video-omni-caption)
 - [Unknown Or New Task Types](#unknown-or-new-task-types)
 - [Comment Style](#comment-style)
 
 ## Non-Negotiables
-
-Project Mark is analytical task authoring. Route it to
-`project-mark/mark-task-builder/SKILL.md` and its operative rule table before
-applying any rating protocol below. Its current staff updates and authorized
-file-writing workflow take precedence over these image-rating conventions.
 
 - The relevant Handshake PDF is the single source of truth when one exists. If no PDF exists for a task type, use the visible task instruction panel as the current source of truth.
 - Do not apply TELUS (a separate annotation platform with its own rubrics) rules to Handshake. TELUS is only a structural model for skills.
@@ -59,7 +53,6 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 
 | Task cues | Skill | Path |
 |---|---|---|
-| Project Mark analytical task design, sourcing, goldens or model difficulty | `mark-task-builder` | `project-mark/mark-task-builder/SKILL.md` |
 | Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `project-hedgehog/handshake-h2h-image-evaluator/SKILL.md` |
 | Seed + direction + brief + two finished ads, campaign readiness | `handshake-ads-overall-suitability` | `project-hedgehog/handshake-ads-overall-suitability/SKILL.md` |
 | Original ad + one generated ad, still sells the same thing? Pass/Fail + failure reasons | `handshake-ads-relevance` | `project-hedgehog/handshake-ads-relevance/SKILL.md` |
@@ -91,7 +84,6 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Web Dev Agents / static webpage data brief | `handshake-static-webpage` | `project-hedgehog/handshake-static-webpage/SKILL.md` |
 | Grounding rollout trace, per-attempt Correct/Unnecessary/Incorrect | `handshake-grounding-hard-rollout` | `project-hedgehog/handshake-grounding-hard-rollout/SKILL.md` |
 | Two AI artifacts in separate tabs, task-specific rubrics, Good/Bad | `handshake-multimodal-agent-arena` | `project-hedgehog/handshake-multimodal-agent-arena/SKILL.md` |
-| One video, write four captions on two tracks, nothing to rate | `gaffer-video-annotator` | `project-gaffer/gaffer-video-annotator/SKILL.md` |
 
 ### H2H / T2I / T2I Magnifier Pairwise Image Comparison
 
@@ -537,43 +529,6 @@ Special rules:
 - Edit rubrics only when the task allows it and the criterion is inapplicable, unassessable, or contradicts the prompt — never to spare an output a failure.
 - Overall selection must be coherent with rubric ratings.
 - Functionality matters more than polish.
-
-## Project Gaffer / Video Omni Caption
-
-The one Handshake family that is **not** a rating task. Route it here as soon as the UI shows caption fields instead of rating buttons.
-
-Inputs:
-
-- One video, usually under 10 minutes, in SuperAnnotate.
-- Two annotation tracks with their own independent segment timelines.
-
-Main question:
-
-- None. Nothing is being compared or scored. The worker writes the captions, and a human auditor grades them afterwards.
-
-Skill:
-
-- `gaffer-video-annotator` (read `project-gaffer/gaffer-video-annotator/SKILL.md`)
-
-What gets written:
-
-- Speech Caption 1 — verbatim transcription with `[Speaker N]` tags and timestamps.
-- Speech Caption 2 — how the speech sounds: tone, volume, pace, accent, emphasis.
-- Visual+Audio Caption 1 — everything visible, including every cut and all on-screen text.
-- Visual+Audio Caption 2 — every non-speech sound.
-
-Task cues:
-
-- SuperAnnotate project "Video Omni Caption 2026 Phase 3 - Handshake".
-- Task tags `Mini_Annotator`, `Mini_Completed`, or `Precheck`.
-- An Autochecker panel, and Submit_to_QC / Annotator_Skip destinations.
-
-Special rules:
-
-- There is no Gaffer PDF. Source of truth is the extracted training site under `HANDSHAKE-AI/project-gaffer/extracted/`.
-- Passing the Autochecker is not passing the audit — it checks format and coverage, never truth.
-- Skips are unpaid and skipping for the wrong reason is an offboarding matter.
-- Do not import Hedgehog or Lizard rating language into a Gaffer answer.
 
 ## Unknown Or New Task Types
 

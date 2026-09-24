@@ -1,4 +1,0 @@
-interface:
-  display_name: "Gaffer Video Annotator"
-  short_description: "Write and self-audit Project Gaffer video captions"
-  default_prompt: "Use $gaffer-video-annotator to write the four Project Gaffer captions for this video and self-audit them before submitting."

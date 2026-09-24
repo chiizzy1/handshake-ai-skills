@@ -1,4 +1,0 @@
-interface:
-  display_name: "Mark Validator"
-  short_description: "Run the Project Mark validation gates, rubric review and Readiness"
-  default_prompt: "Use $mark-validator to run the validation gates, the rubric review and Readiness for this Project Mark task."

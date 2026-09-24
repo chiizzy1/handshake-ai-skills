@@ -1,4 +1,0 @@
-interface:
-  display_name: "Mark Golden Builder"
-  short_description: "Build and reconcile the Project Mark golden deliverable set"
-  default_prompt: "Use $mark-golden-builder to build the golden deliverable set for this Project Mark task and reconcile the numbers."
