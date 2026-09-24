@@ -11,6 +11,7 @@ handshake-ai-skills/
 ├── project-hedgehog/             ← Project Hedgehog task skills (handshake-* prefix)
 │   ├── handshake-ads-overall-suitability/
 │   ├── handshake-ads-relevance/
+│   ├── handshake-ads-text-style/
 │   ├── handshake-ads-visual-appeal/
 │   ├── handshake-annot-critic/
 │   ├── handshake-critique-rework/

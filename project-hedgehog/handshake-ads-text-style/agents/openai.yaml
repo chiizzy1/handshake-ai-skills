@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Ads Text Style"
+  short_description: "Compare two ad overlays and pick the better-designed text and graphics, ignoring spelling"
+  default_prompt: "Use $handshake-ads-text-style to compare two ad overlays on text style."

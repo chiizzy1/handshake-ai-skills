@@ -25,7 +25,7 @@ Use this reference for Handshake Ads Creative "Compare Two Ad Images: Visual App
 Primary sources, in order:
 
 1. `cheat-sheet.md` in this folder. The task's own cheat sheet, reproduced verbatim. Most specific authority.
-2. `HANDSHAKE-AI/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`. The full guideline for this question.
+2. `HANDSHAKE-AI/ads-creative/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`. The full guideline for this question.
 
 Related visual foundations:
 
@@ -242,7 +242,7 @@ Style requirements:
 
 Four worked cases from the guideline. The feedback lines quoted as correct are the guideline's own
 exemplars. Image URLs are in
-`HANDSHAKE-AI/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md` if you want to look at the
+`HANDSHAKE-AI/ads-creative/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md` if you want to look at the
 pairs.
 
 ### Case 1: Same subject, different staging

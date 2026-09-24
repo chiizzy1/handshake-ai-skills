@@ -63,6 +63,7 @@ Quick index. The detailed sections below carry the inputs, axes, and special rul
 | Prompt + two images, pairwise axes | `handshake-h2h-image-evaluator` | `project-hedgehog/handshake-h2h-image-evaluator/SKILL.md` |
 | Seed + direction + brief + two finished ads, campaign readiness | `handshake-ads-overall-suitability` | `project-hedgehog/handshake-ads-overall-suitability/SKILL.md` |
 | Original ad + one generated ad, still sells the same thing? Pass/Fail + failure reasons | `handshake-ads-relevance` | `project-hedgehog/handshake-ads-relevance/SKILL.md` |
+| Two finished ads, whose overlaid text and graphics are better designed? Ignore spelling and the picture | `handshake-ads-text-style` | `project-hedgehog/handshake-ads-text-style/SKILL.md` |
 | Prompt + two images, one preference + two evidence boxes (Dual boxes) | `handshake-t2i-dual-boxes` | `project-hedgehog/handshake-t2i-dual-boxes/SKILL.md` |
 | Prompt + two images, one preference + one comment box with a justification checker (Live feedback) | `handshake-t2i-live-feedback` | `project-hedgehog/handshake-t2i-live-feedback/SKILL.md` |
 | Prompt + two images, one preference + a dictated explanation to transcribe and confirm (Voice input and translation) | `handshake-t2i-muse-dictation` | `project-hedgehog/handshake-t2i-muse-dictation/SKILL.md` |

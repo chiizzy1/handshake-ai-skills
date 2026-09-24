@@ -1,7 +1,7 @@
 # Ads Creative Visual Appeal — Official Cheat Sheet (verbatim)
 
 Source: the Cheat Sheet section of
-`HANDSHAKE-AI/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`, reproduced without edits.
+`HANDSHAKE-AI/ads-creative/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`, reproduced without edits.
 
 The guideline file also carries "How to decide and what to write", a Think First worked example, the
 answer-anchor table, the Open Feedback examples, and the full reject wording. Those are folded into

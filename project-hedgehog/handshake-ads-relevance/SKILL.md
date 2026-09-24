@@ -45,6 +45,9 @@ different scopes. Check which one you are on.
 
 Skills: `handshake-ads-overall-suitability`, `handshake-ads-visual-appeal`.
 
+A fourth question, **Q6 Text Style** (`handshake-ads-text-style`), compares two finished ads on the design of
+their overlaid text and graphics only, ignoring spelling and the picture.
+
 ## Task Shape
 
 - The **original ad** the advertiser uploaded, the **generated ad** the system made from it, and the **ad text**.

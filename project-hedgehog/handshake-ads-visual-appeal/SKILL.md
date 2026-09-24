@@ -17,7 +17,7 @@ description: Evaluate Handshake Ads Creative visual appeal comparisons. Use when
 Use these as the source of truth, in this order:
 
 1. `references/cheat-sheet.md` in this skill folder. This is the task's own cheat sheet, reproduced verbatim, and it is the most specific authority.
-2. `HANDSHAKE-AI/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`, the full guideline.
+2. `HANDSHAKE-AI/ads-creative/vs-1786690831-260813-ads-creative-i2i-q4-visual-appeal.md`, the full guideline.
 
 Before rating a live item, read `references/rubric.md` and `references/cheat-sheet.md`.
 
@@ -46,6 +46,10 @@ wrong skill.
 **Third sibling.** The same Ads Creative outputs are also judged on **relevance**
 (`handshake-ads-relevance`): one original ad against one generated ad, Pass or Fail, with failure reasons.
 There, rendering defects are out of scope but any change to the product's body is a Fail.
+
+**Text style sibling.** The same outputs are also judged on **overlay design** (`handshake-ads-text-style`,
+Q6): only the text and graphics laid over the picture, on layout, placement, typography and colour.
+There, spelling is out of scope and the picture is out of scope, and a sixth button covers pairs with no overlay.
 
 ## Task Shape
 

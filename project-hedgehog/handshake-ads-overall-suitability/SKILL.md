@@ -56,6 +56,10 @@ its own.** If you have been working Q4, this is where the habit will bite.
 (`handshake-ads-relevance`): one original ad against one generated ad, Pass or Fail, with failure reasons.
 There, rendering defects are out of scope but any change to the product's body is a Fail.
 
+**Text style sibling.** The same outputs are also judged on **overlay design** (`handshake-ads-text-style`,
+Q6): only the text and graphics laid over the picture, on layout, placement, typography and colour.
+There, spelling is out of scope and the picture is out of scope, and a sixth button covers pairs with no overlay.
+
 ## What "High-End" Means
 
 **High-end refers to the ad's execution, not the product's price.** A $2 sponge can have an ad that
