@@ -13,7 +13,7 @@ $skillDirs = @()
 # Root-level skills (e.g. handshake-evaluator)
 $skillDirs += Get-ChildItem -LiteralPath $RepoRoot -Directory |
     Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "SKILL.md") }
-# Project-level skills (e.g. project-hedgehog/handshake-*)
+# Project-level skills (e.g. project-hedgehog/handshake-*, project-lizard/lizard-*)
 Get-ChildItem -LiteralPath $RepoRoot -Directory -Filter "project-*" | ForEach-Object {
     $skillDirs += Get-ChildItem -LiteralPath $_.FullName -Directory |
         Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "SKILL.md") }

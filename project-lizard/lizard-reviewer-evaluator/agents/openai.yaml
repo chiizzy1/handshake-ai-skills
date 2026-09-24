@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lizard Reviewer Evaluator"
+  short_description: "QC Lizard VQA and BabyVision annotations"
+  default_prompt: "Use $lizard-reviewer-evaluator to evaluate and QC Project Lizard VQA and BabyVision annotations."

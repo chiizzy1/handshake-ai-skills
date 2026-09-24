@@ -8,33 +8,35 @@ Canonical private repository for Handshake AI evaluator skills.
 handshake-ai-skills/
 ├── handshake-evaluator/          ← Platform-level router (routes to correct project)
 ├── shared-references/            ← Cross-project shared material
-└── project-hedgehog/             ← Project Hedgehog task skills (handshake-* prefix)
-    ├── handshake-ads-overall-suitability/
-    ├── handshake-ads-relevance/
-    ├── handshake-ads-visual-appeal/
-    ├── handshake-annot-critic/
-    ├── handshake-critique-rework/
-    ├── handshake-ego-phys-understanding/
-    ├── handshake-find-boundary/
-    ├── handshake-grounding-hard-rollout/
-    ├── handshake-h2h-image-evaluator/
-    ├── handshake-i2i-pixel-aligned/
-    ├── handshake-ig-entity-tagging/
-    ├── handshake-ig-entity-verification/
-    ├── handshake-image2code-evaluator/
-    ├── handshake-multimodal-agent-arena/
-    ├── handshake-r2i-i2i-evaluator/
-    ├── handshake-static-webpage/
-    ├── handshake-t2i-dual-boxes/
-    ├── handshake-t2i-live-feedback/
-    ├── handshake-t2i-muse-dictation/
-    ├── handshake-t2i-point-write/
-    ├── handshake-t2v-evaluator/
-    ├── handshake-text-to-code-elo-evaluator/
-    ├── handshake-ti2t-evaluator/
-    ├── handshake-ud-caption-evaluator/
-    ├── handshake-videorl-evaluator/
-    └── handshake-visual-coding-evaluator/
+├── project-hedgehog/             ← Project Hedgehog task skills (handshake-* prefix)
+│   ├── handshake-ads-overall-suitability/
+│   ├── handshake-ads-relevance/
+│   ├── handshake-ads-visual-appeal/
+│   ├── handshake-annot-critic/
+│   ├── handshake-critique-rework/
+│   ├── handshake-ego-phys-understanding/
+│   ├── handshake-find-boundary/
+│   ├── handshake-grounding-hard-rollout/
+│   ├── handshake-h2h-image-evaluator/
+│   ├── handshake-i2i-pixel-aligned/
+│   ├── handshake-ig-entity-tagging/
+│   ├── handshake-ig-entity-verification/
+│   ├── handshake-image2code-evaluator/
+│   ├── handshake-multimodal-agent-arena/
+│   ├── handshake-r2i-i2i-evaluator/
+│   ├── handshake-static-webpage/
+│   ├── handshake-t2i-dual-boxes/
+│   ├── handshake-t2i-live-feedback/
+│   ├── handshake-t2i-muse-dictation/
+│   ├── handshake-t2i-point-write/
+│   ├── handshake-t2v-evaluator/
+│   ├── handshake-text-to-code-elo-evaluator/
+│   ├── handshake-ti2t-evaluator/
+│   ├── handshake-ud-caption-evaluator/
+│   ├── handshake-videorl-evaluator/
+│   └── handshake-visual-coding-evaluator/
+└── project-lizard/               ← Project Lizard task skills (lizard-* prefix)
+    └── (skills added as guidelines are built)
 ```
 
 ## Naming Convention
@@ -45,6 +47,7 @@ Each project uses a unique skill-name prefix to prevent clashes in the flat `.ag
 |---|---|---|
 | Platform router | `handshake-` | `handshake-evaluator` |
 | Project Hedgehog | `handshake-` | `handshake-find-boundary` |
+| Project Lizard | `lizard-` | `lizard-babyvision-evaluator` |
 
 No future project should reuse the `handshake-` prefix.
 

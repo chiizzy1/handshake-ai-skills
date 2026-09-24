@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lizard BabyVision Evaluator"
+  short_description: "Write and validate BabyVision visual-primitive tasks"
+  default_prompt: "Use $lizard-babyvision-evaluator to evaluate or create Project Lizard BabyVision tasks."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mark Input Package"
+  short_description: "Assemble and verify a Project Mark input file package"
+  default_prompt: "Use $mark-input-package to assemble and verify the input package for this Project Mark task."
