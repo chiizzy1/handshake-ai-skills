@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handshake Ads Text Flaws"
+  short_description: "Compare two ad overlays and pick the one with fewer text flaws against the seed and brief, ignoring design"
+  default_prompt: "Use $handshake-ads-text-flaws to compare two ad overlays on text flaws."

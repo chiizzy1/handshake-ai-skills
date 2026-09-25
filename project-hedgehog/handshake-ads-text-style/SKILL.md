@@ -47,8 +47,14 @@ answers differ. On Q0 the typo can decide the item. On Q4 the overlay is ignored
 overlay is judged, but the typo is not.** A beautifully set headline with a spelling error can win
 clearly.
 
-If the UI shows a seed and a brief, you are on Q0. If the buttons say "more appealing", you are on Q4.
+If the UI shows a seed and a brief, you are on Q0 or Q5. If the buttons say "more appealing", you are on Q4.
 A fourth sibling, `handshake-ads-relevance`, compares one original ad with one generated ad, Pass or Fail.
+
+**The closest sibling is Q5 Text Flaws** (`handshake-ads-text-flaws`). It has the same six-button layout,
+including No overlaid text to compare, but its buttons say "fewer text flaws" and it shows the seed,
+direction and brief. It is the mirror of this question: there, a misspelling, a garbled block, an invented
+line or the wrong language decides the pair, and layout, placement, fonts and colour cost nothing. The
+same pair can win clearly on one and tie on the other.
 
 ## Task Shape
 

@@ -60,6 +60,10 @@ There, rendering defects are out of scope but any change to the product's body i
 Q6): only the text and graphics laid over the picture, on layout, placement, typography and colour.
 There, spelling is out of scope and the picture is out of scope, and a sixth button covers pairs with no overlay.
 
+**Text flaws sibling.** The same outputs are also judged on **overlay correctness** (`handshake-ads-text-flaws`,
+Q5): seed, direction and brief shown, and only the overlaid text is judged, for rendering errors, lines not
+grounded in the seed or brief, dropped seed text, and the wrong language. There, design and the picture are out of scope.
+
 ## What "High-End" Means
 
 **High-end refers to the ad's execution, not the product's price.** A $2 sponge can have an ad that
