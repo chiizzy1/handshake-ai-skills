@@ -6,6 +6,9 @@ Source: `HANDSHAKE-AI/ads-creative/vs-1786692229-260813-ads-creative-i2i-q5-text
 Each case gives the references, what is actually on each image, the correct call with the exemplar
 feedback, the wrong call the module warns against, and notes from looking at the actual images.
 
+The quoted feedback is the guideline's, and most of it runs well past the 100 to 120 character target for
+this task. Take the reason from it, not the length. Trimmed versions are in SKILL.md under How to Write the Feedback.
+
 ## Contents
 
 - [Case 1: Garbled Blocks Decide The Pair](#case-1-garbled-blocks-decide-the-pair)

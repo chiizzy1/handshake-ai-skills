@@ -69,7 +69,7 @@ A fifth sibling, `handshake-ads-relevance`, compares one original ad with one ge
   - Output B — slightly fewer text flaws
   - Output B — clearly fewer text flaws
   - No overlaid text to compare
-- One feedback field: "In a sentence or two, name the text flaw that decided it — or say why there was no overlaid text to compare."
+- One feedback field: "In a sentence or two, name the text flaw that decided it — or say why there was no overlaid text to compare." **Keep the note between 100 and 120 characters.** The time limit is strict. See How to Write the Feedback.
 - Two reject buttons below the form: "Image did not load" and "Inappropriate content".
 
 ## What The References Are For
@@ -177,7 +177,7 @@ One to two minutes per item.
 7. **List the flaws on each side with their tier**, then combine with the weights.
 8. **Pick the answer** with the anchors below.
 9. **Scope check before you commit.** Did the picture, the design, picture text, the direction, word count or zoom sharpness sneak into your reason? Remove it and re-decide.
-10. **Write one or two sentences** naming the flaw that decided it: the line, where it sits, which output, which reference it is or is not in.
+10. **Write a 100 to 120 character note** naming the flaw that decided it: the line, which output, and which reference it is or is not in.
 
 ## Answer Anchors
 
@@ -271,51 +271,91 @@ Three things stand out from the actual images:
 The form asks: *"In a sentence or two, name the text flaw that decided it — or say why there was no
 overlaid text to compare."*
 
-**Name the line, where it sits, which output, and which reference it is or is not in.**
+**Length: 100 to 120 characters.** The time limit is strict and long notes are discouraged. Count before
+you submit. Two short sentences usually fit.
+
+**Name the line, which output, and which reference it is or is not in.** Add where it sits only if the
+characters allow.
+
+The guideline's own exemplar notes run from about 70 to over 400 characters, most of them well past 120. **Use them for what to say, not for
+length.** The trimmed versions below carry the same reason inside the limit.
 
 ### Rules
 
-- **One or two sentences.** The deciding flaw first. Add the other side's flaws when they matter to the tier.
-- **Quote the line.** "B prints 'NOW £2,299'", not "B has a wrong price".
-- **Say where it sits** when it helps: headline, badge, button, footer, panel.
-- **Say which reference it is or is not in:** "the brief has no copy and the seed has no text", "from the seed's boxes", "the brief's headline".
-- **For a one-sided pair, say which side has text** and why the text-free side scores as it does.
-- **For a tie, say what both keep** and that nothing separates them.
-- **For the no-text button, say where the words actually are** ("every word is on the watches themselves").
+- **100 to 120 characters, spaces and punctuation included.**
+- **The deciding flaw first.** Add the other side only if it fits, or if it sets the tier.
+- **Quote the line**, short: "B's 'NOW £2,299'", not "B has a wrong price". For a long garbled block, quote a few words.
+- **Name the reference in a few words:** "in neither the seed nor the brief", "the seed's box lines", "the brief's headline".
+- **One-sided pair:** say which side has text and why the text-free side scores as it does.
+- **Tie:** say what both keep and that nothing separates them.
+- **No-text button:** say where the words actually are.
+- **Short words beat long ones.** "A" and "B", not "Output A" and "Output B".
 - **Never mention design, the picture's quality, or how much text there is** as a reason.
-- **No rubric vocabulary** in the note: not "clearly-tier", "fidelity flaw", "grounded" as a label on its own. Say what is wrong in plain words.
-- **No em dashes. No AI power words** (delve, meticulous, seamlessly, elevate).
+- **No rubric vocabulary:** not "clearly-tier", "fidelity flaw", "invented specific". Say what is wrong in plain words.
+- **Semicolons are fine. No em dashes. No AI power words** (delve, meticulous, seamlessly, elevate).
 
 ### Good Examples
 
-From the guideline:
+Each is a guideline exemplar or case, trimmed to fit. Character counts in brackets.
 
 ```markdown
-B prints 'NOW £2,299' and a processor badge; the brief has no copy and the seed has no text, so those are invented. A has no overlaid text, and the seed had none, so A has zero flaws.
+B's 'NOW £2,299' and processor badge are in neither the seed nor the brief. A has no text, and the seed had none.
 ```
 
-```markdown
-Both keep the seed's headline and button letter for letter and add nothing; nothing separates them.
-```
+(113) One-sided pair, invented specifics lose.
 
 ```markdown
-Only B has overlaid text: the two lines from the seed's boxes and the advertiser's name, all clean. A's box print is picture text. One clean side against a text-free side is similar.
+Both keep the seed's headline, area list and button word for word and add nothing, so nothing separates them.
 ```
 
+(109) Both clean, a tie. Case 6.
+
 ```markdown
-Neither output has overlaid text; every word is on the watches themselves.
+Only B has text: the seed's box lines plus the advertiser's name, all clean. A's box print is only picture text.
 ```
+
+(112) One clean side against a text-free side, a tie. Case 5.
+
+```markdown
+Neither output has any overlaid text. Every word in both images is printed on the watches themselves, on the dial.
+```
+
+(114) No overlaid text to compare.
+
+```markdown
+A's panel is mostly garbled ('Who were lrococcoaudines:'). B reads cleanly; only its 'ISO/NSF Certified' is invented.
+```
+
+(117) Garbled block against one invented claim. Case 1.
+
+```markdown
+B adds four Japanese lines, but the seed is English and the brief has no copy. A only has small typos like 'Emnil'.
+```
+
+(115) Wrong language against small typos. Case 4.
+
+```markdown
+A dropped the seed's 'Call Now' button; B kept it. A's phone screen is picture text and matches the brief anyway.
+```
+
+(113) Dropped secondary element. Case 3.
+
+```markdown
+B's '24-hour dispatch' is in neither the seed nor the brief, while A copies the brief's headline word for word.
+```
+
+(111) Invented service claim against the brief's own line.
 
 ### Bad Examples
 
-- ❌ "A's text looks better." Names nothing.
+- ❌ "A's text looks better." Names nothing, and far under 100.
 - ❌ "B has more information about the product." More text is not fewer flaws. Say where each line came from.
 - ❌ "Both have a headline and a full messaging panel with the brand name and a website." Called at browsing size; one panel was unreadable.
 - ❌ "A has no text, so there is nothing to compare." The no-text button needs both sides empty.
 - ❌ "A invents a 'Private Call' feature and a free-calls offer." That is phone-screen picture text, and it matches the brief's headline.
 - ❌ "B's text is sharp and correctly formed. A misspells several labels." Judged rendering only and missed the language flaw.
 - ❌ "A's box labels are garbled; B's text is clean." Box print is picture text.
-- ❌ "A's company logo is unreadable pseudo-lettering." It is on the technician's shirt.
+- ❌ The guideline's full fryer note, pasted as is. Right reason, but at over 300 characters it is nearly three times the limit.
 
 ## Output Format
 
@@ -347,7 +387,7 @@ Neither output has overlaid text; every word is on the watches themselves.
 If the item is unratable, replace this block with the reject reason and nothing else: **Reject: [Image did not load | Inappropriate content]**
 
 ### Feedback
-[One or two sentences naming the deciding line, its place, its output and its reference.]
+[100 to 120 characters naming the deciding line, its output and its reference.] ([count] chars)
 ```
 
 ## Final Checklist
@@ -363,5 +403,5 @@ If the item is unratable, replace this block with the reject reason and nothing 
 - [ ] Flaws tiered, then combined by count and weight. Clearly only for a clearly-tier gap.
 - [ ] No picture, design, adherence, word count or zoom sharpness in the reasoning.
 - [ ] No overlaid text to compare used only when both sides are empty.
-- [ ] Feedback names the line, place, output and reference in one or two sentences.
+- [ ] Feedback is 100 to 120 characters and names the line, output and reference.
 - [ ] Feedback was given in the chat. No workspace file was modified.
