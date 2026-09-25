@@ -37,8 +37,11 @@ handshake-ai-skills/
 │   ├── handshake-ud-caption-evaluator/
 │   ├── handshake-videorl-evaluator/
 │   └── handshake-visual-coding-evaluator/
-└── project-lizard/               ← Project Lizard task skills (lizard-* prefix)
-    └── (skills added as guidelines are built)
+├── project-lizard/               ← Project Lizard task skills (lizard-* prefix)
+│   └── (skills added as guidelines are built)
+└── project-neutron/              ← Project Neutron CivE/Arch (neutron-* prefix)
+    ├── tools/                    ← task-authoring kit (sheet, deliverable, verify)
+    └── shared-references/        ← authoring findings; no skills until a task is accepted
 ```
 
 ## Naming Convention
