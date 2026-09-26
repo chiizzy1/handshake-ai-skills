@@ -196,3 +196,43 @@ that produced nothing usable, and missing evaluation controls after a prompt
 edit are all known environment-side issues. Report with the task ID rather
 than rewriting. Unsupported input formats have crashed the environment
 outright — images and PDFs with embedded images only.
+
+---
+
+## The sandbox toolset (Available Tools, 22 August 2026)
+
+**The tool list is the model's sandbox, not your machine.** Nothing on it needs
+installing locally. You author the golden "in whatever software you are
+fastest in"; the hard rule is on the model's side — the agent must be able to
+complete the workflow with these tools, and a task must not require anything
+outside them.
+
+Available: Python 3.14.3 · NumPy · SciPy · pandas · **openpyxl** · NetworkX ·
+scikit-image · OpenCV · Rasterio · **FreeCAD 1.0.0** · **IfcOpenShell 0.8.5** ·
+pyproj · GDAL/PROJ/GEOS · **QGIS 3.40.6** · **SUMO 1.18.0** · AequilibraE ·
+**Gmsh 4.13.1** · **CalculiX 2.23** · FEniCSx · LibreDWG 0.13.4.
+
+Three exclusions to design around:
+
+- **AutoCAD is never available.** "Questions requiring AutoCAD-only or
+  ODA-specific behaviour are not supported." DWG/DXF work goes through
+  LibreDWG. If a CAD workflow is ever needed locally, FreeCAD is the free
+  tool the sandbox itself uses.
+- **meshio is in progress** — no task may depend on it or on a mesh conversion
+  that needs it.
+- **QGIS SAGA processing is in progress** — native and GRASS only.
+
+Use **AequilibraE** rather than SUMO when the question is network-level demand
+rather than individual vehicle movement.
+
+### Version drift is a real risk on the SUMO route
+
+The sandbox runs **SUMO 1.18.0**. PyPI does not publish 1.18.0 at all — the
+run either side of it is 1.17.0 or 1.19.0, and our probe installed 1.27.1,
+nine minor versions ahead. Car-following defaults and output fields have moved
+across that range, so a golden produced locally on 1.27.1 may not be the
+numbers the sandbox produces.
+
+Before authoring a SUMO task: pin 1.17.0 or 1.19.0, and treat the per-movement
+tolerance bands as absorbing version drift as well as seed variance. Do not
+assume a locally reproduced figure is the sandbox's figure.
