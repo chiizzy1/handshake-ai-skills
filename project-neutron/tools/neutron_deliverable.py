@@ -9,7 +9,7 @@ import decimal
 import json
 
 import openpyxl
-from openpyxl.styles import Alignment, Border, Font, Side
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
 # Current rubric rules (the module, not the delivered examples, which still
 # show +10/+8/+4/+2 and rubrics of 120 items).
@@ -47,29 +47,76 @@ THIN = Side(style="thin", color="999999")
 BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 
 
-class Workbook:
-    """Writes the stacked, titled tables these take-offs are graded on."""
+HEAD_FILL = PatternFill("solid", fgColor="D9D9D9")
+TITLE_RULE = Border(bottom=Side(style="medium", color="404040"))
 
-    def __init__(self, sheet_title, heading=None):
+
+class Workbook:
+    """Writes the stacked, titled tables these take-offs are graded on.
+
+    The golden is the reference answer a reviewer reads first, so it has to
+    look like a working document rather than a script's output: a document
+    control block at the top, ruled section headers, right-aligned figures
+    under a fixed number format, and a basis note saying which sheet each
+    class of quantity came from.
+
+    What it must not do is invent provenance. No named author, no credential,
+    no signature, no claim of approval — those are fabrications, and on a
+    take-off they are also wrong, because a quantity take-off certifies
+    nothing.
+    """
+
+    def __init__(self, sheet_title, heading=None, subtitle=None):
         self.wb = openpyxl.Workbook()
         self.ws = self.wb.active
         self.ws.title = sheet_title
         self.row = 1
         if heading:
-            self.ws.cell(row=1, column=1, value=heading).font = Font(bold=True,
-                                                                     size=12)
-            self.row = 3
+            c = self.ws.cell(row=1, column=1, value=heading)
+            c.font = Font(bold=True, size=13)
+            self.row = 2
+            if subtitle:
+                s = self.ws.cell(row=self.row, column=1, value=subtitle)
+                s.font = Font(size=10, italic=True, color="595959")
+                self.row += 1
+            for col in range(1, 6):
+                self.ws.cell(row=self.row, column=col).border = TITLE_RULE
+            self.row += 2
+
+    def header_block(self, pairs):
+        """Document control: label in column A, value in column B."""
+        for label, value in pairs:
+            a = self.ws.cell(row=self.row, column=1, value=label)
+            a.font = Font(bold=True, size=9)
+            b = self.ws.cell(row=self.row, column=2, value=value)
+            b.font = Font(size=9)
+            b.alignment = Alignment(horizontal="left")
+            self.row += 1
+        self.row += 1
+        return self
+
+    def notes(self, title, lines):
+        t = self.ws.cell(row=self.row, column=1, value=title)
+        t.font = Font(bold=True, size=10)
+        self.row += 1
+        for line in lines:
+            c = self.ws.cell(row=self.row, column=1, value=line)
+            c.font = Font(size=9, color="404040")
+            self.row += 1
+        self.row += 1
+        return self
 
     def table(self, title, columns, rows, total=None, widths=None):
         ws = self.ws
-        ws.cell(row=self.row, column=1, value=title).font = Font(bold=True,
-                                                                 size=11)
+        t = ws.cell(row=self.row, column=1, value=title)
+        t.font = Font(bold=True, size=11)
         self.row += 1
         for i, c in enumerate(columns, 1):
             cell = ws.cell(row=self.row, column=i, value=c)
             cell.font = Font(bold=True, size=10)
             cell.border = BORDER
-            cell.alignment = Alignment(horizontal="center")
+            cell.fill = HEAD_FILL
+            cell.alignment = Alignment(horizontal="center", wrap_text=True)
         self.row += 1
         for r in rows:
             self._write(r)
