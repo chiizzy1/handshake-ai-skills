@@ -118,3 +118,81 @@ self-made captures or the example predates it. Author synthetic sites instead.
 
 Not installed, and required for seven of the eleven workflows: FreeCAD,
 CalculiX, IfcOpenShell, QGIS.
+
+---
+
+## From the rubric and stumping modules (added 2026-09-26)
+
+Source: `Understand how rubrics work/` in the workspace. These are the
+platform's own rules, and several of them invalidated work we had already
+called finished.
+
+### Pull at least two difficulty levers
+
+Breadth and chaining slow a model down but rarely break it. The six levers:
+
+| Lever | What it does |
+|---|---|
+| Conflicting constraints | two rules that cannot both be fully satisfied |
+| Implicit variables | a one-line detail that flips the answer, not called out |
+| Data reconciliation | sources that do not fully agree |
+| Domain-knowledge outliers | a value that looks normal but is clearly non-default |
+| Source-of-truth tension | two sources describe one feature; the prompt names which governs |
+| Strict deliverable spec | exact format, columns, units, files |
+
+There is also a twelve-item catalogue of how models actually fail on drawing
+sets — wrong controlling dimension, misreading views, miscounting, reversing
+a sequence, claiming detail not shown, unsupported verdicts. A strong task
+gives a careless solver the chance to fall into one and makes it cost points.
+
+### Never announce the trap
+
+*"The prompt reads like a normal engineering request; the difficulty lives in
+the artifacts."* Our first Kilmartin prompt carried a measurement rule
+explaining exactly how to treat the existing-to-remain finish. That turned the
+trap from "will it read the status column" into "will it follow an
+instruction". The table rules already pinned it unambiguously; the explanatory
+bullet was pure announcement and was cut.
+
+The related rejection pattern is **solution encoded** — the prompt revealing
+the reasoning. The line to hold: stating a *measurement convention* is
+specification, and the delivered Cloud Park example does exactly that. Naming
+the controlling value, or explaining how a category is handled, is solution.
+
+### No fact is scored twice, and negatives describe what a grader can see
+
+Two rules we broke in the same rubric:
+
+- **Double jeopardy.** We had `+7 Excludes F-05 from the new total` alongside
+  `-9 Includes F-05 within the new total`. One fact, scored twice. Write every
+  criterion as a positive first, then convert a few to negatives — starting
+  from scratch on negatives is how the duplicate appears.
+- **Absence phrasing.** `-7 Omits F-05 from the workbook entirely` asks a
+  grader to prove a negative. Negatives must name something observable:
+  *"states the identical area value for two or more item codes"*,
+  *"states a negative value for an area"*.
+
+### All five weight bands are specified, not just the 9s
+
+9s 10–15 %, 7s 10–20 %, 5s 15–25 %, 3s 15–25 %, 1s 15–20 %.
+`neutron_deliverable` originally checked only the 9s and passed a rubric whose
+7s sat at 24 %. It now checks every band.
+
+### Other rejection patterns worth holding
+
+**Non-timeless framing** — anchor any date with a year. "Before the tender
+closes on Friday" rots on the next run and is a listed rejection reason.
+
+**Excessive volume** — scope to the features that control the outcome.
+Measuring every window on fourteen floors adds effort, not reasoning.
+
+**Overconstraining the deliverable** — specify content, columns and units;
+lock a file *template* only if a downstream consumer truly needs it.
+
+### Environment failures are usually not your task
+
+Rollouts that will not generate, truncated output, a run marked successful
+that produced nothing usable, and missing evaluation controls after a prompt
+edit are all known environment-side issues. Report with the task ID rather
+than rewriting. Unsupported input formats have crashed the environment
+outright — images and PDFs with embedded images only.

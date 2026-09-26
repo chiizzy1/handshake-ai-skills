@@ -16,8 +16,18 @@ from openpyxl.styles import Alignment, Border, Font, Side
 ALLOWED_WEIGHTS = {1, 3, 5, 7, 9}
 MIN_ITEMS, MAX_ITEMS = 20, 100
 MAX_NEGATIVE_SHARE = 0.35
-NINE_SHARE = (0.10, 0.15)
 GOLDEN_PASS = 95.0
+
+# Share of items each magnitude should occupy. All five bands are stated in
+# the weighting module, not just the 9s — checking only the 9s let a rubric
+# through with its 7s at 24 % against a 10-20 % target.
+WEIGHT_SHARE = {
+    9: (0.10, 0.15),
+    7: (0.10, 0.20),
+    5: (0.15, 0.25),
+    3: (0.15, 0.25),
+    1: (0.15, 0.20),
+}
 
 
 def r2(x):
@@ -119,7 +129,6 @@ class Rubric:
         normally empty, because the golden is built from the same truth."""
         n = len(self.items)
         neg = [i for i in self.items if i["weight"] < 0]
-        nines = [i for i in self.items if abs(i["weight"]) == 9]
         pos = self.positives()
         lost = sum(i["weight"] for i in self.items
                    if i["n"] in golden_misses and i["weight"] > 0)
@@ -132,11 +141,13 @@ class Rubric:
                 {abs(i["weight"]) for i in self.items} <= ALLOWED_WEIGHTS,
             f"negatives {len(neg)}/{n} = {100*len(neg)/n:.0f}% <= 35%":
                 len(neg) / n <= MAX_NEGATIVE_SHARE,
-            f"9-weight {len(nines)}/{n} = {100*len(nines)/n:.0f}% in 10-15%":
-                NINE_SHARE[0] <= len(nines) / n <= NINE_SHARE[1],
-            f"golden scores {pct:.1f}% >= {GOLDEN_PASS}%":
-                pct >= GOLDEN_PASS,
         }
+        for w in (9, 7, 5, 3, 1):
+            k = sum(1 for i in self.items if abs(i["weight"]) == w)
+            lo, hi = WEIGHT_SHARE[w]
+            checks[f"{w}-weight {k}/{n} = {100*k/n:.0f}% in "
+                   f"{lo*100:.0f}-{hi*100:.0f}%"] = lo <= k / n <= hi
+        checks[f"golden scores {pct:.1f}% >= {GOLDEN_PASS}%"] = pct >= GOLDEN_PASS
         width = max(len(k) for k in checks)
         for k, ok in checks.items():
             print(f"  {k:<{width}}  {'PASS' if ok else 'FAIL'}")
